@@ -1,0 +1,22 @@
+#+TITLE: Todo
+
+* DONE Make table out of the pairwise comparisons;
+* DONE Reconstruct top preferences from pairwise comparisons using [[https://github.com/ocbe-uio/BayesMallows][GitHub - ocbe-uio/BayesMallows: R-package for Bayesian preference learning wi...]]
+* DONE Make table of ranking proportions
+* DONE Calculate borda winner
+
+* DONE [#A] save the result, dude
+
+* TODO [#B] Think about the pattern of missingness
+
+* DONE [#A] Calculate the proportion of position of each agent, grouped by agent;
+
+* DONE [#A] Calculate the proportion of agent, grouped by position;
+
+* TODO [#B] Visualize the single peakedness of the population
+
+* TODO [#A] Think about the instability to lower candidates (alckmin got 4%, but was the second borda winner)
+
+* TODO [#B] Think about the role of abstention and null voting
+
+* TODO [#C] Plot different results with [[https://github.com/aeggers/votevizr][GitHub - aeggers/votevizr: R package for representing ordinal election result...]]
