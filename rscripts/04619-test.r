@@ -13,22 +13,49 @@ library("xtable")
 library("ggpubr")
 
 df <- read_sav("../04619/04619.SAV")
-
-
 load("bmm_rank_index.RData")
 
+## Main objects
+## df
+## p6df
+## df ->  subset_df
+## (subset_df - crazies_missing) -> subset_df
+## tc + init_rank -> bmm_test
+## bmm_test -> last_iter
 
-## * p2, who_Iwill_vote_for
+
+## Main output objects
+## p6df -> global_pairwise_comparisons
+## acc_pairs -> frequencies_pairwise_comparisons
+## last_rank ->  freq_ranks_inferred
+
+## Main outputs!
+## last_indexes ->  position_counts
+## last_rank -> choice_plt
+## freq_ranks_inferred -> tab_freq_ranks_inferred
+## global_pairwise_comparisons -> cw_graph
+
+## Main intermediate objects
+## crazies_missing, I use it to filter all missings from subset_df
+## subset_df -> acc_cyclic, I use it to filter the acc_pairs
+## acc_cyclic -> noncyclic_agents ->  acc_pairs
+## acc_pairs -> tc, used for init_rank and bmm_test
+## tc -> init_rank, used for bmm_test
+## last_iter -> last_rank
+## last_iter -> last_indexes
+
+## * Define subset
+## ** p2, who_Iwill_vote_for
 df[, "p2"] -> p2df
 
-## * ★★★ p3b, whos_my_second_if_uncertain
+## ** ★★★ p3b, whos_my_second_if_uncertain
 ## Thiswill require some munging
 df[, "p3a"] |> unique()
 df[, "p3b"] |> unique()
 
 
 
-## * p5"s", those_I_reject
+## ** p5"s", those_I_reject
 acc <- vector()
 df[,grepl("p5", names(df))] %>%
   apply(., 1,as.vector) -> p5s
@@ -39,17 +66,17 @@ for (unit in 1:dim(p5s)[2]){
 
 those_i_rejects <-  map(acc, ~.x[!is.na(.x)])
 
-## * p6, the pairwise comparisons!
+## ** p6, the pairwise comparisons!
 p6df <- df[, grepl("p6", names(df))]
 
-## * p7, who_will_win
+## ** p7, who_will_win
 p7df <- df[, "p7"]
 
 
-## * p10, on_lula
+## ** p10, on_lula
 p10df <- df[, "p10"]
 
-## *  concat data
+## **  concat chosen subsets into subset_df
 
 cbind(p2df,
   p6df,
@@ -63,9 +90,11 @@ foofn <- function (x) {
 
 }
 
+
 global_pairwise_comparisons <- map(names(p6df), foofn)
 
-# preprocessing pairs
+
+## *  preprocessing pairs
 subset_df <- rename(subset_df,
                     who_i_votes_for = p2,
                     who_will_win = p7,
@@ -78,7 +107,7 @@ subset_df <- rename(subset_df,
                     pair_35 = p6f
                     )
 
-subset_df |> names()
+
 
 get_pair <- function(indx, x, col, pair){
   if (is.element(x[,col], pair)){
@@ -104,6 +133,7 @@ get_agent_pairs <- function(indx,x){
         pair_35)
 }
 
+
 crazies_missing <- vector()
 
 for (i in 1:nrow(subset_df)) {
@@ -111,7 +141,6 @@ for (i in 1:nrow(subset_df)) {
   if(length(foo) ==0)  {crazies_missing <- c(crazies_missing, i)}
   if(length(foo) ==0) next
 }
-
 
 
 subset_df %>%
@@ -150,8 +179,6 @@ for (i in 1:nrow(subset_df)) {
 
 noncyclic_agents <- subset_df[!acc_cyclic,]
 
-noncyclic_agents %>% dim
-
 
 acc_pairs <-   tibble(assessor = numeric(),
          bottom_item = numeric(),
@@ -186,6 +213,7 @@ acc_pairs$top_item %<>%
               `9` = 4) %>%
   as.numeric(.)
 
+## * Create bayesian model: bmm_test
 
 tc <- generate_transitive_closure(acc_pairs)
 
@@ -196,33 +224,33 @@ bmm_test <- compute_mallows(rankings = init_rank,
                              preferences = tc, save_aug = TRUE)
 
 
-bmm_test$burnin <- 1000
+
 
 # compute_posterior_intervals(bmm_test,parameter = "rho")
 
 #plot(bmm_test, parameter = "rho", items = 1:4)
 ## Rtilde = latent ranking vector
 
+## * Assess baeysian model
+bmm_test$burnin <- 1000
 
 convergence<- assess_convergence(bmm_test,
                    parameter = "rho",
                    items = c(1, 2,3,4),
                    assessors = 1:8)
+#foo <- compute_consensus(bmm_test, type = "MAP")
+
+#plot(bmm_test , parameter = "rho")
+
 
 ##compute_posterior_intervals(bmm_test, parameter= "rho")
 
 
 ##ggsave("convergence.png")
 
-
+## * Use bmm_test to draw conclusions
 lastiter <- filter(bmm_test$augmented_data, iteration == 2000)
 
-#foo <- compute_consensus(bmm_test, type = "MAP")
-
-#plot(bmm_test , parameter = "rho")
-
-
-## how many agents are unstable?
 
 lastiter %>%
   group_by(assessor) %>%
@@ -249,7 +277,7 @@ lastiter %>%
 
 save(bmm_test, last_rank, last_indexes, file="bmm_rank_index.RData")
 
-last_indexes
+
 ## DONE: understand wtf is going on here
 ## OK, init_rank order the following way:
 ## names(init_rank) == c(alternative1,alternative2, ....)
@@ -257,7 +285,7 @@ last_indexes
 ## on the other hand last_rank as I've applied lists the order of alternatives
 ## at each row. So, it is an ACTUAL ranking.
 
-acc_borda_result <- vector()
+
 
 ## last_indexes %>% head
 
@@ -269,23 +297,8 @@ acc_borda_result <- vector()
 
 # match(4,rev(last_rank[1,]))
 
-for (i in 1:4){
-  apply(last_rank,
-        1,
-        function (x) {match(i,rev(x))}) %>%
-    sum -> borda_result
-  acc_borda_result <- c(acc_borda_result,
-                        borda_result)
-}
+## ** Frequencies of pairs in dataset
 
-acc_borda_result
-
-last_rank %>% head
-last_indexes %>% head
-
-acc_borda_result
-
-# Show this 
 acc_pairs %>%
   group_by(assessor) %>%
   group_size %>%
@@ -293,57 +306,59 @@ acc_pairs %>%
 xtable(.,  type = "latex", tabular.environment = "longtable")
 
 
-
 acc_pairs %>%
   group_by(assessor) %>%
   group_size %>%
-  table   %>% data.frame
+  table   %>% data.frame -> frequencies_pairwise_comparisons
 
-apply(init_rank == last_indexes, 1, all) |> sum()
 
-get_borda_from_indexes <- function(x){
-4*tabulate(x[,1]) +
-3*tabulate(x[,2]) +
-2*tabulate(x[,3]) +
-1*tabulate(x[,4])
-}
+## apply(init_rank == last_indexes, 1, all) |> sum()
 
-acc_borda_result
+## get_borda_from_indexes <- function(x){
+## 4*tabulate(x[,1]) +
+## 3*tabulate(x[,2]) +
+## 2*tabulate(x[,3]) +
+## 1*tabulate(x[,4])
+## }
 
-# FIXME: this is leads to an error. tell them!!!!
+## FIXME: this is leads to an error. tell them!!!!
+## TODO: show them the error
 freq_ranks <- rank_freq_distr(last_indexes)
 freq_ranks<- freq_ranks[order(freq_ranks[,5], decreasing = TRUE),]
 
-freq_ranks_again <- rank_freq_distr(last_rank)
-freq_ranks_again <- freq_ranks_again[order(freq_ranks_again[,5], decreasing = TRUE),]
 
-freq_ranks_again %>%
-  data.frame -> test
+## ** Make frequency of inferred ranks table
+freq_ranks_inferred <- rank_freq_distr(last_rank)
+freq_ranks_inferred <- freq_ranks_again[order(freq_ranks_again[,5], decreasing = TRUE),]
 
-names(test) <- c(1,2,3,4,"freq")
+freq_ranks_inferred %<>% data.frame
 
+names(freq_ranks_inferred) <- c(1,2,3,4,"freq")
 
 for (i in 1:4){
-test[,i] %>%
+freq_ranks_inferred[,i] %>%
   as.factor %>%
   recode_factor(.,
               `1`= "ciro",
               `2` = "haddad",
               `3` = "alckmin",
-              `4` = "bolsonaro") -> test[,i]
+              `4` = "bolsonaro") -> freq_ranks_inferred[,i]
 }
 
+tab_freq_ranks_inferred <- xtable(freq_ranks_inferred,
+       type = "latex",
+       tabular.environment = "longtable",
+       digits = 0)
 
-test_rankings <- test
+## ** Make plot of each candidate count
+last_indexes %<>% data.frame
 
-test_indexes <- last_indexes %>% data.frame
 
-
-names(test_indexes) <- c("ciro", "haddad", "alckmin", "bolsonaro")
+names(last_indexes) <- c("ciro", "haddad", "alckmin", "bolsonaro")
 
 
 fn_that_should_be_anonymous <-  function (candidatename) {
-test_indexes %>% ggplot(
+last_indexes %>% ggplot(
 aes(x = .data[[candidatename]])) +
   geom_bar(aes( fill = .data[[candidatename]]  ),
            position = position_dodge()) + theme_bw() }
@@ -358,24 +373,22 @@ bozoplot <- fn_that_should_be_anonymous("bolsonaro")
 position_counts <- ggarrange(ciroplot, haddadplot, alckminplot, bozoplot , ncol = 2, nrow = 2)
 
 
+## ** Make plot of each choice dist among candidates
+last_rank <- data.frame(last_rank)
 
-last_rank_df <- data.frame(last_rank)
-
-
-
-names(last_rank_df) <- c("choice1", "choice2", "choice3", "choice4")
+names(last_rank) <- c("choice1", "choice2", "choice3", "choice4")
 
 for (i in c("choice1", "choice2", "choice3", "choice4")) {
-last_rank_df[,i] %>% as.factor %>%
+last_rank[,i] %>% as.factor %>%
   recode_factor(.,
               `1`= "ciro",
               `2` = "haddad",
               `3` = "alckmin",
-              `4` = "bolsonaro") -> last_rank_df[,i]
+              `4` = "bolsonaro") -> last_rank[,i]
 }
 
- fn_that_should_be_anonymous2 <- function (colname) {
-last_rank_df %>% ggplot(
+fn_that_should_be_anonymous2 <- function (colname) {
+last_rank %>% ggplot(
 aes(x = .data[[colname]])) +
   geom_bar(aes( fill = .data[[colname]]  ),
            position = position_dodge()) + theme_bw() }
@@ -385,26 +398,64 @@ choice2df <- fn_that_should_be_anonymous2("choice2")
 choice3df <- fn_that_should_be_anonymous2("choice3")
 choice4df <- fn_that_should_be_anonymous2("choice4")
 
-myplt2 <- ggarrange(choice1df, choice2df, choice3df, choice4df, ncol = 2,
+choice_plt <- ggarrange(choice1df, choice2df, choice3df, choice4df, ncol = 2,
                     nrow = 2)
 
 
 ## test_rankings %>% mutate(prop = formattable::percent(freq / sum(freq)))
-
-
 ## test_rankings %>% head
-
-
 ## test_indexes %>% head
 
 
 
 
-xtable(test,  type = "latex", tabular.environment = "longtable", digits = 0)
+## ** Make cw graph
+
+actors <- data.frame(name = c("ciro","haddad","alckmin","bolsonaro"))
+relations <- data.frame(from = c("ciro",
+                                 "ciro",
+                                 "ciro",
+                                 "alckmin",
+                                 "alckmin",
+                                 "bolsonaro"),
+                        to = c("alckmin",
+                               "bolsonaro",
+                               "haddad",
+                               "bolsonaro",
+                               "haddad",
+                               "haddad"))
+
+
+g<- graph_from_data_frame(relations, directed = TRUE, vertices = actors)
+
+cw_graph <- ggraph(g, layout = 'graphopt') +
+    geom_edge_link(aes(start_cap = label_rect(node1.name), end_cap = label_rect(node2.name)),
+                   arrow = arrow(type = "closed", length = unit(3, 'mm'))) +
+    geom_node_text(aes(label = name)) + theme_graph()
+cw_graph
+
+ggsave("cw.png")
+
+## ** Make table of pairwise comparison problem
+
+map(global_pairwise_comparisons,
+    ~xtable(.x,  type = "latex", tabular.environment = "longtable"))
+## ** Electoral results
+acc_borda_result <- vector()
+for (i in 1:4){
+  apply(last_rank,
+        1,
+        function (x) {match(i,rev(x))}) %>%
+    sum -> borda_result
+  acc_borda_result <- c(acc_borda_result,
+                        borda_result)
+}
+
+acc_borda_result
 
 
 
-# TODO: show them the error
+
 v<- test
 
 acc_first_round <- vector()
@@ -422,11 +473,6 @@ sanity_check<- sanity_check[order(sanity_check$acc_first_round, decreasing =TRUE
 
 xtable(sanity_check,  type = "latex", tabular.environment = "longtable", digits = 0)
 
-
-v[v[,1] == 4]
-freq_ranks[,1]
-table(last_rank[,1])
-
 # FIXME: this should match the acc_borda_result
 get_borda_from_indexes(last_indexes)
 
@@ -435,35 +481,3 @@ get_borda_from_indexes(last_indexes)
 ## 3*tabulate(init_rank[,2]) +
 ## 2*tabulate(init_rank[,3]) +
 ## 1*tabulate(init_rank[,4])
-
-
-
-actors <- data.frame(name = c("ciro","haddad","alckmin","bolsonaro"))
-relations <- data.frame(from = c("ciro",
-                                 "ciro",
-                                 "ciro",
-                                 "alckmin",
-                                 "alckmin",
-                                 "bolsonaro"),
-                        to = c("alckmin",
-                               "bolsonaro",
-                               "haddad",
-                               "bolsonaro",
-                               "haddad",
-                               "haddad"))
-
-relations
-
-g<- graph_from_data_frame(relations, directed = TRUE, vertices = actors)
-
-pl<- ggraph(g, layout = 'graphopt') +
-    geom_edge_link(aes(start_cap = label_rect(node1.name), end_cap = label_rect(node2.name)),
-                   arrow = arrow(type = "closed", length = unit(3, 'mm'))) +
-    geom_node_text(aes(label = name)) + theme_graph()
-
-ggsave("cw.png")
-
-
-
-map(global_pairwise_comparisons,
-    ~xtable(.x,  type = "latex", tabular.environment = "longtable"))

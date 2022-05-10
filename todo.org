@@ -7,6 +7,7 @@
 
 * DONE [#A] save the result, dude
 
+
 * TODO [#B] Think about the pattern of missingness
 
 * DONE [#A] Calculate the proportion of position of each agent, grouped by agent;
