@@ -1,0 +1,13 @@
+name = "CWElectionsBR"
+uuid = "858b0f24-4021-4b98-97d5-8af762fadd43"
+authors = ["marcelovmaciel <marcelovmaciel@protonmail.com>"]
+version = "0.1.0"
+
+[deps]
+CSV = "336ed68f-0bac-5ca0-87d4-7b16caf5d00b"
+DataFrames = "a93c6f00-e57d-5684-b7b6-d8193f3e46c0"
+FloatingTableView = "197bc772-8d3f-4a3f-b50f-4eb5086fedbf"
+Pipe = "b98c9c47-44ae-5843-9183-064241ee97a0"
+RCall = "6f49c342-dc21-5d91-9882-a32aef131414"
+ReadStat = "d71aba96-b539-5138-91ee-935c3ee1374c"
+StatFiles = "1463e38c-9381-5320-bcd4-4134955f093a"

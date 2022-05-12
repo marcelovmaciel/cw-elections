@@ -189,6 +189,8 @@ for (i in 1:nrow(noncyclic_agents)) {
             get_agent_pairs(i, noncyclic_agents[i,]))
 }
 
+
+
 ## there is some bullshit about labeling here
 ## Accordinly, I'll relabe this to 1:4
 
@@ -203,7 +205,6 @@ acc_pairs$bottom_item %<>%
 
 
 
-
 acc_pairs$top_item %<>%
   as.factor(.) %>%
   recode_factor(.,
@@ -212,6 +213,9 @@ acc_pairs$top_item %<>%
               `6` = 3,
               `9` = 4) %>%
   as.numeric(.)
+
+## ** Save acc_pairs
+save(acc_pairs, file="./dta_objects/acc_pairs.RData")
 
 ## * Create bayesian model: bmm_test
 
@@ -224,12 +228,13 @@ bmm_test <- compute_mallows(rankings = init_rank,
                              preferences = tc, save_aug = TRUE)
 
 
-
-
 # compute_posterior_intervals(bmm_test,parameter = "rho")
 
 #plot(bmm_test, parameter = "rho", items = 1:4)
 ## Rtilde = latent ranking vector
+
+## ** Save bayesian model : bmm_test
+save(bmm_test, file="./dta_objects/bmm_test.RData")
 
 ## * Assess baeysian model
 bmm_test$burnin <- 1000
@@ -237,7 +242,9 @@ bmm_test$burnin <- 1000
 convergence<- assess_convergence(bmm_test,
                    parameter = "rho",
                    items = c(1, 2,3,4),
-                   assessors = 1:8)
+                   assessors = 1:100)
+convergence
+
 #foo <- compute_consensus(bmm_test, type = "MAP")
 
 #plot(bmm_test , parameter = "rho")
@@ -248,9 +255,26 @@ convergence<- assess_convergence(bmm_test,
 
 ##ggsave("convergence.png")
 
+
 ## * Use bmm_test to draw conclusions
 lastiter <- filter(bmm_test$augmented_data, iteration == 2000)
 
+## DONE: understand wtf is going on here
+## OK, init_rank order the following way:
+## names(init_rank) == c(alternative1,alternative2, ....)
+## so its values are the INDEXES of each alternative
+## on the other hand last_rank as I've applied lists the order of alternatives
+## at each row. So, it is an ACTUAL ranking.
+
+## ** Make: frequencies_pairwise_comparisons
+
+acc_pairs %>%
+  group_by(assessor) %>%
+  group_size %>%
+  table   %>% data.frame -> frequencies_pairwise_comparisons
+
+
+## ** Make: last_indexes,last_rank,freq_ranks_inferred
 
 lastiter %>%
   group_by(assessor) %>%
@@ -264,52 +288,65 @@ lastiter %>%
   group_by(assessor) %>%
   group_split()  %>%
   lapply(.,  function (x) {x$ranking}) %>%
-  do.call(rbind, .) ->
-  last_rank
+  do.call(rbind, .)  -> last_rank
+
+freq_ranks_inferred <- rank_freq_distr(last_rank)
+freq_ranks_inferred <- freq_ranks_inferred[order(freq_ranks_inferred[,5], decreasing = TRUE),]
+
+freq_ranks_inferred %<>% data.frame
+
+names(freq_ranks_inferred) <- c(1,2,3,4,"freq")
+
+
+for (i in 1:4){
+freq_ranks_inferred[,i] %>%
+  as.factor %>%
+  recode_factor(.,
+              `1`= "ciro",
+              `2` = "haddad",
+              `3` = "alckmin",
+              `4` = "bolsonaro") -> freq_ranks_inferred[,i]
+}
+
 
 
 lastiter %>%
   group_by(assessor) %>%
   summarise(ranking = value) %>%
   group_split()  %>%
-  lapply(.,  function (x) {x$ranking}) %>%
-  do.call(rbind, .) -> last_indexes
-
-save(bmm_test, last_rank, last_indexes, file="bmm_rank_index.RData")
-
-
-## DONE: understand wtf is going on here
-## OK, init_rank order the following way:
-## names(init_rank) == c(alternative1,alternative2, ....)
-## so its values are the INDEXES of each alternative
-## on the other hand last_rank as I've applied lists the order of alternatives
-## at each row. So, it is an ACTUAL ranking.
+  lapply(.,  function (x) {as.numeric(x$ranking)}) %>%
+  do.call(rbind, .)  -> last_indexes
 
 
 
-## last_indexes %>% head
+## freq_ranks <- rank_freq_distr(last_indexes)
+## freq_ranks<- freq_ranks[order(freq_ranks[,5], decreasing = TRUE),]
 
-## 1/last_indexes %>% head
+last_indexes %<>% data.frame
+names(last_indexes) <- c("ciro", "haddad", "alckmin", "bolsonaro")
 
-## colSums(1/last_indexes)
+last_rank %<>% data.frame
 
-# rev(last_rank)
-
-# match(4,rev(last_rank[1,]))
-
-## ** Frequencies of pairs in dataset
-
-acc_pairs %>%
-  group_by(assessor) %>%
-  group_size %>%
-  table   %>% data.frame %>%
-xtable(.,  type = "latex", tabular.environment = "longtable")
+names(last_rank) <- c("choice1", "choice2", "choice3", "choice4")
 
 
-acc_pairs %>%
-  group_by(assessor) %>%
-  group_size %>%
-  table   %>% data.frame -> frequencies_pairwise_comparisons
+for (i in c("choice1", "choice2", "choice3", "choice4")) {
+last_rank[,i] %>% as.factor %>%
+  recode_factor(.,
+              `1`= "ciro",
+              `2` = "haddad",
+              `3` = "alckmin",
+              `4` = "bolsonaro") -> last_rank[,i]
+}
+
+
+
+## ** Save frequencies_pairwise_comparisons
+save(frequencies_pairwise_comparisons,
+     file = "./dta_objects/frequencies_pairwise_comparisons.RData")
+
+frequencies_pairwise_comparisons %>%
+  xtable(.,  type = "latex", tabular.environment = "longtable")
 
 
 ## apply(init_rank == last_indexes, 1, all) |> sum()
@@ -323,27 +360,17 @@ acc_pairs %>%
 
 ## FIXME: this is leads to an error. tell them!!!!
 ## TODO: show them the error
-freq_ranks <- rank_freq_distr(last_indexes)
-freq_ranks<- freq_ranks[order(freq_ranks[,5], decreasing = TRUE),]
+
+
+## ** Save last_rank, last_indexes, freq_ranks_inferred
+save(freq_ranks_inferred, file="./dta_objects/freq_ranks_inferred.RData")
+save(last_indexes, file = "./dta_objects/last_indexes.RData")
+save(last_rank, file =  "./dta_objects/last_rank.RData" )
+
 
 
 ## ** Make frequency of inferred ranks table
-freq_ranks_inferred <- rank_freq_distr(last_rank)
-freq_ranks_inferred <- freq_ranks_again[order(freq_ranks_again[,5], decreasing = TRUE),]
 
-freq_ranks_inferred %<>% data.frame
-
-names(freq_ranks_inferred) <- c(1,2,3,4,"freq")
-
-for (i in 1:4){
-freq_ranks_inferred[,i] %>%
-  as.factor %>%
-  recode_factor(.,
-              `1`= "ciro",
-              `2` = "haddad",
-              `3` = "alckmin",
-              `4` = "bolsonaro") -> freq_ranks_inferred[,i]
-}
 
 tab_freq_ranks_inferred <- xtable(freq_ranks_inferred,
        type = "latex",
@@ -351,12 +378,6 @@ tab_freq_ranks_inferred <- xtable(freq_ranks_inferred,
        digits = 0)
 
 ## ** Make plot of each candidate count
-last_indexes %<>% data.frame
-
-
-names(last_indexes) <- c("ciro", "haddad", "alckmin", "bolsonaro")
-
-
 fn_that_should_be_anonymous <-  function (candidatename) {
 last_indexes %>% ggplot(
 aes(x = .data[[candidatename]])) +
@@ -374,18 +395,6 @@ position_counts <- ggarrange(ciroplot, haddadplot, alckminplot, bozoplot , ncol 
 
 
 ## ** Make plot of each choice dist among candidates
-last_rank <- data.frame(last_rank)
-
-names(last_rank) <- c("choice1", "choice2", "choice3", "choice4")
-
-for (i in c("choice1", "choice2", "choice3", "choice4")) {
-last_rank[,i] %>% as.factor %>%
-  recode_factor(.,
-              `1`= "ciro",
-              `2` = "haddad",
-              `3` = "alckmin",
-              `4` = "bolsonaro") -> last_rank[,i]
-}
 
 fn_that_should_be_anonymous2 <- function (colname) {
 last_rank %>% ggplot(
@@ -401,7 +410,7 @@ choice4df <- fn_that_should_be_anonymous2("choice4")
 choice_plt <- ggarrange(choice1df, choice2df, choice3df, choice4df, ncol = 2,
                     nrow = 2)
 
-
+choice_plt
 ## test_rankings %>% mutate(prop = formattable::percent(freq / sum(freq)))
 ## test_rankings %>% head
 ## test_indexes %>% head
@@ -481,3 +490,29 @@ get_borda_from_indexes(last_indexes)
 ## 3*tabulate(init_rank[,2]) +
 ## 2*tabulate(init_rank[,3]) +
 ## 1*tabulate(init_rank[,4])
+
+
+
+## ** Test convergence
+
+plot(bmm_test, parameter = "rho")
+
+beach_tc <- generate_transitive_closure(beach_preferences)
+
+beach_init_rank <- generate_initial_ranking(beach_tc)
+
+
+bmm_test2 <- compute_mallows(rankings = beach_init_rank,
+                            preferences = beach_tc, save_aug = TRUE)
+
+convergence2 <- assess_convergence(bmm_test2, parameter = "rho", items = 1:20)
+
+
+convergence2
+
+
+bmm_visual <- compute_mallows(potato_visual, nmc = 501000)
+
+
+bmm_visual$burnin <- 1000
+plot(bmm_visual, parameter = "rho", items = 1:20)

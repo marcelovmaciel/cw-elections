@@ -7,7 +7,8 @@
 
 * DONE [#A] save the result, dude
 
-
+* TODO [#A] analyze how many agents are unstable
+relate it to the groups of agents that have
 * TODO [#B] Think about the pattern of missingness
 
 * DONE [#A] Calculate the proportion of position of each agent, grouped by agent;
@@ -20,4 +21,4 @@
 
 * TODO [#B] Think about the role of abstention and null voting
 
-* TODO [#C] Plot different results with [[https://github.com/aeggers/votevizr][GitHub - aeggers/votevizr: R package for representing ordinal election result...]]
+* DONE [#C] Plot different results with [[https://github.com/aeggers/votevizr][GitHub - aeggers/votevizr: R package for representing ordinal election result...]]
