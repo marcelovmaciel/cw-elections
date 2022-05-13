@@ -11,9 +11,9 @@ ls()
 
 acc <- list()
 
-freq_ranks_inferred
-write.csv(freq_ranks_inferred,"./dfs/freq_ranks_inferred.csv",
-          row.names = FALSE)
+## freq_ranks_inferred
+## write.csv(freq_ranks_inferred,"./dfs/freq_ranks_inferred.csv",
+##           row.names = FALSE)
 
 ## I've prepocessed it in julia
 
@@ -30,6 +30,9 @@ get_prefs_list <- function (df) {
   names(prefs) <- df$ranking_vectors
   return(prefs)
 }
+
+
+nohaddad_df
 
 
 nohaddad_prefs <- get_prefs_list(nohaddad_df)
@@ -73,8 +76,6 @@ nohaddad_plts <- function () {possible_worlds(nohaddad_prefs, "Election without 
 noalckmin_plts <- function () {possible_worlds(noalckmin_prefs, "Election without Alckmin")}
 nobolsonaro_plts <- function () {possible_worlds(nobolsonaro_prefs, "Election without Bolsonaro")}
 nociro_plts <- function () {possible_worlds(nociro_prefs, "Election without Ciro")}
-
-
 
 
 nohaddad_plts()
