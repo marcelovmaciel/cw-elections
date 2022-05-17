@@ -15,7 +15,16 @@ relate it to the groups of agents that have
 
 * DONE [#A] Calculate the proportion of agent, grouped by position;
 
-* TODO [#B] Visualize the single peakedness of the population
+* TODO [#A] consider different imputations
+- [ ] Drop all that are not complete!
+- [ ] Impartial Culture assumption!
+
+* [ ] [#B] Visualize the permutation polytope of the rankings
+- [ ] of the impartial culture;
+- [ ] of the bayesian inferred model;
+- [ ] of the initial transitive closure;
+
+** TODO [#A] get electoral results for all 4 running;
 
 * TODO [#A] Think about the instability to lower candidates (alckmin got 4%, but was the second borda winner)
 

@@ -37,6 +37,7 @@ function make_pretty_ranking_vector(df)
     df.ranking_vectors = map(x-> join(x, " > "),df[!, :ranking_vectors])    
     return(df)
 end
+        
 
 function finaldf_without_candidate(candidate,df) 
     df = make_pretty_ranking_vector(freq_without_candidate(candidate, df))
