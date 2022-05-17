@@ -13,13 +13,15 @@ relate it to the groups of agents that have
 
 * DONE [#A] Calculate the proportion of position of each agent, grouped by agent;
 
-* TODO [#A] Write code for margins of victory
+* DONE [#A] Write code for margins of victory
 
 * DONE [#A] Calculate the proportion of agent, grouped by position;
 
 * TODO [#A] consider different imputations
 - [ ] Drop all that are not complete!
 - [ ] Impartial Culture assumption!
+
+** TODO [#A] make tables and cw graph of 4 candidates results
 
 * [ ] [#B] Visualize the permutation polytope of the rankings
 - [ ] of the impartial culture;
