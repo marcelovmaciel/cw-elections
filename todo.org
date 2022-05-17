@@ -13,6 +13,8 @@ relate it to the groups of agents that have
 
 * DONE [#A] Calculate the proportion of position of each agent, grouped by agent;
 
+* TODO [#A] Write code for margins of victory
+
 * DONE [#A] Calculate the proportion of agent, grouped by position;
 
 * TODO [#A] consider different imputations
@@ -24,7 +26,7 @@ relate it to the groups of agents that have
 - [ ] of the bayesian inferred model;
 - [ ] of the initial transitive closure;
 
-** TODO [#A] get electoral results for all 4 running;
+** DONE [#A] get electoral results for all 4 running;
 
 * TODO [#A] Think about the instability to lower candidates (alckmin got 4%, but was the second borda winner)
 
