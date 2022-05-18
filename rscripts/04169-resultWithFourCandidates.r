@@ -1,9 +1,10 @@
 library("dplyr")
 library("magrittr")
 library(purrr)
-library(ggraph)
 library("igraph")
-library("svglite")
+library(ggraph)
+
+
 
 load("./dta_objects/last_rank.RData")
 
@@ -151,7 +152,6 @@ margins <- map_dbl(margins, \(x) round(x, digits = 2))
   return(result)
 
 }
-
 
 
 make_pairwise_graph <- function(pairwise_table) {
