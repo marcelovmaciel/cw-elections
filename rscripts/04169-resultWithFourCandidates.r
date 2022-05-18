@@ -108,42 +108,32 @@ return(loser)
 
 
 
+
 get_pairwise_table <- function (df){
+  candidates <- c("alckmin", "haddad", "bolsonaro", "ciro")
 
-candidates <- c("alckmin", "haddad", "bolsonaro", "ciro")
+  candidate_pairs <- combn(candidates, 2)
 
-candidate_pairs <- combn(candidates, 2)
+  candidates_1 <- candidate_pairs[1,]
+  candidates_2 <-candidate_pairs[2,]
 
-candidates_1 <- candidate_pairs[1,]
-candidates_2 <-candidate_pairs[2,]
-
-pairwise_winners <- vector()
-
-
-for (i in 1:6){
-  winner <- get_tally_winner(candidates_1[i], candidates_2[i], df)
-  pairwise_winners <- c(pairwise_winners, winner)
-}
-
+  pairwise_winners <- vector()
+  margins<-vector()
   pairwise_losers <- vector()
 
 
-for (i in 1:6){
-  loser <- get_tally_loser(candidates_1[i], candidates_2[i], df)
-  pairwise_losers <- c(pairwise_losers, loser)
-}
+  for (i in 1:6){
+    loser <- get_tally_loser(candidates_1[i], candidates_2[i], df)
+    pairwise_losers <- c(pairwise_losers, loser)
 
+    winner <- get_tally_winner(candidates_1[i], candidates_2[i], df)
+    pairwise_winners <- c(pairwise_winners, winner)
 
+    margin <- get_tally_score(candidates_1[i], candidates_2[i], df)$margin
+    margins<-c(margins,margin)
 
-margins<-vector()
-
-for (i in 1:6){
-  margin <- get_tally_score(candidates_1[i], candidates_2[i], df)$margin
-  margins<-c(margins,margin)
-
-}
-
-margins <- map_dbl(margins, \(x) round(x, digits = 2))
+  }
+  margins <- map_dbl(margins, \(x) round(x, digits = 2))
 
   result <- data.frame(candidates_1, candidates_2,
                        pairwise_winners, pairwise_losers,
