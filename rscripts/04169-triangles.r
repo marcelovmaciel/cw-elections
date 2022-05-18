@@ -63,8 +63,8 @@ df %>%
 
 df %>%
   qplot_votevizr(split = " > ",
-                 "RCV")  +
-  labs(title  = "RCV") +
+                 "antiplurality")  +
+  labs(title  = "Antiplurality") +
   theme(plot.title = element_text(hjust = 0.5)) -> plt4
 
 grid.arrange(plt1,plt2,plt3,plt4, top=title)

@@ -1,6 +1,9 @@
 library("dplyr")
 library("magrittr")
-#library(purrr)
+library(purrr)
+library(ggraph)
+library("igraph")
+library("svglite")
 
 load("./dta_objects/last_rank.RData")
 
@@ -21,6 +24,8 @@ get_antiPlurality_table <- function (df) {
 }
 
 get_antiPlurality_table(last_rank)
+
+
 
 get_borda_scores <- function (df) {
 
@@ -58,7 +63,7 @@ tally_score %>%
   .[1:2] %>% prop.table -> top_two
 top_two$margin <- as.numeric((top_two[1] - top_two[2]))
 
-return(as.data.frame(top_two))
+return(as.data.frame(top_two) * 100)
 }
 
 get_tally_winner <- function(candidate, candidate2, df) {
@@ -66,8 +71,6 @@ get_tally_winner <- function(candidate, candidate2, df) {
       which.max(.) %>%  names -> tally_winner
     return(tally_winner)
 }
-
-get_tally_winner("bolsonaro", "haddad", last_rank)
 
 get_tallies_winners <- function (x,df) {
   candidates <- c("alckmin", "haddad", "bolsonaro", "ciro")
@@ -93,7 +96,87 @@ get_plurality_top_two_margin <- function(df) {
     return(as.data.frame(top_two))
 }
 
-## * Using the functions
-get_tally_score("bolsonaro", "ciro", last_rank)
 
-get_borda_scores(last_rank)
+
+
+get_tally_loser<- function (c1,c2,df){
+  cs <- c(c1,c2)
+loser <- cs[which(cs != get_tally_winner(c1,c2,df))]
+return(loser)
+}
+
+
+
+get_pairwise_table <- function (df){
+
+candidates <- c("alckmin", "haddad", "bolsonaro", "ciro")
+
+candidate_pairs <- combn(candidates, 2)
+
+candidates_1 <- candidate_pairs[1,]
+candidates_2 <-candidate_pairs[2,]
+
+pairwise_winners <- vector()
+
+
+for (i in 1:6){
+  winner <- get_tally_winner(candidates_1[i], candidates_2[i], df)
+  pairwise_winners <- c(pairwise_winners, winner)
+}
+
+  pairwise_losers <- vector()
+
+
+for (i in 1:6){
+  loser <- get_tally_loser(candidates_1[i], candidates_2[i], df)
+  pairwise_losers <- c(pairwise_losers, loser)
+}
+
+
+
+margins<-vector()
+
+for (i in 1:6){
+  margin <- get_tally_score(candidates_1[i], candidates_2[i], df)$margin
+  margins<-c(margins,margin)
+
+}
+
+margins <- map_dbl(margins, \(x) round(x, digits = 2))
+
+  result <- data.frame(candidates_1, candidates_2,
+                       pairwise_winners, pairwise_losers,
+                       margins)
+
+  return(result)
+
+}
+
+
+
+make_pairwise_graph <- function(pairwise_table) {
+  actors <- data.frame(name = c("ciro","haddad","alckmin","bolsonaro"))
+  relations <- data.frame(from = pairwise_table$pairwise_winners ,
+                          to = pairwise_table$pairwise_losers)
+
+
+  g<- graph_from_data_frame(relations, directed = TRUE, vertices = actors)
+
+  cw_graph <- ggraph(g, layout = 'graphopt') +
+    geom_edge_link(aes(start_cap = label_rect(node1.name),
+                       end_cap = label_rect(node2.name),
+                       label = pairwise_table$margins),
+                   angle_calc = 'along',
+                   label_dodge = unit(4, 'mm'),
+                   label_push =  unit(4, 'mm'),
+                   arrow = arrow(type = "closed",
+                                 length = unit(3, 'mm'))) +
+  geom_node_label(aes(label = name))
+  ggsave("cw.png")
+  return(cw_graph)
+}
+
+
+## * Using the functions
+#pairwise_table <- get_pairwise_table(last_rank)
+#make_pairwise_graph(pairwise_table) -> plt
