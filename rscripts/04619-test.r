@@ -91,7 +91,14 @@ foofn <- function (x) {
 }
 
 
+
 global_pairwise_comparisons <- map(names(p6df), foofn)
+
+lapply(global_pairwise_comparisons, (\(x) as_tibble(as.data.frame(x))) ) -> global_pairwise_comparisons
+
+
+save(global_pairwise_comparisons,
+     file="./dta_objects/global_pairwise_comparisons.RData")
 
 
 ## *  preprocessing pairs

@@ -3,7 +3,7 @@ library("magrittr")
 library(purrr)
 library("igraph")
 library(ggraph)
-
+library(readr)
 
 
 load("./dta_objects/last_rank.RData")
@@ -144,7 +144,7 @@ get_pairwise_table <- function (df){
 }
 
 
-make_pairwise_graph <- function(pairwise_table) {
+make_pairwise_graph <- function(pairwise_table, stringtosave) {
   actors <- data.frame(name = c("ciro","haddad","alckmin","bolsonaro"))
   relations <- data.frame(from = pairwise_table$pairwise_winners ,
                           to = pairwise_table$pairwise_losers)
@@ -162,11 +162,13 @@ make_pairwise_graph <- function(pairwise_table) {
                    arrow = arrow(type = "closed",
                                  length = unit(3, 'mm'))) +
   geom_node_label(aes(label = name))
-  ggsave("cw.png")
+  ggsave(stringtosave)
   return(cw_graph)
 }
 
 
 ## * Using the functions
-#pairwise_table <- get_pairwise_table(last_rank)
-#make_pairwise_graph(pairwise_table) -> plt
+pairwise_table <- get_pairwise_table(last_rank)
+pairwise_table_raw <-read_csv("dfs/pairwise_table_raw.csv")
+
+make_pairwise_graph(pairwise_table_raw, "cw_graph_raw.png") -> plt
