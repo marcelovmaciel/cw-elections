@@ -9,9 +9,9 @@ relate it to the groups of agents that have
 - [ ] Drop all that are not complete!
 - [ ] Impartial Culture assumption!
 
-* TODO [#A] make tables and cw graph of 4 candidates results
+* DONE [#A] make tables and cw graph of 4 candidates results
 
-* TODO [#A] Make cw graph of the raw pairs
+* DONE [#A] Make cw graph of the raw pairs
 
 
 * [ ] [#B] Visualize the permutation polytope of the rankings

@@ -4,7 +4,7 @@ library(purrr)
 library("igraph")
 library(ggraph)
 library(readr)
-
+library(xtable)
 
 load("./dta_objects/last_rank.RData")
 
@@ -14,18 +14,21 @@ load("./dta_objects/freq_ranks_inferred.RData")
 
 get_plurality_table <- function (df) {
 
-  plurality_table <- df[, "choice1"] %>% table %>% prop.table
-  return(plurality_table)
+  df[, "choice1"] %>%
+    table %>%
+    prop.table %>%  sort(., decreasing = TRUE) ->
+  plurality_table
+  return(round(plurality_table,digits = 4) * 100)
 }
 
 
 get_antiPlurality_table <- function (df) {
-  antiPlurality_table <- df[, "choice4"] %>% table %>% prop.table
-  return(antiPlurality_table)
+  df[, "choice4"] %>%
+    table %>%
+    prop.table %>%
+    sort -> antiPlurality_table
+  return(round(antiPlurality_table,digits = 4) * 100)
 }
-
-get_antiPlurality_table(last_rank)
-
 
 
 get_borda_scores <- function (df) {
@@ -171,4 +174,14 @@ make_pairwise_graph <- function(pairwise_table, stringtosave) {
 pairwise_table <- get_pairwise_table(last_rank)
 pairwise_table_raw <-read_csv("dfs/pairwise_table_raw.csv")
 
-make_pairwise_graph(pairwise_table_raw, "cw_graph_raw.png") -> plt
+make_pairwise_graph(pairwise_table_raw, "./plots/cw_graph_raw.png") -> plt
+
+
+get_plurality_table(last_rank) %>%
+  xtable(.,  type = "latex", tabular.environment = "longtable")
+
+get_antiPlurality_table(last_rank) %>%
+  xtable(.,  type = "latex", tabular.environment = "longtable")
+
+get_borda_scores(last_rank) %>%
+  xtable(.,  type = "latex", tabular.environment = "longtable")

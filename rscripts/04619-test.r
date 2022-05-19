@@ -91,7 +91,6 @@ foofn <- function (x) {
 }
 
 
-
 global_pairwise_comparisons <- map(names(p6df), foofn)
 
 lapply(global_pairwise_comparisons, (\(x) as_tibble(as.data.frame(x))) ) -> global_pairwise_comparisons
@@ -417,7 +416,8 @@ choice4df <- fn_that_should_be_anonymous2("choice4")
 choice_plt <- ggarrange(choice1df, choice2df, choice3df, choice4df, ncol = 2,
                     nrow = 2)
 
-choice_plt
+choice_plt %>% ggsave("./plots/inferred_choice_barplot.png",
+                           plot = ., dpi = 500)
 ## test_rankings %>% mutate(prop = formattable::percent(freq / sum(freq)))
 ## test_rankings %>% head
 ## test_indexes %>% head

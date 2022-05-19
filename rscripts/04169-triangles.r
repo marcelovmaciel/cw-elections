@@ -65,7 +65,7 @@ df %>%
   qplot_votevizr(split = " > ",
                  "antiplurality")  +
   labs(title  = "Antiplurality") +
-  theme(plot.title = element_text(hjust = 0.5)) -> plt4
+  theme(plot.title = element_text(hjust = 0.5))  -> plt4
 
 grid.arrange(plt1,plt2,plt3,plt4, top=title)
 
@@ -79,7 +79,14 @@ nociro_plts <- function () {possible_worlds(nociro_prefs, "Election without Ciro
 
 
 nohaddad_plts()
+vignette("under_the_hood")
 
-noalckmin_plts()
-nobolsonaro_plts()
-nociro_plts()
+nohaddad_plts() %>% ggsave("./plots/nohaddad.png",
+                           plot = ., dpi = 500)
+
+noalckmin_plts()  %>% ggsave("./plots/noalckmin.png",
+                           plot = ., dpi = 500)
+nobolsonaro_plts()  %>% ggsave("./plots/nobolsonaro.png",
+                           plot = ., dpi = 500)
+nociro_plts()  %>% ggsave("./plots/nociro.png",
+                           plot = ., dpi = 500)
