@@ -401,12 +401,15 @@ position_counts <- ggarrange(ciroplot, haddadplot, alckminplot, bozoplot , ncol 
 
 
 ## ** Make plot of each choice dist among candidates
+load("./dta_objects/last_rank.RData")
 
 fn_that_should_be_anonymous2 <- function (colname) {
 last_rank %>% ggplot(
 aes(x = .data[[colname]])) +
   geom_bar(aes( fill = .data[[colname]]  ),
-           position = position_dodge()) + theme_bw() }
+           position = position_dodge()) +
+  theme_bw(base_size=24) +
+  theme(legend.position="none") }
 
 choice1df <- fn_that_should_be_anonymous2("choice1")
 choice2df <- fn_that_should_be_anonymous2("choice2")
@@ -415,6 +418,8 @@ choice4df <- fn_that_should_be_anonymous2("choice4")
 
 choice_plt <- ggarrange(choice1df, choice2df, choice3df, choice4df, ncol = 2,
                     nrow = 2)
+
+choice_plt
 
 choice_plt %>% ggsave("./plots/inferred_choice_barplot.png",
                            plot = ., dpi = 500)

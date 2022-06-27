@@ -22,6 +22,7 @@ get_plurality_table <- function (df) {
 }
 
 
+
 get_antiPlurality_table <- function (df) {
   df[, "choice4"] %>%
     table %>%

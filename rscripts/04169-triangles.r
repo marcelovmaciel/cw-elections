@@ -24,6 +24,23 @@ nobolsonaro_df <- read_csv("./dfs/nobolsonaro_df.csv")
 
 #data(brexit_prefs)
 
+## a <- 0.22 * 2 +
+##   0.27 * 2 +
+##   0.201 * 1 +
+##   0.174 * 3 +
+##   0.0756 * 1 +
+##   0.0575 * 3
+
+## b <-  0.22 * 3 +
+##   0.27 * 1 +
+##   0.201 * 3 +
+##   0.174 * 1 +
+##   0.0756 * 2 +
+##   0.0575 * 2
+
+## a
+
+## b
 
 get_prefs_list <- function (df) {
   prefs <- as.list(df$prop)
@@ -36,6 +53,10 @@ nohaddad_df
 
 
 nohaddad_prefs <- get_prefs_list(nohaddad_df)
+
+
+nohaddad_prefs
+
 noalckmin_prefs <- get_prefs_list(noalckmin_df)
 nobolsonaro_prefs <- get_prefs_list(nobolsonaro_df)
 nociro_prefs <- get_prefs_list(nociro_df)
@@ -79,7 +100,7 @@ nociro_plts <- function () {possible_worlds(nociro_prefs, "Election without Ciro
 
 
 nohaddad_plts()
-vignette("under_the_hood")
+
 
 nohaddad_plts() %>% ggsave("./plots/nohaddad.png",
                            plot = ., dpi = 500)
