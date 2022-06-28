@@ -52,14 +52,19 @@ hideydecorations!(foo.axis)
 
 text!("A", position = (-0.03,-0.01))
 text!("B", position = (1.01,-0.01))
-text!("C", position = (0.49,0.8655))
+text!("C", position = (0.49,0.867))
+
+# Nurmi Uncertainty book page 122 example
+
+tern2cart(0.444, 0.256, 0.291) |> GeometryBasics.Point2|> x-> scatter!([x], color = :red)
+tern2cart(0.314, 0.335, 0.351) |> GeometryBasics.Point2 |> x-> scatter!([x], color = :red)
+
+lines!([tern2cart(0.444, 0.256, 0.291) |> GeometryBasics.Point2,
+tern2cart(0.314, 0.335, 0.351) |> GeometryBasics.Point2 ])
+
+
+tern2cart(0.357, 0.311, 0.331) |> GeometryBasics.Point2 |> x-> scatter!([x], color = :green)
 
 
 
 
-
-
-
-
-poly(Polygon(externalpoints),
-        color = :red, strokecolor = :black, strokewidth = 1)
