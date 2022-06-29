@@ -24,6 +24,8 @@ relate it to the groups of agents that have
 
 * TODO [#B] Think about the role of abstention and null voting
 
+* TODO [#A] Create Saari Tetrahedron
+
 
 * Abstencao no primeiro turno
 20,33%
