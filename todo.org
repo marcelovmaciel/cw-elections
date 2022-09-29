@@ -19,13 +19,13 @@ relate it to the groups of agents that have
 - [ ] of the bayesian inferred model;
 - [ ] of the initial transitive closure;
 
-
 * TODO [#A] Think about the instability to lower candidates (alckmin got 4%, but was the second borda winner)
 
 * TODO [#B] Think about the role of abstention and null voting
 
-* TODO [#A] Create Saari Tetrahedron
+* STRT [#A] Create Saari Tetrahedron
 
+* TODO [#A] Do Saari decomposition!
 
 * Abstencao no primeiro turno
 20,33%

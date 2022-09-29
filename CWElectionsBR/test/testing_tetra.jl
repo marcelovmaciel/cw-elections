@@ -8,7 +8,6 @@ using GLMakie
 using Combinatorics
 import Meshes
 
-
 #= 
 Graphics[{RGBColor[1, 1, 0.85], EdgeForm[GrayLevel[0]],
   GraphicsComplex[{{0, 0}, {1/2, Sqrt[3]/2}, {1, 0},

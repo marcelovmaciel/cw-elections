@@ -1,10 +1,11 @@
 library("dplyr")
 library("magrittr")
-library(purrr)
 library("igraph")
 library(ggraph)
 library(readr)
 library(xtable)
+
+install.packages("igraph")
 
 load("./dta_objects/last_rank.RData")
 
