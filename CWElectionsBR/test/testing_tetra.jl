@@ -1,10 +1,10 @@
 import Pkg
-Pkg.activate("../CWElectionsBR")
+Pkg.activate("../")
 
 using CWElectionsBR
 #using MeshViz
 using GeometryBasics
-using GLMakie
+using CairoMakie
 using Combinatorics
 import Meshes
 
@@ -32,10 +32,11 @@ t3 = [(1., sqrt(3)), (1/2, sqrt(3)/2), (3/2, sqrt(3)/2)] .|> GeometryBasics.Poin
 t4 = [(1., 0.), (1/2, sqrt(3)/2), (3/2, sqrt(3)/2)] .|> GeometryBasics.Point2
 
 
-
 mypol = Polygon(external_points .|> GeometryBasics.Point2,
 [t1,t2,t3,t4])
 
 plt = poly(mypol,  color = :white, strokecolor = :black, strokewidth = 1 )
 plt.axis.yreversed = true
 
+
+save("tetra_test.png",plt)

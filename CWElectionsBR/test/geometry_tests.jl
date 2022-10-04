@@ -10,6 +10,7 @@ import Meshes
 
 CairoMakie.activate!(type = "png")
 
+
 tern2cart(a, b, c) = (1 / 2 * (2b + c) / (a + b + c), √3 / 2 * (c / (a + b + c)))
 midpoint(p1,p2) = ( (p1[1] + p2[1] )/2, (p1[2] + p2[2])/2)
 
