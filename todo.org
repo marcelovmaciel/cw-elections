@@ -4,10 +4,12 @@
 relate it to the groups of agents that have
 * TODO [#B] Think about the pattern of missingness
 
-
 * TODO [#A] consider different imputations
 - [ ] Drop all that are not complete!
 - [ ] Impartial Culture assumption!
+
+
+* TODO [#A] Devise a better other imputation!!!
 
 * DONE [#A] make tables and cw graph of 4 candidates results
 
