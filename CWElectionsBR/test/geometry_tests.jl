@@ -1,14 +1,21 @@
 import Pkg
 Pkg.activate("../")
 
-using CWElectionsBr
+
+#ENV["LD_PRELOAD"]="/usr/lib/x86_64-linux-gnu/libstdc++.so.6"
+
+using CWElectionsBR
+using GLMakie
 using MeshViz
 using GeometryBasics
 using CairoMakie
+CairoMakie.activate!()
+
+
 using Combinatorics
 import Meshes
 
-CairoMakie.activate!(type = "png")
+# CairoMakie.activate!(type = "png")
 
 
 tern2cart(a, b, c) = (1 / 2 * (2b + c) / (a + b + c), √3 / 2 * (c / (a + b + c)))
@@ -106,13 +113,6 @@ plurality_3a(p) = positional_method_3a(0,p)
 borda_3a(p) = positional_method_3a(1/3,p)
 antiplurality_3a(p) = positional_method_3a(1/2,p)
 
-plurality_result = plurality_3a(p)
-antiplurality_result = antiplurality_3a(p)
-borda_result = borda_3a(p)
-
-[turn_into_euclideanpoint(fn(p)) for fn in [plurality_3a,
-        antiplurality_3a,
-        borda_3a]]
 
 function representation△(voter_profile)
     positional_results = map(fn->fn(voter_profile),
@@ -136,9 +136,25 @@ bar = representation△(plurality_share,
 save("foo.png", bar)
 
 # Tabarrok 2001 Figure 1
+#
+#
 
 p = [0, .419,0., .258,.322, 0. ]
 
+
+plurality_result = plurality_3a(p)
+antiplurality_result = antiplurality_3a(p)
+borda_result = borda_3a(p)
+
+[turn_into_euclideanpoint(fn(p)) for fn in [plurality_3a,
+        antiplurality_3a,
+        borda_3a]]
+
+
+
 baz = representation△(p)
+
+
+
 
 save("baz.png", baz)

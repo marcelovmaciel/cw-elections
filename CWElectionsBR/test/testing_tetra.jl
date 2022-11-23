@@ -40,3 +40,29 @@ plt.axis.yreversed = true
 
 
 save("tetra_test.png",plt)
+
+# Testing saari triangle -------------------------------------------------------------------------
+
+s₁ = sp.symbols("s₁")
+s₂ = sp.symbols("s₂")
+
+p_twentyfour = [sp.Sym("p$i") for i in 1:24]
+
+standard_vote_matrix  = [1 s₁ s₁ 1 s₂ s₂ 0 0 0 0 0 0 s₁ 1 s₂ s₂ 1 s₁ s₁ 1 s₂ s₂ 1 s₁;
+                         s₁ 1 s₂ s₂ 1 s₁ s₁ 1 s₂ s₂ 1 s₁ 0 0 0 0 0 0 1 s₁ s₁ 1 s₂  s₂;
+                         s₂ s₂ 1 s₁ s₁ 1 1 s₁ s₁ 1 s₂ s₂ s₂ s₂ 1 s₁ s₁ 1 0 0 0 0 0 0;
+                         0 0 0 0 0 0 s₂ s₂ 1 s₁ s₁ 1 1 s₁ s₁ 1 s₂ s₂ s₂ s₂ 1 s₁ s₁ 1]
+
+general_positional_vs = standard_vote_matrix * p_twentyfour
+
+function positional_voting_method_4candidates(concrete_s1, concrete_s2)
+    map(x -> sp.simplify(1//(1 + concrete_s1 + concrete_s2) * sp.subs(x, zip((s₁,s₂),
+                                                                (concrete_s1,concrete_s2))...)) ,
+        general_positional_vs)
+end 
+
+plurality_four_candidates =  positional_voting_method_4candidates(0,0)
+
+antiplurality_four_candidates = positional_voting_method_4candidates(1,1)
+
+vote_for_two_four_candidates =  positional_voting_method_4candidates(1,0)

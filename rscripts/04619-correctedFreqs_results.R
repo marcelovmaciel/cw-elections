@@ -22,7 +22,6 @@ library(tidyr)
 
 print(corrected_freq_ranks, n = 29)
 
-
 
 # BUG : THERE IS SOMETHING WRONG WITH THIS COMPUTATION!!!
 ## corrected_freq_ranks %>%
@@ -73,7 +72,6 @@ print(corrected_freq_ranks, n = 29)
 
 ## borda_table
 
-
 ## get_tally_scores_from_proportions <- function(df,candidate, candidate2) {
 
 ## df %>%
@@ -102,7 +100,6 @@ print(corrected_freq_ranks, n = 29)
 ##   tally %<>% mutate(prop = cnt / sum(cnt) )
 ##   return(tally)
 ##   }
-
 
 ## get_tally_winner <- function(df,c1,c2){
 
@@ -136,10 +133,8 @@ print(corrected_freq_ranks, n = 29)
 ## ## h
 ## 1165 + 1325 + 1459
 
-
 ## ## c
 ## 1547 + 1881 + 2537
-
 
 
 ## get_tally_scores_from_proportions(corrected_freq_ranks,"bolsonaro","haddad")
@@ -154,8 +149,6 @@ print(corrected_freq_ranks, n = 29)
 ## get_tally_scores_from_proportions(corrected_freq_ranks,"ciro","haddad")
 ## get_tally_scores_from_proportions(corrected_freq_ranks, "ciro","bolsonaro")
 ## get_tally_scores_from_proportions(corrected_freq_ranks, "ciro","alckmin")
-
-
 
 ## # FIXME: check if anything changed here
 ## corrected_freq_ranks %>% summarise(cnt = sum(freq))
