@@ -25,6 +25,8 @@ relate it to the groups of agents that have
 
 * STRT [#A] Create Saari Tetrahedron
 
+* STRT [#A] connect proportion in standard matrix with the proportions that I have!
+
 * TODO [#A] Do Saari decomposition!
 
 * TODO [#A] Implement transfer algorithm
