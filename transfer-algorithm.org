@@ -1,0 +1,20 @@
+#+title: Transfer Algorithm
+
+- See who is undervoted: {b,h}
+- See who is overvoted: {a,c}
+- Place candidates on ideological ordering: (h,c,a,b)
+
+- Select overvoted;
+- Select closest undervoted;
+- transfer votes from minimal kemeny distance to having overvoted as first;
+- check if reached under-over voted parity
+  - else transfer vote from second minimal kemeny distance;
+- check if overvoting ended.
+  - If not recur to kemeny minimizing subproc
+  - If YES go to other overvoted and LOOP
+
+- Save things:
+  - save transferred df;
+  - save proportions;
+  - save proportion diff;
+  - show transfer pareto frontier;
