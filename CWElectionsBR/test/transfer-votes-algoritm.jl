@@ -1,11 +1,15 @@
 import Pkg
 Pkg.activate("./")
 
+using Combinatorics
 using CWElectionsBR
 using Chain
 using DataFrames
+using Distances 
 using NamedArrays
 using RCall 
+
+
 
 @rlibrary rankdist 
 
@@ -125,6 +129,7 @@ function transfer_rankings(source_rankings, target_rankings, can_give, must_rece
      source_can_still_give = source_can_still_give)
 end
 
+
 function update_dicts!(over_freq_ranks, under_freq_ranks, valueholder)                        
     over_freq_ranks["candidate_freq_rank"] = valueholder.updated_source
     under_freq_ranks["candidate_freq_rank"] = valueholder.updated_target
@@ -132,19 +137,26 @@ function update_dicts!(over_freq_ranks, under_freq_ranks, valueholder)
     under_freq_ranks["needs_transfer"] = valueholder.yet_needed
 end
 
-over_freq_rankss = Dict(zip(overcandidates,
-                          [Dict("candidate_freq_rank" => make_base_split_freq_ranks(j, freq_ranks_inferred), 
-                          "can_transfer" => discrepancy(j))
-                          for j in overcandidates]))
-                          
-under_freq_rankss = Dict(zip(undercandidates,
-                        [Dict("candidate_freq_rank" => make_base_split_freq_ranks(j, freq_ranks_inferred), 
-                        "needs_transfer" => discrepancy(j))
+
+function make_over_rankss(overcandidates,freq_ranks_inferred)
+    over_freq_rankss = Dict(zip(overcandidates,
+                              [Dict("candidate_freq_rank" => make_base_split_freq_ranks(j, freq_ranks_inferred), 
+                              "can_transfer" => discrepancy(j)) for j in overcandidates]))
+                          return(over_freq_rankss)
+end
+
+function make_under_rankss(undercandidates,freq_ranks_inferred)
+    under_freq_rankss = Dict(zip(undercandidates,
+    [Dict("candidate_freq_rank" => make_base_split_freq_ranks(j, freq_ranks_inferred), 
+    "needs_transfer" => discrepancy(j))
                         for j in undercandidates]))
+                return(under_freq_rankss)
+end
 
 
-
-function global_transfer!(candidate_to_give, candidate_to_receive)                        
+function transfer!(candidate_to_give, candidate_to_receive, 
+        over_freq_rankss,
+        under_freq_rankss)                        
     preprocess_over_under!(candidate_to_give, candidate_to_receive)
     bar = transfer_rankings(over_freq_rankss[candidate_to_give]["candidate_freq_rank"],
                         under_freq_rankss[candidate_to_receive]["candidate_freq_rank"],
@@ -155,59 +167,81 @@ function global_transfer!(candidate_to_give, candidate_to_receive)
              bar)
 end
 
-over_freq_rankss["ciro"]
-
-under_freq_rankss["haddad"]
-
-global_transfer!("ciro", "haddad")
-
-over_freq_rankss["ciro"]
-
-under_freq_rankss["haddad"]
-
-under_freq_rankss["bolsonaro"]
-
-global_transfer!("ciro", "bolsonaro")
-
-global_transfer!("alckmin", "bolsonaro")
-
-# ISSUE: in this sequence, bolsonaro still needs 4 votes. take them from others  
-
-# sum(bar.updated_target[!,:freq])/total_tallies
 
 
+function get_new_prop_from_mutated_dict(merged_result,total_tallies)
+    newpropdf= [(candidate,
+    round(sum(merged_result[candidate]["candidate_freq_rank"][!,:freq])/total_tallies,
+     digits = 3)) 
+     for candidate in keys(merged_result)] |> DataFrame
+      rename!(newpropdf, Dict("1" => "candidates", "2" => "new_proportions"))
+    otherdf = DataFrame(:candidates => "other",
+                        :new_proportions => round(1-(newpropdf[!,:new_proportions] |> sum),digits = 3))
+    append!(newpropdf, otherdf)
+    sort!(newpropdf, :candidates)
+    return(newpropdf)
+end
+
+
+function sweep_transfer(undercandidates,overcandidates,
+                        freq_ranks_inferred = freq_ranks_inferred,
+                        total_tallies=total_tallies,
+                        prop_df = prop_df)
+    transferss_acc = []                        
+    pab = ("alckmin", "bolsonaro")
+    pah = ("alckmin", "haddad")
+    pcb = ("ciro", "bolsonaro")
+    pch = ("ciro", "haddad")
+    perms = permutations([pab,pah,pcb,pch])
+    
+    for perm in perms 
+        under_freq_rankss = make_under_rankss(undercandidates,freq_ranks_inferred)
+        over_freq_rankss = make_over_rankss(overcandidates, freq_ranks_inferred)    
+        for pair in perm 
+            transfer!(pair..., over_freq_rankss,under_freq_rankss)    
+        end
+        merged_result  = merge(under_freq_rankss,over_freq_rankss)
+
+        newprops= get_new_prop_from_mutated_dict(merged_result,total_tallies)
+        eudist= euclidean(prop_df[!,:actual_proportions], newprops[!,:new_proportions])
+        transfers_info = Dict(:permutation => perm , :transfer_dicts => merged_result , 
+        :newprops=>newprops, :eudist_to_target => eudist)
+        push!(transferss_acc, transfers_info)
+    end
+    return(transferss_acc)
+end
+
+transferss = sweep_transfer(undercandidates,overcandidates)
+
+dists = map(x->x[:eudist_to_target], transferss) 
+
+minimum_transfer_indexes = findall(x-> x== findmin(dists)[1], dists)
+
+minimum_transfers =  transferss[minimum_transfer_indexes]
+
+for x in minimum_transfers
+    x[:transferred_df] = reduce(vcat, map(x->x["candidate_freq_rank"], values(x[:transfer_dicts])))
+end
+
+
+findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[1],
+   map(x->x[:transferred_df], minimum_transfers))
+   
+findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[4],
+map(x->x[:transferred_df], minimum_transfers))   
+
+
+# So, there are 6 transfers that minimize the euclidean Distance 
+# However, the first three lead to the same positional matrix 
+# While the last 3 lead to another positional matrix.
+# Thus, we have two different transfers that minimize the euclidean distance to the top proportion 
+# My intuition that this was necessary was correct. 
 
 # Another sequence 
 
-over_freq_rankss["ciro"]
-
-under_freq_rankss["bolsonaro"]
-
-global_transfer!("ciro", "bolsonaro")
-
-over_freq_rankss["ciro"]
-
-under_freq_rankss["haddad"]
-
-
-
-global_transfer!("ciro", "haddad")
-
-global_transfer!("alckmin", "bolsonaro")
-
-global_transfer!("alckmin", "haddad")
 
 # Sanity checking 
 
-prop_df
-
-for candidate in ["alckmin", "bolsonaro", "ciro", "haddad"]
-try
-    println(candidate, " ", sum(under_freq_rankss[candidate]["candidate_freq_rank"][!,:freq])/total_tallies)        
-catch
-    println(candidate, " ", sum(over_freq_rankss[candidate]["candidate_freq_rank"][!,:freq])/total_tallies)        
-end    
-end
 
 
 
