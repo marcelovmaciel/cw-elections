@@ -12,9 +12,15 @@ using Pipe
 using FloatingTableView
 @rimport tidyr
 
-reval("load('../../rscripts/dta_objects/corrected_freq_ranks.RData')")
+reval("load('../rscripts/dta_objects/corrected_freq_ranks.RData')")
+
+
 
 @rget corrected_freq_ranks
+
+
+corrected_freq_ranks
+
 
 acc = []
 
@@ -32,7 +38,12 @@ foo = DataFrame(ranking_vectors = acc,
 @rput foo
 
 
+corrected_freq_ranks
+
 baz = tidyr.uncount(foo, foo.freq) |> rcopy
+
+baz[!,1]
+
 
 dfspath= "../../rscripts/dfs/"
 

@@ -8,14 +8,17 @@ using DataFrames
 using Distances 
 using NamedArrays
 using RCall 
-
+import CSV
 
 
 @rlibrary rankdist 
 
+@rimport tidyr
+@rimport votesys
+
 reval("load('../rscripts/dta_objects/freq_ranks_inferred.RData')")
 @rget freq_ranks_inferred
-
+dfspath = "../rscripts/dfs/"
 
 
 other_proxy =  DataFrame(Dict("1"=>"other", "2"=>"other", "3"=>"other", "4"=>"other", "freq"=>228.))
@@ -211,6 +214,7 @@ function sweep_transfer(undercandidates,overcandidates,
     return(transferss_acc)
 end
 
+
 transferss = sweep_transfer(undercandidates,overcandidates)
 
 dists = map(x->x[:eudist_to_target], transferss) 
@@ -238,6 +242,71 @@ map(x->x[:transferred_df], minimum_transfers))
 # My intuition that this was necessary was correct. 
 
 # Another sequence 
+
+minimum_transfers[1][:transferred_df] |> println
+
+minimum_transfers[4][:transferred_df] |> println 
+
+min_transfer_c1 = minimum_transfers[1][:transferred_df]
+
+#append!(min_transfer_c1, other_proxy)
+
+min_transfer_c2 = minimum_transfers[4][:transferred_df]
+
+#append!(min_transfer_c2, other_proxy)
+
+CSV.write(dfspath * "min_transfer_c1.csv", min_transfer_c1)
+CSV.write(dfspath * "min_transfer_c2.csv", min_transfer_c2)
+
+
+min_transfer_c1
+
+
+function glue_candidates_into_single_vec(df)
+    acc = []
+
+    for i in 1:25
+        push!(acc, Vector(df[i,1:4]))
+    end
+    
+    foo = DataFrame(ranking_vectors = acc,
+              freq  = df[!, "freq"] )
+              return(foo)
+end    
+
+min_c1_glue_vecs = glue_candidates_into_single_vec(min_transfer_c1)
+min_c2_glue_vecs = glue_candidates_into_single_vec(min_transfer_c2)
+
+@rput min_c1_glue_vecs
+@rput min_c2_glue_vecs
+
+
+min_c1_raw = tidyr.uncount(min_c1_glue_vecs,  min_c1_glue_vecs.freq) |> rcopy
+min_c2_raw = tidyr.uncount(min_c2_glue_vecs,  min_c2_glue_vecs.freq) |> rcopy
+
+min_c1_raw_cleaned = begin 
+    DataFrame(:choice1 => map(x->x[1], min_c1_raw[!,:ranking_vectors]),
+         :choice2 => map(x->x[2], min_c1_raw[!,:ranking_vectors]),
+         :choice3 => map(x->x[3], min_c1_raw[!,:ranking_vectors]),
+         :choice4 => map(x->x[4], min_c1_raw[!,:ranking_vectors]))    
+end    
+
+min_c2_raw_cleaned = begin 
+    DataFrame(:choice1 => map(x->x[1], min_c2_raw[!,:ranking_vectors]),
+         :choice2 => map(x->x[2], min_c2_raw[!,:ranking_vectors]),
+         :choice3 => map(x->x[3], min_c2_raw[!,:ranking_vectors]),
+         :choice4 => map(x->x[4], min_c2_raw[!,:ranking_vectors]))    
+end    
+
+
+
+
+CSV.write(dfspath * "min_c1_raw.csv", min_c1_raw_cleaned)
+CSV.write(dfspath * "min_c2_raw.csv", min_c2_raw_cleaned)
+
+
+
+# Here I'll test other stuff --------------------------------------------------------------------------------------------
 
 
 # Sanity checking 

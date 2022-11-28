@@ -158,11 +158,29 @@ print(corrected_freq_ranks, n = 29)
 
 #  THE ACTUAL COMPUTATION happens here, through a pkg
 
-corrected_raw <- read.csv("./dfs/corrected_freq_raw.csv")
+#corrected_raw <- read.csv("./dfs/corrected_freq_raw.csv")
 
-foooz <- create_vote(corrected_raw,
+
+test1 <- read.csv("./dfs/min_c1_raw.csv")
+test2 <- read.csv("./dfs/min_c2_raw.csv")
+
+
+filter(test1)
+
+foooz1 <- create_vote(test1,
                      xtype = 2,
-                     candidate = c("alckmin","bolsonaro",  "ciro", "haddad", "other"))
+                     candidate = c("alckmin","bolsonaro",  "ciro", "haddad"))
 
-cdc_simple(foooz)
-borda_method(foooz, modified = TRUE)
+cdc_simple(foooz1)
+
+borda_method(foooz1, modified = TRUE)
+
+
+foooz2 <- create_vote(test2,
+                     xtype = 2,
+                     candidate = c("alckmin","bolsonaro",  "ciro", "haddad"))
+
+cdc_simple(foooz2)
+
+
+borda_method(foooz2, modified = TRUE)
