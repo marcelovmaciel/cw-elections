@@ -18,3 +18,7 @@
   - save proportions;
   - save proportion diff;
   - show transfer pareto frontier;
+
+Actual voting tally proportions: bolsonaro:haddad:ciro:alckmin:other = 46.3:29.28:12.47:4.76:7.19
+
+What I have: 36.7:24.7:17.3:14.1:7.19

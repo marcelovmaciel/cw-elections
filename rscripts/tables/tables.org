@@ -1,0 +1,80 @@
+#+title: Tables
+
+
+
+
+
+
+xtable(cdc1$binary)
+% latex table generated in R 4.2.1 by xtable 1.8-4 package
+% Thu Dec  1 21:18:51 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & alckmin & bolsonaro & ciro & haddad \\
+  \hline
+alckmin & 0 & -1 & -1 & -1 \\
+  bolsonaro & 1 & 0 & 1 & 1 \\
+  ciro & 1 & -1 & 0 & 1 \\
+  haddad & 1 & -1 & -1 & 0 \\
+   \hline
+\end{tabular}
+\end{table}
+
+
+
+>
+> xtable(cdc2$binary)
+% latex table generated in R 4.2.1 by xtable 1.8-4 package
+% Thu Dec  1 21:18:51 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rrrrr}
+  \hline
+ & alckmin & bolsonaro & ciro & haddad \\
+  \hline
+alckmin & 0 & -1 & -1 & -1 \\
+  bolsonaro & 1 & 0 & 1 & 1 \\
+  ciro & 1 & -1 & 0 & 1 \\
+  haddad & 1 & -1 & -1 & 0 \\
+   \hline
+\end{tabular}
+\end{table}
+
+
+
+> xtable(as.data.frame(borda1$other_info$count_max))
+% latex table generated in R 4.2.1 by xtable 1.8-4 package
+% Thu Dec  1 21:18:51 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+ & borda1\$other\_info\$count\_max \\
+  \hline
+alckmin & 6527 \\
+  bolsonaro & 8185 \\
+  ciro & 7617 \\
+  haddad & 7041 \\
+   \hline
+\end{tabular}
+\end{table}
+
+
+> xtable(as.data.frame(borda2$other_info$count_max))
+% latex table generated in R 4.2.1 by xtable 1.8-4 package
+% Thu Dec  1 21:18:52 2022
+\begin{table}[ht]
+\centering
+\begin{tabular}{rr}
+  \hline
+ & borda2\$other\_info\$count\_max \\
+  \hline
+alckmin & 6438 \\
+  bolsonaro & 8262 \\
+  ciro & 7617 \\
+  haddad & 7053 \\
+   \hline
+\end{tabular}
+\end{table}

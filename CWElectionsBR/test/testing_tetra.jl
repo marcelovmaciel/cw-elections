@@ -1,5 +1,6 @@
+
 import Pkg
-Pkg.activate("../")
+Pkg.activate("./")
 
 using CWElectionsBR
 #using MeshViz
@@ -7,6 +8,12 @@ using GeometryBasics
 using CairoMakie
 using Combinatorics
 import Meshes
+import SymPy as sp 
+
+
+
+
+
 
 #= 
 Graphics[{RGBColor[1, 1, 0.85], EdgeForm[GrayLevel[0]],
@@ -38,6 +45,7 @@ mypol = Polygon(external_points .|> GeometryBasics.Point2,
 plt = poly(mypol,  color = :white, strokecolor = :black, strokewidth = 1 )
 plt.axis.yreversed = true
 
+plt
 
 save("tetra_test.png",plt)
 
@@ -66,3 +74,11 @@ plurality_four_candidates =  positional_voting_method_4candidates(0,0)
 antiplurality_four_candidates = positional_voting_method_4candidates(1,1)
 
 vote_for_two_four_candidates =  positional_voting_method_4candidates(1,0)
+
+
+
+
+
+
+
+
