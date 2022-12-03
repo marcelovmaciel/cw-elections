@@ -2,15 +2,30 @@ import Pkg
 Pkg.activate("./")
 
 
+
 #ENV["LD_PRELOAD"]="/usr/lib/x86_64-linux-gnu/libstdc++.so.6"
 
+#"MeshViz","Meshes", "AbstractPlotting"))
+
+
+
 using CWElectionsBR
-using MeshViz
-using GeometryBasics
+
+using TransformsBase
+
 using CairoMakie
+
+using Meshes 
+
+
+using MeshViz
+
+
+using GeometryBasics
+
 CairoMakie.activate!()
 using Combinatorics
-import Meshes
+
 
 # CairoMakie.activate!(type = "png")
 
@@ -42,7 +57,7 @@ function make_basic_3_candidate△(sorted_candidate_list)
     propercombinations = [[i,j,external_triangle_centroid] for j in externalpoints
                             for i in midpoints]
     # Meshes.centroid(Meshes.Triangle((0.,0.), (1.,0.), (0.5,1.)))
-    mypoly = Polygon(externalpoints, propercombinations)
+    mypoly = GeometryBasics.Polygon(externalpoints, propercombinations)
 
     barepoints = map(x-> convert(Vector{Vector{Float64}}, x) , propercombinations )
     barepoints = map(x-> x.coords,
@@ -64,8 +79,8 @@ function make_basic_3_candidate△(sorted_candidate_list)
     hideydecorations!(basic_3candidate_triangle.axis)
 
     text!(sorted_candidate_list[1], position = (-0.03,-0.05))
-    text!(sorted_candidate_list[2], position = (1.01,-0.05))
-    text!(sorted_candidate_list[3], position = (0.49,0.867))
+    text!(sorted_candidate_list[2], position = (0.9,-0.05))
+    text!(sorted_candidate_list[3], position = (0.48,0.867))
 
     return(basic_3candidate_triangle)
 end
@@ -117,8 +132,14 @@ function representation△(voter_profile,sorted_candidate_list)
 end
 
 
+
+
+
+
 #  Nurmi Uncertainty book page 122 example
-#= plurality_share = [0.444, 0.256, 0.291]
+#=  This Does match!!!!! 
+
+plurality_share = [0.444, 0.256, 0.291]
 antiplurality_share = [0.314, 0.335, 0.351]
 borda_share = [0.357, 0.311, 0.331]
 

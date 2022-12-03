@@ -281,8 +281,23 @@ min_c2_glue_vecs = glue_candidates_into_single_vec(min_transfer_c2)
 @rput min_c2_glue_vecs
 
 
+
+
+CSV.write(dfspath * "min_c1_glueVecs.csv", min_c1_glue_vecs)
+CSV.write(dfspath * "min_c2_glueVecs.csv", min_c2_glue_vecs)
+
+
+min_c1_glue_vecs
+
+
+
 min_c1_raw = tidyr.uncount(min_c1_glue_vecs,  min_c1_glue_vecs.freq) |> rcopy
 min_c2_raw = tidyr.uncount(min_c2_glue_vecs,  min_c2_glue_vecs.freq) |> rcopy
+
+
+
+
+
 
 min_c1_raw_cleaned = begin 
     DataFrame(:choice1 => map(x->x[1], min_c1_raw[!,:ranking_vectors]),
