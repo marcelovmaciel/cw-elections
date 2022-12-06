@@ -1,10 +1,5 @@
 #+title: Tables
 
-
-
-
-
-
 xtable(cdc1$binary)
 % latex table generated in R 4.2.1 by xtable 1.8-4 package
 % Thu Dec  1 21:18:51 2022

@@ -7,7 +7,7 @@ library("magrittr")
 library("purrr")
 ##library("tidyr")
 library("tidytable")
-library("votevizr")
+#library("votevizr")
 library("xtable")
 ## library(reshape2)
 library("ggpubr")
@@ -384,24 +384,52 @@ tab_freq_ranks_inferred <- xtable(freq_ranks_inferred,
        digits = 0)
 
 ## ** Make plot of each candidate count
-fn_that_should_be_anonymous <-  function (candidatename) {
-last_indexes %>% ggplot(
+
+
+## HERE
+load("./dta_objects/last_indexes.RData")
+
+corrected_indexes1<- read.csv("./dfs/corrected1_indexes.csv")
+corrected_indexes2 <- read.csv("./dfs/corrected2_indexes.csv")
+
+## list.files("./")
+
+
+fn_that_should_be_anonymous <-  function (candidatename,df) {
+df %>% ggplot(
 aes(x = .data[[candidatename]])) +
   geom_bar(aes( fill = .data[[candidatename]]  ),
            position = position_dodge()) + theme_bw() }
 
 # R doesn't fucking understand pointers. Outrageous.
-ciroplot <- fn_that_should_be_anonymous("ciro")
-haddadplot <- fn_that_should_be_anonymous("haddad")
-alckminplot <- fn_that_should_be_anonymous("alckmin")
-bozoplot <- fn_that_should_be_anonymous("bolsonaro")
+ciroplot1 <- fn_that_should_be_anonymous("ciro", corrected_indexes1)
+haddadplot1 <- fn_that_should_be_anonymous("haddad", corrected_indexes1)
+alckminplot1 <- fn_that_should_be_anonymous("alckmin", corrected_indexes1)
+bozoplot1 <- fn_that_should_be_anonymous("bolsonaro", corrected_indexes1)
+
+position_counts1 <- ggarrange(ciroplot1, haddadplot1, alckminplot1, bozoplot1 , ncol = 2, nrow = 2)
 
 
-position_counts <- ggarrange(ciroplot, haddadplot, alckminplot, bozoplot , ncol = 2, nrow = 2)
+ciroplot2 <- fn_that_should_be_anonymous("ciro", corrected_indexes2)
+haddadplot2 <- fn_that_should_be_anonymous("haddad", corrected_indexes2)
+alckminplot2 <- fn_that_should_be_anonymous("alckmin", corrected_indexes2)
+bozoplot2 <- fn_that_should_be_anonymous("bolsonaro", corrected_indexes2)
+
+position_counts2 <- ggarrange(ciroplot2, haddadplot2, alckminplot2, bozoplot2 , ncol = 2, nrow = 2)
+
+
+position_counts1 %>% ggsave("./plots/corrected1_indexes_plot.png",
+                            plot = ., dpi = 500)
+
+position_counts2 %>% ggsave("./plots/corrected2_indexes_plot.png",
+                           plot = ., dpi = 500)
+
 
 
 ## ** Make plot of each choice dist among candidates
 load("./dta_objects/last_rank.RData")
+
+
 
 fn_that_should_be_anonymous2 <- function (colname) {
 last_rank %>% ggplot(

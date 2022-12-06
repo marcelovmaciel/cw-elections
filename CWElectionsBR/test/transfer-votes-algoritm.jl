@@ -76,10 +76,11 @@ discrepancy(candidate) = Int(first(filter(x-> x[:1] == candidate, prop_df)[!,:di
 
     
                         
-function preprocess_over_under!(overcandidate, undercandidate,
-     over_freq_ranks= over_freq_rankss[overcandidate]["candidate_freq_rank"],
-     under_freq_ranks= under_freq_rankss[undercandidate]["candidate_freq_rank"])
-     
+function preprocess_over_under!(overcandidate, 
+                               undercandidate, over_freq_rankss,under_freq_rankss)
+                               println(over_freq_rankss[overcandidate]["candidate_freq_rank"])
+    over_freq_ranks= over_freq_rankss[overcandidate]["candidate_freq_rank"]
+    under_freq_ranks = under_freq_rankss[undercandidate]["candidate_freq_rank"] 
     under_freq_ranks[!, :dist_to_over] = [(findfirst(x-> x == overcandidate, Vector(j[1:4]))-1) for j in eachrow(under_freq_ranks)]
     over_freq_ranks[!, :dist_to_under] = [(findfirst(x-> x == undercandidate, Vector(j[1:4]))-1) for j in eachrow(over_freq_ranks)]
     over_freq_rankss[overcandidate]["candidate_freq_rank"] = sort(over_freq_ranks, :dist_to_under)
@@ -157,10 +158,16 @@ function make_under_rankss(undercandidates,freq_ranks_inferred)
 end
 
 
-function transfer!(candidate_to_give, candidate_to_receive, 
-        over_freq_rankss,
-        under_freq_rankss)                        
-    preprocess_over_under!(candidate_to_give, candidate_to_receive)
+
+function transfer!(candidate_to_give, 
+                   candidate_to_receive, 
+                   over_freq_rankss,
+                   under_freq_rankss)                        
+    preprocess_over_under!(candidate_to_give,
+                           candidate_to_receive,
+                           over_freq_rankss,
+                           under_freq_rankss)
+    
     bar = transfer_rankings(over_freq_rankss[candidate_to_give]["candidate_freq_rank"],
                         under_freq_rankss[candidate_to_receive]["candidate_freq_rank"],
                         over_freq_rankss[candidate_to_give]["can_transfer"],
@@ -216,6 +223,9 @@ end
 
 
 transferss = sweep_transfer(undercandidates,overcandidates)
+
+transferss[1]
+
 
 dists = map(x->x[:eudist_to_target], transferss) 
 

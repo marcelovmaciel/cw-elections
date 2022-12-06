@@ -1,11 +1,14 @@
 library("dplyr")
 library(purrr)
 library("magrittr")
-load("./dta_objects/corrected_freq_ranks.RData")
+#load("./dta_objects/corrected_freq_ranks.RData")
 
 library(votesys)
 library(dplyr)
 library(tidyr)
+library(xtable)
+library(vote)
+
 
 # load("./dta_objects/freq_ranks_inferred.RData")
 
@@ -161,26 +164,41 @@ print(corrected_freq_ranks, n = 29)
 #corrected_raw <- read.csv("./dfs/corrected_freq_raw.csv")
 
 
+
 test1 <- read.csv("./dfs/min_c1_raw.csv")
+
 test2 <- read.csv("./dfs/min_c2_raw.csv")
-
-
-filter(test1)
 
 foooz1 <- create_vote(test1,
                      xtype = 2,
                      candidate = c("alckmin","bolsonaro",  "ciro", "haddad"))
 
-cdc_simple(foooz1)
+cdc1 <- cdc_simple(foooz1)
 
-borda_method(foooz1, modified = TRUE)
+borda1 <- borda_method(foooz1, modified = TRUE)
 
+
+
+xtable(borda1$other_info$count_max)
+
+
+
+
+xtable(borda1$other_info$count_max)
 
 foooz2 <- create_vote(test2,
                      xtype = 2,
                      candidate = c("alckmin","bolsonaro",  "ciro", "haddad"))
 
-cdc_simple(foooz2)
+cdc2 <- cdc_simple(foooz2)
 
+borda2<- borda_method(foooz2, modified = TRUE)
 
-borda_method(foooz2, modified = TRUE)
+cdc1$binary
+
+xtable(cdc1$binary)
+
+xtable(cdc2$binary)
+
+xtable(as.data.frame(borda1$other_info$count_max))
+xtable(as.data.frame(borda2$other_info$count_max))
