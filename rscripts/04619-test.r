@@ -11,6 +11,8 @@ library("tidytable")
 library("xtable")
 ## library(reshape2)
 library("ggpubr")
+library(readr)
+
 
 df <- read_sav("../04619/04619.SAV")
 load("bmm_rank_index.RData")
@@ -556,3 +558,13 @@ bmm_visual <- compute_mallows(potato_visual, nmc = 501000)
 
 bmm_visual$burnin <- 1000
 plot(bmm_visual, parameter = "rho", items = 1:20)
+
+
+
+
+## fixing a problem with dta
+freq_ranks_inferred<- load("./dta_objects/freq_ranks_inferred.RData")
+
+freq_ranks_inferred
+
+write_csv( freq_ranks_inferred, "./dfs/freq_ranks_inferred.csv")

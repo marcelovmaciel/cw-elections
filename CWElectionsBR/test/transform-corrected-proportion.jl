@@ -14,8 +14,6 @@ using FloatingTableView
 
 reval("load('../rscripts/dta_objects/corrected_freq_ranks.RData')")
 
-
-
 @rget corrected_freq_ranks
 
 
