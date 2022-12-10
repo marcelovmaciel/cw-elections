@@ -3,6 +3,10 @@
 * TODO [#C] analyze how many agents are unstable
 relate it to the groups of agents that have
 * TODO [#C] Think about the pattern of missingness
+* TODO [#A] FIX 3agent  PLOTS
+* TODO [#A] Calculate proportion of bolsonaro victories at 3agent plots
+* TODO [#A] Create tetrahedron plot
+* TODO [#A] Try to think in terms of net single peakedness
 
 * TODO [#C] consider different imputations
 - [ ] Drop all that are not complete!

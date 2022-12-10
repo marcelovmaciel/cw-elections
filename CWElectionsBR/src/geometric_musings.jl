@@ -1,3 +1,6 @@
+
+
+## i dont remeber how I calculated that translation LOL
 tern2cart(a, b, c) = (1 / 2 * (2b + c) / (a + b + c), √3 / 2 * (c / (a + b + c)))
 midpoint(p1,p2) = ( (p1[1] + p2[1] )/2, (p1[2] + p2[2])/2)
 
@@ -99,3 +102,25 @@ function representation△(voter_profile,sorted_candidate_list)
 
     representation△(positional_results..., sorted_candidate_list)
 end
+
+
+
+
+
+
+
+
+#=
+[0,0,sqrt(2/3)-2/(2*sqrt(6))],
+[-1/]
+
+#
+#
+#
+#
+self.xyz    = ((0.5/root2) * (a - b - c + d),
+                       (0.5/root2) * (a - b + c - d),
+                       (0.5/root2) * (a + b - c - d))
+=#
+#
+#
