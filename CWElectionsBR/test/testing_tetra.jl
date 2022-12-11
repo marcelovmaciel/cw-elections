@@ -2,7 +2,7 @@
 import Pkg
 Pkg.activate("./")
 
-using CWElectionsBR
+import CWElectionsBR as cw 
 
 #using MeshViz
 using GeometryBasics
@@ -11,27 +11,34 @@ using Combinatorics
 import Meshes
 import SymPy as sp 
 import MeshViz
-
+import CSV 
+using DataFrames
+using StatsBase
 using RCall
 
 #=
 So, the tetrahedron vertices are (1,0,0,0), (0,1,0,0), (0,0,1,0) and (0,0,0,1)
 =#
 
-mysimplex = rcopy(R"""
-simplex <- function(n) {
-  qr.Q(qr(matrix(1, nrow=n)) ,complete = TRUE)[,-1]
-}
-""")
-
-bar = mysimplex(4)
-
-tetrapoints
-
-tetrapoints = map(Tuple{Float32,Float32, Float32},[collect(eachrow(mysimplex(4)))...])
+tetrapoints = map(Tuple{Float32,Float32, Float32},[collect(eachrow(baselinetetra))...])
 
 ## tetrapoints2 = [(0,0,0), (1,1,0), (1,0,1), (0,1,1)]
 
+
+midpoint3d(p1,p2) = ( (p1[1] + p2[1] )/2, (p1[2] + p2[2])/2, (p1[3] + p2[3])/2 )
+
+pointspairs = combinations(tetrapoints, 2) |> collect 
+
+midpointss = [ midpoint3d(pair...) for pair in pointspairs]
+
+
+firstps = map(x->x[1],pointspairs)
+secondps = map(x->x[2],pointspairs)
+
+
+midpointss
+
+pointspairs
 
 tetramesh = Meshes.Tetrahedron(tetrapoints)
 
@@ -42,25 +49,8 @@ tetra_centroid =  Meshes.centroid(tetramesh)
 ##tetra_centroid2 =  Meshes.centroid(tetramesh2)
 
 
-
-GeometryBasics.Point3f0(tetra_centroid.coords)
-
-tetra_centroid |> typeof |> fieldnames
-
-tetrapoints[4]
-
-
-
-tetrapoints
-
 vertex_combs = combinations([GeometryBasics.Point3f0.(tetrapoints)...,
 GeometryBasics.Point3f0(tetra_centroid.coords)], 3)
-
-fig = Figure(resolution = (600,600))
-ax = LScene(fig[1,1], show_axis=false)
-
-fig
-
 
 foo = wireframe(GeometryBasics.Point3f0.(tetrapoints[1:3]), show_axis = false )
 
@@ -74,21 +64,27 @@ for comb in vertex_combs
 wireframe!(foo.axis, comb)
 end  
 
+stuff1 = zip(firstps, midpointss,
+  repeat([tetra_centroid.coords], outer = 6))   |> collect 
+
+
+
+for stuff in stuff1
+  wireframe!(foo.axis, [GeometryBasics.Point3f0(stuff[1]),
+  GeometryBasics.Point3f0(stuff[2]), GeometryBasics.Point3f0(stuff[3])])
+end
+
+
 annotations!( ["A", "B", "C", "D"], GeometryBasics.Point3f0.(tetrapoints))
-
-
 
 
 #= 
 zoom!(foo.axis.scene, 
 cameracontrols(foo.axis.scene), 0.9, false)
  =#
-foo
 
 
 rotate!(foo.axis.scene, 0.2)
-
-
 mypol3 = Polygon(tetrapoints .|> GeometryBasics.Point3f0)
 
 plt3 = MeshViz.viz(Meshes.Tetrahedron(tetrapoints),
@@ -106,38 +102,33 @@ end
 plt3
 
 
-  
+## Preprocessing For visualization 
 
+dfspath = "../rscripts/dfs/"
 
-# Testing saari tetrahedron -------------------------------------------------------------------------
+mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
 
-s₁ = sp.symbols("s₁")
-s₂ = sp.symbols("s₂")
+p4c = getp_4candidates(mincw1)
 
-p_twentyfour = [sp.Sym("p$i") for i in 1:24]
-
-standard_vote_matrix  = [1 s₁ s₁ 1 s₂ s₂ 0 0 0 0 0 0 s₁ 1 s₂ s₂ 1 s₁ s₁ 1 s₂ s₂ 1 s₁;
-                         s₁ 1 s₂ s₂ 1 s₁ s₁ 1 s₂ s₂ 1 s₁ 0 0 0 0 0 0 1 s₁ s₁ 1 s₂  s₂;
-                         s₂ s₂ 1 s₁ s₁ 1 1 s₁ s₁ 1 s₂ s₂ s₂ s₂ 1 s₁ s₁ 1 0 0 0 0 0 0;
-                         0 0 0 0 0 0 s₂ s₂ 1 s₁ s₁ 1 1 s₁ s₁ 1 s₂ s₂ s₂ s₂ 1 s₁ s₁ 1]
-
-general_positional_vs = standard_vote_matrix * p_twentyfour
-
-function positional_voting_method_4candidates(concrete_s1, concrete_s2)
-    map(x -> sp.simplify(1//(1 + concrete_s1 + concrete_s2) * sp.subs(x, zip((s₁,s₂),
-                                                                (concrete_s1,concrete_s2))...)) ,
-        general_positional_vs)
-end 
-
-plurality_four_candidates =  positional_voting_method_4candidates(0,0)
-
-antiplurality_four_candidates = positional_voting_method_4candidates(1,1)
-
-vote_for_two_four_candidates =  positional_voting_method_4candidates(1,0)
+cart_antiplurality = cart_of_method(antiplurality_four_candidates, p4c) 
+cart_plurality = cart_of_method(plurality_four_candidates, p4c) 
+cart_vote_for_two = cart_of_method(vote_for_two_four_candidates, p4c) 
 
 
 
-plurality_four_candidates
+ngon = Meshes.Ngon([cart_antiplurality,cart_plurality, cart_vote_for_two]...)
+
+
+
+MeshViz.viz!(plt3.axis,ngon, color = :white, alpha = 0.01)
+plt3
+
+foo
+meshscatter!(foo.axis,[cart_antiplurality,cart_plurality, cart_vote_for_two], markersize = 0.01)
+
+wireframe!(foo.axis,GeometryBasics.Point3f0.([cart_antiplurality,cart_plurality, cart_vote_for_two]))
+ 
+ foo
 
 
 
@@ -201,12 +192,7 @@ plt
 plt.axis.yreversed = true
 
 
-
-
-
-
 ## -----------------------------------------------------------
-
 
 vertex_combs = combinations([GeometryBasics.Point3f0.(tetrapoint2)...,
 GeometryBasics.Point3f0(tetra_centroid2.coords)], 3)

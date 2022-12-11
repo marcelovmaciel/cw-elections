@@ -2,7 +2,7 @@
 
 julia_version = "1.9.0-alpha1"
 manifest_format = "2.0"
-project_hash = "115504fb8eb7559b19042f592c9ce231a704a255"
+project_hash = "719fccd2be35cd9b55fcdb24f2e8c26174f9b79b"
 
 [[deps.AbstractFFTs]]
 deps = ["ChainRulesCore", "LinearAlgebra"]
@@ -1350,6 +1350,11 @@ deps = ["Dates", "UUIDs"]
 git-tree-sha1 = "ca4bccb03acf9faaf4137a9abc1881ed1841aa70"
 uuid = "856f2bd8-1eba-4b0a-8007-ebc267875bd4"
 version = "1.10.0"
+
+[[deps.Subscripts]]
+git-tree-sha1 = "1a7e74e19e1a430e8407902fd0a384b90f8415d3"
+uuid = "2b7f82d5-8785-4f63-971e-f18ddbeb808e"
+version = "0.1.2"
 
 [[deps.SuiteSparse]]
 deps = ["Libdl", "LinearAlgebra", "Serialization", "SparseArrays"]
