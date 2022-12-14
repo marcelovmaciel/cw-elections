@@ -10,7 +10,7 @@ using CWElectionsBR
 
 # CairoMakie.activate!(type = "png")
 
-
+CWElectionsBR.make_basic_3_candidate△(["alckmin", "bolsonaro","haddad"])
 
 
 

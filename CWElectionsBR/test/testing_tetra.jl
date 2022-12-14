@@ -16,11 +16,12 @@ using DataFrames
 using StatsBase
 using RCall
 
+
 #=
 So, the tetrahedron vertices are (1,0,0,0), (0,1,0,0), (0,0,1,0) and (0,0,0,1)
 =#
 
-tetrapoints = map(Tuple{Float32,Float32, Float32},[collect(eachrow(baselinetetra))...])
+tetrapoints = map(Tuple{Float32,Float32, Float32},[collect(eachrow(cw.baseline_tetrahedron()))...])
 
 ## tetrapoints2 = [(0,0,0), (1,1,0), (1,0,1), (0,1,1)]
 

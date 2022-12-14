@@ -1,5 +1,8 @@
 #+TITLE: Todo
 
+* TODO Write pseudo-code for vote-transfer algorithm
+https://books.google.com/books?hl=pt-BR&lr=&id=fb7DAQAAQBAJ&oi=fnd&pg=PA270&ots=2XPn86t87M&sig=ukVckJWTmR1InnW5I8WXOXu_OtY#v=onepage&q&f=false shows some examples
+
 * TODO [#C] analyze how many agents are unstable
 relate it to the groups of agents that have
 * TODO [#C] Think about the pattern of missingness
@@ -12,6 +15,8 @@ relate it to the groups of agents that have
 - [ ] Drop all that are not complete!
 - [ ] Impartial Culture assumption!
 
+* PROJ [#A] ★ ★ ★  DO a better modeling of others
+- 0.72 at the top. The rest filled by sampling from the column of the inferred rankings!!!!
 
 
 * DONE [#A] make tables and cw graph of 4 candidates results
@@ -23,21 +28,12 @@ relate it to the groups of agents that have
 - [ ] of the bayesian inferred model;
 - [ ] of the initial transitive closure;
 
-* TODO [#C] Think about the instability to lower candidates (alckmin got 4%, but was the second borda winner)
 
-* TODO [#C] Think about the role of abstention and null voting
-
-* STRT [#A] Create Saari Tetrahedron
-
-* STRT [#A] connect proportion in standard matrix with the proportions that I have!
 
 * TODO [#A] Do Saari decomposition!
 
-* TODO [#A] Implement transfer algorithm
 
 * TODO [#A] Contact developers to ask about augmentation
 
-* TODO [#A] Organize input output!!!!
 
-* Abstencao no primeiro turno
-20,33%
+

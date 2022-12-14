@@ -15,6 +15,7 @@ using Pipe
 using RCall
 using StatsBase
 using StatFiles
+import SymPy as sp
 
 
 # using NamedArrays

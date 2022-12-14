@@ -104,36 +104,40 @@ function representation△(voter_profile,sorted_candidate_list)
 end
 
 
-
 ## Four candidates stuff 
 
 
-s₁ = sp.symbols("s₁")
-s₂ = sp.symbols("s₂")
 
-p_twentyfour = [sp.Sym("p$i") for i in 1:24]
+p_twentyfour() = [sp.Sym("p$i") for i in 1:24]
 
 
-standard_vote_matrix  = [1 s₁ s₁ 1 s₂ s₂ 0 0 0 0 0 0 s₁ 1 s₂ s₂ 1 s₁ s₁ 1 s₂ s₂ 1 s₁;
+## TODO: double check this matrix for christ sake
+function standard_vote_matrix()
+    s₁ = sp.symbols("s₁")
+    s₂ = sp.symbols("s₂")
+
+ [1 s₁ s₁ 1 s₂ s₂ 0 0 0 0 0 0 s₁ 1 s₂ s₂ 1 s₁ s₁ 1 s₂ s₂ 1 s₁;
                          s₁ 1 s₂ s₂ 1 s₁ s₁ 1 s₂ s₂ 1 s₁ 0 0 0 0 0 0 1 s₁ s₁ 1 s₂  s₂;
                          s₂ s₂ 1 s₁ s₁ 1 1 s₁ s₁ 1 s₂ s₂ s₂ s₂ 1 s₁ s₁ 1 0 0 0 0 0 0;
                          0 0 0 0 0 0 s₂ s₂ 1 s₁ s₁ 1 1 s₁ s₁ 1 s₂ s₂ s₂ s₂ 1 s₁ s₁ 1]
+end
 
-general_positional_vs = standard_vote_matrix * p_twentyfour
+general_positional_vs() = standard_vote_matrix() * p_twentyfour()
 
 function positional_voting_method_4candidates(concrete_s1, concrete_s2)
+        s₁ = sp.symbols("s₁")
+        s₂ = sp.symbols("s₂")
     map(x -> sp.simplify(1//(1 + concrete_s1 + concrete_s2) * sp.subs(x, zip((s₁,s₂),
                                                                 (concrete_s1,concrete_s2))...)) ,
-        general_positional_vs)
+        general_positional_vs())
 end
 
 
+plurality_four_candidates() =  positional_voting_method_4candidates(0,0)
 
-plurality_four_candidates =  positional_voting_method_4candidates(0,0)
+antiplurality_four_candidates() = positional_voting_method_4candidates(1,1)
 
-antiplurality_four_candidates = positional_voting_method_4candidates(1,1)
-
-vote_for_two_four_candidates =  positional_voting_method_4candidates(1,0)
+vote_for_two_four_candidates() =  positional_voting_method_4candidates(1,0)
 
 
 function get_positional_voting_numeric_vectors(symbolic_positional_vector,
@@ -141,9 +145,6 @@ function get_positional_voting_numeric_vectors(symbolic_positional_vector,
         replacing_dict = Dict(zip(baseline_sym_ps, ps))
         map(x-> x.subs(replacing_dict), symbolic_positional_vector)
 end
-
-
-
 
 
 function props_raw_choice_cols(min_raw)
@@ -158,11 +159,10 @@ end
 
 
 
-
 function getp_4candidates(df)
   props = props_raw_choice_cols(df)
-  candidate_key_dict = zip(CWElectionsBR.candidates, ("A", "B", "C", "D")) |> Dict
-  key_candidate_dict = zip( ("A", "B", "C", "D"), CWElectionsBR.candidates) |> Dict
+  candidate_key_dict = zip(candidates, ("A", "B", "C", "D")) |> Dict
+  key_candidate_dict = zip( ("A", "B", "C", "D"), candidates) |> Dict
 
 
 # A,B,C,D | B,A,C,D | C,A,B,D | A,C,B,D | B,C,A,D | C,B,A,D | C,B,D,A | B,C,D,A | D,C,B,A | C,D,B,A | B,D,C,A | D,B,C,A | D,A,C,B | A,D,C,B | C,D,A,B | D,C,A,B | A,C,D,B | C,A,D,B | B,A,D,C | A,B,D,C | D,B,A,C | B,D,A,C | A,D,B,C | D,A,B,C |
@@ -194,7 +194,6 @@ function getp_4candidates(df)
 
   ## TODO: Check if these missing permutations are not some awful bug!!!
 
-
   props[!,:index_in_p] = indices_for_p
 
   append!(props, missing_rankings)
@@ -203,7 +202,7 @@ function getp_4candidates(df)
   return(p)
 end
 
-function baseline_tetradedron()
+function baseline_tetrahedron()
     mysimplex = rcopy(R"""
 simplex <- function(n) {
   qr.Q(qr(matrix(1, nrow=n)) ,complete = TRUE)[,-1]

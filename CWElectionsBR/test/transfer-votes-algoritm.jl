@@ -1,12 +1,27 @@
 import Pkg
+using Revise 
+
 Pkg.activate("./")
 
+
+
 using CWElectionsBR
+#= 
+using DataFrames 
+import CSV
+
+freq_ranks_inferred = CSV.read("../rscripts/dfs/" * "freq_ranks_inferred.csv", DataFrame)
+
+names(freq_ranks_inferred) =#
 
 
-transferss = sweep_transfer(undercandidates,overcandidates)
+CWElectionsBR.undercandidates
+
+transferss = sweep_transfer(CWElectionsBR.undercandidates,CWElectionsBR.overcandidates)
 
 transferss[1]
+
+map(x->x[:eudist_to_target],transferss) |> CWElectionsBR.countmap
 
 
 dists = map(x->x[:eudist_to_target], transferss) 
