@@ -139,9 +139,17 @@ antiplurality_four_candidates() = positional_voting_method_4candidates(1,1)
 
 vote_for_two_four_candidates() =  positional_voting_method_4candidates(1,0)
 
+borda_four_candidates() = positional_voting_method_4candidates(2//3,1//3)
+
+
+function get_general_positional_vec(ps)
+        replacing_dict = Dict(zip(p_twentyfour(), ps))
+        map(x-> x.subs(replacing_dict), general_positional_vs())
+end
+
 
 function get_positional_voting_numeric_vectors(symbolic_positional_vector,
-                                              ps, baseline_sym_ps = p_twentyfour)
+                                              ps, baseline_sym_ps = p_twentyfour())
         replacing_dict = Dict(zip(baseline_sym_ps, ps))
         map(x-> x.subs(replacing_dict), symbolic_positional_vector)
 end
