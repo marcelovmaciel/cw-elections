@@ -1,0 +1,26 @@
+ranking_vectors,freq
+"CategoricalArrays.CategoricalValue{String, UInt32}[""haddad"", ""ciro"", ""alckmin"", ""bolsonaro""]",363.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""haddad"", ""alckmin"", ""ciro"", ""bolsonaro""]",274.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""haddad"", ""ciro"", ""bolsonaro"", ""alckmin""]",180.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""haddad"", ""bolsonaro"", ""ciro"", ""alckmin""]",46.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""haddad"", ""bolsonaro"", ""alckmin"", ""ciro""]",34.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""haddad"", ""alckmin"", ""bolsonaro"", ""ciro""]",27.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""ciro"", ""haddad"", ""alckmin"", ""bolsonaro""]",49.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""ciro"", ""alckmin"", ""haddad"", ""bolsonaro""]",148.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""ciro"", ""alckmin"", ""bolsonaro"", ""haddad""]",80.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""ciro"", ""bolsonaro"", ""alckmin"", ""haddad""]",60.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""ciro"", ""haddad"", ""bolsonaro"", ""alckmin""]",35.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""ciro"", ""bolsonaro"", ""haddad"", ""alckmin""]",24.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""alckmin"", ""ciro"", ""haddad"", ""bolsonaro""]",0.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""alckmin"", ""haddad"", ""ciro"", ""bolsonaro""]",0.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""alckmin"", ""ciro"", ""bolsonaro"", ""haddad""]",9.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""alckmin"", ""bolsonaro"", ""ciro"", ""haddad""]",82.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""alckmin"", ""bolsonaro"", ""haddad"", ""ciro""]",44.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""alckmin"", ""haddad"", ""bolsonaro"", ""ciro""]",16.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""bolsonaro"", ""alckmin"", ""ciro"", ""haddad""]",411.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""bolsonaro"", ""ciro"", ""alckmin"", ""haddad""]",326.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""bolsonaro"", ""alckmin"", ""haddad"", ""ciro""]",128.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""bolsonaro"", ""ciro"", ""haddad"", ""alckmin""]",402.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""bolsonaro"", ""haddad"", ""ciro"", ""alckmin""]",119.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""bolsonaro"", ""haddad"", ""alckmin"", ""ciro""]",80.0
+"CategoricalArrays.CategoricalValue{String, UInt32}[""other"", ""other"", ""other"", ""other""]",228.0
