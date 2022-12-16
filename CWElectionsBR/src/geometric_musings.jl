@@ -124,6 +124,8 @@ end
 
 general_positional_vs() = standard_vote_matrix() * p_twentyfour()
 
+
+# This gives the q_s!!!!
 function positional_voting_method_4candidates(concrete_s1, concrete_s2)
         s₁ = sp.symbols("s₁")
         s₂ = sp.symbols("s₂")
@@ -146,6 +148,7 @@ function get_general_positional_vec(ps)
         replacing_dict = Dict(zip(p_twentyfour(), ps))
         map(x-> x.subs(replacing_dict), general_positional_vs())
 end
+
 
 
 function get_positional_voting_numeric_vectors(symbolic_positional_vector,
