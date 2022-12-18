@@ -269,7 +269,7 @@ positional voting results of an election\footnote{For a complete exposition of
  \centering
  \includegraphics[width=\columnwidth,
  height=0.3\textheight]{./images/saari_triangle.png}
- \caption{Frequency candidates appear at each position. Source: \textcite{nurmi2002voting}.}
+ \caption{Source: \textcite{nurmi2002voting}.}
  \label{fig:saari_nurmi}
 \end{figure}
 
@@ -355,34 +355,44 @@ alckmin & 6527 \\
 \end{table}
 
 
+\begin{figure}[H]
+ \centering
+ \includegraphics[width=\columnwidth,
+ height=0.3\textheight]{./images/positional_results.png}
+ \caption{Source: \textcite{nurmi2002voting}.}
+ \label{fig:positional4c}
+\end{figure}
+
+
+
+\begin{table}
+  \centering
+  \begin{tabular}{rr}
+    \hline\hline
+    \textbf{candidates} & \textbf{\(w_s\) tallies} \\
+    Alckmin & 0.3415*\(s\_1\) + 0.385*\(s\_2\) + 0.0514 \\
+    Bolsonaro & 0.0988*\(s\_1\) + 0.0919*\(s\_2\) + 0.499 \\
+    Ciro & 0.4358*\(s\_1\) + 0.3173*\(s\_2\) + 0.1348 \\
+    Haddad & 0.1238*\(s\_1\) + 0.2057*\(s\_2\) + 0.3147 \\\hline\hline
+  \end{tabular}
+  \caption{\(w_{s}\) vector of each top 4 candidate}
+\end{table}
 
 
 \begin{table}[]
-  \centering
+    \centering
 \begin{tabular}{|r|r|r|r|}
 \hline
-\textbf{candidates} & \textbf{antiplurality} & \textbf{vote for two } & \textbf{plurality} \\ \hline
-Alckmin                              & 0.2593                                  & 0.1964                                           & 0.0514                                      \\ \hline
-Bolsonaro                            & 0.2299                                  & 0.2989                                           & 0.499                                       \\ \hline
-Ciro                                 & 0.296                                   & 0.2853                                           & 0.1348                                      \\ \hline
-Haddad                               & 0.2147                                  & 0.2192                                           & 0.3147                                      \\ \hline
+\textbf{candidates} & \textbf{antiplurality} & \textbf{vote for two} & \textbf{plurality} \\ \hline
+Alckmin             & 0.7779                 & 0.3929                & 0.0514             \\ \hline
+Bolsonaro           & 0.6897                 & 0.5978                & 0.499              \\ \hline
+Ciro                & 0.8879                 & 0.5706                & 0.1348             \\ \hline
+Haddad              & 0.6442                 & 0.4385                & 0.3147             \\ \hline
 \end{tabular}
-\caption{Positional Scores (dropping ``Others'')}
+\caption{Tallies for boundary positional methods (dropping ``Others'' )}
 \end{table}
 
 
-\begin{table}[]
-  \centering
-\begin{tabular}{|r|r|}
-\hline
-\textbf{candidates} & \textbf{\(w_s\) tallies}               \\ \hline
-Alckmin             & 0.3415\(s_1\) + 0.385\(s_2\) + 0.0514  \\ \hline
-Bolsonaro           & 0.0988\(s_1\) + 0.0919\(s_2\) + 0.499  \\ \hline
-Ciro                & 0.4358\(s_1\) + 0.3173\(s_2\) + 0.1348 \\ \hline
-Haddad              & 0.1238\(s_1\) + 0.2057\(s_2\) + 0.3147 \\ \hline
-\end{tabular}
-\caption{\(w_{s}\) tallies for each candidate (dropping ``Others'' )}
-\end{table}
 
 
 \begin{table}[]

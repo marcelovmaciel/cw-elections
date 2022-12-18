@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.8.30)  15 DEC 2022 17:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2022/dev/Debian) (preloaded format=pdflatex 2022.8.30)  17 DEC 2022 17:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -665,20 +665,15 @@ Package: blx-case-expl3 2022/02/02 v3.17 expl3 case changing code for biblatex
 \@quotelevel=\count429
 \@quotereset=\count430
 
-(./w4-essay.aux
-
-LaTeX Warning: Label `fig:notbc1' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:notbc1' multiply defined.
-
-
-LaTeX Warning: Label `fig:notbc2' multiply defined.
-
-
-LaTeX Warning: Label `sub@fig:notbc2' multiply defined.
-
-)
+(./w4-essay.aux)
+Runaway argument?
+{nurmi2002vot 
+! File ended while scanning use of \abx@aux@cite.
+<inserted text> 
+                \par 
+l.34 \begin{document}
+                     
+? 
 \openout1 = `w4-essay.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
@@ -699,7 +694,7 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
 LaTeX Font Info:    ... okay on input line 34.
- (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count431
 \scratchdimen=\dimen175
@@ -820,154 +815,221 @@ LaTeX Warning: No positions in optional float specifier.
 
 Package biblatex-chicago Warning: Empty Ibidem citation on input line 260.
 
+
+LaTeX Warning: Reference `fig:saari_nurmi' on page 4 undefined on input line 26
+6.
+
 [4]
-<./images/saari_triangle.png, id=191, 335.75438pt x 173.14688pt>
+<./images/saari_triangle.png, id=157, 335.75438pt x 173.14688pt>
 File: ./images/saari_triangle.png Graphic file (type png)
 <use ./images/saari_triangle.png>
 Package pdftex.def Info: ./images/saari_triangle.png  used on input line 271.
 (pdftex.def)             Requested size: 426.79268pt x 210.84258pt.
- [5 <./images/saari_triangle.png (PNG copy)>]
-<./images/corrected1_indexes_plot.png, id=211, 505.02277pt x 505.31184pt>
+
+
+LaTeX Warning: Reference `appendix:transfer' on page 5 undefined on input line 
+295.
+
+
+LaTeX Warning: Reference `appendix:transfer2_results' on page 5 undefined on in
+put line 303.
+
+[5 <./images/saari_triangle.png (PNG copy)>]
+
+LaTeX Warning: Reference `appendix:inferred1' on page 6 undefined on input line
+ 306.
+
+
+LaTeX Warning: Reference `fig:counts' on page 6 undefined on input line 306.
+
+<./images/corrected1_indexes_plot.png, id=174, 505.02277pt x 505.31184pt>
 File: ./images/corrected1_indexes_plot.png Graphic file (type png)
 <use ./images/corrected1_indexes_plot.png>
 Package pdftex.def Info: ./images/corrected1_indexes_plot.png  used on input li
 ne 311.
 (pdftex.def)             Requested size: 341.44589pt x 351.41046pt.
- [6 <./images/corrected1_indexes_plot.png>]
+
+LaTeX Warning: Reference `tbl:tab1' on page 6 undefined on input line 316.
+
+[6 <./images/corrected1_indexes_plot.png>]
 Overfull \hbox (70.27332pt too wide) in paragraph at lines 324--334
  [][] 
  []
 
+<./images/positional_results.png, id=185, 556.0775pt x 359.3425pt>
+File: ./images/positional_results.png Graphic file (type png)
+<use ./images/positional_results.png>
+Package pdftex.def Info: ./images/positional_results.png  used on input line 36
+1.
+(pdftex.def)             Requested size: 426.79793pt x 210.84233pt.
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 360.
+               Default added (so using `tbp') on input line 382.
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 374.
+               Default added (so using `tbp') on input line 398.
 
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 388.
+LaTeX Warning: Reference `fig:c1dropping' on page 7 undefined on input line 425
+.
+
+
+LaTeX Warning: Reference `fig:c1dropping' on page 7 undefined on input line 431
+.
 
 ! Undefined control sequence.
 <argument> ...elname \@empty \ignorespaces \texts 
                                                   have to confirm that. I ev...
-l.422 ... have the code for it written somewhere.}
+l.432 ... have the code for it written somewhere.}
                                                    Ciro > Alckmin >
 ? 
-[7]
-<./images/cw1_nota.png, id=248, 803.0pt x 602.25pt>
+[7 <./images/positional_results.png (PNG copy)>]
+
+LaTeX Warning: Reference `fig:c1dropping' on page 8 undefined on input line 440
+.
+
+
+LaTeX Warning: Reference `fig:c1dropping' on page 8 undefined on input line 444
+.
+
+
+LaTeX Warning: Reference `fig:c2dropping' on page 8 undefined on input line 450
+.
+
+
+LaTeX Warning: Reference `appendix:transfer2_results' on page 8 undefined on in
+put line 450.
+
+
+LaTeX Warning: Reference `tbl:subtab1' on page 8 undefined on input line 451.
+
+[8]
+<./images/cw1_nota.png, id=217, 803.0pt x 602.25pt>
 File: ./images/cw1_nota.png Graphic file (type png)
 <use ./images/cw1_nota.png>
-Package pdftex.def Info: ./images/cw1_nota.png  used on input line 489.
+Package pdftex.def Info: ./images/cw1_nota.png  used on input line 499.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw1_notb.png, id=249, 803.0pt x 602.25pt>
+<./images/cw1_notb.png, id=218, 803.0pt x 602.25pt>
 File: ./images/cw1_notb.png Graphic file (type png)
 <use ./images/cw1_notb.png>
-Package pdftex.def Info: ./images/cw1_notb.png  used on input line 497.
+Package pdftex.def Info: ./images/cw1_notb.png  used on input line 507.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw1_notc.png, id=250, 803.0pt x 602.25pt>
+<./images/cw1_notc.png, id=219, 803.0pt x 602.25pt>
 File: ./images/cw1_notc.png Graphic file (type png)
 <use ./images/cw1_notc.png>
-Package pdftex.def Info: ./images/cw1_notc.png  used on input line 505.
+Package pdftex.def Info: ./images/cw1_notc.png  used on input line 515.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw1_noth.png, id=251, 803.0pt x 602.25pt>
+<./images/cw1_noth.png, id=220, 803.0pt x 602.25pt>
 File: ./images/cw1_noth.png Graphic file (type png)
 <use ./images/cw1_noth.png>
-Package pdftex.def Info: ./images/cw1_noth.png  used on input line 512.
+Package pdftex.def Info: ./images/cw1_noth.png  used on input line 522.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
- [8] [9 <./images/cw1_nota.png> <./images/cw1_notb.png> <./images/cw1_notc.png>
- <./images/cw1_noth.png>] [10]
-Overfull \hbox (1.96306pt too wide) in paragraph at lines 585--585
+ [9 <./images/cw1_nota.png> <./images/cw1_notb.png> <./images/cw1_notc.png> <./
+images/cw1_noth.png>] [10] [11]
+Overfull \hbox (1.96306pt too wide) in paragraph at lines 595--595
 \T1/cmr/m/n/10.95 2016 Re-pub-li-can pres-i-den-tial pri-maries.'' \T1/cmr/m/it
 /10.95 Eu-ro-pean Jour-nal of Po-lit-i-cal Econ-omy \T1/cmr/m/n/10.95 55:29^^U
  []
 
-[11] [12] [13] [14] [15]
-<./images/corrected2_indexes_plot.png, id=344, 505.02277pt x 505.31184pt>
+[12] [13] [14] [15] [16]
+<./images/corrected2_indexes_plot.png, id=311, 505.02277pt x 505.31184pt>
 File: ./images/corrected2_indexes_plot.png Graphic file (type png)
 <use ./images/corrected2_indexes_plot.png>
 Package pdftex.def Info: ./images/corrected2_indexes_plot.png  used on input li
-ne 701.
+ne 711.
 (pdftex.def)             Requested size: 341.44589pt x 351.41046pt.
- [16]
-Overfull \hbox (70.27332pt too wide) in paragraph at lines 710--720
+ [17]
+Overfull \hbox (70.27332pt too wide) in paragraph at lines 720--730
  [][] 
  []
 
 
-Overfull \hbox (49.02594pt too wide) in paragraph at lines 725--735
+Overfull \hbox (49.02594pt too wide) in paragraph at lines 735--745
  [][] 
  []
 
-<./images/cw2_nota.png, id=350, 803.0pt x 602.25pt>
+<./images/cw2_nota.png, id=318, 803.0pt x 602.25pt>
 File: ./images/cw2_nota.png Graphic file (type png)
 <use ./images/cw2_nota.png>
-Package pdftex.def Info: ./images/cw2_nota.png  used on input line 745.
+Package pdftex.def Info: ./images/cw2_nota.png  used on input line 755.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw2_notb.png, id=351, 803.0pt x 602.25pt>
+<./images/cw2_notb.png, id=319, 803.0pt x 602.25pt>
 File: ./images/cw2_notb.png Graphic file (type png)
 <use ./images/cw2_notb.png>
-Package pdftex.def Info: ./images/cw2_notb.png  used on input line 753.
+Package pdftex.def Info: ./images/cw2_notb.png  used on input line 763.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw2_notc.png, id=352, 803.0pt x 602.25pt>
+<./images/cw2_notc.png, id=320, 803.0pt x 602.25pt>
 File: ./images/cw2_notc.png Graphic file (type png)
 <use ./images/cw2_notc.png>
-Package pdftex.def Info: ./images/cw2_notc.png  used on input line 761.
+Package pdftex.def Info: ./images/cw2_notc.png  used on input line 771.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw2_noth.png, id=353, 803.0pt x 602.25pt>
+<./images/cw2_noth.png, id=321, 803.0pt x 602.25pt>
 File: ./images/cw2_noth.png Graphic file (type png)
 <use ./images/cw2_noth.png>
-Package pdftex.def Info: ./images/cw2_noth.png  used on input line 769.
+Package pdftex.def Info: ./images/cw2_noth.png  used on input line 779.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-[17 <./images/corrected2_indexes_plot.png>] [18 <./images/cw2_nota.png> <./imag
+[18 <./images/corrected2_indexes_plot.png>] [19 <./images/cw2_nota.png> <./imag
 es/cw2_notb.png> <./images/cw2_notc.png> <./images/cw2_noth.png>]
 (./w4-essay.aux)
 
-LaTeX Warning: There were multiply-defined labels.
+LaTeX Warning: There were undefined references.
 
-Package rerunfilecheck Info: File `w4-essay.out' has not changed.
-(rerunfilecheck)             Checksum: 64A7C18E556CD2E74583AEF04A551004;1123.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `w4-essay.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `w4-essay.out':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  64A7C18E556CD2E74583AEF04A551004;1123.
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to 'w4-essay.run.xml'.
 \openout1 = `w4-essay.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22598 strings out of 480247
- 406461 string characters out of 5896151
- 1434044 words of memory out of 5000000
- 40155 multiletter control sequences out of 15000+600000
- 489760 words of font info for 85 fonts, out of 8000000 for 9000
+ 22527 strings out of 480247
+ 405804 string characters out of 5896151
+ 1433289 words of memory out of 5000000
+ 40079 multiletter control sequences out of 15000+600000
+ 491302 words of font info for 87 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 76i,10n,89p,2416b,3947s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,12n,89p,2416b,3947s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1095.600pk
 > </home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1095.600pk>
- </home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> 
-</home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> <
-/home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </
-home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </h
-ome/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </ho
-me/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </hom
-e/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home
-/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/
-mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on w4-essay.pdf (18 pages, 671405 bytes).
+ </home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> 
+</home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx0900.600pk> <
+/home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </
+home/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1095.600pk> </h
+ome/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0900.600pk> </ho
+me/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm0800.600pk> </hom
+e/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1095.600pk> </home
+/mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/
+mvm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/m
+vm/.texlive2021/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1728.600pk></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pf
+b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on w4-essay.pdf (19 pages, 710822 bytes).
 PDF statistics:
- 818 PDF objects out of 1000 (max. 8388607)
- 416 compressed objects within 5 object streams
- 111 named destinations out of 1000 (max. 500000)
- 128 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 792 PDF objects out of 1000 (max. 8388607)
+ 385 compressed objects within 4 object streams
+ 113 named destinations out of 1000 (max. 500000)
+ 61 words of extra memory for PDF output out of 10000 (max. 10000000)
 
