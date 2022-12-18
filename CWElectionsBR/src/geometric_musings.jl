@@ -126,7 +126,7 @@ general_positional_vs() = standard_vote_matrix() * p_twentyfour()
 
 
 # This gives the q_s!!!!
-function positional_voting_method_4candidates(concrete_s1, concrete_s2)
+function qₛ_4candidates(concrete_s1, concrete_s2)
         s₁ = sp.symbols("s₁")
         s₂ = sp.symbols("s₂")
     map(x -> sp.simplify(1//(1 + concrete_s1 + concrete_s2) * sp.subs(x, zip((s₁,s₂),
@@ -135,26 +135,41 @@ function positional_voting_method_4candidates(concrete_s1, concrete_s2)
 end
 
 
-plurality_four_candidates() =  positional_voting_method_4candidates(0,0)
+plurality_4c_qₛ() =  qₛ_4candidates(0,0)
 
-antiplurality_four_candidates() = positional_voting_method_4candidates(1,1)
+antiplurality_4c_qₛ() = qₛ_4candidates(1,1)
 
-vote_for_two_four_candidates() =  positional_voting_method_4candidates(1,0)
+vote_for_two_4c_qₛ() =  qₛ_4candidates(1,0)
 
-borda_four_candidates() = positional_voting_method_4candidates(2//3,1//3)
+borda_4c_qₛ() = qₛ_4candidates(2//3,1//3)
 
 
-function get_general_positional_vec(ps)
+function get_4c_wₛ(ps)
         replacing_dict = Dict(zip(p_twentyfour(), ps))
         map(x-> x.subs(replacing_dict), general_positional_vs())
 end
 
+function get_method_4c_wₛ_numeric(ps, vs1,vs2) ## note I already am replacing both ps and s here
+    ## this is different from what I'm doing with qs
+    ws = get_4c_wₛ(ps)
+    s₁ = sp.symbols("s₁")
+    s₂ = sp.symbols("s₂")
+    map(x -> sp.simplify(sp.subs(x, zip((s₁,s₂),
+                                        (vs1,vs2))...)),
+        ws)
+end
 
 
-function get_positional_voting_numeric_vectors(symbolic_positional_vector,
+plurality_4c_wₛ_num(ps) =  get_method_4c_wₛ_numeric(ps,0,0) |> Vector{Float64} |> v-> round.(v, digits = 4)
+antiplurality_4c_wₛ_num(ps) = get_method_4c_wₛ_numeric(ps,1,1) |> Vector{Float64} |> v-> round.(v, digits = 4)
+vote_for_two_4c_wₛ_num(ps) =  get_method_4c_wₛ_numeric(ps,1,0) |> Vector{Float64} |> v-> round.(v, digits = 4)
+borda_4c_wₛ_num(ps) = get_method_4c_wₛ_numeric(ps, 2//3,1//3)  |> Vector{Float64} |> v-> round.(v, digits = 4)
+
+
+function get_numericOf_qₛ(symbolic_vector,
                                               ps, baseline_sym_ps = p_twentyfour())
         replacing_dict = Dict(zip(baseline_sym_ps, ps))
-        map(x-> x.subs(replacing_dict), symbolic_positional_vector)
+        map(x-> x.subs(replacing_dict), symbolic_vector)
 end
 
 
@@ -228,7 +243,7 @@ midpoint3d(p1,p2) = ( (p1[1] + p2[1] )/2, (p1[2] + p2[2])/2, (p1[3] + p2[3])/2 )
 
 function cart_of_method(method, p)
     geometry = rimport("geometry")
-  normalp = Vector{Float64}(get_positional_voting_numeric_vectors(method,
+  normalp = Vector{Float64}(get_numericOf_qₛOrwₛ(method,
   p))
   cartp = rcopy(geometry.bary2cart(baseline_tetrahedron(),normalp)) |> Tuple
   return(cartp)

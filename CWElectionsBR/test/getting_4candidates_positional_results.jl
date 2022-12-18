@@ -10,21 +10,19 @@ mincw1 = cw.CSV.read(dfspath * "min_c1_raw.csv", cw.DataFrame)
 
 p4c = cw.getp_4candidates(mincw1)
 
-function cleaned_up_result_for_p(vm, p = p4c) 
+#= function cleaned_up_result_for_p(vm, p = p4c) 
         Vector{Float64}(cw.get_positional_voting_numeric_vectors(vm, p)) |>
         v-> round.(v, digits = 4)
 end
+ =#
+
+ 
+wscw1 = cw.get_general_wₛ(p4c) 
 
 
-
-
-
-
-antiplurality_result = cleaned_up_result_for_p(cw.antiplurality_four_candidates()) 
-plurality_result = cleaned_up_result_for_p(cw.plurality_four_candidates())
-vote_for_two_result = cleaned_up_result_for_p(cw.vote_for_two_four_candidates())
-
-borda_result = cleaned_up_result_for_p(cw.borda_four_candidates())
+plurality_result = cw.plurality_4c_wₛ_num(p4c)
+vote_for_two_result = cw.vote_for_two_4c_wₛ_num(p4c)
+antiplurality_result = cw.antiplurality_4c_wₛ_num(p4c)
 
 p_results_df = cw.DataFrame(:candidates => ["Alckmin", "Bolsonaro", "Ciro", "Haddad"],
                          :antiplurality => antiplurality_result, 
@@ -32,35 +30,24 @@ p_results_df = cw.DataFrame(:candidates => ["Alckmin", "Bolsonaro", "Ciro", "Had
                          :plurality_result => plurality_result
                          )
 
+ws_tallies = pretty_table(cw.DataFrame("candidates"=> cw.candidates,
+                         "w_s tallies"=>  wscw1 ),backend = Val(:latex))
+
+positional_rankings = pretty_table(p_results_df, backend = Val(:latex))                         
+                         
 
 ##  BUG: This does not match the plurality result   
 ## I can simply get the general_svector 
 ## And replace on it! 
 ## They don't match because those are not ws, but qs!!!!                   
-positional_rankings = pretty_table(p_results_df, backend = Val(:latex))
-                         
- p_results_df      |> println                    
+
+                           
 
 
-general_svector = begin  
-    s1 = 0;s2=0
-    s₁ = cw.sp.symbols("s₁")
-    s₂ = cw.sp.symbols("s₂")
-    replacing_dict = Dict(zip([s₁, s₂], [s1,s2]))
-    foo = cw.get_general_positional_vec(p4c) 
-    ## .|> x-> x//(1 + s₁ + s₂) 
-end    
-
-
-s₁ = cw.sp.symbols("s₁")
-s₂ = cw.sp.symbols("s₂")
-
+cw.get_method_wₛ(p4c,0,0)    
 
 
 # This matches the proper plurality result 
-ws_tallies = pretty_table(cw.DataFrame("candidates"=> cw.candidates,
-"w_s tallies"=>  general_svector ),backend = Val(:latex))
-
 
 
 
@@ -80,6 +67,4 @@ counterfactuals[!,:candidates] = cw.candidates
 
 cw.select!(counterfactuals, [:candidates, Symbol.(cw.candidates)...])
 
-
-
-counterfactuals |> browse 
+table_counterfactuals = pretty_table(counterfactuals ,backend=Val(:latex))
