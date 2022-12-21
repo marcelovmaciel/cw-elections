@@ -179,6 +179,17 @@ lines!(deplot.axis,
      color = :black)
 end
 
+
+plt
+
+cw.tern2cart([1//3,1//3,1//3])
+
+avertex= cw.midpoint((0.,0.), (1.,sqrt(3)))
+
+cvertex = (1.,0.)
+
+bvertex = cw.midpoint((2.0,0.0), (1., sqrt(3)/2)) # 1.5,sqrt(3)/2
+
 linepairs = [[[1., 0.] , [1.,sqrt(3)]],
 [[0., 0.] , [1.5, sqrt(3)/2]],
 [[2., 0.] , [0.5, sqrt(3)/2]],
@@ -195,9 +206,67 @@ end
 
 plt                  
 
+for i in external_points
+text!("D",position=i)
+end
+
+for (i,j) in zip(["A","B", "C"], [avertex,bvertex,cvertex])
+text!(i,position=j)
+end
+plt
 
 plt.axis.yreversed = true
 
+#= 
+circle_around_a = cw.GeometryBasics.Circle{Float64}(avertex,abs(1-0.196))
+circle_around_b = cw.GeometryBasics.Circle{Float64}(bvertex,abs(1-0.298))
+circle_around_c = cw.GeometryBasics.Circle{Float64}(cvertex,abs(1-0.285))
+
+circles_around_d = [ cw.GeometryBasics.Circle{Float64}(dv,abs(1-0.219))
+ for dv in external_points] =#
+
+
+ circle_around_a = cw.GeometryBasics.Circle{Float64}(avertex,1)
+ circle_around_b = cw.GeometryBasics.Circle{Float64}(bvertex,1)
+ circle_around_c = cw.GeometryBasics.Circle{Float64}(cvertex,1)
+ 
+ circles_around_d = [ cw.GeometryBasics.Circle{Float64}(dv,1)
+  for dv in external_points]
+ 
+ 
+
+
+ for cic in [circle_around_a, circle_around_b, circle_around_c]
+poly!(plt.axis, cic, color = :transparent, 
+strokecolor = :blue, strokewidth = 2)
+end
+
+
+for cic in circles_around_d
+  poly!(plt.axis, cic, color = :transparent, 
+  strokecolor = :blue, strokewidth = 2)
+end
+
+circle_around_a2 = cw.GeometryBasics.Circle{Float64}(avertex,abs(1-0.196))
+circle_around_b2 = cw.GeometryBasics.Circle{Float64}(bvertex,abs(1-0.298))
+circle_around_c2 = cw.GeometryBasics.Circle{Float64}(cvertex,abs(1-0.285))
+
+circles_around_d2 = [ cw.GeometryBasics.Circle{Float64}(dv,abs(1-0.219))
+ for dv in external_points]
+
+ for cic in [circle_around_a2, circle_around_b2, circle_around_c2]
+  poly!(plt.axis, cic, color = :transparent, 
+  strokecolor = :red, strokewidth = 2)
+  end
+  
+  
+  for cic in circles_around_d2
+    poly!(plt.axis, cic, color = :transparent, 
+    strokecolor = :red, strokewidth = 2)
+  end
+
+plt
+  
 
 ## -----------------------------------------------------------
 
@@ -233,3 +302,17 @@ wireframe!(foo.axis, comb)
 end  
 
  =#
+
+ # -- Using my base triangle 
+
+foo =  cw.plain_triangle(["A", "B","C"])
+
+plainpoints = [(0.,0.), (1.,0.), (0.5,sqrt(3)/2)]
+
+d1 = (-0.5, sqrt(3)/2)
+d2 = (1.5,sqrt(3)/2)
+d3 = (0.5, -sqrt(3)/2)
+
+scatter!(foo.axis,[d1,d2,d3])
+
+foo

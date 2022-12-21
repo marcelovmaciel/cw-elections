@@ -1,11 +1,11 @@
 using Revise
+
 import Pkg
 
 
 
 Pkg.activate("./")
 
-Pkg.build("RCall")
 
 
 import CWElectionsBR as cw
