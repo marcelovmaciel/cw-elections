@@ -1,6 +1,4 @@
- |
-
-## i dont remeber how I calculated that translation LOL
+## i dont remeber how I calculated that translation LOL -> took it from the julia pkg for ternary plots!!!
 tern2cart(a, b, c) = (1 / 2 * (2b + c) / (a + b + c), √3 / 2 * (c / (a + b + c)))
 midpoint(p1,p2) = ( (p1[1] + p2[1] )/2, (p1[2] + p2[2])/2)
 
@@ -8,7 +6,7 @@ function turn_into_euclideanpoint(point)
     tern2cart(point...) |> GeometryBasics.Point2
 end
 
-function plain_triangle(sorted_candidate_list)
+function plain_triangle()
 
 
     plainpoints = [(0.,0.), (1.,0.), (0.5,sqrt(3)/2)]
@@ -46,11 +44,6 @@ function plain_triangle(sorted_candidate_list)
     #scatter!(barepoints)
     #scatter!(filter(!weirdcentroid,barepoints))
 
-
-
-    text!(sorted_candidate_list[1], position = (-0.03,-0.05))
-    text!(sorted_candidate_list[2], position = (0.9,-0.05))
-    text!(sorted_candidate_list[3], position = (0.48,0.867))
 
     return(basic_3candidate_triangle)
 end
@@ -211,6 +204,10 @@ plurality_4c_wₛ_num(ps) =  get_method_4c_wₛ_numeric(ps,0,0) |> Vector{Float6
 antiplurality_4c_wₛ_num(ps) = get_method_4c_wₛ_numeric(ps,1,1) |> Vector{Float64} |> v-> round.(v, digits = 4)
 vote_for_two_4c_wₛ_num(ps) =  get_method_4c_wₛ_numeric(ps,1,0) |> Vector{Float64} |> v-> round.(v, digits = 4)
 borda_4c_wₛ_num(ps) = get_method_4c_wₛ_numeric(ps, 2//3,1//3)  |> Vector{Float64} |> v-> round.(v, digits = 4)
+
+
+
+
 
 
 function get_numericOf_qₛ(symbolic_vector,
