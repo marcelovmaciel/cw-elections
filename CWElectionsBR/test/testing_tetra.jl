@@ -17,15 +17,15 @@ using DataFrames
 using StatsBase
 using RCall
 using Distances 
-
-
-import Lazy as lz
+using MeshViz
+using LinearAlgebra
+using Rotations
 
 #=
 So, the tetrahedron vertices are (1,0,0,0), (0,1,0,0), (0,0,1,0) and (0,0,0,1)
 =#
 
-tetrahedron_points = cw.baseline_tetrahedron()
+#= tetrahedron_points = cw.baseline_tetrahedron()
 
 
 
@@ -110,7 +110,7 @@ end
       
  annotations!( ["A", "B", "C", "D"], GeometryBasics.Point3f0.(tetrapoints))      
 plt3
-
+ =#
 
 ## Preprocessing For visualization 
 
@@ -118,19 +118,19 @@ dfspath = "../rscripts/dfs/"
 
 mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
 
-p4c = getp_4candidates(mincw1)
+p4c = cw.getp_4candidates(mincw1)
 
-cart_antiplurality = cart_of_method(antiplurality_four_candidates, p4c) 
+#= cart_antiplurality = cart_of_method(antiplurality_four_candidates, p4c) 
 cart_plurality = cart_of_method(plurality_four_candidates, p4c) 
 cart_vote_for_two = cart_of_method(vote_for_two_four_candidates, p4c) 
 
 
 
 ngon = Meshes.Ngon([cart_antiplurality,cart_plurality, cart_vote_for_two]...)
+ =#
 
 
-
-MeshViz.viz!(plt3.axis,ngon, color = :white, alpha = 0.01)
+#= MeshViz.viz!(plt3.axis,ngon, color = :white, alpha = 0.01)
 plt3
 
 foo
@@ -139,7 +139,7 @@ meshscatter!(foo.axis,[cart_antiplurality,cart_plurality, cart_vote_for_two], ma
 wireframe!(foo.axis,GeometryBasics.Point3f0.([cart_antiplurality,cart_plurality, cart_vote_for_two]))
  
  foo
-
+ =#
 
 
 
@@ -308,7 +308,7 @@ end
 
  # -- Using my base triangle 
 
-foo =  cw.plain_triangle(["A", "B","C"])
+foo =  cw.plain_triangle()
 
 
 avertex = (0,0)
@@ -355,6 +355,10 @@ apl = cw.get_numericOf_qₛ(cw.antiplurality_4c_qₛ(), p4c)  |> Vector{Float64}
 v42 = cw.get_numericOf_qₛ(cw.vote_for_two_4c_qₛ(), p4c)  |> Vector{Float64} |> v-> round.(v, digits = 4)
 
 borda = cw.get_numericOf_qₛ(cw.borda_4c_qₛ(), p4c)  |> Vector{Float64} |> v-> round.(v, digits = 4)
+
+
+
+pl
 
 
 truncpl = map(x->x + pl[4]/3,pl)[1:3]
@@ -419,9 +423,6 @@ truncapl |> println
 foo
 
 
-
-
-
 d1 = (-0.5, sqrt(3)/2)
 d2 = (1.5,sqrt(3)/2)
 d3 = (0.5, -sqrt(3)/2)
@@ -432,7 +433,7 @@ ds = [d1,d2,d3]
 foo =  cw.plain_triangle(["A", "B","C"])
 
 function plain_opened_tetrahedron()
-  foo =  cw.plain_triangle(["A", "B","C"])  
+  foo =  cw.plain_triangle()  
   avertex = (0,0)
   bvertex = (1.,0.)
   cvertex = (0.5,sqrt(3)/2)
@@ -454,16 +455,126 @@ function plain_opened_tetrahedron()
   lines!(foo.axis,[avertex, cw.midpoint(cvertex, d1)], color=:black)
   lines!(foo.axis,[bvertex, cw.midpoint(cvertex, d2)], color=:black)
   
-  hidespines!(foo.axis)
+  #= hidespines!(foo.axis)
   hidexdecorations!(foo.axis)
   hideydecorations!(foo.axis)
-
+ =#
 
   return(foo)
 end
 
 
-foo2 = plain_opened_tetrahedron()
+ot = plain_opened_tetrahedron()
+
+# simp = cw.baseline_tetrahedron()
+
+na  = (0.,0.,0.)
+nb = (1.,0.,0.)
+nc = (0.5,sqrt(3)/2,0.)
+ncentr = (0.5,  0.28867513459481287, sqrt(6)/3)
+
+helper = [na,nb,nc,ncentr]
+
+tetra_matrix = hcat(first.(helper), (x->x[2]).(helper), last.(helper))
+
+tetra_matrix
+
+
+geometry = rimport("geometry")
+
+function get_position_in_simplex(method,outer_candidate,tetra_base = tetra_matrix)
+  base_of_tetra = drop_idx(method,outer_candidate)  
+  new_tetra = [base_of_tetra...,method[outer_candidate]]
+
+  rcopy(geometry.bary2cart(tetra_base,new_tetra)) |> Tuple 
+end  
+
+
+
+tpl
+
+tpl = rcopy(geometry.bary2cart(tetra_matrix,pl)) |> Tuple 
+tapl = rcopy(geometry.bary2cart(tetra_matrix,apl)) |> Tuple 
+tv42 = rcopy(geometry.bary2cart(tetra_matrix,v42)) |> Tuple 
+tborda = rcopy(geometry.bary2cart(tetra_matrix,borda)) |> Tuple 
+
+
+tv42
+
+t = Meshes.Tetrahedron([na,nb,nc,ncentr])
+
+helper
+
+tpl
+
+
+new_closestd(tpl,helper )
+
+helper 
+
+
+tpl
+
+d1
+
+#= 
+test_viz = MeshViz.viz(t, showfacets =true ,
+ color = :green, strokecolor = :black, alpha = 0.1)
+
+meshscatter!(test_viz.axis,[test], markersize = 0.01)
+ =#
+d1 = (-0.5, sqrt(3)/2,0)
+
+d2 = (1.5,sqrt(3)/2,0)
+
+d3 = (0.5, -sqrt(3)/2,0)
+
+ds = [d1,d2,d3]
+
+
+centroid_base = Meshes.Triangle((0.,0.), (1.,0.), (0.5, sqrt(3)/2)) |> Meshes.centroid 
+
+new_closestd(point,ds = ds) = map(x->evaluate(Euclidean(), point,x), 
+ds) |> argmin
+
+
+
+centroid_base3 = (centroid_base.coords[1],centroid_base.coords[2],0.0)
+
+
+ot
+
+projectonto(a,b) = (a ⋅ b)/(b ⋅ b) .* b
+
+function get_ot_projection(point,ds = ds)
+
+  closestd =   ds[new_closestd(point)]
+  new_center = (point[1],point[2],0.0)
+  shiftedD = closestd .- new_center
+  
+  test = ((1-point[3]) .* new_center  .+
+   point[3] .* shiftedD) #.+ new_center
+#  R = AngleAxis(π/2, shiftedD[1], shiftedD[2], shiftedD[3])
+
+#=   shiftedD = map(x->x/sum(closestd), closestd)
+  R = AngleAxis(π/2, shiftedD[1], shiftedD[2], shiftedD[3])
+  shiftedpoint = [point[1],point[2],point[3]]
+  projection = (shiftedpoint'*R)[1:2] |> Tuple =#
+#= rosz(θ) = [cos(θ) -sin(θ) 0; 
+           sin(θ) cos(θ) 0;
+           0 0 1]
+ =#
+
+#$projection = projectonto(shiftedpoint,shiftedD) .+ centroid_base3
+#(rosz(π/2) * collect((point .- closestd))  .+ collect(closestd) |> Tuple)[1:2]
+  
+#projection = ( rosz(π/2) ⋅ collect((point .- closestd))) .+ collect(point ) |> Tuple 
+ #return(projection[1:2])
+ #return(projection[1:2])
+ return(test[1:2])
+end  
+
+
 
 
 dfspath = "../rscripts/dfs/"
@@ -474,19 +585,80 @@ p4c = cw.getp_4candidates(mincw1)
 
 drop_idx(vec, idx) = vec[eachindex(vec) .∉ Ref(idx)] # this is actually super useful in general, should be in an utils package 
 
-closestd(point) = map(x->evaluate(Euclidean(), cw.tern2cart(point...),x), 
+#= closestd(point) = map(x->evaluate(Euclidean(), cw.tern2cart(point...),x), 
 [d1,d2,d3]) |> argmin
 
-
+ =#
 
 normalize(vec) = vec./sum(vec)
 
 
-
 function newpoint(point,untruncated_point, who_is_outer)
-  (1-(untruncated_point)[who_is_outer]) .*cw.tern2cart(point...)  .+
+  #println(point)
+  #println(sum(point))
+  foo = (1-(untruncated_point)[who_is_outer]) .*cw.tern2cart(point...)  .+
    ((untruncated_point)[who_is_outer]) .* ds[closestd(point)]
+   println(foo)
+   return(foo)
 end
+
+
+
+function plot_4c_hull(ps, who_is_outer_vertex::Int, candidate_list::Vector{String} = cw.candidates)
+  
+  inner_candidates = drop_idx(candidate_list,who_is_outer_vertex) .|> titlecase
+  outer_candidate = candidate_list[who_is_outer_vertex] .|> titlecase
+  
+  ot = plain_opened_tetrahedron()
+  tpl,tapl,tv42,tborda = map(x->get_position_in_simplex(x,who_is_outer_vertex),
+                             [pl,apl,v42,borda])
+  ppl,papl,pv42,pborda = get_ot_projection.([tpl,tapl,tv42,tborda])
+
+  poly!(ot.axis,cw.GeometryBasics.Polygon(cw.GeometryBasics.Point2.([papl,
+  ppl,pv42,papl])),
+  color =:transparent, strokecolor =:black, strokewidth = 1)
+  scatter!(ot.axis,[papl], color = :black, markersize = 10, marker = :dtriangle)
+  scatter!(ot.axis,[ppl], color = :black, markersize = 10, marker = :utriangle)
+  scatter!(ot.axis,[pv42], color = :black, markersize = 10, marker = :circle)
+  
+  scatter!(ot.axis,[pborda], color = :blue, markersize = 10, marker =:diamond)
+  
+#=   for trunc in [truncapl,
+    truncpl,truncv42,truncapl,truncborda]
+  lines!(ot.axis,[cw.tern2cart(trunc...),
+   ds[closestd(trunc)]], color=:red)
+  end   
+ =#
+#=   poly!(ot.axis,cw.GeometryBasics.Polygon(cw.GeometryBasics.Point2.(map(x->cw.tern2cart(x...),[truncapl,
+  truncpl,truncv42,truncapl]))),
+  color =:transparent, strokecolor =:black, strokewidth = 1)
+ =#
+#=   scatter!(ot.axis,[cw.tern2cart(truncapl...)], color = :red, markersize = 10, marker = :dtriangle)
+  scatter!(ot.axis,[cw.tern2cart(truncpl...)], color = :red, markersize = 10, marker = :utriangle)
+  scatter!(ot.axis,[cw.tern2cart(truncv42...)], color = :red, markersize = 10, marker = :circle)
+  
+  scatter!(ot.axis,[cw.tern2cart(truncborda...)], color = :red, markersize = 10, marker =:diamond)
+ =#  
+  
+  text!(inner_candidates[1], position = (-0.29,-0.05))
+  text!(inner_candidates[2], position = (1.05,-0.05))
+  text!(inner_candidates[3], position = (0.48,0.867))
+
+  
+  text!(outer_candidate, position = d1[1:2])
+  text!(outer_candidate, position = d2[1:2] .+ (-0.16,0.))
+  text!(outer_candidate, position = d3[1:2] .+ (-0.1,-0.09))
+  
+  return(ot)  
+end  
+
+
+foo3 = plot_4c_hull(p4c, 1)
+
+
+apl
+
+
 
 
 function plot_4c_hull(ps, who_is_outer_vertex::Int, candidate_list::Vector{String} = cw.candidates)
@@ -497,10 +669,112 @@ function plot_4c_hull(ps, who_is_outer_vertex::Int, candidate_list::Vector{Strin
   borda = cw.get_numericOf_qₛ(cw.borda_4c_qₛ(), ps)  |> Vector{Float64} |> v-> round.(v, digits = 4)
 
 
-  truncpl = drop_idx(map(x->x + pl[who_is_outer_vertex]/3,pl), who_is_outer_vertex)
-  truncapl = drop_idx(map(x->x + apl[who_is_outer_vertex]/3,apl),who_is_outer_vertex)
-  truncv42 = drop_idx(map(x->x + v42[who_is_outer_vertex]/3,v42),who_is_outer_vertex)
-  truncborda = drop_idx(map(x->x + borda[who_is_outer_vertex]/3,borda), who_is_outer_vertex)
+  truncpl = drop_idx(map(x->x + pl[who_is_outer_vertex]/3,pl), who_is_outer_vertex) |> normalize 
+  truncapl = drop_idx(map(x->x + apl[who_is_outer_vertex]/3,apl),who_is_outer_vertex) |> normalize 
+  truncv42 = drop_idx(map(x->x + v42[who_is_outer_vertex]/3,v42),who_is_outer_vertex) |> normalize 
+  truncborda = drop_idx(map(x->x + borda[who_is_outer_vertex]/3,borda), who_is_outer_vertex) |> normalize 
+  
+  inner_candidates = drop_idx(candidate_list,who_is_outer_vertex) .|> titlecase
+  outer_candidate = candidate_list[who_is_outer_vertex] .|> titlecase
+  
+  ot = plain_opened_tetrahedron()
+  
+  pullapl = newpoint(truncapl,apl,who_is_outer_vertex)
+  pullpl  = newpoint(truncpl,pl,who_is_outer_vertex)
+  pullv42 = newpoint(truncv42,v42,who_is_outer_vertex)
+  pullborda = newpoint(truncborda,borda,who_is_outer_vertex)
+
+  poly!(ot.axis,cw.GeometryBasics.Polygon(cw.GeometryBasics.Point2.([pullapl,
+  pullpl,pullv42,pullapl])),
+  color =:transparent, strokecolor =:black, strokewidth = 1)
+  scatter!(ot.axis,[pullapl], color = :black, markersize = 10, marker = :dtriangle)
+  scatter!(ot.axis,[pullpl], color = :black, markersize = 10, marker = :utriangle)
+  scatter!(ot.axis,[pullv42], color = :black, markersize = 10, marker = :circle)
+  
+  scatter!(ot.axis,[pullborda], color = :blue, markersize = 10, marker =:diamond)
+  
+  for trunc in [truncapl,
+    truncpl,truncv42,truncapl,truncborda]
+  lines!(ot.axis,[cw.tern2cart(trunc...),
+   ds[closestd(trunc)]], color=:red)
+  end   
+
+  poly!(ot.axis,cw.GeometryBasics.Polygon(cw.GeometryBasics.Point2.(map(x->cw.tern2cart(x...),[truncapl,
+  truncpl,truncv42,truncapl]))),
+  color =:transparent, strokecolor =:black, strokewidth = 1)
+
+  scatter!(ot.axis,[cw.tern2cart(truncapl...)], color = :red, markersize = 10, marker = :dtriangle)
+  scatter!(ot.axis,[cw.tern2cart(truncpl...)], color = :red, markersize = 10, marker = :utriangle)
+  scatter!(ot.axis,[cw.tern2cart(truncv42...)], color = :red, markersize = 10, marker = :circle)
+  
+  scatter!(ot.axis,[cw.tern2cart(truncborda...)], color = :red, markersize = 10, marker =:diamond)
+  
+  
+  text!(inner_candidates[1], position = (-0.29,-0.05))
+  text!(inner_candidates[2], position = (1.05,-0.05))
+  text!(inner_candidates[3], position = (0.48,0.867))
+
+  
+  text!(outer_candidate, position = d1)
+  text!(outer_candidate, position = d2 .+ (-0.16,0.))
+  text!(outer_candidate, position = d3 .+ (-0.1,-0.09))
+  
+  return(ot)  
+end  
+
+
+cw.get_numericOf_qₛ(cw.plurality_4c_qₛ(), p4c) 
+
+cw.borda_4c_qₛ()
+
+foo3 = plot_4c_hull(p4c, 1)
+
+
+
+function plot_baselineAnd_corrected(truncated_baseline,untruncated)
+  scatter!(foo.axis, [cw.tern2cart(truncated_baseline...)])                    
+  lines!(foo.axis,[cw.tern2cart(truncated_baseline...),
+   ds[closestd(truncated_baseline)]], color=:blue)
+   scatter!(foo.axis, [newpoint(truncated_baseline, untruncated)], color = :red)
+end
+
+
+plw = cw.plurality_4c_wₛ_num(p4c) 
+
+
+aplw
+
+
+aplw= cw.antiplurality_4c_wₛ_num(p4c)
+
+v42w= cw.vote_for_two_4c_wₛ_num(p4c) 
+
+
+
+bordaw= cw.borda_4c_wₛ_num(p4c)
+
+function newpoint(point,untruncated_point, who_is_outer)
+  #println(point)
+  #println(sum(point))
+  foo = ((untruncated_point)[who_is_outer]) .*cw.tern2cart(point...)  .+
+   (1-(untruncated_point)[who_is_outer]) .* ds[closestd(point)]
+   println(foo)
+   return(foo)
+end
+
+
+function plot_4c_hull2(ps, who_is_outer_vertex::Int, candidate_list::Vector{String} = cw.candidates)
+
+  pl =  cw.get_numericOf_qₛ(cw.plurality_4c_qₛ(), ps)  |> Vector{Float64} |> v-> round.(v, digits = 4)
+  apl = cw.get_numericOf_qₛ(cw.antiplurality_4c_qₛ(), ps)  |> Vector{Float64} |> v-> round.(v, digits = 4)
+  v42 = cw.get_numericOf_qₛ(cw.vote_for_two_4c_qₛ(), ps)  |> Vector{Float64} |> v-> round.(v, digits = 4)
+  borda = cw.get_numericOf_qₛ(cw.borda_4c_qₛ(), ps)  |> Vector{Float64} |> v-> round.(v, digits = 4)
+
+
+  truncpl = drop_idx(pl, who_is_outer_vertex) 
+  truncapl = drop_idx(apl,who_is_outer_vertex) 
+  truncv42 = drop_idx(v42,who_is_outer_vertex)
+  truncborda = drop_idx(borda, who_is_outer_vertex)
   
   inner_candidates = drop_idx(candidate_list,who_is_outer_vertex) .|> titlecase
   outer_candidate = candidate_list[who_is_outer_vertex] .|> titlecase
@@ -552,29 +826,11 @@ function plot_4c_hull(ps, who_is_outer_vertex::Int, candidate_list::Vector{Strin
 end  
 
 
-cw.get_numericOf_qₛ(cw.vote_for_two_4c_qₛ(), p4c) |> sum
-
-cw.borda_4c_qₛ()
-
-foo3 = plot_4c_hull(p4c, 2)
 
 
+foo2 = plot_4c_hull2(p4c, 1)
 
-function plot_baselineAnd_corrected(truncated_baseline,untruncated)
-  scatter!(foo.axis, [cw.tern2cart(truncated_baseline...)])                    
-  lines!(foo.axis,[cw.tern2cart(truncated_baseline...),
-   ds[closestd(truncated_baseline)]], color=:blue)
-   scatter!(foo.axis, [newpoint(truncated_baseline, untruncated)], color = :red)
-end
+foo2
 
 
-
-borda |> println
-
-
-foo
-
-
-
-
-foo
+foo3

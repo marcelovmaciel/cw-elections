@@ -2,10 +2,7 @@ using Revise
 
 import Pkg
 
-
-
 Pkg.activate("./")
-
 
 
 import CWElectionsBR as cw
@@ -23,10 +20,12 @@ end
  =#
 
  
-wscw1 = cw.get_general_wₛ(p4c) 
+wscw1 = cw.get_4c_wₛ(p4c) 
 
 
 plurality_result = cw.plurality_4c_wₛ_num(p4c)
+
+
 vote_for_two_result = cw.vote_for_two_4c_wₛ_num(p4c)
 antiplurality_result = cw.antiplurality_4c_wₛ_num(p4c)
 
@@ -50,7 +49,7 @@ positional_rankings = pretty_table(p_results_df, backend = Val(:latex))
                            
 
 
-cw.get_method_wₛ(p4c,0,0)    
+cw.get_numericOf_qₛ(cw.vote_for_two_4c_qₛ(),p4c)    
 
 
 # This matches the proper plurality result 
