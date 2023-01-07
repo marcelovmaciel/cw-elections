@@ -54,10 +54,26 @@ indices_for_p = [findfirst(permutation -> permutation == map(i -> candidate_key_
 # TODO :  Double check this !!!!!!! 
 # TODO : also double check if the proportions are in the correct place. 
 
+
+dfspath = "../rscripts/dfs/"
+
+mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
+
+
+
+
+foo = cw.getp_candidate_list_without_candidate(mincw1,"haddad")
+
+
+
 cw1_nota = representation△(getp_candidate_list_without_candidate(mincw1,"alckmin")...) 
 cw1_notb = representation△(getp_candidate_list_without_candidate(mincw1,"bolsonaro")...)
 cw1_notc = representation△(getp_candidate_list_without_candidate(mincw1,"ciro")...)
-cw1_noth = representation△(getp_candidate_list_without_candidate(mincw1,"haddad")...)
+
+
+cw1_noth = cw.representation△(cw.getp_candidate_list_without_candidate(mincw1,"haddad")...)
+
+#save("simpletriangle.png",cw1_noth)
 
 cw1_names = map(x-> plotspath * x, 
 ["cw1_nota.png","cw1_notb.png", "cw1_notc.png", "cw1_noth.png"])
