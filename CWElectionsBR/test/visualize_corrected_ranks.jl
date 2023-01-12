@@ -73,7 +73,7 @@ cw1_notc = representation△(getp_candidate_list_without_candidate(mincw1,"ciro"
 
 cw1_noth = cw.representation△(cw.getp_candidate_list_without_candidate(mincw1,"haddad")...)
 
-#save("simpletriangle.png",cw1_noth)
+#save("simpletriangle.svg",cw1_noth)
 
 cw1_names = map(x-> plotspath * x, 
 ["cw1_nota.png","cw1_notb.png", "cw1_notc.png", "cw1_noth.png"])
