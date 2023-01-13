@@ -21,6 +21,13 @@ using MeshViz
 using LinearAlgebra
 using Rotations
 
+dfspath = "../rscripts/dfs/"
+
+mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
+
+p4c = cw.getp_4candidates(mincw1)
+
+
 #=
 So, the tetrahedron vertices are (1,0,0,0), (0,1,0,0), (0,0,1,0) and (0,0,0,1)
 =#
@@ -114,12 +121,12 @@ plt3
 
 ## Preprocessing For visualization 
 
-dfspath = "../rscripts/dfs/"
+#= dfspath = "../rscripts/dfs/"
 
 mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
 
 p4c = cw.getp_4candidates(mincw1)
-
+ =#
 #= cart_antiplurality = cart_of_method(antiplurality_four_candidates, p4c) 
 cart_plurality = cart_of_method(plurality_four_candidates, p4c) 
 cart_vote_for_two = cart_of_method(vote_for_two_four_candidates, p4c) 
@@ -163,7 +170,6 @@ internal_points = [(1/2, sqrt(3)/2),
                (3/2, sqrt(3)/2), 
                (1., 0.)] 
 
-
 t1 = [(0., 0.), (1/2, sqrt(3)/2), (1., 0.) ] .|> GeometryBasics.Point2
 t2 = [(1., 0.), (3/2, sqrt(3)/2), (2.,0.) ] .|> GeometryBasics.Point2
 t3 = [(1., sqrt(3)), (1/2, sqrt(3)/2), (3/2, sqrt(3)/2)] .|> GeometryBasics.Point2
@@ -182,7 +188,7 @@ lines!(deplot.axis,
      color = :black)
 end
 
-
+#= 
 plt
 
 cw.tern2cart([1//3,1//3,1//3])
@@ -270,7 +276,7 @@ circles_around_d2 = [ cw.GeometryBasics.Circle{Float64}(dv,abs(1-0.219))
 
 plt
   
-
+ =#
 ## -----------------------------------------------------------
 
 vertex_combs = combinations([GeometryBasics.Point3f0.(tetrapoint2)...,
@@ -308,7 +314,7 @@ end
 
  # -- Using my base triangle 
 
-foo =  cw.plain_triangle()
+#= foo =  cw.plain_triangle()
 
 
 avertex = (0,0)
@@ -346,7 +352,7 @@ dfspath = "../rscripts/dfs/"
 
 mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
 
-p4c = cw.getp_4candidates(mincw1)
+p4c = cw.getp_4candidates(mincw1) =#
 
 pl =  cw.get_numericOf_qₛ(cw.plurality_4c_qₛ(), p4c)  |> Vector{Float64} |> v-> round.(v, digits = 4)
 
@@ -357,9 +363,10 @@ v42 = cw.get_numericOf_qₛ(cw.vote_for_two_4c_qₛ(), p4c)  |> Vector{Float64} 
 borda = cw.get_numericOf_qₛ(cw.borda_4c_qₛ(), p4c)  |> Vector{Float64} |> v-> round.(v, digits = 4)
 
 
+apl
 
 pl
-
+#= 
 
 truncpl = map(x->x + pl[4]/3,pl)[1:3]
 
@@ -369,7 +376,7 @@ truncv42 = map(x->x + v42[4]/3,v42)[1:3]
 
 truncborda = map(x->x + borda[4]/3,borda)[1:3]
 
-
+ =#
 foo
 #= 
 
@@ -380,33 +387,33 @@ scatter!(foo.axis, [cw.tern2cart(truncv42... ),
 
 
 
-using Distances 
+
 
 closestd(point) = map(x->evaluate(Euclidean(), cw.tern2cart(point...),x), 
 [d1,d2,d3]) |> argmin
 
 
-function newpoint(point,untruncated_point)
+#= function newpoint(point,untruncated_point)
   (1-untruncated_point[4]) .* cw.tern2cart(point...)  .+
    untruncated_point[4] .* ds[closestd(point)]
 end
-
-function plot_baselineAnd_corrected(truncated_baseline,untruncated)
+ =#
+#= function plot_baselineAnd_corrected(truncated_baseline,untruncated)
   scatter!(foo.axis, [cw.tern2cart(truncated_baseline...)])                    
   lines!(foo.axis,[cw.tern2cart(truncated_baseline...),
    ds[closestd(truncated_baseline)]], color=:blue)
 
 scatter!(foo.axis, [newpoint(truncated_baseline, untruncated)], color = :red)
 end
+ =#
 
-
-pullapl = newpoint(truncapl,apl)
+#= pullapl = newpoint(truncapl,apl)
 pullpl  = newpoint(truncpl,pl)
 pullv42 = newpoint(truncv42,v42)
 pullborda = newpoint(truncborda,borda)
+ =#
 
-
-poly!(foo.axis,cw.GeometryBasics.Polygon(cw.GeometryBasics.Point2.([pullapl,
+#= poly!(foo.axis,cw.GeometryBasics.Polygon(cw.GeometryBasics.Point2.([pullapl,
 pullpl,pullv42,pullapl])),
 color =:transparent, strokecolor =:black, strokewidth = 1)
 
@@ -414,7 +421,7 @@ scatter!(foo.axis,[pullapl,
 pullpl,pullv42,pullapl], color = :black, markersize = 5)
 
 scatter!(foo.axis,[pullborda], color = :blue, markersize = 5)
-
+ =#
 
 foo
 
@@ -430,7 +437,7 @@ d3 = (0.5, -sqrt(3)/2)
 ds = [d1,d2,d3]
 
 ## tetrahedron with permuted candidates 
-foo =  cw.plain_triangle(["A", "B","C"])
+#foo =  cw.plain_triangle(["A", "B","C"])
 
 function plain_opened_tetrahedron()
   foo =  cw.plain_triangle()  
@@ -499,19 +506,16 @@ tv42 = rcopy(geometry.bary2cart(tetra_matrix,v42)) |> Tuple
 tborda = rcopy(geometry.bary2cart(tetra_matrix,borda)) |> Tuple 
 
 
-tv42
-
 t = Meshes.Tetrahedron([na,nb,nc,ncentr])
+
+
 
 helper
 
 tpl
 
 
-new_closestd(tpl,helper )
-
 helper 
-
 
 tpl
 
@@ -531,18 +535,17 @@ d3 = (0.5, -sqrt(3)/2,0)
 
 ds = [d1,d2,d3]
 
-
 centroid_base = Meshes.Triangle((0.,0.), (1.,0.), (0.5, sqrt(3)/2)) |> Meshes.centroid 
 
 new_closestd(point,ds = ds) = map(x->evaluate(Euclidean(), point,x), 
 ds) |> argmin
 
 
-
 centroid_base3 = (centroid_base.coords[1],centroid_base.coords[2],0.0)
 
-
 ot
+
+tpl
 
 projectonto(a,b) = (a ⋅ b)/(b ⋅ b) .* b
 
@@ -551,7 +554,7 @@ function get_ot_projection(point,ds = ds)
   closestd =   ds[new_closestd(point)]
   new_center = (point[1],point[2],0.0)
   shiftedD = closestd .- new_center
-  
+  # BUG:  This only gives nonsense 
   test = ((1-point[3]) .* new_center  .+
    point[3] .* shiftedD) #.+ new_center
 #  R = AngleAxis(π/2, shiftedD[1], shiftedD[2], shiftedD[3])
@@ -590,7 +593,92 @@ drop_idx(vec, idx) = vec[eachindex(vec) .∉ Ref(idx)] # this is actually super 
 
  =#
 
-normalize(vec) = vec./sum(vec)
+
+truncpl = standardize(tpl[1:2])
+
+truncapl = standardize(tapl[1:2])
+
+truncv42 = standardize(tv42[1:2])
+
+truncborda = standardize(tborda[1:2])
+
+
+tpl_pull = (truncpl .- centroid_base3[1:2]) .+  ds[new_closestd(tpl)][1:2]
+
+tapl_pull = (truncapl .- centroid_base3[1:2]) .+  ds[new_closestd(tapl)][1:2]
+
+tv42_pull = (truncv42 .- centroid_base3[1:2]) .+  ds[new_closestd(tv42)][1:2] 
+
+tborda_pull = (truncborda .- centroid_base3[1:2]) .+  ds[new_closestd(tborda)][1:2]
+
+
+possible_pulled_pl = (1-(tpl[3])) .* truncpl  .+ (tpl[3]) .* tpl_pull 
+
+possible_pulled_apl = (1-(tapl[3])) .* truncapl  .+ (tapl[3]) .* tapl_pull 
+
+possible_pulled_v42 = (1-(tv42[3])) .* truncv42  .+ (tv42[3]) .* tv42_pull
+
+
+possible_pulled_borda = (1-(tborda[3])) .* truncborda  .+ (tborda[3]) .* tborda_pull 
+
+
+
+standardize(vec) = vec./sum(vec)
+
+
+
+
+scatter!(ot.axis,[truncpl], color = :black, markersize = 10, marker = :utriangle)
+
+
+scatter!(ot.axis,[tpl_pull[1:2]], color = :black, markersize = 10) 
+
+lines!(ot.axis,[truncpl[1:2],tpl_pull[1:2]],color = :red)
+tpl_pull
+
+scatter!(ot.axis,[possible_pulled_pl], color = :black, markersize = 10, marker = :utriangle) 
+
+possible_pulled2
+
+
+scatter!(ot.axis,[truncapl], color = :black, markersize = 10, marker = :utriangle)
+
+
+scatter!(ot.axis,[tapl_pull[1:2]], color = :black, markersize = 10) 
+
+lines!(ot.axis,[truncapl[1:2],tapl_pull[1:2]],color = :red)
+
+scatter!(ot.axis,[possible_pulled_apl], color = :black, markersize = 10, marker = :dtriangle) 
+
+
+
+scatter!(ot.axis,[truncv42], color = :black, markersize = 10, marker = :utriangle)
+
+
+scatter!(ot.axis,[tv42_pull[1:2]], color = :black, markersize = 10) 
+
+lines!(ot.axis,[truncv42[1:2],tv42_pull[1:2]],color = :red)
+
+scatter!(ot.axis,[possible_pulled_v42], color = :black, markersize = 10) 
+
+
+
+
+scatter!(ot.axis,[truncborda], color = :black, markersize = 10, marker = :utriangle)
+
+
+scatter!(ot.axis,[tborda_pull[1:2]], color = :black, markersize = 10) 
+
+lines!(ot.axis,[truncborda[1:2],tborda_pull[1:2]],color = :red)
+
+scatter!(ot.axis,[possible_pulled_borda], color = :black, markersize = 10, marker = :diamond) 
+
+
+poly!(ot.axis,cw.GeometryBasics.Polygon(cw.GeometryBasics.Point2.([possible_pulled_pl,
+possible_pulled_apl,possible_pulled_v42,possible_pulled_pl])),
+color =:transparent, strokecolor =:black, strokewidth = 1)
+
+
 
 
 function newpoint(point,untruncated_point, who_is_outer)
@@ -601,7 +689,6 @@ function newpoint(point,untruncated_point, who_is_outer)
    println(foo)
    return(foo)
 end
-
 
 
 function plot_4c_hull(ps, who_is_outer_vertex::Int, candidate_list::Vector{String} = cw.candidates)

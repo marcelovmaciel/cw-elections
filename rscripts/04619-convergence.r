@@ -4,7 +4,7 @@ library(ggplot2)
 
 library("magrittr")
 library("purrr")
-
+library(coda)
 load("./dta_objects/acc_pairs.RData")
 
 
@@ -37,14 +37,30 @@ rho_conv
 
 bmm_test2 <- compute_mallows(rankings = init_rank,
                             preferences = tc,
-                            #save_aug = TRUE,
-                            nmc = 500000,
+                            save_aug = TRUE,
+                            nmc = 5000,
                             rho_init = c(1,2,3,4),
                             n_clusters = 2)
 
 plot(bmm_test2, parameter ="rho", burnin = 1000)
 
 
+assess_convergence(bmm_test2,
+                   parameter = "rho")
+
+
+bmm_test3 <- compute_mallows(rankings = init_rank,
+                            preferences = tc,
+                            save_aug = TRUE,
+                            nmc = 5000,
+                            rho_init = c(2,1,3,4),
+                            n_clusters = 2)
+
+
+assess_convergence(bmm_test3,
+                   parameter = "rho")
+
+plot(bmm_test3, parameter ="rho", burnin = 1000)
 
 
 test_different_rho <- function (n,rho,nc) {
