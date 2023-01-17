@@ -3,8 +3,6 @@ using Revise
 
 Pkg.activate("./")
 
-
-
 using CWElectionsBR
 #= 
 using DataFrames 
@@ -15,14 +13,9 @@ freq_ranks_inferred = CSV.read("../rscripts/dfs/" * "freq_ranks_inferred.csv", D
 names(freq_ranks_inferred) =#
 
 
-CWElectionsBR.undercandidates
-
 transferss = sweep_transfer(CWElectionsBR.undercandidates,CWElectionsBR.overcandidates)
 
-transferss[1]
-
 map(x->x[:eudist_to_target],transferss) |> CWElectionsBR.countmap
-
 
 dists = map(x->x[:eudist_to_target], transferss) 
 

@@ -4,13 +4,13 @@ Pkg.activate("./")
 #ENV["LD_PRELOAD"]="/usr/lib/x86_64-linux-gnu/libstdc++.so.6"
 
 #"MeshViz","Meshes", "AbstractPlotting"))
-
+using Revise 
 using CWElectionsBR
 #CairoMakie.activate!()
 
 # CairoMakie.activate!(type = "png")
 
-CWElectionsBR.make_basic_3_candidate△(["alckmin", "bolsonaro","haddad"])
+CWElectionsBR.make_basic_3_candidate△(["alckmin", "bolsonaro","ciro"])
 
 
 

@@ -19,61 +19,43 @@
 
 \refsection{0}
   \datalist[entry]{cms/global//global/global}
-    \entry{Axelrode2102139118}{article}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=e46fddf6d412d66cae997840c9ba5f34}{%
-           family={Axelrod},
+    \entry{tarko2014institutional}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=5ba995afd1aaf0e75a31db18bdcb0c9b}{%
+           family={Aligica},
            familyi={A\bibinitperiod},
-           given={Robert},
-           giveni={R\bibinitperiod},
+           given={Paul\bibnamedelima Dragos},
+           giveni={P\bibinitperiod\bibinitdelim D\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=ae04f1711af454fc72963b1ce62ecad8}{%
-           family={Daymude},
-           familyi={D\bibinitperiod},
-           given={Joshua\bibnamedelima J.},
-           giveni={J\bibinitperiod\bibinitdelim J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0c941a5b588762ffd79665910a8bf289}{%
-           family={Forrest},
-           familyi={F\bibinitperiod},
-           given={Stephanie},
-           giveni={S\bibinitperiod},
+        {{un=0,uniquepart=base,hash=8c1a424f724bcb1f94ee43813098c6ca}{%
+           family={Tarko},
+           familyi={T\bibinitperiod},
+           given={Vlad},
+           giveni={V\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {National Academy of Sciences}%
+        {Springer}%
       }
-      \strng{namehash}{06d8e8715f2976807740406ce8ff6ed9}
-      \strng{fullhash}{06d8e8715f2976807740406ce8ff6ed9}
-      \strng{bibnamehash}{06d8e8715f2976807740406ce8ff6ed9}
-      \strng{authorbibnamehash}{06d8e8715f2976807740406ce8ff6ed9}
-      \strng{authornamehash}{06d8e8715f2976807740406ce8ff6ed9}
-      \strng{authorfullhash}{06d8e8715f2976807740406ce8ff6ed9}
+      \strng{namehash}{bff400fa21e0923fa03777619b927eb6}
+      \strng{fullhash}{bff400fa21e0923fa03777619b927eb6}
+      \strng{bibnamehash}{bff400fa21e0923fa03777619b927eb6}
+      \strng{authorbibnamehash}{bff400fa21e0923fa03777619b927eb6}
+      \strng{authornamehash}{bff400fa21e0923fa03777619b927eb6}
+      \strng{authorfullhash}{bff400fa21e0923fa03777619b927eb6}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Democracies require compromise. But compromise becomes almost impossible when voters are divided into diametrically opposed camps. The danger is that intolerance will grow, democratic norms will be undermined, and winners will be reluctant to let the losers ever regain power. To better understand how polarization can be prevented, or at least slowed, we developed a simple model in which people tend to be exposed to and attracted by views similar to their own, but are repulsed by views that are too dissimilar. The policy implications are described in terms of level of tolerance to other views, responsiveness to other views, exposure to dissimilar views, multiple ideological dimensions, economic self-interest, and external shocks.Extreme polarization can undermine democracy by making compromise impossible and transforming politics into a zero-sum game. {“}Ideological polarization{”}{—}the extent to which political views are widely dispersed{—}is already strong among elites, but less so among the general public [N. McCarty, Polarization: What Everyone Needs to Know, 2019, pp. 50{–}68]. Strong mutual distrust and hostility between Democrats and Republicans in the United States, combined with the elites{’} already strong ideological polarization, could lead to increasing ideological polarization among the public. The paper addresses two questions: 1) Is there a level of ideological polarization above which polarization feeds upon itself to become a runaway process? 2) If so, what policy interventions could prevent such dangerous positive feedback loops? To explore these questions, we present an agent-based model of ideological polarization that differentiates between the tendency for two actors to interact ({“}exposure{”}) and how they respond when interactions occur, positing that interaction between similar actors reduces their difference, while interaction between dissimilar actors increases their difference. Our analysis explores the effects on polarization of different levels of tolerance to other views, responsiveness to other views, exposure to dissimilar actors, multiple ideological dimensions, economic self-interest, and external shocks. The results suggest strategies for preventing, or at least slowing, the development of extreme polarization.}
-      \field{issn}{0027-8424}
-      \field{journaltitle}{Proceedings of the National Academy of Sciences}
-      \field{number}{50}
-      \field{title}{Preventing extreme polarization of political attitudes}
-      \field{volume}{118}
-      \field{year}{2021}
-      \verb{doi}
-      \verb 10.1073/pnas.2102139118
-      \endverb
-      \verb{eprint}
-      \verb https://www.pnas.org/content/118/50/e2102139118.full.pdf
-      \endverb
-      \verb{urlraw}
-      \verb https://www.pnas.org/content/118/50/e2102139118
-      \endverb
-      \verb{url}
-      \verb https://www.pnas.org/content/118/50/e2102139118
-      \endverb
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Comparative Economic Studies}
+      \field{number}{1}
+      \field{title}{Institutional resilience and economic systems: lessons from Elinor Ostrom�s work}
+      \field{volume}{56}
+      \field{year}{2014}
+      \field{pages}{52\bibrangedash 76}
+      \range{pages}{25}
     \endentry
     \entry{Baldassarrie2116863118}{article}{}
       \name{author}{2}{}{%
@@ -104,7 +86,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{abstract}{We provide commentaries on the papers included in the Dynamics of Political Polarization Special Feature. Baldassarri reads the contribution of the papers in light of the theoretical distinction between ideological partisanship, which is generally rooted in sociodemographic and political cleavages, and affective partisanship, which is, instead, mostly fueled by emotional attachment and repulsion, rather than ideology and material interests. The latter, she argues, is likely to lead to a runaway process and threaten the pluralistic bases of contemporary democracy. Page sees the contribution of the many distinct models in the ensemble as potentially contributing more than the parts. Individual papers identify distinct causes of polarization as well as potential solutions. Viewed collectively, the papers suggest that the multiple causes of polarization may self-reinforce, which suggests that successful interventions would require a variety of efforts. Understanding how to construct such interventions may require larger models with greater realism.There are no data underlying this work.}
       \field{issn}{0027-8424}
       \field{journaltitle}{Proceedings of the National Academy of Sciences}
@@ -125,7 +107,7 @@
       \verb https://www.pnas.org/content/118/50/e2116863118
       \endverb
     \endentry
-    \entry{bednar2018modeling}{incollection}{}
+    \entry{Bednare2113843118}{article}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=4b8a6ee627ca962c18bce3aedc8fb6e2}{%
            family={Bednar},
@@ -135,7 +117,7 @@
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Edward Elgar Publishing}%
+        {National Academy of Sciences}%
       }
       \strng{namehash}{4b8a6ee627ca962c18bce3aedc8fb6e2}
       \strng{fullhash}{4b8a6ee627ca962c18bce3aedc8fb6e2}
@@ -148,80 +130,26 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{A research agenda for new institutional economics}
-      \field{title}{Modeling the institutional matrix: norms, culture, and robust design}
-      \field{year}{2018}
-    \endentry
-    \entry{bermeo2016democratic}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=0d9fad4146cb04aaeb73668fde3079cb}{%
-           family={Bermeo},
-           familyi={B\bibinitperiod},
-           given={Nancy},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Johns Hopkins University Press}%
-      }
-      \strng{namehash}{0d9fad4146cb04aaeb73668fde3079cb}
-      \strng{fullhash}{0d9fad4146cb04aaeb73668fde3079cb}
-      \strng{bibnamehash}{0d9fad4146cb04aaeb73668fde3079cb}
-      \strng{authorbibnamehash}{0d9fad4146cb04aaeb73668fde3079cb}
-      \strng{authornamehash}{0d9fad4146cb04aaeb73668fde3079cb}
-      \strng{authorfullhash}{0d9fad4146cb04aaeb73668fde3079cb}
-      \field{sortinit}{B}
-      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Democracy}
-      \field{number}{1}
-      \field{title}{On democratic backsliding}
-      \field{volume}{27}
-      \field{year}{2016}
-      \field{pages}{5\bibrangedash 19}
-      \range{pages}{15}
-    \endentry
-    \entry{cassani2020reversing}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=9554200f180216c49901be7dcb940b2c}{%
-           family={Cassani},
-           familyi={C\bibinitperiod},
-           given={Andrea},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=637106cbdd7d5754a50ba3ee0a300402}{%
-           family={Tomini},
-           familyi={T\bibinitperiod},
-           given={Luca},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{f6611af563f21c2b2323181dcb978adc}
-      \strng{fullhash}{f6611af563f21c2b2323181dcb978adc}
-      \strng{bibnamehash}{f6611af563f21c2b2323181dcb978adc}
-      \strng{authorbibnamehash}{f6611af563f21c2b2323181dcb978adc}
-      \strng{authornamehash}{f6611af563f21c2b2323181dcb978adc}
-      \strng{authorfullhash}{f6611af563f21c2b2323181dcb978adc}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{European Political Science}
-      \field{number}{2}
-      \field{title}{Reversing regimes and concepts: from democratization to autocratization}
-      \field{volume}{19}
-      \field{year}{2020}
-      \field{pages}{272\bibrangedash 287}
-      \range{pages}{16}
+      \field{labeltitlesource}{author}
+      \field{abstract}{In the Madisonian Constitution, fragmented and overlapping institutions of authority are supposed to manage democracy{’}s innate rivalry, channeling competition to serve the public interest. This system of safeguards makes democracy more robust: capable of withstanding and, if need be, adapting to challenges posed by a changing problem environment. In this essay, I suggest why affective polarization poses a special threat to democratic robustness. While most scholars hypothesize that polarization{’}s dangers are that it leads to bimodality and extremism, I highlight a third hypothesized effect: Polarization reduces interest and information diversity in the political system. To be effective, democracy{’}s safeguards rely upon interest diversity, but Madison took that diversity for granted. Unique among democracy{’}s safeguards, federalism builds in a repository for diversity; its structure enables differences between national- and state-expressed interests, even within the same party. This diversity can be democracy hindering, as the United States{’} history with racially discriminatory politics painfully makes clear, but it can also serve as a reservoir of interest and information dispersion that could protect democracy by restoring the possibility that cross-cutting cleavages emerge.}
+      \field{issn}{0027-8424}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{50}
+      \field{title}{Polarization, diversity, and democratic robustness}
+      \field{volume}{118}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1073/pnas.2113843118
+      \endverb
+      \verb{eprint}
+      \verb https://www.pnas.org/content/118/50/e2113843118.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.pnas.org/content/118/50/e2113843118
+      \endverb
+      \verb{url}
+      \verb https://www.pnas.org/content/118/50/e2113843118
+      \endverb
     \endentry
     \entry{chiopris2021wolf}{report}{}
       \name{author}{3}{}{%
@@ -259,215 +187,9 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{A wolf in sheep’s clothing: Citizen uncertainty and democratic backsliding}
+      \field{title}{A wolf in sheep?s clothing: Citizen uncertainty and democratic backsliding}
       \field{type}{techreport}
       \field{year}{2021}
-    \endentry
-    \entry{coleman1990rational}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=75bd153ea6e371d26904dafbd68d45c0}{%
-           family={Coleman},
-           familyi={C\bibinitperiod},
-           given={James\bibnamedelima S},
-           giveni={J\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Sage Publications}%
-      }
-      \strng{namehash}{75bd153ea6e371d26904dafbd68d45c0}
-      \strng{fullhash}{75bd153ea6e371d26904dafbd68d45c0}
-      \strng{bibnamehash}{75bd153ea6e371d26904dafbd68d45c0}
-      \strng{authorbibnamehash}{75bd153ea6e371d26904dafbd68d45c0}
-      \strng{authornamehash}{75bd153ea6e371d26904dafbd68d45c0}
-      \strng{authorfullhash}{75bd153ea6e371d26904dafbd68d45c0}
-      \field{sortinit}{C}
-      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Rationality and society}
-      \field{number}{1}
-      \field{title}{Rational organization}
-      \field{volume}{2}
-      \field{year}{1990}
-      \field{pages}{94\bibrangedash 105}
-      \range{pages}{12}
-    \endentry
-    \entry{dahl1989democracy}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=bd56f9b18121d16bb31c18833b200351}{%
-           family={Dahl},
-           familyi={D\bibinitperiod},
-           given={Robert\bibnamedelima Alan},
-           giveni={R\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Yale University Press}%
-      }
-      \strng{namehash}{bd56f9b18121d16bb31c18833b200351}
-      \strng{fullhash}{bd56f9b18121d16bb31c18833b200351}
-      \strng{bibnamehash}{bd56f9b18121d16bb31c18833b200351}
-      \strng{authorbibnamehash}{bd56f9b18121d16bb31c18833b200351}
-      \strng{authornamehash}{bd56f9b18121d16bb31c18833b200351}
-      \strng{authorfullhash}{bd56f9b18121d16bb31c18833b200351}
-      \field{sortinit}{D}
-      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Democracy and its Critics}
-      \field{year}{1989}
-      \keyw{democracy}
-    \endentry
-    \entry{felsenthal2012electoral}{book}{}
-      \name{author}{2}{}{%
-        {{un=2,uniquepart=given,hash=889d2ebef056be91f9386f19b376fb3e}{%
-           family={Felsenthal},
-           familyi={F\bibinitperiod},
-           given={Dan\bibnamedelima S},
-           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=2}}%
-        {{un=0,uniquepart=base,hash=d852542dde098dc709b16fe42b8473a3}{%
-           family={Machover},
-           familyi={M\bibinitperiod},
-           given={Moshé},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer Science \& Business Media}%
-      }
-      \strng{namehash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{fullhash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{bibnamehash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{authorbibnamehash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{authornamehash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{authorfullhash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \field{extraname}{1}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Electoral systems: Paradoxes, assumptions, and procedures}
-      \field{year}{2012}
-    \endentry
-    \entry{felsenthal2018voting}{book}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=889d2ebef056be91f9386f19b376fb3e}{%
-           family={Felsenthal},
-           familyi={F\bibinitperiod},
-           given={Dan\bibnamedelima S},
-           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0fea81a7a92df1126b4e7214142f7609}{%
-           family={Nurmi},
-           familyi={N\bibinitperiod},
-           given={Hannu},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{c372df95de708347e61577fb63333de4}
-      \strng{fullhash}{c372df95de708347e61577fb63333de4}
-      \strng{bibnamehash}{c372df95de708347e61577fb63333de4}
-      \strng{authorbibnamehash}{c372df95de708347e61577fb63333de4}
-      \strng{authornamehash}{c372df95de708347e61577fb63333de4}
-      \strng{authorfullhash}{c372df95de708347e61577fb63333de4}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Voting procedures for electing a single candidate: Proving their (in) vulnerability to various voting paradoxes}
-      \field{year}{2018}
-    \endentry
-    \entry{Felsenthal_1992}{article}{}
-      \name{author}{2}{}{%
-        {{un=2,uniquepart=given,hash=889d2ebef056be91f9386f19b376fb3e}{%
-           family={Felsenthal},
-           familyi={F\bibinitperiod},
-           given={Dan\bibnamedelima S.},
-           giveni={D\bibinitperiod\bibinitdelim S\bibinitperiod},
-           givenun=2}}%
-        {{un=0,uniquepart=base,hash=d852542dde098dc709b16fe42b8473a3}{%
-           family={Machover},
-           familyi={M\bibinitperiod},
-           given={Moshé},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Wiley}%
-      }
-      \strng{namehash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{fullhash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{bibnamehash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{authorbibnamehash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{authornamehash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \strng{authorfullhash}{5f12aa059c0115c36a41d353fe3ca01c}
-      \field{extraname}{2}
-      \field{sortinit}{F}
-      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{1099-1743}
-      \field{journaltitle}{Behavioral Science}
-      \field{month}{10}
-      \field{number}{4}
-      \field{title}{After two centuries, should condorcet’s voting procedure be implemented?}
-      \field{volume}{37}
-      \field{year}{1992}
-      \field{pages}{250\bibrangedash 274}
-      \range{pages}{25}
-      \verb{doi}
-      \verb 10.1002/bs.3830370403
-      \endverb
-      \verb{urlraw}
-      \verb http://dx.doi.org/10.1002/bs.3830370403
-      \endverb
-      \verb{url}
-      \verb http://dx.doi.org/10.1002/bs.3830370403
-      \endverb
-    \endentry
-    \entry{geddes1999we}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=f8af8e075a3fa96ef433e7f34f73ffdc}{%
-           family={Geddes},
-           familyi={G\bibinitperiod},
-           given={Barbara},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{f8af8e075a3fa96ef433e7f34f73ffdc}
-      \strng{fullhash}{f8af8e075a3fa96ef433e7f34f73ffdc}
-      \strng{bibnamehash}{f8af8e075a3fa96ef433e7f34f73ffdc}
-      \strng{authorbibnamehash}{f8af8e075a3fa96ef433e7f34f73ffdc}
-      \strng{authornamehash}{f8af8e075a3fa96ef433e7f34f73ffdc}
-      \strng{authorfullhash}{f8af8e075a3fa96ef433e7f34f73ffdc}
-      \field{sortinit}{G}
-      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual review of political science}
-      \field{number}{1}
-      \field{title}{What do we know about democratization after twenty years?}
-      \field{volume}{2}
-      \field{year}{1999}
-      \field{pages}{115\bibrangedash 144}
-      \range{pages}{30}
     \endentry
     \entry{gehrlein2010impact}{incollection}{}
       \name{author}{1}{}{%
@@ -499,6 +221,55 @@
       \field{pages}{17\bibrangedash 29}
       \range{pages}{13}
     \endentry
+    \entry{Goodin_2006}{article}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=a09c7b930fe6149db6e1b31efefb5211}{%
+           family={Goodin},
+           familyi={G\bibinitperiod},
+           given={Robert\bibnamedelima E.},
+           giveni={R\bibinitperiod\bibinitdelim E\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9b700b5bc9d3212ebe5f067c59563500}{%
+           family={List},
+           familyi={L\bibinitperiod},
+           given={Christian},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Wiley}%
+      }
+      \strng{namehash}{0baa224eed6346428e3bca1a5059637d}
+      \strng{fullhash}{0baa224eed6346428e3bca1a5059637d}
+      \strng{bibnamehash}{0baa224eed6346428e3bca1a5059637d}
+      \strng{authorbibnamehash}{0baa224eed6346428e3bca1a5059637d}
+      \strng{authornamehash}{0baa224eed6346428e3bca1a5059637d}
+      \strng{authorfullhash}{0baa224eed6346428e3bca1a5059637d}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{issn}{1540-5907}
+      \field{journaltitle}{American Journal of Political Science}
+      \field{month}{10}
+      \field{number}{4}
+      \field{title}{A Conditional Defense of Plurality Rule: Generalizing May?s Theorem in a Restricted Informational Environment}
+      \field{volume}{50}
+      \field{year}{2006}
+      \field{pages}{940?949}
+      \range{pages}{-1}
+      \verb{doi}
+      \verb 10.1111/j.1540-5907.2006.00225.x
+      \endverb
+      \verb{urlraw}
+      \verb http://dx.doi.org/10.1111/j.1540-5907.2006.00225.x
+      \endverb
+      \verb{url}
+      \verb http://dx.doi.org/10.1111/j.1540-5907.2006.00225.x
+      \endverb
+    \endentry
     \entry{grofman04_if_you_like_alter_vote}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=d3e54aacd5dac4accdf89726b383be19}{%
@@ -525,7 +296,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{Electoral Studies}
       \field{number}{4}
       \field{title}{If You Like the Alternative Vote (a.k.a. the Instant runoff), Then You Ought To Know About the Coombs Rule}
@@ -582,7 +353,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{European Journal of Political Economy}
       \field{number}{nil}
       \field{title}{Comparing Voting Methods: 2016 Us Presidential Election}
@@ -628,80 +399,6 @@
       \field{title}{Empirical examples of voting paradoxes}
       \field{year}{2015}
     \endentry
-    \entry{kaminski1998revival}{incollection}{}
-      \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=9cabb9dd86b925362ed3778fdcbee59e}{%
-           family={Kaminski},
-           familyi={K\bibinitperiod},
-           given={Marek\bibnamedelima M},
-           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d2de410703cfe43cbbb1421c9e17aeb9}{%
-           family={Lissowski},
-           familyi={L\bibinitperiod},
-           given={Grzegorz},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=54c72d79cc4fd3294e793181626f9d11}{%
-           family={Swistak},
-           familyi={S\bibinitperiod},
-           given={Piotr},
-           giveni={P\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{7d411f7cc46a3add2e311b4d7f77c78a}
-      \strng{fullhash}{7d411f7cc46a3add2e311b4d7f77c78a}
-      \strng{bibnamehash}{7d411f7cc46a3add2e311b4d7f77c78a}
-      \strng{authorbibnamehash}{7d411f7cc46a3add2e311b4d7f77c78a}
-      \strng{authornamehash}{7d411f7cc46a3add2e311b4d7f77c78a}
-      \strng{authorfullhash}{7d411f7cc46a3add2e311b4d7f77c78a}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Empirical Studies in Comparative Politics}
-      \field{title}{The “revival of communism” or the effect of institutions?: The 1993 Polish parliamentary elections}
-      \field{year}{1998}
-      \field{pages}{211\bibrangedash 231}
-      \range{pages}{21}
-    \endentry
-    \entry{kaminski1999communism}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=9e37b58c9363a2cb2d56d7f33265507a}{%
-           family={Kamiński},
-           familyi={K\bibinitperiod},
-           given={Marek\bibnamedelima M},
-           giveni={M\bibinitperiod\bibinitdelim M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{9e37b58c9363a2cb2d56d7f33265507a}
-      \strng{fullhash}{9e37b58c9363a2cb2d56d7f33265507a}
-      \strng{bibnamehash}{9e37b58c9363a2cb2d56d7f33265507a}
-      \strng{authorbibnamehash}{9e37b58c9363a2cb2d56d7f33265507a}
-      \strng{authornamehash}{9e37b58c9363a2cb2d56d7f33265507a}
-      \strng{authorfullhash}{9e37b58c9363a2cb2d56d7f33265507a}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Public Choice}
-      \field{number}{1-2}
-      \field{title}{How communism could have been saved: Formal analysis of electoral bargaining in Poland in 1989}
-      \field{volume}{98}
-      \field{year}{1999}
-      \field{pages}{83\bibrangedash 109}
-      \range{pages}{27}
-    \endentry
     \entry{kawai2013inferring}{article}{}
       \name{author}{2}{}{%
         {{un=0,uniquepart=base,hash=ac3062e2e2eebd693681302d3e33d620}{%
@@ -728,7 +425,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{American Economic Review}
       \field{number}{2}
       \field{title}{Inferring strategic voting}
@@ -737,44 +434,6 @@
       \field{pages}{624\bibrangedash 62}
       \range{pages}{39}
       \keyw{collective_choice}
-    \endentry
-    \entry{king2006dangers}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=e62a3c431989b28a48ea18aa5cfcfbed}{%
-           family={King},
-           familyi={K\bibinitperiod},
-           given={Gary},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=f3a390e23dc81bf8e05b73ea53c4a871}{%
-           family={Zeng},
-           familyi={Z\bibinitperiod},
-           given={Langche},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{36528a65549594fdf6865387021d93a2}
-      \strng{fullhash}{36528a65549594fdf6865387021d93a2}
-      \strng{bibnamehash}{36528a65549594fdf6865387021d93a2}
-      \strng{authorbibnamehash}{36528a65549594fdf6865387021d93a2}
-      \strng{authornamehash}{36528a65549594fdf6865387021d93a2}
-      \strng{authorfullhash}{36528a65549594fdf6865387021d93a2}
-      \field{sortinit}{K}
-      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Political analysis}
-      \field{number}{2}
-      \field{title}{The dangers of extreme counterfactuals}
-      \field{volume}{14}
-      \field{year}{2006}
-      \field{pages}{131\bibrangedash 159}
-      \range{pages}{29}
     \endentry
     \entry{kurrild2018trump}{article}{}
       \name{author}{1}{}{%
@@ -799,13 +458,100 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{European Journal of Political Economy}
       \field{title}{Trump, Condorcet and Borda: Voting paradoxes in the 2016 Republican presidential primaries}
       \field{volume}{55}
       \field{year}{2018}
       \field{pages}{29\bibrangedash 35}
       \range{pages}{7}
+    \endentry
+    \entry{liu2019model}{article}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=7c7337373a8d8c9e482652f942bc915a}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Qinghua},
+           giveni={Q\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a1efbe71ae475b41a762c9faf9675288}{%
+           family={Crispino},
+           familyi={C\bibinitperiod},
+           given={Marta},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=8bf32bf99b09a8e476fe69087ddc6d8c}{%
+           family={Scheel},
+           familyi={S\bibinitperiod},
+           given={Ida},
+           giveni={I\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=9adce59385ebedb394d8fe1b89ce087b}{%
+           family={Vitelli},
+           familyi={V\bibinitperiod},
+           given={Valeria},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=357ef1a68e0d5d3c161c882bd74b0dbb}{%
+           family={Frigessi},
+           familyi={F\bibinitperiod},
+           given={Arnoldo},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Annual Reviews}%
+      }
+      \strng{namehash}{67598f996cf2b7d532c405b0a6ebf548}
+      \strng{fullhash}{ca96124b726b3182bcc11090ff69dde6}
+      \strng{bibnamehash}{ca96124b726b3182bcc11090ff69dde6}
+      \strng{authorbibnamehash}{ca96124b726b3182bcc11090ff69dde6}
+      \strng{authornamehash}{67598f996cf2b7d532c405b0a6ebf548}
+      \strng{authorfullhash}{ca96124b726b3182bcc11090ff69dde6}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{author}
+      \field{journaltitle}{Annual review of statistics and its application}
+      \field{title}{Model-based learning from preference data}
+      \field{volume}{6}
+      \field{year}{2019}
+      \field{pages}{329\bibrangedash 354}
+      \range{pages}{26}
+    \endentry
+    \entry{lu2011learning}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=34542dca56817c30c40702caf6d58620}{%
+           family={Lu},
+           familyi={L\bibinitperiod},
+           given={Tyler},
+           giveni={T\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=049505423af7aff38a0e953619ee8317}{%
+           family={Boutilier},
+           familyi={B\bibinitperiod},
+           given={Craig},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{b4a82a422c956ff2cdf72cf68a7a5efe}
+      \strng{fullhash}{b4a82a422c956ff2cdf72cf68a7a5efe}
+      \strng{bibnamehash}{b4a82a422c956ff2cdf72cf68a7a5efe}
+      \strng{authorbibnamehash}{b4a82a422c956ff2cdf72cf68a7a5efe}
+      \strng{authornamehash}{b4a82a422c956ff2cdf72cf68a7a5efe}
+      \strng{authorfullhash}{b4a82a422c956ff2cdf72cf68a7a5efe}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{ICML}
+      \field{title}{Learning Mallows models with pairwise preferences}
+      \field{year}{2011}
+      \keyw{formal_theory,methods}
     \endentry
     \entry{luhrmann2018democracy}{article}{}
       \name{author}{10}{}{%
@@ -884,47 +630,9 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{title}{Democracy for All? V-Dem Annual Democracy Report 2018}
       \field{year}{2018}
-    \endentry
-    \entry{mahoney2006tale}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=36a953b9b5c2d8a3f396ca979df1e11f}{%
-           family={Mahoney},
-           familyi={M\bibinitperiod},
-           given={James},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=76f61a083d9ccda064b9e9c0e21ac78d}{%
-           family={Goertz},
-           familyi={G\bibinitperiod},
-           given={Gary},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{4340ec059401e253dfca5cfa26852227}
-      \strng{fullhash}{4340ec059401e253dfca5cfa26852227}
-      \strng{bibnamehash}{4340ec059401e253dfca5cfa26852227}
-      \strng{authorbibnamehash}{4340ec059401e253dfca5cfa26852227}
-      \strng{authornamehash}{4340ec059401e253dfca5cfa26852227}
-      \strng{authorfullhash}{4340ec059401e253dfca5cfa26852227}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Political analysis}
-      \field{number}{3}
-      \field{title}{A tale of two cultures: Contrasting quantitative and qualitative research}
-      \field{volume}{14}
-      \field{year}{2006}
-      \field{pages}{227\bibrangedash 249}
-      \range{pages}{23}
     \endentry
     \entry{mcelreath2020statistical}{book}{}
       \name{author}{1}{}{%
@@ -954,129 +662,24 @@
       \field{year}{2020}
       \keyw{methods}
     \endentry
-    \entry{mclean14_stran_histor_social_choic_contr}{article}{}
+    \entry{nurmi1999voting}{book}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=a27edbd516f17467732c74cac182636b}{%
-           family={McLean},
-           familyi={M\bibinitperiod},
-           given={Iain},
-           giveni={I\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{a27edbd516f17467732c74cac182636b}
-      \strng{fullhash}{a27edbd516f17467732c74cac182636b}
-      \strng{bibnamehash}{a27edbd516f17467732c74cac182636b}
-      \strng{authorbibnamehash}{a27edbd516f17467732c74cac182636b}
-      \strng{authornamehash}{a27edbd516f17467732c74cac182636b}
-      \strng{authorfullhash}{a27edbd516f17467732c74cac182636b}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Public Choice}
-      \field{number}{1-2}
-      \field{title}{The Strange History of Social Choice, and the Contribution of the Public Choice Society To Its Fifth Revival}
-      \field{volume}{163}
-      \field{year}{2014}
-      \field{pages}{153\bibrangedash 165}
-      \range{pages}{13}
-      \verb{doi}
-      \verb 10.1007/s11127-014-0161-7
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/s11127-014-0161-7
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/s11127-014-0161-7
-      \endverb
-    \endentry
-    \entry{sep-possible-worlds}{incollection}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3074b13b47fd2107fc28c59c0ffd8ef9}{%
-           family={Menzel},
-           familyi={M\bibinitperiod},
-           given={Christopher},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=5ff1c29ff1cc8f6336533b0ffd842a79}{%
-           family={Zalta},
-           familyi={Z\bibinitperiod},
-           given={Edward\bibnamedelima N.},
-           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Metaphysics Research Lab, Stanford University}%
-      }
-      \strng{namehash}{3074b13b47fd2107fc28c59c0ffd8ef9}
-      \strng{fullhash}{3074b13b47fd2107fc28c59c0ffd8ef9}
-      \strng{bibnamehash}{3074b13b47fd2107fc28c59c0ffd8ef9}
-      \strng{authorbibnamehash}{3074b13b47fd2107fc28c59c0ffd8ef9}
-      \strng{authornamehash}{3074b13b47fd2107fc28c59c0ffd8ef9}
-      \strng{authorfullhash}{3074b13b47fd2107fc28c59c0ffd8ef9}
-      \strng{editorbibnamehash}{5ff1c29ff1cc8f6336533b0ffd842a79}
-      \strng{editornamehash}{5ff1c29ff1cc8f6336533b0ffd842a79}
-      \strng{editorfullhash}{5ff1c29ff1cc8f6336533b0ffd842a79}
-      \field{sortinit}{M}
-      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{The {Stanford} Encyclopedia of Philosophy}
-      \field{edition}{{F}all 2021}
-      \field{howpublished}{\url{https://plato.stanford.edu/archives/fall2021/entries/possible-worlds/}}
-      \field{title}{{Possible Worlds}}
-      \field{year}{2021}
-    \endentry
-    \entry{nalepa2022after}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=0cc3183a7d298d6114498f6bb5a39e79}{%
-           family={Nalepa},
+        {{un=0,uniquepart=base,hash=0fea81a7a92df1126b4e7214142f7609}{%
+           family={Nurmi},
            familyi={N\bibinitperiod},
-           given={Monika},
-           giveni={M\bibinitperiod},
+           given={Hannu},
+           giveni={H\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Cambridge University Press}%
+        {Springer Science \& Business Media}%
       }
-      \strng{namehash}{0cc3183a7d298d6114498f6bb5a39e79}
-      \strng{fullhash}{0cc3183a7d298d6114498f6bb5a39e79}
-      \strng{bibnamehash}{0cc3183a7d298d6114498f6bb5a39e79}
-      \strng{authorbibnamehash}{0cc3183a7d298d6114498f6bb5a39e79}
-      \strng{authornamehash}{0cc3183a7d298d6114498f6bb5a39e79}
-      \strng{authorfullhash}{0cc3183a7d298d6114498f6bb5a39e79}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{After Authoritarianism}
-      \field{year}{2022}
-    \endentry
-    \entry{north1991institutions}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=dc5f8fa109fa63fd86a14e87970a504f}{%
-           family={North},
-           familyi={N\bibinitperiod},
-           given={Douglass\bibnamedelima C},
-           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {American Economic Association}%
-      }
-      \strng{namehash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{fullhash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{bibnamehash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{authorbibnamehash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{authornamehash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{authorfullhash}{dc5f8fa109fa63fd86a14e87970a504f}
+      \strng{namehash}{0fea81a7a92df1126b4e7214142f7609}
+      \strng{fullhash}{0fea81a7a92df1126b4e7214142f7609}
+      \strng{bibnamehash}{0fea81a7a92df1126b4e7214142f7609}
+      \strng{authorbibnamehash}{0fea81a7a92df1126b4e7214142f7609}
+      \strng{authornamehash}{0fea81a7a92df1126b4e7214142f7609}
+      \strng{authorfullhash}{0fea81a7a92df1126b4e7214142f7609}
       \field{extraname}{1}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
@@ -1084,44 +687,8 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of economic perspectives}
-      \field{number}{1}
-      \field{title}{Institutions}
-      \field{volume}{5}
-      \field{year}{1991}
-      \field{pages}{97\bibrangedash 112}
-      \range{pages}{16}
-    \endentry
-    \entry{north2018institutional}{incollection}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=dc5f8fa109fa63fd86a14e87970a504f}{%
-           family={North},
-           familyi={N\bibinitperiod},
-           given={Douglass\bibnamedelima C},
-           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Routledge}%
-      }
-      \strng{namehash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{fullhash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{bibnamehash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{authorbibnamehash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{authornamehash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \strng{authorfullhash}{dc5f8fa109fa63fd86a14e87970a504f}
-      \field{extraname}{2}
-      \field{sortinit}{N}
-      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Social rules}
-      \field{title}{Institutional change: a framework of analysis}
-      \field{year}{2018}
-      \field{pages}{189\bibrangedash 201}
-      \range{pages}{13}
+      \field{title}{Voting paradoxes and how to deal with them}
+      \field{year}{1999}
     \endentry
     \entry{nurmi2002voting}{book}{}
       \name{author}{1}{}{%
@@ -1141,6 +708,7 @@
       \strng{authorbibnamehash}{0fea81a7a92df1126b4e7214142f7609}
       \strng{authornamehash}{0fea81a7a92df1126b4e7214142f7609}
       \strng{authorfullhash}{0fea81a7a92df1126b4e7214142f7609}
+      \field{extraname}{2}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
       \field{extradatescope}{labelyear}
@@ -1149,133 +717,6 @@
       \field{labeltitlesource}{title}
       \field{title}{Voting procedures under uncertainty}
       \field{year}{2002}
-    \endentry
-    \entry{ostrom1986agenda}{article}{}
-      \name{author}{1}{}{%
-        {{un=1,uniquepart=given,hash=83bfc750a74aff11efa4bbcd04d4af05}{%
-           family={Ostrom},
-           familyi={O\bibinitperiod},
-           given={Elinor},
-           giveni={E\bibinitperiod},
-           givenun=1}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{83bfc750a74aff11efa4bbcd04d4af05}
-      \strng{fullhash}{83bfc750a74aff11efa4bbcd04d4af05}
-      \strng{bibnamehash}{83bfc750a74aff11efa4bbcd04d4af05}
-      \strng{authorbibnamehash}{83bfc750a74aff11efa4bbcd04d4af05}
-      \strng{authornamehash}{83bfc750a74aff11efa4bbcd04d4af05}
-      \strng{authorfullhash}{83bfc750a74aff11efa4bbcd04d4af05}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Public choice}
-      \field{number}{1}
-      \field{title}{An agenda for the study of institutions}
-      \field{volume}{48}
-      \field{year}{1986}
-      \field{pages}{3\bibrangedash 25}
-      \range{pages}{23}
-    \endentry
-    \entry{ostrom1997meaning}{book}{}
-      \name{author}{1}{}{%
-        {{un=1,uniquepart=given,hash=2d7db7b419adf198c7009d0c14bff6a3}{%
-           family={Ostrom},
-           familyi={O\bibinitperiod},
-           given={Vincent},
-           giveni={V\bibinitperiod},
-           givenun=1}}%
-      }
-      \list{publisher}{1}{%
-        {University of Michigan Press}%
-      }
-      \strng{namehash}{2d7db7b419adf198c7009d0c14bff6a3}
-      \strng{fullhash}{2d7db7b419adf198c7009d0c14bff6a3}
-      \strng{bibnamehash}{2d7db7b419adf198c7009d0c14bff6a3}
-      \strng{authorbibnamehash}{2d7db7b419adf198c7009d0c14bff6a3}
-      \strng{authornamehash}{2d7db7b419adf198c7009d0c14bff6a3}
-      \strng{authorfullhash}{2d7db7b419adf198c7009d0c14bff6a3}
-      \field{sortinit}{O}
-      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The meaning of democracy and the vulnerability of democracies: A response to Tocqueville's challenge}
-      \field{year}{1997}
-    \endentry
-    \entry{sep-voting-methods}{incollection}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5dcf144d586d1207576de237a56f8bd0}{%
-           family={Pacuit},
-           familyi={P\bibinitperiod},
-           given={Eric},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-      }
-      \name{editor}{1}{}{%
-        {{hash=5ff1c29ff1cc8f6336533b0ffd842a79}{%
-           family={Zalta},
-           familyi={Z\bibinitperiod},
-           given={Edward\bibnamedelima N.},
-           giveni={E\bibinitperiod\bibinitdelim N\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Metaphysics Research Lab, Stanford University}%
-      }
-      \strng{namehash}{5dcf144d586d1207576de237a56f8bd0}
-      \strng{fullhash}{5dcf144d586d1207576de237a56f8bd0}
-      \strng{bibnamehash}{5dcf144d586d1207576de237a56f8bd0}
-      \strng{authorbibnamehash}{5dcf144d586d1207576de237a56f8bd0}
-      \strng{authornamehash}{5dcf144d586d1207576de237a56f8bd0}
-      \strng{authorfullhash}{5dcf144d586d1207576de237a56f8bd0}
-      \strng{editorbibnamehash}{5ff1c29ff1cc8f6336533b0ffd842a79}
-      \strng{editornamehash}{5ff1c29ff1cc8f6336533b0ffd842a79}
-      \strng{editorfullhash}{5ff1c29ff1cc8f6336533b0ffd842a79}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{The Stanford Encyclopedia of Philosophy}
-      \field{edition}{Fall 2019}
-      \field{howpublished}{\url{https://plato.stanford.edu/archives/fall2019/entries/voting-methods/}}
-      \field{title}{Voting Methods}
-      \field{year}{2019}
-    \endentry
-    \entry{parsons1949structure}{book}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=923dbf4029f9c827a07d8374c4ab7823}{%
-           family={Parsons},
-           familyi={P\bibinitperiod},
-           given={Talcott},
-           giveni={T\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Free press New York}%
-      }
-      \strng{namehash}{923dbf4029f9c827a07d8374c4ab7823}
-      \strng{fullhash}{923dbf4029f9c827a07d8374c4ab7823}
-      \strng{bibnamehash}{923dbf4029f9c827a07d8374c4ab7823}
-      \strng{authorbibnamehash}{923dbf4029f9c827a07d8374c4ab7823}
-      \strng{authornamehash}{923dbf4029f9c827a07d8374c4ab7823}
-      \strng{authorfullhash}{923dbf4029f9c827a07d8374c4ab7823}
-      \field{sortinit}{P}
-      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{The structure of social action}
-      \field{volume}{491}
-      \field{year}{1949}
     \endentry
     \entry{potthoff2021condorcet}{article}{}
       \name{author}{2}{}{%
@@ -1306,7 +747,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{American Politics Research}
       \field{number}{6}
       \field{title}{Condorcet Loser in 2016: Apparently Trump; Condorcet Winner: Not Clinton?}
@@ -1315,47 +756,32 @@
       \field{pages}{618\bibrangedash 636}
       \range{pages}{19}
     \endentry
-    \entry{przeworski1999minimalist}{article}{}
-      \name{author}{3}{}{%
+    \entry{przeworski2019crises}{book}{}
+      \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=237ce3973c734b4bc7f49bb4a367df9d}{%
            family={Przeworski},
            familyi={P\bibinitperiod},
            given={Adam},
            giveni={A\bibinitperiod},
            givenun=0}}%
-        {{un=0,uniquepart=base,hash=25a4db5e36210ba5bd70439fd98c87b1}{%
-           family={Shapiro},
-           familyi={S\bibinitperiod},
-           given={Ian},
-           giveni={I\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=e86b8311f1e2a718fa1eac0fd065ddbe}{%
-           family={Hacker-Cordon},
-           familyi={H\bibinithyphendelim C\bibinitperiod},
-           given={Casiano},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Cambridge University Press Cambridge}%
+        {Cambridge University Press}%
       }
-      \strng{namehash}{8eef93cc1bfd5460a363157412a09515}
-      \strng{fullhash}{8eef93cc1bfd5460a363157412a09515}
-      \strng{bibnamehash}{8eef93cc1bfd5460a363157412a09515}
-      \strng{authorbibnamehash}{8eef93cc1bfd5460a363157412a09515}
-      \strng{authornamehash}{8eef93cc1bfd5460a363157412a09515}
-      \strng{authorfullhash}{8eef93cc1bfd5460a363157412a09515}
+      \strng{namehash}{237ce3973c734b4bc7f49bb4a367df9d}
+      \strng{fullhash}{237ce3973c734b4bc7f49bb4a367df9d}
+      \strng{bibnamehash}{237ce3973c734b4bc7f49bb4a367df9d}
+      \strng{authorbibnamehash}{237ce3973c734b4bc7f49bb4a367df9d}
+      \strng{authornamehash}{237ce3973c734b4bc7f49bb4a367df9d}
+      \strng{authorfullhash}{237ce3973c734b4bc7f49bb4a367df9d}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Democracy's value}
-      \field{title}{A minimalist conception of democracy}
-      \field{year}{1999}
-      \field{pages}{23\bibrangedash 55}
-      \range{pages}{33}
+      \field{title}{Crises of democracy}
+      \field{year}{2019}
     \endentry
     \entry{regenwetter2006behavioral}{book}{}
       \name{author}{4}{}{%
@@ -1431,39 +857,6 @@
       \field{year}{1982}
       \keyw{social_choice,democracy}
     \endentry
-    \entry{rothschild2005axiom}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=f54ea2137bd5271248f0b7ea1730c005}{%
-           family={Rothschild},
-           familyi={R\bibinitperiod},
-           given={Emma},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{f54ea2137bd5271248f0b7ea1730c005}
-      \strng{fullhash}{f54ea2137bd5271248f0b7ea1730c005}
-      \strng{bibnamehash}{f54ea2137bd5271248f0b7ea1730c005}
-      \strng{authorbibnamehash}{f54ea2137bd5271248f0b7ea1730c005}
-      \strng{authornamehash}{f54ea2137bd5271248f0b7ea1730c005}
-      \strng{authorfullhash}{f54ea2137bd5271248f0b7ea1730c005}
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Social Choice and Welfare}
-      \field{number}{2-3}
-      \field{title}{“Axiom, theorem, corollary \&c.”: Condorcet and mathematical economics}
-      \field{volume}{25}
-      \field{year}{2005}
-      \field{pages}{287\bibrangedash 302}
-      \range{pages}{16}
-      \keyw{formal_theory}
-    \endentry
     \entry{saari2001chaotic}{book}{}
       \name{author}{1}{}{%
         {{un=1,uniquepart=given,hash=d51dba14272f37008d6c10d551259da0}{%
@@ -1491,7 +884,7 @@
       \field{title}{Chaotic elections!: A mathematician looks at voting}
       \field{year}{2001}
     \endentry
-    \entry{saari1995basic}{book}{}
+    \entry{saari2012geometry}{book}{}
       \name{author}{1}{}{%
         {{un=1,uniquepart=given,hash=50a6bdc522f53fd8ff39ee321b6c91e6}{%
            family={Saari},
@@ -1516,11 +909,11 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Basic geometry of voting}
-      \field{volume}{12}
-      \field{year}{1995}
+      \field{title}{Geometry of voting}
+      \field{volume}{3}
+      \field{year}{1994}
     \endentry
-    \entry{saari2012geometry}{book}{}
+    \entry{saari1995basic}{book}{}
       \name{author}{1}{}{%
         {{un=1,uniquepart=given,hash=50a6bdc522f53fd8ff39ee321b6c91e6}{%
            family={Saari},
@@ -1545,41 +938,9 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{title}{Geometry of voting}
-      \field{volume}{3}
-      \field{year}{2012}
-    \endentry
-    \entry{schmitter1994dangers}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=ee95542930c20591fdac3a526b172e9d}{%
-           family={Schmitter},
-           familyi={S\bibinitperiod},
-           given={Philippe\bibnamedelima C},
-           giveni={P\bibinitperiod\bibinitdelim C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Johns Hopkins University Press}%
-      }
-      \strng{namehash}{ee95542930c20591fdac3a526b172e9d}
-      \strng{fullhash}{ee95542930c20591fdac3a526b172e9d}
-      \strng{bibnamehash}{ee95542930c20591fdac3a526b172e9d}
-      \strng{authorbibnamehash}{ee95542930c20591fdac3a526b172e9d}
-      \strng{authornamehash}{ee95542930c20591fdac3a526b172e9d}
-      \strng{authorfullhash}{ee95542930c20591fdac3a526b172e9d}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Democracy}
-      \field{number}{2}
-      \field{title}{Dangers and dilemmas of democracy}
-      \field{volume}{5}
-      \field{year}{1994}
-      \field{pages}{57\bibrangedash 74}
-      \range{pages}{18}
+      \field{title}{Basic geometry of voting}
+      \field{volume}{12}
+      \field{year}{1995}
     \endentry
     \entry{schwartz2018cycles}{book}{}
       \name{author}{1}{}{%
@@ -1608,171 +969,6 @@
       \field{title}{Cycles and social choice: The true and unabridged story of a most protean paradox}
       \field{year}{2018}
       \keyw{collective_choice,social_choice}
-    \endentry
-    \entry{Sen_2012}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=18688d43042a810cb6ae6bb19c167f1b}{%
-           family={Sen},
-           familyi={S\bibinitperiod},
-           given={Amartya},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{2}{%
-        {Springer Science}%
-        {Business Media LLC}%
-      }
-      \strng{namehash}{18688d43042a810cb6ae6bb19c167f1b}
-      \strng{fullhash}{18688d43042a810cb6ae6bb19c167f1b}
-      \strng{bibnamehash}{18688d43042a810cb6ae6bb19c167f1b}
-      \strng{authorbibnamehash}{18688d43042a810cb6ae6bb19c167f1b}
-      \strng{authornamehash}{18688d43042a810cb6ae6bb19c167f1b}
-      \strng{authorfullhash}{18688d43042a810cb6ae6bb19c167f1b}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{issn}{1432-217X}
-      \field{journaltitle}{Social Choice and Welfare}
-      \field{month}{2}
-      \field{number}{2-3}
-      \field{title}{The reach of social choice theory}
-      \field{volume}{39}
-      \field{year}{2012}
-      \field{pages}{259\bibrangedash 272}
-      \range{pages}{14}
-      \verb{doi}
-      \verb 10.1007/s00355-011-0613-7
-      \endverb
-      \verb{urlraw}
-      \verb http://dx.doi.org/10.1007/s00355-011-0613-7
-      \endverb
-      \verb{url}
-      \verb http://dx.doi.org/10.1007/s00355-011-0613-7
-      \endverb
-    \endentry
-    \entry{shi2017cultural}{inproceedings}{}
-      \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=65acd70c56c1a58b9e63131d90b6fca1}{%
-           family={Shi},
-           familyi={S\bibinitperiod},
-           given={Yongren},
-           giveni={Y\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=c23caef80d35f918e58c7f00b9876ff5}{%
-           family={Mast},
-           familyi={M\bibinitperiod},
-           given={Kai},
-           giveni={K\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a68c23bac04bfcf8e20276cf86108862}{%
-           family={Weber},
-           familyi={W\bibinitperiod},
-           given={Ingmar},
-           giveni={I\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=228da4ecf021e35c6bf21a8e9f2bfc71}{%
-           family={Kellum},
-           familyi={K\bibinitperiod},
-           given={Agrippa},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=25e636960955c25b4be4211e177c5e8f}{%
-           family={Macy},
-           familyi={M\bibinitperiod},
-           given={Michael},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{organization}{1}{%
-        {ACM}%
-      }
-      \strng{namehash}{8d7018912a4195a154a563a742ed93e4}
-      \strng{fullhash}{b6274e4d35f9cf11f8fe47bb5cd82449}
-      \strng{bibnamehash}{b6274e4d35f9cf11f8fe47bb5cd82449}
-      \strng{authorbibnamehash}{b6274e4d35f9cf11f8fe47bb5cd82449}
-      \strng{authornamehash}{8d7018912a4195a154a563a742ed93e4}
-      \strng{authorfullhash}{b6274e4d35f9cf11f8fe47bb5cd82449}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Proceedings of the 2017 ACM on Web Science Conference}
-      \field{title}{Cultural fault lines and political polarization}
-      \field{year}{2017}
-      \field{pages}{213\bibrangedash 217}
-      \range{pages}{5}
-    \endentry
-    \entry{simon1991architecture}{incollection}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=09c462602325128c408aa39c70c6ae62}{%
-           family={Simon},
-           familyi={S\bibinitperiod},
-           given={Herbert\bibnamedelima A},
-           giveni={H\bibinitperiod\bibinitdelim A\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{09c462602325128c408aa39c70c6ae62}
-      \strng{fullhash}{09c462602325128c408aa39c70c6ae62}
-      \strng{bibnamehash}{09c462602325128c408aa39c70c6ae62}
-      \strng{authorbibnamehash}{09c462602325128c408aa39c70c6ae62}
-      \strng{authornamehash}{09c462602325128c408aa39c70c6ae62}
-      \strng{authorfullhash}{09c462602325128c408aa39c70c6ae62}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{booktitle}{Facets of systems science}
-      \field{title}{The architecture of complexity}
-      \field{year}{1991}
-      \field{pages}{457\bibrangedash 476}
-      \range{pages}{20}
-      \keyw{computation_theory,scx}
-    \endentry
-    \entry{sorensen2021towards}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=d82819f300434f9997c7a78cafc30ce6}{%
-           family={S{ø}rensen},
-           familyi={S\bibinitperiod},
-           given={Eva},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=8bc6efd373d2b4d65cf5ad115a44dabd}{%
-           family={Ansell},
-           familyi={A\bibinitperiod},
-           given={Christopher},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {SAGE Publications Sage UK: London, England}%
-      }
-      \strng{namehash}{a07823c77691f8dc84aefba6be69a7c4}
-      \strng{fullhash}{a07823c77691f8dc84aefba6be69a7c4}
-      \strng{bibnamehash}{a07823c77691f8dc84aefba6be69a7c4}
-      \strng{authorbibnamehash}{a07823c77691f8dc84aefba6be69a7c4}
-      \strng{authornamehash}{a07823c77691f8dc84aefba6be69a7c4}
-      \strng{authorfullhash}{a07823c77691f8dc84aefba6be69a7c4}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Political Studies}
-      \field{title}{Towards a concept of political robustness}
-      \field{year}{2021}
-      \field{pages}{0032321721999974}
-      \range{pages}{1}
     \endentry
     \entry{sorensen2019bayesmallows}{article}{}
       \name{author}{4}{}{%
@@ -1812,7 +1008,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{arXiv preprint arXiv:1902.08432}
       \field{title}{Bayesmallows: An r package for the bayesian mallows model}
       \field{year}{2019}
@@ -1858,7 +1054,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{Social Choice and Welfare}
       \field{number}{3}
       \field{title}{Strategic, Sincere, and Heuristic Voting Under Four Election Rules: an Experimental Study}
@@ -1876,65 +1072,6 @@
       \verb https://doi.org/10.1007/s00355-010-0448-7
       \endverb
       \keyw{formal_theory,collective_choice,experimental}
-    \endentry
-    \entry{svolik2008authoritarian}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c9478b560f0b8ac7ff07a0cf2cdce81e}{%
-           family={Svolik},
-           familyi={S\bibinitperiod},
-           given={Milan},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Cambridge University Press}%
-      }
-      \strng{namehash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{fullhash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{bibnamehash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{authorbibnamehash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{authornamehash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{authorfullhash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \field{extraname}{1}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{American Political Science Review}
-      \field{number}{2}
-      \field{title}{Authoritarian reversals and democratic consolidation}
-      \field{volume}{102}
-      \field{year}{2008}
-      \field{pages}{153\bibrangedash 168}
-      \range{pages}{16}
-    \endentry
-    \entry{svolik2018polarization}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c9478b560f0b8ac7ff07a0cf2cdce81e}{%
-           family={Svolik},
-           familyi={S\bibinitperiod},
-           given={Milan},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{fullhash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{bibnamehash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{authorbibnamehash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{authornamehash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \strng{authorfullhash}{c9478b560f0b8ac7ff07a0cf2cdce81e}
-      \field{extraname}{2}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Available at SSRN 3243470}
-      \field{title}{When polarization trumps civic virtue: Partisan conflict and the subversion of democracy by incumbents}
-      \field{year}{2018}
     \endentry
     \entry{tabarrok2001president}{article}{}
       \name{author}{1}{}{%
@@ -1959,7 +1096,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{Public Choice}
       \field{number}{3-4}
       \field{title}{President Perot or fundamentals of voting theory illustrated with the 1992 election}
@@ -1967,45 +1104,6 @@
       \field{year}{2001}
       \field{pages}{275\bibrangedash 297}
       \range{pages}{23}
-      \keyw{formal_theory,collective_choice,democracy}
-    \endentry
-    \entry{tabarrok1999would}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=4f2a41bc3265f20a7431838c583f0fd0}{%
-           family={Tabarrok},
-           familyi={T\bibinitperiod},
-           given={Alexander},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fe3f8eef1040cb8b2ad70d538beffa66}{%
-           family={Spector},
-           familyi={S\bibinitperiod},
-           given={Lee},
-           giveni={L\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {Sage Publications 6 Bonhill Street, London EC2A 4PU, UK}%
-      }
-      \strng{namehash}{cddc41d141b8e233b57ed628a7714b7f}
-      \strng{fullhash}{cddc41d141b8e233b57ed628a7714b7f}
-      \strng{bibnamehash}{cddc41d141b8e233b57ed628a7714b7f}
-      \strng{authorbibnamehash}{cddc41d141b8e233b57ed628a7714b7f}
-      \strng{authornamehash}{cddc41d141b8e233b57ed628a7714b7f}
-      \strng{authorfullhash}{cddc41d141b8e233b57ed628a7714b7f}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of Theoretical Politics}
-      \field{number}{2}
-      \field{title}{Would the Borda count have avoided the Civil War?}
-      \field{volume}{11}
-      \field{year}{1999}
-      \field{pages}{261\bibrangedash 288}
-      \range{pages}{28}
       \keyw{formal_theory,collective_choice,democracy}
     \endentry
     \entry{terzopoulou2021borda}{article}{}
@@ -2037,7 +1135,7 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{Journal of Mathematical Economics}
       \field{title}{The Borda class: An axiomatic study of the Borda rule on top-truncated preferences}
       \field{volume}{92}
@@ -2045,72 +1143,67 @@
       \field{pages}{31\bibrangedash 40}
       \range{pages}{10}
     \endentry
-    \entry{thelen2009institutional}{article}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c537f56a6ac61e5e1df016efa334ce43}{%
-           family={Thelen},
-           familyi={T\bibinitperiod},
-           given={Kathleen},
+    \entry{Wange2021systems}{article}{}
+      \name{author}{4}{}{%
+        {{un=0,uniquepart=base,hash=f11d6d1eb1a378e694067083fef72bfb}{%
+           family={Wang},
+           familyi={W\bibinitperiod},
+           given={Samuel\bibnamedelima S.-H.},
+           giveni={S\bibinitperiod\bibinitdelim S\bibinithyphendelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=96b3afecbf00dfb192092c3d95d86228}{%
+           family={Cervas},
+           familyi={C\bibinitperiod},
+           given={Jonathan},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d3e54aacd5dac4accdf89726b383be19}{%
+           family={Grofman},
+           familyi={G\bibinitperiod},
+           given={Bernard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0191feed696cda4c9546bcec5048cc5a}{%
+           family={Lipsitz},
+           familyi={L\bibinitperiod},
+           given={Keena},
            giveni={K\bibinitperiod},
            givenun=0}}%
       }
       \list{publisher}{1}{%
-        {Wiley Online Library}%
+        {National Academy of Sciences}%
       }
-      \strng{namehash}{c537f56a6ac61e5e1df016efa334ce43}
-      \strng{fullhash}{c537f56a6ac61e5e1df016efa334ce43}
-      \strng{bibnamehash}{c537f56a6ac61e5e1df016efa334ce43}
-      \strng{authorbibnamehash}{c537f56a6ac61e5e1df016efa334ce43}
-      \strng{authornamehash}{c537f56a6ac61e5e1df016efa334ce43}
-      \strng{authorfullhash}{c537f56a6ac61e5e1df016efa334ce43}
-      \field{sortinit}{T}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{British Journal of Industrial Relations}
-      \field{number}{3}
-      \field{title}{Institutional change in advanced political economies}
-      \field{volume}{47}
-      \field{year}{2009}
-      \field{pages}{471\bibrangedash 498}
-      \range{pages}{28}
-    \endentry
-    \entry{waldner2018unwelcome}{article}{}
-      \name{author}{2}{}{%
-        {{un=0,uniquepart=base,hash=26dc975c6f66c83d84ecd60b796e5eab}{%
-           family={Waldner},
-           familyi={W\bibinitperiod},
-           given={David},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=823caff174e2ca444e37bc2465041504}{%
-           family={Lust},
-           familyi={L\bibinitperiod},
-           given={Ellen},
-           giveni={E\bibinitperiod},
-           givenun=0}}%
-      }
-      \strng{namehash}{b11853359c13df0e38fcfe0a8ea747b4}
-      \strng{fullhash}{b11853359c13df0e38fcfe0a8ea747b4}
-      \strng{bibnamehash}{b11853359c13df0e38fcfe0a8ea747b4}
-      \strng{authorbibnamehash}{b11853359c13df0e38fcfe0a8ea747b4}
-      \strng{authornamehash}{b11853359c13df0e38fcfe0a8ea747b4}
-      \strng{authorfullhash}{b11853359c13df0e38fcfe0a8ea747b4}
+      \strng{namehash}{bcd3e30cefeef37b439f125c773e48b1}
+      \strng{fullhash}{4e0d009d5fdc50209ef80deff4636394}
+      \strng{bibnamehash}{4e0d009d5fdc50209ef80deff4636394}
+      \strng{authorbibnamehash}{4e0d009d5fdc50209ef80deff4636394}
+      \strng{authornamehash}{bcd3e30cefeef37b439f125c773e48b1}
+      \strng{authorfullhash}{4e0d009d5fdc50209ef80deff4636394}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Annual Review of Political Science}
-      \field{number}{1}
-      \field{title}{Unwelcome change: Coming to terms with democratic backsliding}
-      \field{volume}{21}
-      \field{year}{2018}
-      \field{pages}{93\bibrangedash 113}
-      \range{pages}{21}
+      \field{labeltitlesource}{author}
+      \field{abstract}{Democracy often fails to meet its ideals, and these failures may be made worse by electoral institutions. Unwanted outcomes include elite polarization, unresponsive representatives, and the ability of a faction of voters to gain power at the expense of the majority. Various reforms have been proposed to address these problems, but their effectiveness is difficult to predict against a backdrop of complex interactions. Here we outline a path for systems-level modeling to help understand and optimize repairs to US democracy. Following the tradition of engineering and biology, models of systems include mechanisms with dynamical properties that include nonlinearities and amplification (voting rules), positive feedback mechanisms (single-party control, gerrymandering), negative feedback (checks and balances), integration over time (lifetime judicial appointments), and low dimensionality (polarization). To illustrate a systems-level approach, we analyze three emergent phenomena: low dimensionality, elite polarization, and antimajoritarianism in legislatures. In each case, long-standing rules now contribute to undesirable outcomes as a consequence of changes in the political environment. Theoretical understanding at a general level will also help evaluate whether a proposed reform{’}s benefits will materialize and be lasting, especially as conditions change again. In this way, rigorous modeling may not only shape new lines of research but aid in the design of effective and lasting reform.There are no newly generated data underlying this work.}
+      \field{issn}{0027-8424}
+      \field{journaltitle}{Proceedings of the National Academy of Sciences}
+      \field{number}{50}
+      \field{title}{A systems framework for remedying dysfunction in US democracy}
+      \field{volume}{118}
+      \field{year}{2021}
+      \verb{doi}
+      \verb 10.1073/pnas.2102154118
+      \endverb
+      \verb{eprint}
+      \verb https://www.pnas.org/content/118/50/e2102154118.full.pdf
+      \endverb
+      \verb{urlraw}
+      \verb https://www.pnas.org/content/118/50/e2102154118
+      \endverb
+      \verb{url}
+      \verb https://www.pnas.org/content/118/50/e2102154118
+      \endverb
     \endentry
     \entry{woon2020trump}{article}{}
       \name{author}{4}{}{%
@@ -2153,10 +1246,10 @@
       \field{extradatescope}{labelyear}
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
+      \field{labeltitlesource}{author}
       \field{journaltitle}{PS: Political Science \& Politics}
       \field{number}{3}
-      \field{title}{Trump is not a (Condorcet) loser! Primary voters’ preferences and the 2016 Republican presidential nomination}
+      \field{title}{Trump is not a (Condorcet) loser! Primary voters? preferences and the 2016 Republican presidential nomination}
       \field{volume}{53}
       \field{year}{2020}
       \field{pages}{407\bibrangedash 412}

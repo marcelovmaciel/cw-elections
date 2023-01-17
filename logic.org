@@ -1,0 +1,20 @@
+#+title: Logic
+
+- I get the data from the sav.
+  - I impute it with mice and export it to simpler_rankings
+
+- I import it in 02-make-freq-ranks-inferred.jl
+  - I transform it from rankings to orderings
+  - I calculate frequency and proportion of orderings
+  - I save the rankings_vectors version as orderings_inferred
+  - I save the 1-4 columns of choices as freq_ranks_inferred
+
+- I import freq_ranks_inferred in 03-others_plus_transfer
+  - I transfer and find 4 equivalence classes that minimize euclidean distance;
+  - I export the raw and the corrected orderings (with frequency and proportion)
+- I import that raw to corrected_indexes.jl
+  - I export the INDEXES of the corrected orderings
+
+
+- This then, goes to the plots in visualize_indexes.R
+-

@@ -593,8 +593,8 @@ drop_idx(vec, idx) = vec[eachindex(vec) .∉ Ref(idx)] # this is actually super 
 
  =#
 
-
-truncpl = standardize(tpl[1:2])
+standardize(vec) = vec./sum(vec)
+truncpl =  standardize(tpl[1:2])
 
 truncapl = standardize(tapl[1:2])
 
@@ -623,7 +623,7 @@ possible_pulled_borda = (1-(tborda[3])) .* truncborda  .+ (tborda[3]) .* tborda_
 
 
 
-standardize(vec) = vec./sum(vec)
+
 
 
 
@@ -638,7 +638,7 @@ tpl_pull
 
 scatter!(ot.axis,[possible_pulled_pl], color = :black, markersize = 10, marker = :utriangle) 
 
-possible_pulled2
+
 
 
 scatter!(ot.axis,[truncapl], color = :black, markersize = 10, marker = :utriangle)

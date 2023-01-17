@@ -1,19 +1,18 @@
-[0] Config.pm:307> INFO - This is Biber 2.17
-[0] Config.pm:310> INFO - Logfile is 'w4-essay.blg'
-[86] biber:340> INFO - === Sat Dec  3, 2022, 15:29:49
-[106] Biber.pm:418> INFO - Reading 'w4-essay.bcf'
-[247] Biber.pm:972> INFO - Found 58 citekeys in bib section 0
-[261] Biber.pm:4383> INFO - Processing section 0
-[272] Biber.pm:4574> INFO - Looking for bibtex file '~/Main/Org/org-roam-mvm/bib/refs.bib' for section 0
-[362] bibtex.pm:1713> INFO - LaTeX decoding ...
-[2055] bibtex.pm:1518> INFO - Found BibTeX data source '/home/mvm/Main/Org/org-roam-mvm/bib/refs.bib'
-[5802] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
-[5802] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[5803] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[5803] Biber.pm:4203> INFO - Sorting list 'cms/global//global/global' of type 'entry' with template 'cms' and locale 'en-US'
-[5803] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[5873] bbl.pm:654> INFO - Writing 'w4-essay.bbl' with encoding 'UTF-8'
-[5920] bbl.pm:757> INFO - Output to w4-essay.bbl
-[5921] Biber.pm:130> WARN - legacy month field 'Feb' in entry 'Sen_2012' is not an integer - this will probably not sort properly.
-[5921] Biber.pm:130> WARN - legacy month field 'Oct' in entry 'Felsenthal_1992' is not an integer - this will probably not sort properly.
-[5921] Biber.pm:132> INFO - WARNINGS: 2
+[0] Config.pm:306> INFO - This is Biber 2.18
+[0] Config.pm:309> INFO - Logfile is 'w4-essay.blg'
+[130] biber-MSWIN32:340> INFO - === 
+[176] Biber.pm:418> INFO - Reading 'w4-essay.bcf'
+[445] Biber.pm:978> INFO - Found 31 citekeys in bib section 0
+[465] Biber.pm:4401> INFO - Processing section 0
+[480] Biber.pm:4592> INFO - Looking for bibtex file 'refs.bib' for section 0
+[586] bibtex.pm:1713> INFO - LaTeX decoding ...
+[3202] bibtex.pm:1518> INFO - Found BibTeX data source 'refs.bib'
+[3642] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'level = 4' with 'level = 2'
+[3642] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[3642] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[3642] Biber.pm:4221> INFO - Sorting list 'cms/global//global/global' of type 'entry' with template 'cms' and locale 'en-US'
+[3642] Biber.pm:4227> INFO - No sort tailoring available for locale 'en-US'
+[3693] bbl.pm:654> INFO - Writing 'w4-essay.bbl' with encoding 'UTF-8'
+[3717] bbl.pm:757> INFO - Output to w4-essay.bbl
+[3718] Biber.pm:130> WARN - legacy month field 'Oct' in entry 'Goodin_2006' is not an integer - this will probably not sort properly.
+[3718] Biber.pm:132> INFO - WARNINGS: 1

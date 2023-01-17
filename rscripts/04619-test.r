@@ -1,25 +1,24 @@
-
-
-
-
 library("BayesMallows")
 library("dplyr")
-library("ggraph")
+#library("ggraph")
 library("haven")
 library("igraph")
 library("magrittr")
 library("purrr")
 ##library("tidyr")
-library("tidytable")
+#library("tidytable")
 #library("votevizr")
-library("xtable")
+#library("xtable")
 ## library(reshape2)
-library("ggpubr")
+#library("ggpubr")
 library(readr)
+library(mice)
+library(naniar)
+
 
 
 df <- read_sav("../04619/04619.SAV")
-load("bmm_rank_index.RData")
+#load("bmm_rank_index.RData")
 
 ## Main objects
 ## df
@@ -75,6 +74,12 @@ those_i_rejects <-  map(acc, ~.x[!is.na(.x)])
 ## ** p6, the pairwise comparisons!
 p6df <- df[, grepl("p6", names(df))]
 
+
+
+
+
+p6df
+
 ## ** p7, who_will_win
 p7df <- df[, "p7"]
 
@@ -95,6 +100,8 @@ foofn <- function (x) {
   foolish
 
 }
+
+subset_df
 
 
 global_pairwise_comparisons <- map(names(p6df), foofn)
@@ -127,6 +134,8 @@ get_pair <- function(indx, x, col, pair){
          bottom_item = setdiff(pair, x[,col]),
          top_item = x[,col])}
 }
+
+
 
 get_agent_pairs <- function(indx,x){
   ## too lazy to discover how to write a map over a zip in R
@@ -176,7 +185,6 @@ FindCycles = function(g) {
     Cycles
 }
 
-
 acc_cyclic <- vector()
 for (i in 1:nrow(subset_df)) {
   foo <- get_agent_pairs(i, subset_df[i, ])
@@ -191,7 +199,6 @@ for (i in 1:nrow(subset_df)) {
 
 noncyclic_agents <- subset_df[!acc_cyclic,]
 
-
 acc_pairs <-   tibble(assessor = numeric(),
          bottom_item = numeric(),
          top_item = numeric())
@@ -205,6 +212,8 @@ for (i in 1:nrow(noncyclic_agents)) {
 
 ## there is some bullshit about labeling here
 ## Accordinly, I'll relabe this to 1:4
+
+
 
 acc_pairs$bottom_item %<>%
   as.factor(.) %>%
@@ -284,7 +293,6 @@ acc_pairs %>%
   group_by(assessor) %>%
   group_size %>%
   table   %>% data.frame -> frequencies_pairwise_comparisons
-
 
 ## ** Make: last_indexes,last_rank,freq_ranks_inferred
 
@@ -431,10 +439,8 @@ position_counts2 %>% ggsave("./plots/corrected2_indexes_plot.png",
                            plot = ., dpi = 500)
 
 
-
 ## ** Make plot of each choice dist among candidates
 load("./dta_objects/last_rank.RData")
-
 
 
 fn_that_should_be_anonymous2 <- function (colname) {

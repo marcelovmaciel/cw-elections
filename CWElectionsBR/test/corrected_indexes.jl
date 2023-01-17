@@ -3,19 +3,21 @@
 import Pkg
 Pkg.activate("./")
 
-using CWElectionsBR
+import  CWElectionsBR as cw
 using RCall
 import CSV
 using DataFrames
 dfspath = "../rscripts/dfs/"
 
 
-candidates = ["bolsonaro", "haddad", "ciro", "alckmin"] |> sort
+candidates = cw.candidates
+
+mincw1 =  CSV.read(dfspath * "min_raw_1.csv",DataFrame)
+mincw2 =  CSV.read(dfspath * "min_raw_2.csv",DataFrame)
+mincw3 =  CSV.read(dfspath * "min_raw_3.csv",DataFrame)
+mincw4 =  CSV.read(dfspath * "min_raw_4.csv",DataFrame)
 
 
-mincw1 =  CSV.read(dfspath * "min_c1_raw.csv",DataFrame)
-
-mincw2 =  CSV.read(dfspath * "min_c2_raw.csv",DataFrame)
 
 function get_corrected_indexes(corrected_raw)
     turnedintovecs_c1 = Vector{String}.(eachrow(corrected_raw))
@@ -25,7 +27,13 @@ function get_corrected_indexes(corrected_raw)
     for candidate in candidates]...)
 end
 
+get_corrected_indexes(mincw1)
 
-CSV.write(dfspath * "corrected1_indexes.csv", get_corrected_indexes(mincw1))
-CSV.write(dfspath * "corrected2_indexes.csv", get_corrected_indexes(mincw2))
+
+
+for (fn,f) in zip(map(x->"corrected_indexes_$x.csv", 1:4),
+     [mincw1,mincw2,mincw3,mincw4])
+     CSV.write(dfspath * fn, get_corrected_indexes(f))
+end
+
 

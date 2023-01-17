@@ -35,20 +35,23 @@
     "geometry"
     "biblatex-chicago")
    (LaTeX-add-labels
-    "sec1"
-    "sec2"
     "Tab:Tcpairwise"
     "fig:saari_nurmi"
     "fig:counts"
     "tbl:subtab1"
     "tbl:subtab2"
     "tbl:tab1"
+    "tab:ws"
+    "tab:percentage"
     "fig:positional4c"
     "fig:notac1"
     "fig:notbc1"
     "fig:notah1"
     "fig:c1dropping"
     "appendix:transfer"
+    "appendix:diagnostics"
+    "fig:alphac"
+    "fig:rhoc"
     "appendix:inferred1"
     "lab:inferred1"
     "appendix:transfer2_results"
@@ -57,6 +60,6 @@
     "fig:notahc2"
     "fig:c2dropping")
    (LaTeX-add-bibliographies
-    "~/Main/Org/org-roam-mvm/bib/refs"))
+    "refs"))
  :latex)
 

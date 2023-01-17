@@ -20,7 +20,7 @@ import SymPy as sp
 
 # using NamedArrays
 
-candidates = ["bolsonaro", "haddad", "ciro", "alckmin"] |> sort
+candidates = ["Bolsonaro", "Haddad", "Ciro", "Alckmin"] |> sort
 
 dfspath= "../rscripts/dfs/"
 

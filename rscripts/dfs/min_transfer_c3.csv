@@ -11,12 +11,12 @@ Alckmin,Haddad,Bolsonaro,Ciro,0,0.004
 Alckmin,Ciro,Bolsonaro,Haddad,33,0.025
 Alckmin,Haddad,Ciro,Bolsonaro,0,0.034
 Alckmin,Ciro,Haddad,Bolsonaro,119,0.051
-Ciro,Haddad,Bolsonaro,Alckmin,0,0.006
-Ciro,Haddad,Alckmin,Bolsonaro,216,0.078
 Ciro,Bolsonaro,Haddad,Alckmin,0,0.006
-Ciro,Alckmin,Haddad,Bolsonaro,179,0.061
 Ciro,Bolsonaro,Alckmin,Haddad,0,0.014
+Ciro,Haddad,Bolsonaro,Alckmin,0,0.006
 Ciro,Alckmin,Bolsonaro,Haddad,0,0.02
+Ciro,Haddad,Alckmin,Bolsonaro,216,0.078
+Ciro,Alckmin,Haddad,Bolsonaro,179,0.061
 Bolsonaro,Alckmin,Ciro,Haddad,672,0.18
 Bolsonaro,Ciro,Alckmin,Haddad,458,0.129
 Bolsonaro,Alckmin,Haddad,Ciro,102,0.026

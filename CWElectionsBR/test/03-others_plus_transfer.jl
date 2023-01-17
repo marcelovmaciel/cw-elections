@@ -1,14 +1,27 @@
-# @rimport votesys
+import Pkg
 
-# In which I preprocess the inferred ranks before transferring 
+Pkg.activate(".")
 
-#= freq_ranks_inferred = CSV.read(dfspath * "freq_ranks_inferred.csv", DataFrame)
+using Revise 
 
+import CWElectionsBR as cw
+using DataFrames
+import Base.Filesystem as fl 
+using Pipe 
 
-other_proxy =  DataFrame(Dict("1"=>"other", "2"=>"other", "3"=>"other", "4"=>"other", "freq"=>228.))
+using RCall
+
+@rimport tidyr
+
+freq_ranks_inferred = cw.CSV.read(cw.dfspath * "freq_ranks_inferred.csv", cw.DataFrame)
+
+other_proxy =  DataFrame(Dict("1"=>"other",
+ "2"=>"other", "3"=>"other", "4"=>"other", "freq"=>228, "prop" =>0.719 ))
 
 
 append!(freq_ranks_inferred, other_proxy)
+
+using Chain
 
 prop_df = @chain  freq_ranks_inferred begin
     groupby(:1)
@@ -16,7 +29,10 @@ prop_df = @chain  freq_ranks_inferred begin
     sort(:1)
 end
 
+
+
 prop_df[!, :prop] =  map(x-> round(x/sum(prop_df[!, :freq_sum]),digits= 3), prop_df[!, :freq_sum])
+
 prop_df[!,:1]= string.(prop_df[!,:1])
 
 sort!(prop_df,"1")
@@ -40,6 +56,8 @@ end
 prop_df[!, :actual_proportions] = actual_first_round[!,:actual_proportions]
 
 
+prop_df
+
 ## In which I get the overvoted and undervoted data  
 
 overvoted = prop_df[prop_df[!, :prop] .> prop_df[!, :actual_proportions],:]
@@ -54,17 +72,12 @@ total_tallies = sum(prop_df[!, :freq_sum])
 prop_df[!, :dist_freqs] = round.(prop_df[!,:dist_proportion] .*  total_tallies, digits = 0)
 
 
-
-function make_base_split_freq_ranks(candidate, freq_ranks)
-    filter(x-> x[:1] == candidate, freq_ranks)
-end
-
 overcandidates = [j[1] for j in eachrow(overvoted)]
 undercandidates = [j[1] for j in eachrow(undervoted)]
- =#
 
 
- function make_base_split_freq_ranks(candidate, freq_ranks)
+
+function make_base_split_freq_ranks(candidate, freq_ranks)
     filter(x-> x[:1] == candidate, freq_ranks)
 end
  
@@ -91,7 +104,7 @@ end
 function dist_sourcerank_targetranks(sourcerank, targetranks)
 
     # BUG: this shit is giving me a type error. It was not !!!
-     rankdist = rimport("rankdist")
+     rankdist = cw.rimport("rankdist")
     function candidate_list_into_number(candidate_list)
     # TODO: check if this doesn't lead to an error, compare to older result
     candidate_number = Dict(zip(["Alckmin","Bolsonaro", "Ciro", "Haddad"], collect(1:4)))
@@ -99,7 +112,7 @@ function dist_sourcerank_targetranks(sourcerank, targetranks)
         map(x-> candidate_number[x], String.(candidate_list))
     end
     #robject(Vector(sourcerank[1:4])) |> println
-[ Int(rcopy(rankdist.DistancePair(candidate_list_into_number(Vector(sourcerank[1:4]) ),
+[ Int(cw.rcopy(rankdist.DistancePair(candidate_list_into_number(Vector(sourcerank[1:4]) ),
                                   candidate_list_into_number(j))))
 for j in  (map(x-> Vector(x[1:4]), eachrow(targetranks)))]
 end
@@ -159,6 +172,7 @@ function make_over_rankss(overcandidates,freq_ranks_inferred)
                           return(over_freq_rankss)
 end
 
+
 function make_under_rankss(undercandidates,freq_ranks_inferred)
     under_freq_rankss = Dict(zip(undercandidates,
     [Dict("candidate_freq_rank" => make_base_split_freq_ranks(j, freq_ranks_inferred),
@@ -205,8 +219,6 @@ end
 
 
 
-
-
 function sweep_transfer(undercandidates,overcandidates,
 freq_ranks_inferred,
  total_tallies,
@@ -216,7 +228,7 @@ prop_df)
     pah = ("Alckmin", "Haddad")
     pcb = ("Ciro", "Bolsonaro")
     pch = ("Ciro", "Haddad")
-    perms = permutations([pab,pah,pcb,pch])
+    perms = cw.permutations([pab,pah,pcb,pch])
 
     for perm in perms
         under_freq_rankss = make_under_rankss(undercandidates,freq_ranks_inferred)
@@ -227,7 +239,7 @@ prop_df)
         merged_result  = merge(under_freq_rankss,over_freq_rankss)
 
         newprops= get_new_prop_from_mutated_dict(merged_result,total_tallies)
-        eudist= euclidean(prop_df[!,:actual_proportions], newprops[!,:new_proportions])
+        eudist= cw.euclidean(prop_df[!,:actual_proportions], newprops[!,:new_proportions])
         transfers_info = Dict(:permutation => perm , :transfer_dicts => merged_result ,
         :newprops=>newprops, :eudist_to_target => eudist)
         push!(transferss_acc, transfers_info)
@@ -236,3 +248,101 @@ prop_df)
 end
 
 ## TODO: note the selection of the minimized transfers are still not here. Gotta write that 
+
+
+
+transferss = sweep_transfer(undercandidates,overcandidates,
+ freq_ranks_inferred,
+total_tallies,
+prop_df)
+
+
+dists = map(x->x[:eudist_to_target], transferss) 
+
+
+minimum_transfer_indexes = findall(x-> x== findmin(dists)[1], dists)
+
+minimum_transfers =  transferss[minimum_transfer_indexes]
+
+
+for x in minimum_transfers
+    x[:transferred_df] = reduce(vcat,map(x->(x["candidate_freq_rank"])[!,["1", "2", "3", "4", "freq", "prop"]],values(x[:transfer_dicts])))
+end
+
+findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[1],
+   map(x->x[:transferred_df], minimum_transfers))
+
+findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[4],
+   map(x->x[:transferred_df], minimum_transfers))   
+
+findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[5],
+   map(x->x[:transferred_df], minimum_transfers))    
+
+findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[18],
+   map(x->x[:transferred_df], minimum_transfers))     
+
+   
+min_transfer_c1 = minimum_transfers[1][:transferred_df]
+min_transfer_c2 = minimum_transfers[4][:transferred_df]
+min_transfer_c3 = minimum_transfers[5][:transferred_df]
+min_transfer_c4 = minimum_transfers[18][:transferred_df]
+
+min_transfers = [min_transfer_c1,min_transfer_c2,min_transfer_c3,min_transfer_c4]
+
+foreach((filename,file) -> cw.CSV.write(cw.dfspath * filename, file),
+        zip(map(x-> "min_transfer_c$x.csv", 1:4), []),min_transfers)
+
+function glue_candidates_into_single_vec(df)
+    acc = []
+
+    for i in 1:24
+        push!(acc, Vector(df[i,1:4]))
+    end
+    
+    foo = DataFrame(ranking_vectors = acc,
+              freq  = df[!, "freq"] )
+              return(foo)
+end    
+
+min_c1_glue_vecs,
+ min_c2_glue_vecs,
+ min_c3_glue_vecs,
+ min_c4_glue_vecs = map(glue_candidates_into_single_vec,min_transfers)
+
+
+min_c1_raw,
+min_c2_raw,
+min_c3_raw,
+min_c4_raw  = map(x-> (tidyr.uncount(x, x.freq) |> rcopy),
+                  [min_c1_glue_vecs,
+                   min_c2_glue_vecs,
+                   min_c3_glue_vecs,
+                   min_c4_glue_vecs])
+
+
+function clean_raw(raw)
+    DataFrame(:First => map(x->x[1], raw[!,:ranking_vectors]),
+         :Second => map(x->x[2], raw[!,:ranking_vectors]),
+         :Third => map(x->x[3], raw[!,:ranking_vectors]),
+         :Fourth => map(x->x[4], raw[!,:ranking_vectors]))    
+end    
+
+
+min_c1_raw_cleaned,
+min_c2_raw_cleaned,
+min_c3_raw_cleaned,
+min_c4_raw_cleaned= map(clean_raw, 
+                       [min_c1_raw,
+                       min_c2_raw,
+                       min_c3_raw,
+                       min_c4_raw])
+
+
+for (fname,f) in zip(map(x-> "min_raw_$x.csv", 1:4),
+                 [min_c1_raw_cleaned,
+                 min_c2_raw_cleaned,
+                 min_c3_raw_cleaned,
+                 min_c4_raw_cleaned])
+    cw.CSV.write(cw.dfspath * fname, f)
+end
+                  

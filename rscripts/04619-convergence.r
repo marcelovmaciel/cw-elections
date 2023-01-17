@@ -5,7 +5,10 @@ library(ggplot2)
 library("magrittr")
 library("purrr")
 library(coda)
-load("./dta_objects/acc_pairs.RData")
+library(have)
+
+library(mice)
+#load("./dta_objects/acc_pairs.RData")
 
 
 
@@ -149,3 +152,14 @@ ggsave("rho_conv.png", plot = newrhoconv)
 
 
 plot(bmm_test, parameter = "rho")
+
+
+
+
+
+## 
+
+load("./dta_objects/global_pairwise_comparisons.RData")
+
+
+global_pairwise_comparisons

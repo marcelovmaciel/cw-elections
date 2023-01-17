@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.16)  19 DEC 2022 12:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.12.16)  10 JAN 2023 17:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -819,169 +819,195 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3]
+{c:/texlive/2022/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 224.
+               Default added (so using `tbp') on input line 169.
 
 
-Package biblatex-chicago Warning: Empty Ibidem citation on input line 260.
+Package biblatex-chicago Warning: Empty Ibidem citation on input line 190.
 
-[4]
-<./images/saari_triangle.png, id=191, 335.75438pt x 173.14688pt>
-File: ./images/saari_triangle.png Graphic file (type png)
-<use ./images/saari_triangle.png>
-Package pdftex.def Info: ./images/saari_triangle.png  used on input line 271.
-(pdftex.def)             Requested size: 426.79268pt x 210.84258pt.
- [5 <./images/saari_triangle.png (PNG copy)>]
-<./images/corrected1_indexes_plot.png, id=211, 505.02277pt x 505.31184pt>
+[3]
+<./images/simpletriangle.png, id=127, 602.25pt x 451.6875pt>
+File: ./images/simpletriangle.png Graphic file (type png)
+<use ./images/simpletriangle.png>
+Package pdftex.def Info: ./images/simpletriangle.png  used on input line 203.
+(pdftex.def)             Requested size: 341.44815pt x 210.8389pt.
+
+Overfull \hbox (4.56715pt too wide) in paragraph at lines 208--209
+\T1/cmr/m/n/10.95 ral-ity and vote for two pro-ce-dures, with re-spec-tive weig
+hts of $\OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0\OML/cmm
+/m/it/10.95 ; \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0)\O
+ML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.
+95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/
+n/10.95 0)\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 (1\OML/cmm/m/it/10.95 ; \OT1
+/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0\OML/cmm/m/it/10.95 ;
+ \OT1/cmr/m/n/10.95 0)$\T1/cmr/m/n/10.95 .
+ []
+
+[4 <./images/simpletriangle.png>]
+<./images/corrected1_indexes_plot.png, id=152, 505.02277pt x 505.31184pt>
 File: ./images/corrected1_indexes_plot.png Graphic file (type png)
 <use ./images/corrected1_indexes_plot.png>
 Package pdftex.def Info: ./images/corrected1_indexes_plot.png  used on input li
-ne 311.
+ne 251.
 (pdftex.def)             Requested size: 341.44589pt x 351.41046pt.
- [6 <./images/corrected1_indexes_plot.png>]
-Overfull \hbox (70.27332pt too wide) in paragraph at lines 324--334
+ [5]
+Overfull \hbox (72.99042pt too wide) in paragraph at lines 264--274
  [][] 
  []
 
-<./images/positional_results.png, id=221, 556.0775pt x 359.3425pt>
+[6 <./images/corrected1_indexes_plot.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 326.
+
+<./images/positional_results.png, id=178, 556.0775pt x 359.3425pt>
 File: ./images/positional_results.png Graphic file (type png)
 <use ./images/positional_results.png>
-Package pdftex.def Info: ./images/positional_results.png  used on input line 36
-1.
+Package pdftex.def Info: ./images/positional_results.png  used on input line 34
+6.
 (pdftex.def)             Requested size: 426.79793pt x 210.84233pt.
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 381.
-
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 397.
-
-./w4-essay.tex:431: Undefined control sequence.
-<argument> ...elname \@empty \ignorespaces \texts 
-                                                  have to confirm that. I ev...
-l.431 ... have the code for it written somewhere.}
-                                                   Ciro > Alckmin >
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[7 <./images/positional_results.png (PNG copy)>] [8]
-<./images/cw1_nota.png, id=260, 803.0pt x 602.25pt>
+[7] [8 <./images/positional_results.png (PNG copy)>]
+<./images/cw1_nota.png, id=204, 803.0pt x 602.25pt>
 File: ./images/cw1_nota.png Graphic file (type png)
 <use ./images/cw1_nota.png>
-Package pdftex.def Info: ./images/cw1_nota.png  used on input line 498.
+Package pdftex.def Info: ./images/cw1_nota.png  used on input line 453.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw1_notb.png, id=261, 803.0pt x 602.25pt>
+<./images/cw1_notb.png, id=205, 803.0pt x 602.25pt>
 File: ./images/cw1_notb.png Graphic file (type png)
 <use ./images/cw1_notb.png>
-Package pdftex.def Info: ./images/cw1_notb.png  used on input line 506.
+Package pdftex.def Info: ./images/cw1_notb.png  used on input line 461.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw1_notc.png, id=262, 803.0pt x 602.25pt>
+<./images/cw1_notc.png, id=206, 803.0pt x 602.25pt>
 File: ./images/cw1_notc.png Graphic file (type png)
 <use ./images/cw1_notc.png>
-Package pdftex.def Info: ./images/cw1_notc.png  used on input line 514.
+Package pdftex.def Info: ./images/cw1_notc.png  used on input line 469.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw1_noth.png, id=263, 803.0pt x 602.25pt>
+<./images/cw1_noth.png, id=207, 803.0pt x 602.25pt>
 File: ./images/cw1_noth.png Graphic file (type png)
 <use ./images/cw1_noth.png>
-Package pdftex.def Info: ./images/cw1_noth.png  used on input line 521.
+Package pdftex.def Info: ./images/cw1_noth.png  used on input line 476.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
  [9 <./images/cw1_nota.png> <./images/cw1_notb.png> <./images/cw1_notc.png> <./
 images/cw1_noth.png>]
-[10] [11]
-Overfull \hbox (1.96306pt too wide) in paragraph at lines 594--594
+
+./w4-essay.tex:539: LaTeX Error: Unicode character � (U+FFFD)
+               not set up for use with LaTeX.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.539 \pagebreak
+                
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+[10]
+Overfull \hbox (1.96306pt too wide) in paragraph at lines 539--539
 \T1/cmr/m/n/10.95 2016 Re-pub-li-can pres-i-den-tial pri-maries.'' \T1/cmr/m/it
 /10.95 Eu-ro-pean Jour-nal of Po-lit-i-cal Econ-omy \T1/cmr/m/n/10.95 55:29^^U
  []
 
-[12] [13] [14] [15] [16]
-<./images/corrected2_indexes_plot.png, id=350, 505.02277pt x 505.31184pt>
+[11] [12]
+<./images/alpha_conv.png, id=276, 460.6008pt x 460.6008pt>
+File: ./images/alpha_conv.png Graphic file (type png)
+<use ./images/alpha_conv.png>
+Package pdftex.def Info: ./images/alpha_conv.png  used on input line 589.
+(pdftex.def)             Requested size: 341.43665pt x 351.3956pt.
+ [13]
+<./images/rho_conv.png, id=285, 460.6008pt x 460.6008pt>
+File: ./images/rho_conv.png Graphic file (type png)
+<use ./images/rho_conv.png>
+Package pdftex.def Info: ./images/rho_conv.png  used on input line 599.
+(pdftex.def)             Requested size: 341.43665pt x 351.3956pt.
+ [14 <./images/alpha_conv.png>] [15 <./images/rho_conv.png>]
+[16]
+<./images/corrected2_indexes_plot.png, id=302, 505.02277pt x 505.31184pt>
 File: ./images/corrected2_indexes_plot.png Graphic file (type png)
 <use ./images/corrected2_indexes_plot.png>
 Package pdftex.def Info: ./images/corrected2_indexes_plot.png  used on input li
-ne 710.
+ne 682.
 (pdftex.def)             Requested size: 341.44589pt x 351.41046pt.
  [17]
-Overfull \hbox (70.27332pt too wide) in paragraph at lines 719--729
+Overfull \hbox (72.99042pt too wide) in paragraph at lines 691--701
  [][] 
  []
 
 
-Overfull \hbox (49.02594pt too wide) in paragraph at lines 734--744
+Overfull \hbox (49.02594pt too wide) in paragraph at lines 706--716
  [][] 
  []
 
-<./images/cw2_nota.png, id=356, 803.0pt x 602.25pt>
+<./images/cw2_nota.png, id=308, 803.0pt x 602.25pt>
 File: ./images/cw2_nota.png Graphic file (type png)
 <use ./images/cw2_nota.png>
-Package pdftex.def Info: ./images/cw2_nota.png  used on input line 754.
+Package pdftex.def Info: ./images/cw2_nota.png  used on input line 726.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw2_notb.png, id=357, 803.0pt x 602.25pt>
+<./images/cw2_notb.png, id=309, 803.0pt x 602.25pt>
 File: ./images/cw2_notb.png Graphic file (type png)
 <use ./images/cw2_notb.png>
-Package pdftex.def Info: ./images/cw2_notb.png  used on input line 762.
+Package pdftex.def Info: ./images/cw2_notb.png  used on input line 734.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw2_notc.png, id=358, 803.0pt x 602.25pt>
+<./images/cw2_notc.png, id=310, 803.0pt x 602.25pt>
 File: ./images/cw2_notc.png Graphic file (type png)
 <use ./images/cw2_notc.png>
-Package pdftex.def Info: ./images/cw2_notc.png  used on input line 770.
+Package pdftex.def Info: ./images/cw2_notc.png  used on input line 742.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
-<./images/cw2_noth.png, id=359, 803.0pt x 602.25pt>
+<./images/cw2_noth.png, id=311, 803.0pt x 602.25pt>
 File: ./images/cw2_noth.png Graphic file (type png)
 <use ./images/cw2_noth.png>
-Package pdftex.def Info: ./images/cw2_noth.png  used on input line 778.
+Package pdftex.def Info: ./images/cw2_noth.png  used on input line 750.
 (pdftex.def)             Requested size: 202.72849pt x 152.04164pt.
 [18 <./images/corrected2_indexes_plot.png>] [19 <./images/cw2_nota.png> <./imag
 es/cw2_notb.png> <./images/cw2_notc.png> <./images/cw2_noth.png>]
 (./w4-essay.aux)
 
+LaTeX Warning: There were undefined references.
+
+
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `w4-essay.out' has not changed.
-(rerunfilecheck)             Checksum: 64A7C18E556CD2E74583AEF04A551004;1123.
+(rerunfilecheck)             Checksum: D83A46A943BD663A1EF4EF8A4A17F259;1286.
+
+Package biblatex Warning: Please (re)run Biber on the file:
+(biblatex)                w4-essay
+(biblatex)                and rerun LaTeX afterwards.
+
 Package logreq Info: Writing requests to 'w4-essay.run.xml'.
 \openout1 = `w4-essay.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 22864 strings out of 474968
- 412062 string characters out of 5780080
- 1550251 words of memory out of 5000000
- 43979 multiletter control sequences out of 15000+600000
- 489760 words of font info for 85 fonts, out of 8000000 for 9000
+ 22688 strings out of 474968
+ 406299 string characters out of 5780080
+ 1550216 words of memory out of 5000000
+ 43838 multiletter control sequences out of 15000+600000
+ 486032 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,10n,89p,2416b,3947s stack positions out of 10000i,1000n,20000p,200000b,200000s
-{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texl
-ive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}<c:/texlive/2022/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb><c:/texlive/2022/texmf-dis
-t/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2022/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi6.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmmi8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9
-.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb><c:
-/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2
-022/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2022/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2022/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
-/amsfonts/cm/cmsy10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts
-/cm/cmsy8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.
-pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/te
-xlive/2022/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2022
-/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2022/texmf-dis
-t/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2022/texmf-dist/fonts/ty
-pe1/public/cm-super/sfrm1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public
-/cm-super/sfrm1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/
-sfrm1200.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1728.p
-fb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on w4-essay.pdf (19 pages, 811658 bytes).
+ 76i,10n,82p,1751b,3947s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{c:/texlive/2022/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texl
+ive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2022/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2022/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2022/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr8.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmr9.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texli
+ve/2022/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2022/te
+xmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2022/texmf-dist/f
+onts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2022/texmf-dist/fonts/type1
+/public/cm-super/sfrm0900.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm
+-super/sfrm1000.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfr
+m1095.pfb><c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
+<c:/texlive/2022/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texliv
+e/2022/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on w4-essay.pdf (19 pages, 791403 bytes).
 PDF statistics:
- 499 PDF objects out of 1000 (max. 8388607)
- 411 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
- 133 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 418 PDF objects out of 1000 (max. 8388607)
+ 341 compressed objects within 4 object streams
+ 88 named destinations out of 1000 (max. 500000)
+ 151 words of extra memory for PDF output out of 10000 (max. 10000000)
 
