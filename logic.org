@@ -12,9 +12,8 @@
 - I import freq_ranks_inferred in 03-others_plus_transfer
   - I transfer and find 4 equivalence classes that minimize euclidean distance;
   - I export the raw and the corrected orderings (with frequency and proportion)
-- I import that raw to corrected_indexes.jl
+- I import that raw to 05-corrected_indexes.jl
   - I export the INDEXES of the corrected orderings
 
-
 - This then, goes to the plots in visualize_indexes.R
--
+- I import

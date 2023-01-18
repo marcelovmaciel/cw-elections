@@ -1,11 +1,9 @@
 library("ggpubr")
 
-
 corrected_indexes1<- read.csv("./dfs/corrected_indexes_1.csv")
 corrected_indexes2 <- read.csv("./dfs/corrected_indexes_2.csv")
 
 ## list.files("./")
-
 
 fn_that_should_be_anonymous <-  function (candidatename,df) {
 df %>% ggplot(
@@ -32,8 +30,6 @@ alckminplot2 <- fn_that_should_be_anonymous("Alckmin", corrected_indexes2)
 bozoplot2 <- fn_that_should_be_anonymous("Bolsonaro", corrected_indexes2)
 
 position_counts2 <- ggarrange(ciroplot2, haddadplot2, alckminplot2, bozoplot2 , ncol = 2, nrow = 2)
-
-position_counts2
 
 
 position_counts1 %>% ggsave("./plots/corrected1_indexes_plot.png",

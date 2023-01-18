@@ -23,7 +23,7 @@ using Rotations
 
 dfspath = "../rscripts/dfs/"
 
-mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
+mincw1 = CSV.read(dfspath * "min_raw_1.csv", DataFrame)
 
 p4c = cw.getp_4candidates(mincw1)
 
@@ -158,7 +158,7 @@ Graphics[{RGBColor[1, 1, 0.85], EdgeForm[GrayLevel[0]],
     {1, Sqrt[3]}, {3/2, Sqrt[3]/2}, {2, 0}},
    Polygon[{{1, 3, 2}, {4, 2, 5}, {3, 5, 2}, {5, 3, 6}}]]}]
  =#
-
+#= 
  test_points = [(0, 0), (1/2, sqrt(3)/2), (1, 0),
  (1, sqrt(3)), (3/2, sqrt(3)/2), (2, 0)]
 
@@ -187,7 +187,7 @@ lines!(deplot.axis,
      pair[2] |> GeometryBasics.Point2],
      color = :black)
 end
-
+ =#
 #= 
 plt
 
@@ -279,13 +279,13 @@ plt
  =#
 ## -----------------------------------------------------------
 
-vertex_combs = combinations([GeometryBasics.Point3f0.(tetrapoint2)...,
+#= vertex_combs = combinations([GeometryBasics.Point3f0.(tetrapoint2)...,
 GeometryBasics.Point3f0(tetra_centroid2.coords)], 3)
 
 fig = Figure(resolution = (600,600))
 ax = LScene(fig[1,1], show_axis=false)
 
-
+ =#
 #= tetrapoints2
 
 foo = wireframe(GeometryBasics.Point3f0.(tetrapoints2[1:3]), show_axis = false )
@@ -366,6 +366,9 @@ borda = cw.get_numericOf_qₛ(cw.borda_4c_qₛ(), p4c)  |> Vector{Float64} |> v-
 apl
 
 pl
+
+
+
 #= 
 
 truncpl = map(x->x + pl[4]/3,pl)[1:3]
@@ -423,12 +426,6 @@ pullpl,pullv42,pullapl], color = :black, markersize = 5)
 scatter!(foo.axis,[pullborda], color = :blue, markersize = 5)
  =#
 
-foo
-
-truncapl |> println
-
-foo
-
 
 d1 = (-0.5, sqrt(3)/2)
 d2 = (1.5,sqrt(3)/2)
@@ -472,6 +469,8 @@ end
 
 
 ot = plain_opened_tetrahedron()
+
+
 
 # simp = cw.baseline_tetrahedron()
 
@@ -581,10 +580,10 @@ end
 
 
 dfspath = "../rscripts/dfs/"
-
+#= 
 mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
 
-p4c = cw.getp_4candidates(mincw1)
+p4c = cw.getp_4candidates(mincw1) =#
 
 drop_idx(vec, idx) = vec[eachindex(vec) .∉ Ref(idx)] # this is actually super useful in general, should be in an utils package 
 
@@ -679,7 +678,7 @@ possible_pulled_apl,possible_pulled_v42,possible_pulled_pl])),
 color =:transparent, strokecolor =:black, strokewidth = 1)
 
 
-
+ot
 
 function newpoint(point,untruncated_point, who_is_outer)
   #println(point)
