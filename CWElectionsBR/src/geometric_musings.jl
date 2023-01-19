@@ -89,10 +89,10 @@ function make_basic_3_candidate△(sorted_candidate_list)
     hidespines!(basic_3candidate_triangle.axis)
     hidexdecorations!(basic_3candidate_triangle.axis)
     hideydecorations!(basic_3candidate_triangle.axis)
-#= 
+
     text!(sorted_candidate_list[1], position = (-0.03,-0.05))
     text!(sorted_candidate_list[2], position = (0.9,-0.05))
-    text!(sorted_candidate_list[3], position = (0.48,0.867)) =#
+    text!(sorted_candidate_list[3], position = (0.48,0.867)) 
 
 
 

@@ -9,7 +9,6 @@ using Pipe
 
 
 
-
 dfspath = "../rscripts/dfs/"
 
 simpler_rankings = cw.CSV.read(dfspath * "simpler_rankings.csv", cw.DataFrame)

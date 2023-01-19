@@ -36,7 +36,7 @@ end
 function getp_candidate_list_without_candidate(df, candidate_to_drop,
     candidates = candidates )
     without_candidate_props = props_without_candidate(df, candidate_to_drop)
-    candidates = ["bolsonaro", "haddad", "ciro", "alckmin"] |> sort
+    candidates = ["Bolsonaro", "Haddad", "Ciro", "Alckmin"] |> sort
     without_candidate_vec(candidate_to_drop) = filter(x-> x!= candidate_to_drop,
                                                              candidates)
     without_candidate_vecc = without_candidate_vec(candidate_to_drop)

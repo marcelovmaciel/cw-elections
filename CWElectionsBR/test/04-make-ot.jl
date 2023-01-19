@@ -37,9 +37,6 @@ function getpl_apl_v42(p)
 
 end
 
-
-
-
 function plain_opened_tetrahedron()
   foo =  cw.plain_triangle()  
   avertex = (0,0)
@@ -92,9 +89,8 @@ drop_idx(vec, idx) = vec[eachindex(vec) .∉ Ref(idx)] # this is actually super 
 
 standardize(vec) = vec./sum(vec)
 
-function filled_tetrahedron(tpl,tapl,tv42,candidadates = cw.candidates) 
+function filled_tetrahedron(tpl,tapl,tv42,candidates = cw.candidates) 
     ot = plain_opened_tetrahedron()
-
     d1 = (-0.5, sqrt(3)/2,0)
     d2 = (1.5,sqrt(3)/2,0)
 
@@ -164,6 +160,7 @@ function filled_tetrahedron(tpl,tapl,tv42,candidadates = cw.candidates)
     return(ot)    
 end
 
+
 mincw1 = CSV.read(dfspath * "min_raw_1.csv", DataFrame)
 mincw2 = CSV.read(dfspath * "min_raw_2.csv", DataFrame)
 mincw3 = CSV.read(dfspath * "min_raw_3.csv", DataFrame)
@@ -172,6 +169,9 @@ mincw4 = CSV.read(dfspath * "min_raw_4.csv", DataFrame)
 get_ot(df) = filled_tetrahedron(get_tpl_tapl_tv42(getpl_apl_v42(cw.getp_4candidates(df))...)...)
 
 ot1,ot2,ot3,ot4 = map(get_ot, [mincw1,mincw2,mincw3,mincw4])
+
+
+ot3
 
 # TODO: double-check if I didn't mess up in the 03 file !!!! 
 
