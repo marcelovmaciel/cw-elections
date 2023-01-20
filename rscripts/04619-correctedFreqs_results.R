@@ -1,7 +1,4 @@
 
-
-
-
 library("dplyr")
 library(purrr)
 library("magrittr")
@@ -13,196 +10,85 @@ library(tidyr)
 library(xtable)
 library(vote)
 
-
-# load("./dta_objects/freq_ranks_inferred.RData")
-
-## last_row <- tribble(~`1` ,~`2`,~`3`,~`4`, ~freq,
-##   "other", "other", "other", "other", 228)
-
-## freq_ranks_inferred <-  rbind(freq_ranks_inferred, last_row, stringsAsFactors = FALSE)
-
-##  freq_ranks_inferred %>%
-##   group_by(`1`) %>%
-##   summarise(cnt = sum(freq))  %>%
-##   mutate(prop = cnt / sum(cnt)) %>%
-##   arrange(desc(prop))
-
-print(corrected_freq_ranks, n = 29)
-
-
-# BUG : THERE IS SOMETHING WRONG WITH THIS COMPUTATION!!!
-## corrected_freq_ranks %>%
-##   group_by(`1`) %>%
-##   summarise(cnt = sum(freq))  %>%
-##   mutate(prop = cnt / sum(cnt)) %>%
-##   arrange(desc(prop)) -> plurality_table
-
-## corrected_freq_ranks %>%
-##   group_by(`4`) %>%
-##   summarise(cnt = sum(freq))  %>%
-##   mutate(prop = cnt / sum(cnt)) %>%
-##   arrange(prop) -> anti_plurality_table
-
-## corrected_freq_ranks %>%
-##   group_by(`1`) %>%
-##   summarise(cnt = sum(freq))  %>%
-##   arrange(`1`) -> firsto_table
-
-## corrected_freq_ranks %>%
-##   group_by(`2`) %>%
-##   summarise(cnt = sum(freq))  %>%
-##   arrange(`2`) -> secondo_table
-
-## corrected_freq_ranks %>%
-##   group_by(`3`) %>%
-##   summarise(cnt = sum(freq))  %>%
-##   arrange(`3`) -> thirdo_table
-
-## corrected_freq_ranks %>%
-##   group_by(`4`) %>%
-##   summarise(cnt = sum(freq))  %>%
-##   arrange(`4`) -> quarto_table
-
-## firsto_table
-
-## secondo_table
-
-## thirdo_table
-
-## quarto_table
-
-## tibble(quarto_table[,"4"],
-## (4 * firsto_table[,"cnt"] +
-##  3 * secondo_table[,"cnt"] +
-##  2 * thirdo_table[,"cnt"] +
-##  1 * quarto_table[,"cnt"])) -> borda_table
-
-## borda_table
-
-## get_tally_scores_from_proportions <- function(df,candidate, candidate2) {
-
-## df %>%
-##   filter(`1` == candidate | `1` == candidate2) %>%
-##   group_by(`1`) %>%
-##   summarise(cnt = sum(freq)) -> tc1
-
-## df %>%
-##     filter(., (`1` != candidate & `1` !=  candidate2) &
-##             (`2` == candidate | `2` ==  candidate2)) %>%
-##   group_by(`2`) %>%
-##     summarise(cnt = sum(freq)) -> tc2
-
-## df %>%
-## filter(., (`1` != candidate & `1` !=  candidate2) &
-##             (`2` != candidate & `2` !=  candidate2) &
-##             (`3` == candidate | `3` ==  candidate2)) %>%
-##   group_by(`3`) %>%
-##   summarise(cnt = sum(freq)) -> tc3
-
-##   tibble(tc1[,"1"],
-##        tc1[,"cnt"] +
-##        tc2[,"cnt"] +
-##        tc2[,"cnt"]) -> tally
-
-##   tally %<>% mutate(prop = cnt / sum(cnt) )
-##   return(tally)
-##   }
-
-## get_tally_winner <- function(df,c1,c2){
-
-## tw <- (get_tally_scores_from_proportions(corrected_freq_ranks,
-##                                   c1,
-##                                   c2) %>% filter(cnt == max(cnt)))[1,"1"]
-##   return(as.character(tw[[1]]))
-## }
-
-## get_tally_winner(corrected_freq_ranks,
-##                                   "bolsonaro",
-##                                   "haddad")
-
-## get_tallies_winners <- function (x,df) {
-##   candidates <- c("alckmin", "haddad", "bolsonaro", "ciro")
-
-##   othercandidates <- candidates[candidates != x]
-
-##   acc <- list()
-##   for (i in othercandidates){
-##     acc <- c(acc,get_tally_winner(df,x,i))
-##   }
-##   return(flatten_chr(acc))
-## }
-
-## bar <- get_tallies_winners("bolsonaro", corrected_freq_ranks)
-
-## ## b
-## 1611 + 1619 + 1771
-
-## ## h
-## 1165 + 1325 + 1459
-
-## ## c
-## 1547 + 1881 + 2537
-
-
-## get_tally_scores_from_proportions(corrected_freq_ranks,"bolsonaro","haddad")
-## get_tally_scores_from_proportions(corrected_freq_ranks, "bolsonaro","ciro")
-## get_tally_scores_from_proportions(corrected_freq_ranks, "bolsonaro","alckmin")
-
-
-## get_tally_scores_from_proportions(corrected_freq_ranks,"haddad","bolsonaro")
-## get_tally_scores_from_proportions(corrected_freq_ranks, "haddad","ciro")
-## get_tally_scores_from_proportions(corrected_freq_ranks, "haddad","alckmin")
-
-## get_tally_scores_from_proportions(corrected_freq_ranks,"ciro","haddad")
-## get_tally_scores_from_proportions(corrected_freq_ranks, "ciro","bolsonaro")
-## get_tally_scores_from_proportions(corrected_freq_ranks, "ciro","alckmin")
-
-## # FIXME: check if anything changed here
-## corrected_freq_ranks %>% summarise(cnt = sum(freq))
-
-# Bolsonaro is the borda winner, but not the condorcet winner !!!
-
-
-#  THE ACTUAL COMPUTATION happens here, through a pkg
-
-#corrected_raw <- read.csv("./dfs/corrected_freq_raw.csv")
-
-
-
-test1 <- read.csv("./dfs/min_c1_raw.csv")
-
-test2 <- read.csv("./dfs/min_c2_raw.csv")
+test1 <- read.csv("./dfs/min_raw_1.csv")
+test2 <- read.csv("./dfs/min_raw_2.csv")
+test3 <- read.csv("./dfs/min_raw_3.csv")
+test4 <- read.csv("./dfs/min_raw_4.csv")
 
 foooz1 <- create_vote(test1,
                      xtype = 2,
-                     candidate = c("alckmin","bolsonaro",  "ciro", "haddad"))
-
-cdc1 <- cdc_simple(foooz1)
-
-borda1 <- borda_method(foooz1, modified = TRUE)
-
-
-
-xtable(borda1$other_info$count_max)
-
-
-
-
-xtable(borda1$other_info$count_max)
-
+                     candidate = c("Alckmin","Bolsonaro",  "Ciro", "Haddad"))
 foooz2 <- create_vote(test2,
                      xtype = 2,
-                     candidate = c("alckmin","bolsonaro",  "ciro", "haddad"))
+                     candidate = c("Alckmin","Bolsonaro",  "Ciro", "Haddad"))
+foooz3 <- create_vote(test3,
+                     xtype = 2,
+                     candidate = c("Alckmin","Bolsonaro",  "Ciro", "Haddad"))
 
+foooz4 <- create_vote(test4,
+                     xtype = 2,
+                     candidate = c("Alckmin","Bolsonaro",  "Ciro", "Haddad"))
+
+cdc1 <- cdc_simple(foooz1)
 cdc2 <- cdc_simple(foooz2)
+cdc3 <- cdc_simple(foooz3)
+cdc4 <- cdc_simple(foooz4)
 
-borda2<- borda_method(foooz2, modified = TRUE)
+borda1 <- borda_method(foooz1, modified = TRUE)
+borda2 <- borda_method(foooz2, modified = TRUE)
+borda3 <- borda_method(foooz3, modified = TRUE)
+borda4 <- borda_method(foooz4, modified = TRUE)
 
-cdc1$binary
 
-xtable(cdc1$binary)
+cdc1_tab <- xtable(cdc1$binary,
+                   caption = "Pairwise Majority Comparisons",
+                   label = "tbl:subtab1", digits = c(0,0,0,0,0))
+cdc2_tab <- xtable(cdc2$binary,
+                   caption = "Pairwise Majority Comparisons, Eq class 2",
+                   label = "tbl:subtab2", digits = c(0,0,0,0,0))
+cdc3_tab <- xtable(cdc3$binary,
+                   caption = "Pairwise Majority Comparisons, Eq class 3",
+                   label = "tbl:subtab3", digits = c(0,0,0,0,0))
+cdc4_tab <- xtable(cdc4$binary,
+                   caption = "Pairwise Majority Comparisons, Eq class 4",
+                   label = "tbl:subtab4", digits = c(0,0,0,0,0))
 
-xtable(cdc2$binary)
+print(cdc1_tab,
+      file = "../writing/images/cdc1_tab.tex", compress = FALSE)
 
-xtable(as.data.frame(borda1$other_info$count_max))
-xtable(as.data.frame(borda2$other_info$count_max))
+print(cdc2_tab,
+      file = "../writing/images/cdc2_tab.tex", compress = FALSE)
+
+print(cdc3_tab,
+      file = "../writing/images/cdc3_tab.tex", compress = FALSE)
+
+print(cdc4_tab,
+      file = "../writing/images/cdc4_tab.tex", compress = FALSE)
+
+
+borda1_tab<- xtable(as.data.frame(borda1$other_info$count_max),
+                    caption = "Borda Scores ", label = "tbl:subtab2",
+                    digits = c(0,0))
+borda2_tab<- xtable(as.data.frame(borda2$other_info$count_max),
+                    caption = "Borda Scores , Eq class 2",
+                    label = "tbl:subtab2_eq2",
+                    digits = c(0,0))
+borda3_tab<- xtable(as.data.frame(borda3$other_info$count_max),
+                    caption = "Borda Scores , Eq class 3",
+                    label = "tbl:subtab2_eq3",
+                    digits = c(0,0))
+borda4_tab<- xtable(as.data.frame(borda4$other_info$count_max),
+                    caption = "Borda Scores , Eq class 4",
+                    label = "tbl:subtab2_eq4",
+                    digits = c(0,0))
+
+print(borda1_tab,
+      file = "../writing/images/borda1_tab.tex", compress = FALSE)
+
+print(borda2_tab,
+      file = "../writing/images/borda2_tab.tex", compress = FALSE)
+print(borda3_tab,
+      file = "../writing/images/borda3_tab.tex", compress = FALSE)
+
+print(borda4_tab,
+      file = "../writing/images/borda4_tab.tex", compress = FALSE)

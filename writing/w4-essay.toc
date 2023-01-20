@@ -1,6 +1,0 @@
-\contentsline {section}{\numberline {1}Introduction}{1}{section.1}%
-\contentsline {section}{\numberline {2}The classical views of democratization}{2}{section.2}%
-\contentsline {section}{\numberline {3}On democratic demise}{4}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Definition}{4}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Causes}{5}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Limitations of current theories}{8}{subsection.3.3}%
