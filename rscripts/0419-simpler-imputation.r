@@ -205,18 +205,14 @@ foo1 <- zap_label(noncyclic_agents)
 data.frame(foo1) %>%
   mutate(across(everything(), as.factor))-> foo2
 
-
 foo2[,grepl("pair", names(foo2))] -> foo2
 
-miced <- mice(foo2)
 
-
-bora <- complete(miced)
-
+get_cyclic_indexes <- function(df){
 
 acc_cyclic2 <- vector()
-for (i in 1:nrow(bora)) {
-  foo <- get_agent_pairs(i, bora[i, ])
+for (i in 1:nrow(df)) {
+  foo <- get_agent_pairs(i, df[i, ])
   actors <- data.frame(name = c(3,5,6,9))
   relations <- data.frame(from = foo$top_item,
                         to = foo$bottom_item)
@@ -224,6 +220,61 @@ for (i in 1:nrow(bora)) {
 
   acc_cyclic2 <- c(acc_cyclic2, length(FindCycles(g)) > 0 )
 }
+return(acc_cyclic2)
+}
+
+# TODO: continue here
+
+
+## miced_pmm2 <- mice(foo2, m = 20, method = "pmm")
+
+## I'll pool 50 of this
+miced_pmm <- mice(foo2, m = 20, method = "pmm")
+
+## And 50 of this
+miced_cart <- mice(foo2, m = 100, method = "cart")
+
+
+miced_poly <- mice(foo2, m = 10, method = "polyreg")
+
+
+imp_pmm <- miced_pmm %>% complete
+
+imp_cart <- miced_cart %>% complete
+
+
+imp_poly <- miced_poly %>% complete
+# imp_rf <- miced_rf %>% complete
+
+imp_poly %>% dim
+
+
+sum(imp_cart != imp_cart2)
+
+
+
+imp_pmm %>% get_cyclic_indexes -> acc_cyclic_pmm
+imp_pmm2 %>% get_cyclic_indexes -> acc_cyclic_pmm2
+
+imp_poly %>% get_cyclic_indexes -> acc_cyclic_poly
+
+imp_poly2 %>% get_cyclic_indexes -> acc_cyclic_poly2
+
+imp_cart %>% get_cyclic_indexes -> acc_cyclic_cart
+
+imp_cart2 %>% get_cyclic_indexes -> acc_cyclic_cart2
+
+## random forest makes too many mistakes !!!
+## imp_rf %>% get_cyclic_indexes -> acc_cyclic_rf
+
+
+acc_cyclic_cart2 %>% sum
+acc_cyclic_pmm %>% sum
+acc_cyclic_poly %>% sum
+
+
+
+
 
 
 noncyclic_agents <- bora[!acc_cyclic2,]
