@@ -1,21 +1,15 @@
 library("BayesMallows")
 library("dplyr")
-#library("ggraph")
 library("haven")
 library("igraph")
 library("magrittr")
 library("purrr")
-##library("tidyr")
-#library("tidytable")
-#library("votevizr")
-#library("xtable")
-## library(reshape2)
-#library("ggpubr")
 library(readr)
 library(mice)
 library(naniar)
-
-
+library(stringr)
+library(readr)
+library(progress)
 
 df <- read_sav("../04619/04619.SAV")
 #load("bmm_rank_index.RData")
@@ -74,12 +68,6 @@ those_i_rejects <-  map(acc, ~.x[!is.na(.x)])
 ## ** p6, the pairwise comparisons!
 p6df <- df[, grepl("p6", names(df))]
 
-
-
-
-
-p6df
-
 ## ** p7, who_will_win
 p7df <- df[, "p7"]
 
@@ -102,13 +90,13 @@ foofn <- function (x) {
 }
 
 
-global_pairwise_comparisons <- map(names(p6df), foofn)
+## global_pairwise_comparisons <- map(names(p6df), foofn)
 
-lapply(global_pairwise_comparisons, (\(x) as_tibble(as.data.frame(x))) ) -> global_pairwise_comparisons
+## lapply(global_pairwise_comparisons, (\(x) as_tibble(as.data.frame(x))) ) -> global_pairwise_comparisons
 
 
-save(global_pairwise_comparisons,
-     file="./dta_objects/global_pairwise_comparisons.RData")
+## save(global_pairwise_comparisons,
+##      file="./dta_objects/global_pairwise_comparisons.RData")
 
 
 ## *  preprocessing pairs
@@ -223,61 +211,16 @@ for (i in 1:nrow(df)) {
 return(acc_cyclic2)
 }
 
-# TODO: continue here
 
+imput_then_clean_cyclic <- function(method,df){
+  mice(df, m = 10, method = method) %>%
+    complete -> miced
+  miced %>%
+    get_cyclic_indexes -> acc_cyclic
+  miced[!acc_cyclic,] -> noncyclic_agents
+  return(noncyclic_agents)
+}
 
-## miced_pmm2 <- mice(foo2, m = 20, method = "pmm")
-
-## I'll pool 50 of this
-miced_pmm <- mice(foo2, m = 20, method = "pmm")
-
-## And 50 of this
-miced_cart <- mice(foo2, m = 100, method = "cart")
-
-
-miced_poly <- mice(foo2, m = 10, method = "polyreg")
-
-
-imp_pmm <- miced_pmm %>% complete
-
-imp_cart <- miced_cart %>% complete
-
-
-imp_poly <- miced_poly %>% complete
-# imp_rf <- miced_rf %>% complete
-
-imp_poly %>% dim
-
-
-sum(imp_cart != imp_cart2)
-
-
-
-imp_pmm %>% get_cyclic_indexes -> acc_cyclic_pmm
-imp_pmm2 %>% get_cyclic_indexes -> acc_cyclic_pmm2
-
-imp_poly %>% get_cyclic_indexes -> acc_cyclic_poly
-
-imp_poly2 %>% get_cyclic_indexes -> acc_cyclic_poly2
-
-imp_cart %>% get_cyclic_indexes -> acc_cyclic_cart
-
-imp_cart2 %>% get_cyclic_indexes -> acc_cyclic_cart2
-
-## random forest makes too many mistakes !!!
-## imp_rf %>% get_cyclic_indexes -> acc_cyclic_rf
-
-
-acc_cyclic_cart2 %>% sum
-acc_cyclic_pmm %>% sum
-acc_cyclic_poly %>% sum
-
-
-
-
-
-
-noncyclic_agents <- bora[!acc_cyclic2,]
 
 
 
@@ -289,38 +232,49 @@ get_pair <- function(indx, x, col, pair){
 }
 
 
-acc_pairs <-   tibble(assessor = numeric(),
+clean_rankings <- function (imputted_noncyclic){
+  acc_pairs <-   tibble(assessor = numeric(),
          bottom_item = numeric(),
          top_item = factor())
-
-
-for (i in 1:nrow(noncyclic_agents)) {
+  for (i in 1:nrow(imputted_noncyclic)) {
   acc_pairs <- bind_rows(acc_pairs,
-            get_agent_pairs(i, noncyclic_agents[i,]))
+                         get_agent_pairs(i, imputted_noncyclic[i,]))
+  }
+  acc_pairs$top_item <-as.numeric(as.character(acc_pairs$top_item))
+
+  acc_pairs$bottom_item[acc_pairs$bottom_item == 3] <- 1 ## ciro
+  acc_pairs$bottom_item[acc_pairs$bottom_item == 5] <- 2 ## haddad
+  acc_pairs$bottom_item[acc_pairs$bottom_item == 6] <- 3 ## alckmin
+  acc_pairs$bottom_item[acc_pairs$bottom_item == 9] <- 4 ## bolsonaro
+
+
+  acc_pairs$top_item[acc_pairs$top_item == 3] <- 1
+  acc_pairs$top_item[acc_pairs$top_item == 5] <- 2
+  acc_pairs$top_item[acc_pairs$top_item == 6] <- 3
+  acc_pairs$top_item[acc_pairs$top_item == 9] <- 4
+
+  funfadisgrama <- generate_transitive_closure(acc_pairs)
+  funfadisgrama2<- generate_initial_ranking(funfadisgrama)
+  rankings_df <- as.data.frame(funfadisgrama2)
+  colnames(rankings_df) <- c(c("Ciro", "Haddad", "Alckmin", "Bolsonaro"))
+  return(rankings_df)
+}
+
+impute_then_save_loop <- function(method,
+                                  df,
+                                  loopsize){
+  pb <- progress_bar$new(total = loopsize)
+  for (i in 1:loopsize){
+    pb$tick()
+    imputted <- imput_then_clean_cyclic(method,df)
+    filename <- str_glue("./dfs/imputted_{method}_{i}.csv",
+                         method = method, i = i)
+    clean_imputed <- clean_rankings(imputted)
+    write_csv(clean_imputed,filename)
+  }
 }
 
 
-acc_pairs$top_item <-as.numeric(as.character(acc_pairs$top_item))
-
-acc_pairs$bottom_item[acc_pairs$bottom_item == 3] <- 1 ## ciro
-acc_pairs$bottom_item[acc_pairs$bottom_item == 5] <- 2 ## haddad
-acc_pairs$bottom_item[acc_pairs$bottom_item == 6] <- 3 ## alckmin
-acc_pairs$bottom_item[acc_pairs$bottom_item == 9] <- 4 ## bolsonaro
-
-
-acc_pairs$top_item[acc_pairs$top_item == 3] <- 1
-acc_pairs$top_item[acc_pairs$top_item == 5] <- 2
-acc_pairs$top_item[acc_pairs$top_item == 6] <- 3
-acc_pairs$top_item[acc_pairs$top_item == 9] <- 4
-
-funfadisgrama <- generate_transitive_closure(acc_pairs)
-funfadisgrama2<- generate_initial_ranking(funfadisgrama)
-
-
-rankings_df <- as.data.frame(funfadisgrama2)
-
-colnames(rankings_df) <- c(c("Ciro", "Haddad", "Alckmin", "Bolsonaro"))
-
-write_csv(rankings_df, "./dfs/simpler_rankings.csv")
-
-freq_ranks_inferred<- read_csv("./dfs/freq_ranks_inferred.csv")
+impute_then_save_loop("cart",foo2,100)
+impute_then_save_loop("pmm",foo2,100)
+impute_then_save_loop("polyreg",foo2,1)
