@@ -8,42 +8,10 @@ import CWElectionsBR as cw
 using DataFrames
 import Base.Filesystem as fl 
 using Pipe 
-
+using Chain
 using RCall
 
 @rimport tidyr
-
-freq_ranks_inferred = cw.CSV.read(cw.dfspath * "freq_ranks_inferred.csv", cw.DataFrame)
-
-other_proxy =  DataFrame(Dict("1"=>"other",
- "2"=>"other", "3"=>"other", "4"=>"other", "freq"=>228, "prop" =>0.719 ))
-
-
-append!(freq_ranks_inferred, other_proxy)
-
-using Chain
-
-prop_df = @chain  freq_ranks_inferred begin
-    groupby(:1)
-    combine(:freq => sum )
-    sort(:1)
-end
-
-
-
-prop_df[!, :prop] =  map(x-> round(x/sum(prop_df[!, :freq_sum]),digits= 3), prop_df[!, :freq_sum])
-
-prop_df[!,:1]= string.(prop_df[!,:1])
-
-sort!(prop_df,"1")
-
-
-
-#=
-Actual voting tally proportions: bolsonaro:haddad:ciro:alckmin:other = 46.3:29.28:12.47:4.76:7.19
-
-What I have: 36.7:24.7:17.3:14.1:7.19  =#
-
 
 actual_first_round = @chain begin
     zip(["Bolsonaro", "Haddad", "Ciro", "Alckmin", "other"],
@@ -53,27 +21,62 @@ actual_first_round = @chain begin
     rename(:1=> :candidates, :2 => :actual_proportions)
 end
 
-prop_df[!, :actual_proportions] = actual_first_round[!,:actual_proportions]
 
 
-prop_df
-
-## In which I get the overvoted and undervoted data  
-
-overvoted = prop_df[prop_df[!, :prop] .> prop_df[!, :actual_proportions],:]
-
-undervoted = prop_df[prop_df[!, :prop] .< prop_df[!, :actual_proportions],:]
-
-prop_df[!, :dist_proportion] = (prop_df[!,:prop] .- prop_df[!,:actual_proportions] .|>
-x-> round(x, digits = 3) .|>
- abs)
-
-total_tallies = sum(prop_df[!, :freq_sum])
-prop_df[!, :dist_freqs] = round.(prop_df[!,:dist_proportion] .*  total_tallies, digits = 0)
+function read_df_append_other_proxy(filename)
+    freq_ranks_inferred = cw.CSV.read(cw.dfspath * filename,
+     cw.DataFrame)
+     other_proxy =  DataFrame(Dict("1"=> "other",
+                                   "2"=> "other", 
+                                   "3"=> "other", 
+                                   "4"=> "other", 
+                                   "freq"=> 228, 
+                                   "prop" => 0.719))
+    append!(freq_ranks_inferred, other_proxy)
+    return(freq_ranks_inferred)
+end    
 
 
-overcandidates = [j[1] for j in eachrow(overvoted)]
-undercandidates = [j[1] for j in eachrow(undervoted)]
+function makeDict_infos_freq(freq_ranks_inferred)
+    prop_df = @chain  freq_ranks_inferred begin
+        groupby(:1)
+        combine(:freq => sum )
+        sort(:1)
+    end
+    
+    prop_df[!, :prop] =  map(x-> round(x/sum(prop_df[!, :freq_sum]),digits= 4),
+    prop_df[!, :freq_sum])
+    prop_df[!,:1]= string.(prop_df[!,:1])
+    sort!(prop_df,"1")
+    prop_df[!, :actual_proportions] = actual_first_round[!,:actual_proportions]
+    
+    overvoted = prop_df[prop_df[!, :prop] .> prop_df[!, :actual_proportions],:]
+    undervoted = prop_df[prop_df[!, :prop] .< prop_df[!, :actual_proportions],:]
+
+    prop_df[!, :dist_proportion] = (prop_df[!,:prop] .- prop_df[!,:actual_proportions] .|>
+    x-> round(x, digits = 3) .|> abs)
+
+    total_tallies = sum(prop_df[!, :freq_sum])
+
+    prop_df[!, :dist_freqs] = round.(prop_df[!,:dist_proportion] .*  total_tallies, digits = 0)
+
+    overcandidates = [j[1] for j in eachrow(overvoted)]
+    undercandidates = [j[1] for j in eachrow(undervoted)]
+
+    infos_fri = Dict("prop_df" => prod_df,
+                             "total_tallies" => total_tallies, 
+                             "overvoted" => overvoted,
+                             "undervoted" => undervoted, 
+                             "overcandidates" => overcandidates,
+                             "undercandidates" => undercandidates)
+    return(infos_fri)
+end
+
+
+#=
+Actual voting tally proportions: bolsonaro:haddad:ciro:alckmin:other = 46.3:29.28:12.47:4.76:7.19
+
+What I have: 36.7:24.7:17.3:14.1:7.19  =#
 
 
 
@@ -269,17 +272,12 @@ for x in minimum_transfers
     x[:transferred_df] = reduce(vcat,map(x->(x["candidate_freq_rank"])[!,["1", "2", "3", "4", "freq", "prop"]],values(x[:transfer_dicts])))
 end
 
-findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[1],
-   map(x->x[:transferred_df], minimum_transfers))
+mindfs = map(x->x[:transferred_df],minimum_transfers)
 
-findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[4],
-   map(x->x[:transferred_df], minimum_transfers))   
+unique_min_dfs = unique(mindfs)
 
-findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[5],
-   map(x->x[:transferred_df], minimum_transfers))    
+## TODO: Until here is chill  
 
-findall(y->  y==map(x->x[:transferred_df], minimum_transfers)[18],
-   map(x->x[:transferred_df], minimum_transfers))     
 
    
 min_transfer_c1 = minimum_transfers[1][:transferred_df]

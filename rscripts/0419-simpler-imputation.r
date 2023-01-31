@@ -98,7 +98,6 @@ foofn <- function (x) {
 ## save(global_pairwise_comparisons,
 ##      file="./dta_objects/global_pairwise_comparisons.RData")
 
-
 ## *  preprocessing pairs
 subset_df <- rename(subset_df,
                     who_i_votes_for = p2,
