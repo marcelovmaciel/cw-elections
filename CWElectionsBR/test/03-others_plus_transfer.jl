@@ -21,8 +21,6 @@ actual_first_round = @chain begin
     rename(:1=> :candidates, :2 => :actual_proportions)
 end
 
-
-
 function read_df_append_other_proxy(filename)
     freq_ranks_inferred = cw.CSV.read(cw.dfspath * filename,
      cw.DataFrame)
@@ -31,7 +29,7 @@ function read_df_append_other_proxy(filename)
                                    "3"=> "other", 
                                    "4"=> "other", 
                                    "freq"=> 228, 
-                                   "prop" => 0.719))
+                                   "prop" => 0.0719))
     append!(freq_ranks_inferred, other_proxy)
     return(freq_ranks_inferred)
 end    
@@ -63,7 +61,7 @@ function makeDict_infos_freq(freq_ranks_inferred)
     overcandidates = [j[1] for j in eachrow(overvoted)]
     undercandidates = [j[1] for j in eachrow(undervoted)]
 
-    infos_fri = Dict("prop_df" => prod_df,
+    infos_fri = Dict("prop_df" => prop_df,
                              "total_tallies" => total_tallies, 
                              "overvoted" => overvoted,
                              "undervoted" => undervoted, 
@@ -72,21 +70,26 @@ function makeDict_infos_freq(freq_ranks_inferred)
     return(infos_fri)
 end
 
+df = read_df_append_other_proxy("imputted_polyreg_1_fri.csv")
+
+
+
+info = makeDict_infos_freq(df)
+
+## TODO : Gotta continue here 
+info["prop_df"]
 
 #=
 Actual voting tally proportions: bolsonaro:haddad:ciro:alckmin:other = 46.3:29.28:12.47:4.76:7.19
 
 What I have: 36.7:24.7:17.3:14.1:7.19  =#
 
-
-
 function make_base_split_freq_ranks(candidate, freq_ranks)
     filter(x-> x[:1] == candidate, freq_ranks)
 end
  
 
-
-discrepancy(candidate) = Int(first(filter(x-> x[:1] == candidate, prop_df)[!,:dist_freqs]))
+discrepancy(candidate,info) = Int(first(filter(x-> x[:1] == candidate, info)[!,:dist_freqs]))
 
 function preprocess_over_under!(overcandidate,
                                undercandidate, over_freq_rankss,under_freq_rankss)
@@ -185,7 +188,6 @@ function make_under_rankss(undercandidates,freq_ranks_inferred)
 end
 
 
-
 function transfer!(candidate_to_give,
                    candidate_to_receive,
                    over_freq_rankss,
@@ -254,10 +256,10 @@ end
 
 
 
-transferss = sweep_transfer(undercandidates,overcandidates,
- freq_ranks_inferred,
-total_tallies,
-prop_df)
+transferss = sweep_transfer(info["undercandidates"],info["overcandidates"],
+ df,
+info["total_tallies"],
+info["prop_df"])
 
 
 dists = map(x->x[:eudist_to_target], transferss) 
@@ -277,7 +279,6 @@ mindfs = map(x->x[:transferred_df],minimum_transfers)
 unique_min_dfs = unique(mindfs)
 
 ## TODO: Until here is chill  
-
 
    
 min_transfer_c1 = minimum_transfers[1][:transferred_df]

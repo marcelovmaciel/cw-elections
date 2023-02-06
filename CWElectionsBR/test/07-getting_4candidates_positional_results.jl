@@ -19,6 +19,9 @@ p4c = cw.getp_4candidates(mincw1)
 wscw1 = cw.get_4c_wₛ(p4c) 
 
 
+wscw1
+
+
 plurality_result = cw.plurality_4c_wₛ_num(p4c)
 vote_for_two_result = cw.vote_for_two_4c_wₛ_num(p4c)
 antiplurality_result = cw.antiplurality_4c_wₛ_num(p4c)
@@ -58,7 +61,6 @@ end
 
 
 ## This depends on the the mathematica notebook and should be in another file!
-
 
 counterfactuals = [0.	0.0495357	0.	0.251126;
                    0.950464	0.	0.69011	1.;
