@@ -197,9 +197,12 @@ function get_new_prop_from_mutated_dict(merged_result,total_tallies)
      for candidate in keys(merged_result)] |> DataFrame
       rename!(newpropdf, Dict("1" => "candidates", "2" => "new_proportions"))
     # TODO : check if this new_proportions is correct
-    #= otherdf = DataFrame(:candidates => "other",
+ #= otherdf = DataFrame(:candidates => "other",
                         :new_proportions => round(1-(newpropdf[!,:new_proportions] |> sum),digits = 4))
-    append!(newpropdf, otherdf) =#
+    if length(newpropdf[!,:candidates]) == 4
+                        append!(newpropdf, otherdf)
+     end
+ =#
     sort!(newpropdf, :candidates)
     return(newpropdf)
 end
@@ -229,6 +232,8 @@ function sweep_transfer(info,df)
         merged_result  = merge(under_freq_rankss,over_freq_rankss)
 
         newprops= get_new_prop_from_mutated_dict(merged_result,total_tallies)
+        println(prop_df[!,:actual_proportions])
+        println(newprops[!,:new_proportions])
         eudist= cw.euclidean(prop_df[!,:actual_proportions], newprops[!,:new_proportions])
         transfers_info = Dict(:permutation => perm , :transfer_dicts => merged_result ,
         :newprops=>newprops, :eudist_to_target => eudist)
@@ -320,7 +325,36 @@ function transfer_and_save(dfname_toread, csvname_toappend)
     
 end
 
+
+## Actual computation starts here ----------------------------------------------------------------
+dfs_names = readdir(cw.dfspath)
+
 transfer_and_save("meanofmeansfri.csv", "avg_imp_")
+
+fri_dfs = filter(x->occursin("_fri",x), dfs_names)
+
+pmm_fri = filter(x->occursin("pmm",x), fri_dfs)
+
+cart_fri = filter(x->occursin("cart",x), fri_dfs)
+
+poly_fri = filter(x->occursin("poly",x), fri_dfs)
+
+
+
+# BUG: there is some newpropdf with no other, while some do have other!!!! 
+
+for (i,f) in enumerate(pmm_fri)
+    println(i)
+    transfer_and_save(f, "pmm_$i" * "_")
+end
+
+
+
+poly_fri
+
+
+
+
 
 
 
