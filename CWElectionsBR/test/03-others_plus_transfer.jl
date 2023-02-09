@@ -278,8 +278,6 @@ function clean_raw(raw)
          :Fourth => map(x->x[4], raw[!,:ranking_vectors]))    
 end    
 
-df = cw.CSV.read(cw.dfspath * "meanofmeansfri.csv",
-cw.DataFrame)
 
 
 function min_transfer_classes(df)
@@ -289,29 +287,40 @@ function min_transfer_classes(df)
     return(min_transfers)
 end
 
-min_transfers = min_transfer_classes(df)
 
 function get_min_raws_cleaned(min_transfers) 
     min_glues =  map(glue_candidates_into_single_vec,min_transfers)
-    min_raws = map(x-> (tidyr.uncount(x, x.freq) |> rcopy), min_glues)
+    min_raws = map(x-> (tidyr.uncount(x, x.freq) |> rcopy), 
+    min_glues)
     min_raws_cleaned = map(clean_raw, 
                            min_raws)
     return(min_raws_cleaned)
 end
 
-min_raws_cleaned = get_min_raws_cleaned(min_transfers) 
 
-
-
-for (fname,f) in zip(map(x-> "min_raw_$x.csv", 1:length(min_raws_cleaned)),
-            min_raws_cleaned)
-cw.CSV.write(cw.dfspath * fname, f)
+function save_mins_csvs!(dfs,basename,appendname = "")
+    for (fname,f) in zip(map(x-> appendname * basename * "_$x.csv",
+         1:length(dfs)),
+        dfs)
+        cw.CSV.write(cw.dfspath * fname, f)
+    end 
 end
-             
 
 
-for (fname,f) in zip(map(x-> "min_transfer_$x.csv", 1:length(min_transfers)),
-                 min_transfers)
-    cw.CSV.write(cw.dfspath * fname, f)
+function transfer_and_save(dfname_toread, csvname_toappend)
+    df = cw.CSV.read(cw.dfspath * dfname_toread,
+    cw.DataFrame)
+    
+    min_transfers = min_transfer_classes(df)
+    
+    min_raws_cleaned = get_min_raws_cleaned(min_transfers) 
+    
+    save_mins_csvs!(min_raws_cleaned, "min_raw", csvname_toappend)
+    save_mins_csvs!(min_transfers, "min_transfer", csvname_toappend)
+    
 end
-                  
+
+transfer_and_save("meanofmeansfri.csv", "avg_imp_")
+
+
+
