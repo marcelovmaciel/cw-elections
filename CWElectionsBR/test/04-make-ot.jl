@@ -174,12 +174,13 @@ ot1,ot2,ot3,ot4 = map(get_ot, [mincw1,mincw2,mincw3,mincw4])
 ot3
 
 # TODO: double-check if I didn't mess up in the 03 file !!!! 
-
+  
 get_ot(mincw2)
 
 save("../writing/images/opened_tetrahedron.png",ot1)
-
-
+save("../writing/images/opened_tetrahedron2.png",ot2)
+save("../writing/images/opened_tetrahedron3.png",ot3)
+save("../writing/images/opened_tetrahedron4.png",ot4)
 #= 
 function filled_tetrahedron_with_steps(ot) 
 

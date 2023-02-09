@@ -28,4 +28,8 @@ cw.select!(counterfactuals, [:candidates, Symbol.(cw.candidates)...])
 table_counterfactuals = @capture_out  pretty_table(counterfactuals ,backend=Val(:latex))
 
 
-
+open("../writing/images/table_counterfactuals.tex", "w") do file 
+    write(file, table_counterfactuals)
+end        
+    
+    

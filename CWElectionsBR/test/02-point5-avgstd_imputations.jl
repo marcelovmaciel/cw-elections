@@ -13,8 +13,6 @@ using RCall
 using Statistics
 @rimport tidyr
 
-
-
 dfs_names = readdir(cw.dfspath)
 oi_dfs = filter(x->occursin("_oi",x), dfs_names)
 pmm_oi = filter(x->occursin("pmm",x), oi_dfs)
@@ -32,7 +30,6 @@ function get_avg_std(df_list)
     test.freq_std = map(x->Int(round(x,digits = 0)),test.freq_std)
     return(test)
 end
-
 
 avg_pmm = get_avg_std(pmm_oi)
 avg_cart = get_avg_std(cart_oi)
@@ -57,8 +54,23 @@ meanofmeans.freq_mean_mean)
 
 cw.CSV.write("../rscripts/dfs/" * "meanofmeansoi.csv", meanofmeans)
 
-
 c1,c2,c3,c4  = map(y->map(x->x[y], meanofmeans.ranking_vectors), 1:4)
+
+avg_pmm.ranking_vectors[1]
+
+foo = split(meanofmeans.ranking_vectors[1],",")
+
+foo[1]
+
+foo = map(x-> replace(x,"[" => "") , foo)
+foo = map(x-> replace(x,"]" => "") , foo)
+foo = map(x->strip(x, '"'), foo)
+foo = map(x->strip(x, ' '), foo)
+foo = map(x->strip(x, '"'), foo)
+
+
+
+
 
 
 freq_ranks_inferred = DataFrame(Dict("1"=> c1,
@@ -68,4 +80,5 @@ freq_ranks_inferred = DataFrame(Dict("1"=> c1,
                                      "freq"=> meanofmeans.freq_mean_mean,
                                      "prop" => meanofmeans.prop_mean_mean))
 
-cw.CSV.write("../rscripts/dfs/" * "meanofmeansfri.csv", freq_ranks_inferred)
+cw.CSV.write("../rscripts/dfs/" * "meanofmeansfri.csv",
+ freq_ranks_inferred)

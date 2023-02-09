@@ -21,7 +21,7 @@ actual_first_round = @chain begin
     rename(:1=> :candidates, :2 => :actual_proportions)
 end
 
-function read_df_append_other_proxy(filename)
+#= function read_df_append_other_proxy(filename)
     freq_ranks_inferred = cw.CSV.read(cw.dfspath * filename,
      cw.DataFrame)
      other_proxy =  DataFrame(Dict("1"=> "other",
@@ -34,7 +34,7 @@ function read_df_append_other_proxy(filename)
     return(freq_ranks_inferred)
 end    
 
-
+ =#
 function makeDict_infos_freq(freq_ranks_inferred)
     prop_df = @chain  freq_ranks_inferred begin
         groupby(:1)
@@ -70,14 +70,19 @@ function makeDict_infos_freq(freq_ranks_inferred)
     return(infos_fri)
 end
 
-df = read_df_append_other_proxy("imputted_polyreg_1_fri.csv")
+df = cw.CSV.read(cw.dfspath * "meanofmeansfri.csv",cw.DataFrame)
 
+df
 
 
 info = makeDict_infos_freq(df)
 
 ## TODO : Gotta continue here 
 info["prop_df"]
+
+
+info 
+
 
 #=
 Actual voting tally proportions: bolsonaro:haddad:ciro:alckmin:other = 46.3:29.28:12.47:4.76:7.19
@@ -89,7 +94,10 @@ function make_base_split_freq_ranks(candidate, freq_ranks)
 end
  
 
-discrepancy(candidate,info) = Int(first(filter(x-> x[:1] == candidate, info)[!,:dist_freqs]))
+discrepancy(candidate,info) = Int(first(filter(x-> x[:1] == candidate, info["prop_df"])[!,:dist_freqs]))
+
+
+
 
 function preprocess_over_under!(overcandidate,
                                undercandidate, over_freq_rankss,under_freq_rankss)
@@ -171,18 +179,18 @@ function update_dicts!(over_freq_ranks, under_freq_ranks, valueholder)
 end
 
 
-function make_over_rankss(overcandidates,freq_ranks_inferred)
+function make_over_rankss(overcandidates,freq_ranks_inferred,info)
     over_freq_rankss = Dict(zip(overcandidates,
                               [Dict("candidate_freq_rank" => make_base_split_freq_ranks(j, freq_ranks_inferred),
-                              "can_transfer" => discrepancy(j)) for j in overcandidates]))
+                              "can_transfer" => discrepancy(j,info)) for j in overcandidates]))
                           return(over_freq_rankss)
 end
 
 
-function make_under_rankss(undercandidates,freq_ranks_inferred)
+function make_under_rankss(undercandidates,freq_ranks_inferred, info)
     under_freq_rankss = Dict(zip(undercandidates,
     [Dict("candidate_freq_rank" => make_base_split_freq_ranks(j, freq_ranks_inferred),
-    "needs_transfer" => discrepancy(j))
+    "needs_transfer" => discrepancy(j,info))
                         for j in undercandidates]))
                 return(under_freq_rankss)
 end
@@ -215,19 +223,24 @@ function get_new_prop_from_mutated_dict(merged_result,total_tallies)
      for candidate in keys(merged_result)] |> DataFrame
       rename!(newpropdf, Dict("1" => "candidates", "2" => "new_proportions"))
     # TODO : check if this new_proportions is correct
-    otherdf = DataFrame(:candidates => "other",
+    #= otherdf = DataFrame(:candidates => "other",
                         :new_proportions => round(1-(newpropdf[!,:new_proportions] |> sum),digits = 4))
-    append!(newpropdf, otherdf)
+    append!(newpropdf, otherdf) =#
     sort!(newpropdf, :candidates)
     return(newpropdf)
 end
 
 
 
-function sweep_transfer(undercandidates,overcandidates,
-freq_ranks_inferred,
- total_tallies,
-prop_df)
+function sweep_transfer(info,df)
+
+    undercandidates = info["undercandidates"]
+    overcandidates = info["overcandidates"]
+    freq_ranks_inferred = df 
+    total_tallies = info["total_tallies"]
+    prop_df = info["prop_df"]
+
+
     transferss_acc = []
     pab = ("Alckmin", "Bolsonaro")
     pah = ("Alckmin", "Haddad")
@@ -236,14 +249,16 @@ prop_df)
     perms = cw.permutations([pab,pah,pcb,pch])
 
     for perm in perms
-        under_freq_rankss = make_under_rankss(undercandidates,freq_ranks_inferred)
-        over_freq_rankss = make_over_rankss(overcandidates, freq_ranks_inferred)
+        under_freq_rankss = make_under_rankss(undercandidates,freq_ranks_inferred, info)
+        over_freq_rankss = make_over_rankss(overcandidates, freq_ranks_inferred,info)
         for pair in perm
             transfer!(pair..., over_freq_rankss,under_freq_rankss)
         end
         merged_result  = merge(under_freq_rankss,over_freq_rankss)
 
         newprops= get_new_prop_from_mutated_dict(merged_result,total_tallies)
+        println(prop_df[!,:actual_proportions])
+        println(newprops[!,:new_proportions])
         eudist= cw.euclidean(prop_df[!,:actual_proportions], newprops[!,:new_proportions])
         transfers_info = Dict(:permutation => perm , :transfer_dicts => merged_result ,
         :newprops=>newprops, :eudist_to_target => eudist)
@@ -256,10 +271,7 @@ end
 
 
 
-transferss = sweep_transfer(info["undercandidates"],info["overcandidates"],
- df,
-info["total_tallies"],
-info["prop_df"])
+transferss = sweep_transfer(info,df)
 
 
 dists = map(x->x[:eudist_to_target], transferss) 

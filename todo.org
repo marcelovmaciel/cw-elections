@@ -1,27 +1,15 @@
 #+TITLE: Todo
 
-* TODO Write pseudo-code for vote-transfer algorithm
-https://books.google.com/books?hl=pt-BR&lr=&id=fb7DAQAAQBAJ&oi=fnd&pg=PA270&ots=2XPn86t87M&sig=ukVckJWTmR1InnW5I8WXOXu_OtY#v=onepage&q&f=false shows some examples
 
-* TODO [#C] analyze how many agents are unstable
-relate it to the groups of agents that have
 * TODO [#C] Think about the pattern of missingness
-* TODO [#A] FIX 3agent  PLOTS
-* TODO [#A] Calculate proportion of bolsonaro victories at 3agent plots
-* TODO [#A] Create tetrahedron plot
+
+
 * TODO [#A] Try to think in terms of net single peakedness
 
-* TODO [#C] consider different imputations
-- [ ] Drop all that are not complete!
-- [ ] Impartial Culture assumption!
 
 * PROJ [#A] ★ ★ ★  DO a better modeling of others
 - 0.72 at the top. The rest filled by sampling from the column of the inferred rankings!!!!
 
-
-* DONE [#A] make tables and cw graph of 4 candidates results
-
-* DONE [#A] Make cw graph of the raw pairs
 
 * [ ] [#C] Visualize the permutation polytope of the rankings
 - [ ] of the impartial culture;
