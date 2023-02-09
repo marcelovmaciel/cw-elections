@@ -11,6 +11,7 @@ using Pipe
 using Chain
 using RCall
 
+
 @rimport tidyr
 
 actual_first_round = @chain begin
@@ -21,20 +22,7 @@ actual_first_round = @chain begin
     rename(:1=> :candidates, :2 => :actual_proportions)
 end
 
-#= function read_df_append_other_proxy(filename)
-    freq_ranks_inferred = cw.CSV.read(cw.dfspath * filename,
-     cw.DataFrame)
-     other_proxy =  DataFrame(Dict("1"=> "other",
-                                   "2"=> "other", 
-                                   "3"=> "other", 
-                                   "4"=> "other", 
-                                   "freq"=> 228, 
-                                   "prop" => 0.0719))
-    append!(freq_ranks_inferred, other_proxy)
-    return(freq_ranks_inferred)
-end    
 
- =#
 function makeDict_infos_freq(freq_ranks_inferred)
     prop_df = @chain  freq_ranks_inferred begin
         groupby(:1)
@@ -70,18 +58,6 @@ function makeDict_infos_freq(freq_ranks_inferred)
     return(infos_fri)
 end
 
-df = cw.CSV.read(cw.dfspath * "meanofmeansfri.csv",cw.DataFrame)
-
-df
-
-
-info = makeDict_infos_freq(df)
-
-## TODO : Gotta continue here 
-info["prop_df"]
-
-
-info 
 
 
 #=
@@ -95,8 +71,6 @@ end
  
 
 discrepancy(candidate,info) = Int(first(filter(x-> x[:1] == candidate, info["prop_df"])[!,:dist_freqs]))
-
-
 
 
 function preprocess_over_under!(overcandidate,
@@ -231,7 +205,6 @@ function get_new_prop_from_mutated_dict(merged_result,total_tallies)
 end
 
 
-
 function sweep_transfer(info,df)
 
     undercandidates = info["undercandidates"]
@@ -239,7 +212,6 @@ function sweep_transfer(info,df)
     freq_ranks_inferred = df 
     total_tallies = info["total_tallies"]
     prop_df = info["prop_df"]
-
 
     transferss_acc = []
     pab = ("Alckmin", "Bolsonaro")
@@ -257,8 +229,6 @@ function sweep_transfer(info,df)
         merged_result  = merge(under_freq_rankss,over_freq_rankss)
 
         newprops= get_new_prop_from_mutated_dict(merged_result,total_tallies)
-        println(prop_df[!,:actual_proportions])
-        println(newprops[!,:new_proportions])
         eudist= cw.euclidean(prop_df[!,:actual_proportions], newprops[!,:new_proportions])
         transfers_info = Dict(:permutation => perm , :transfer_dicts => merged_result ,
         :newprops=>newprops, :eudist_to_target => eudist)
@@ -270,43 +240,28 @@ end
 ## TODO: note the selection of the minimized transfers are still not here. Gotta write that 
 
 
+function get_min_transfers(transferss)
+    dists = map(x->x[:eudist_to_target], transferss) 
+    minimum_transfer_indexes = findall(x-> x== findmin(dists)[1], dists)
+    minimum_transfers =  transferss[minimum_transfer_indexes]
 
-transferss = sweep_transfer(info,df)
+    for x in minimum_transfers
+        x[:transferred_df] = reduce(vcat,
+        map(x->(x["candidate_freq_rank"])[!,["1", "2", "3", "4", "freq", "prop"]],
+        values(x[:transfer_dicts])))
+    end
 
-
-dists = map(x->x[:eudist_to_target], transferss) 
-
-
-minimum_transfer_indexes = findall(x-> x== findmin(dists)[1], dists)
-
-minimum_transfers =  transferss[minimum_transfer_indexes]
-
-
-for x in minimum_transfers
-    x[:transferred_df] = reduce(vcat,map(x->(x["candidate_freq_rank"])[!,["1", "2", "3", "4", "freq", "prop"]],values(x[:transfer_dicts])))
+    mindfs = map(x->x[:transferred_df],minimum_transfers)
+    unique_min_dfs = unique(mindfs)
+    return(unique_min_dfs)
 end
 
-mindfs = map(x->x[:transferred_df],minimum_transfers)
 
-unique_min_dfs = unique(mindfs)
-
-## TODO: Until here is chill  
-
-   
-min_transfer_c1 = minimum_transfers[1][:transferred_df]
-min_transfer_c2 = minimum_transfers[4][:transferred_df]
-min_transfer_c3 = minimum_transfers[5][:transferred_df]
-min_transfer_c4 = minimum_transfers[18][:transferred_df]
-
-min_transfers = [min_transfer_c1,min_transfer_c2,min_transfer_c3,min_transfer_c4]
-
-foreach((filename,file) -> cw.CSV.write(cw.dfspath * filename, file),
-        zip(map(x-> "min_transfer_c$x.csv", 1:4), []),min_transfers)
-
+        
 function glue_candidates_into_single_vec(df)
     acc = []
 
-    for i in 1:24
+    for i in 1:25
         push!(acc, Vector(df[i,1:4]))
     end
     
@@ -314,21 +269,6 @@ function glue_candidates_into_single_vec(df)
               freq  = df[!, "freq"] )
               return(foo)
 end    
-
-min_c1_glue_vecs,
- min_c2_glue_vecs,
- min_c3_glue_vecs,
- min_c4_glue_vecs = map(glue_candidates_into_single_vec,min_transfers)
-
-
-min_c1_raw,
-min_c2_raw,
-min_c3_raw,
-min_c4_raw  = map(x-> (tidyr.uncount(x, x.freq) |> rcopy),
-                  [min_c1_glue_vecs,
-                   min_c2_glue_vecs,
-                   min_c3_glue_vecs,
-                   min_c4_glue_vecs])
 
 
 function clean_raw(raw)
@@ -338,22 +278,40 @@ function clean_raw(raw)
          :Fourth => map(x->x[4], raw[!,:ranking_vectors]))    
 end    
 
-
-min_c1_raw_cleaned,
-min_c2_raw_cleaned,
-min_c3_raw_cleaned,
-min_c4_raw_cleaned= map(clean_raw, 
-                       [min_c1_raw,
-                       min_c2_raw,
-                       min_c3_raw,
-                       min_c4_raw])
+df = cw.CSV.read(cw.dfspath * "meanofmeansfri.csv",
+cw.DataFrame)
 
 
-for (fname,f) in zip(map(x-> "min_raw_$x.csv", 1:4),
-                 [min_c1_raw_cleaned,
-                 min_c2_raw_cleaned,
-                 min_c3_raw_cleaned,
-                 min_c4_raw_cleaned])
+function min_transfer_classes(df)
+    info = makeDict_infos_freq(df)
+    transferss = sweep_transfer(info,df)
+    min_transfers = get_min_transfers(transferss)
+    return(min_transfers)
+end
+
+min_transfers = min_transfer_classes(df)
+
+function get_min_raws_cleaned(min_transfers) 
+    min_glues =  map(glue_candidates_into_single_vec,min_transfers)
+    min_raws = map(x-> (tidyr.uncount(x, x.freq) |> rcopy), min_glues)
+    min_raws_cleaned = map(clean_raw, 
+                           min_raws)
+    return(min_raws_cleaned)
+end
+
+min_raws_cleaned = get_min_raws_cleaned(min_transfers) 
+
+
+
+for (fname,f) in zip(map(x-> "min_raw_$x.csv", 1:length(min_raws_cleaned)),
+            min_raws_cleaned)
+cw.CSV.write(cw.dfspath * fname, f)
+end
+             
+
+
+for (fname,f) in zip(map(x-> "min_transfer_$x.csv", 1:length(min_transfers)),
+                 min_transfers)
     cw.CSV.write(cw.dfspath * fname, f)
 end
                   
