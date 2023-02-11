@@ -3,7 +3,6 @@ import Pkg
 Pkg.activate(".")
 
 using Revise 
-
 import CWElectionsBR as cw
 using DataFrames
 import Base.Filesystem as fl 
@@ -54,31 +53,46 @@ meanofmeans.freq_mean_mean)
 
 cw.CSV.write("../rscripts/dfs/" * "meanofmeansoi.csv", meanofmeans)
 
-c1,c2,c3,c4  = map(y->map(x->x[y], meanofmeans.ranking_vectors), 1:4)
 
-avg_pmm.ranking_vectors[1]
+function fixranking_vectors(rv)
+    foo = split(rv,",")
+    
+    foo = map(x-> replace(x,"[" => "") , foo)
+    foo = map(x-> replace(x,"]" => "") , foo)
+    foo = map(x->strip(x, '"'), foo)
+    foo = map(x->strip(x, ' '), foo)
+    foo = map(x->strip(x, '"'), foo)
+    return(foo)
+end
 
-foo = split(meanofmeans.ranking_vectors[1],",")
-
-foo[1]
-
-foo = map(x-> replace(x,"[" => "") , foo)
-foo = map(x-> replace(x,"]" => "") , foo)
-foo = map(x->strip(x, '"'), foo)
-foo = map(x->strip(x, ' '), foo)
-foo = map(x->strip(x, '"'), foo)
-
-
-
-
-
-
-freq_ranks_inferred = DataFrame(Dict("1"=> c1,
+function makefri(df, freq_col,prop_col, fixrankbool)
+if fixrankbool    
+    df.ranking_vectors = map(fixranking_vectors, df.ranking_vectors)
+end
+    c1,c2,c3,c4  = map(y->map(x->x[y], df.ranking_vectors), 1:4)
+    freq_ranks_inferred = DataFrame(Dict("1"=> c1,
                                      "2" => c2,
                                      "3" => c3,
                                      "4" => c4,
-                                     "freq"=> meanofmeans.freq_mean_mean,
-                                     "prop" => meanofmeans.prop_mean_mean))
+                                     "freq"=> df[!,freq_col],
+                                     "prop" => df[!,prop_col]))
+return(freq_ranks_inferred)
+end
+
+meanofmeansfri = makefri(meanofmeansoi,"freq_mean_mean", "prop_mean_mean", true)
 
 cw.CSV.write("../rscripts/dfs/" * "meanofmeansfri.csv",
- freq_ranks_inferred)
+ meanofmeansfri)
+
+
+
+polyoi = cw.CSV.read("../rscripts/dfs/" * "avgpolyoi.csv", cw.DataFrame)
+
+
+
+polyfri = makefri(polyoi, "freq_mean", "prop_mean", false)
+
+cw.CSV.write("../rscripts/dfs/" * "avgpolyfri.csv",
+ polyfri)
+
+

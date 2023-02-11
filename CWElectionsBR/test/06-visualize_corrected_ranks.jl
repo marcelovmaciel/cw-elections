@@ -6,31 +6,27 @@ using CWElectionsBR
 using RCall
 import CSV
 using DataFrames
-dfspath = "../rscripts/dfs/"
 
+dfspath = "../rscripts/dfs/"
 plotspath ="../writing/images/"
+dfs_names = readdir(cw.dfspath)
 
-# -----------------------------------------------------------------------------
-# TODO :  Double check this !!!!!!! 
-# TODO : also double check if the proportions are in the correct place. 
+imputted_poly = filter(x->occursin("poly_imp_min_raw",x), dfs_names)
+imp_poly_dfs = map(x->cw.CSV.read(cw.dfspath * x, DataFrame), imputted_poly)
 
-dfspath = "../rscripts/dfs/"
+df1 = imp_poly_dfs[1]
 
-mincw1 = CSV.read(dfspath * "min_c1_raw.csv", DataFrame)
-
-mincw1 = CSV.read(dfspath * "min_raw_1.csv", DataFrame)
-mincw2 = CSV.read(dfspath * "min_raw_2.csv", DataFrame)
-mincw3 = CSV.read(dfspath * "min_raw_3.csv", DataFrame)
-mincw4 = CSV.read(dfspath * "min_raw_4.csv", DataFrame)
 
 function getdropped_p_thenplot◬(raw_df, who_is_dropped)
 cw.representation△(cw.getp_candidate_list_without_candidate(raw_df,who_is_dropped)...) 
 end
 
+
 cw1_nota,
 cw1_notb,
 cw1_notc,
-cw1_noth = map(who_is_dropped->getdropped_p_thenplot◬(mincw1,who_is_dropped), cw.candidates)
+cw1_noth = map(who_is_dropped->getdropped_p_thenplot◬(df1,who_is_dropped), cw.candidates)
+
 
 
 cw1_names = map(x-> plotspath * x, 
@@ -38,7 +34,8 @@ cw1_names = map(x-> plotspath * x,
 
 map(save, cw1_names, [cw1_nota, cw1_notb, cw1_notc, cw1_noth])
 
-cwcw2_nota,
+
+#= cwcw2_nota,
 cwcw2_notb,
 cwcw2_notc,
 cwcw2_noth = map(who_is_dropped->getdropped_p_thenplot◬(mincwcw2,who_is_dropped), cw.candidates)
@@ -68,3 +65,4 @@ cw4_names = map(x-> plotspath * x,
 ["cw4_nota.png","cw4_notb.png", "cw4_notc.png", "cw4_noth.png"])
 
 map(save, cw4_names, [cw4_nota, cw4_notb, cw4_notc, cw4_noth])
+ =#

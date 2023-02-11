@@ -160,7 +160,6 @@ function make_over_rankss(overcandidates,freq_ranks_inferred,info)
                           return(over_freq_rankss)
 end
 
-
 function make_under_rankss(undercandidates,freq_ranks_inferred, info)
     under_freq_rankss = Dict(zip(undercandidates,
     [Dict("candidate_freq_rank" => make_base_split_freq_ranks(j, freq_ranks_inferred),
@@ -168,7 +167,6 @@ function make_under_rankss(undercandidates,freq_ranks_inferred, info)
                         for j in undercandidates]))
                 return(under_freq_rankss)
 end
-
 
 function transfer!(candidate_to_give,
                    candidate_to_receive,
@@ -191,18 +189,20 @@ end
 
 
 function get_new_prop_from_mutated_dict(merged_result,total_tallies)
+#    println(merged_result)
+    #println(keys(merged_result))
     newpropdf= [(candidate,
     round(sum(merged_result[candidate]["candidate_freq_rank"][!,:freq])/total_tallies,
      digits = 4))
      for candidate in keys(merged_result)] |> DataFrame
       rename!(newpropdf, Dict("1" => "candidates", "2" => "new_proportions"))
     # TODO : check if this new_proportions is correct
- #= otherdf = DataFrame(:candidates => "other",
+  otherdf = DataFrame(:candidates => "other",
                         :new_proportions => round(1-(newpropdf[!,:new_proportions] |> sum),digits = 4))
     if length(newpropdf[!,:candidates]) == 4
                         append!(newpropdf, otherdf)
      end
- =#
+ 
     sort!(newpropdf, :candidates)
     return(newpropdf)
 end
@@ -232,9 +232,11 @@ function sweep_transfer(info,df)
         merged_result  = merge(under_freq_rankss,over_freq_rankss)
 
         newprops= get_new_prop_from_mutated_dict(merged_result,total_tallies)
-        println(prop_df[!,:actual_proportions])
-        println(newprops[!,:new_proportions])
+        
+        println("newprops:  ", newprops)
+
         eudist= cw.euclidean(prop_df[!,:actual_proportions], newprops[!,:new_proportions])
+        println("eudist:  ", eudist)
         transfers_info = Dict(:permutation => perm , :transfer_dicts => merged_result ,
         :newprops=>newprops, :eudist_to_target => eudist)
         push!(transferss_acc, transfers_info)
@@ -261,12 +263,11 @@ function get_min_transfers(transferss)
     return(unique_min_dfs)
 end
 
-
         
 function glue_candidates_into_single_vec(df)
     acc = []
 
-    for i in 1:25
+    for i in 1:size(df)[1]
         push!(acc, Vector(df[i,1:4]))
     end
     
@@ -330,7 +331,10 @@ end
 dfs_names = readdir(cw.dfspath)
 
 transfer_and_save("meanofmeansfri.csv", "avg_imp_")
+transfer_and_save("avgpolyfri.csv", "poly_imp_")
 
+#= 
+## BUG BELOW 
 fri_dfs = filter(x->occursin("_fri",x), dfs_names)
 
 pmm_fri = filter(x->occursin("pmm",x), fri_dfs)
@@ -339,22 +343,28 @@ cart_fri = filter(x->occursin("cart",x), fri_dfs)
 
 poly_fri = filter(x->occursin("poly",x), fri_dfs)
 
-
-
 # BUG: there is some newpropdf with no other, while some do have other!!!! 
+## BUG: cart works!!!! I did something wrong with pmm????????
+cart_fri[1]
 
-for (i,f) in enumerate(pmm_fri)
+for (i,f) in enumerate(poly_fri)
     println(i)
-    transfer_and_save(f, "pmm_$i" * "_")
+    transfer_and_save(f, "poly_$i" * "_")
 end
 
 
+pmm_foo = cw.CSV.read(cw.dfspath * pmm_fri[1],
+    cw.DataFrame)
 
-poly_fri
+cart_foo = cw.CSV.read(cw.dfspath * cart_fri[1],
+    cw.DataFrame)
+    
+
+last(pmm_foo)
+last(cart_foo)
 
 
 
 
 
-
-
+ =#

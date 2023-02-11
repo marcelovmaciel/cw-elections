@@ -10,16 +10,19 @@ using PrettyTables
 using Suppressor
 
 dfspath = "../rscripts/dfs/"
+dfs_names = readdir(cw.dfspath)
 
-mincw1 = cw.CSV.read(dfspath * "min_raw_1.csv", cw.DataFrame)
+imputted_poly = filter(x->occursin("poly_imp_min_raw",x), dfs_names)
+imp_poly_dfs = map(x->cw.CSV.read(cw.dfspath * x, DataFrame), imputted_poly)
+
+
+
+mincw1 = imp_poly_dfs[1]
 
 p4c = cw.getp_4candidates(mincw1)
 
  
 wscw1 = cw.get_4c_wₛ(p4c) 
-
-
-wscw1
 
 
 plurality_result = cw.plurality_4c_wₛ_num(p4c)
@@ -33,9 +36,7 @@ p_results_df = cw.DataFrame(:candidates => ["Alckmin", "Bolsonaro", "Ciro", "Had
                          )
 
 
-cw.DataFrame("candidates"=> cw.candidates,
-                         "w_s tallies"=>  wscw1 )
-                         
+
 ws_tallies = @capture_out pretty_table(cw.DataFrame("candidates"=> cw.candidates,
                          "w_s tallies"=>  wscw1 ),backend = Val(:latex)) 
 
