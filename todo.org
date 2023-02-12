@@ -1,15 +1,20 @@
 #+TITLE: Todo
 
+* TODO PROJ [#A] ★ ★ ★  DO a better modeling of others
+- 0.72 at the top. The rest filled by sampling from the column of the inferred rankings!!!!
+- The point to be made is about Alternative Set Stability and the possibility of winner turns loser paradox;
+
 
 * TODO [#C] Think about the pattern of missingness
 
 
-* TODO [#A] Try to think in terms of net single peakedness
 
 
-* PROJ [#A] ★ ★ ★  DO a better modeling of others
-- 0.72 at the top. The rest filled by sampling from the column of the inferred rankings!!!!
+* TODO [#A] Do Saari decomposition!
 
+
+
+* TODO [#C] Try to think in terms of net single peakedness
 
 * [ ] [#C] Visualize the permutation polytope of the rankings
 - [ ] of the impartial culture;
@@ -18,7 +23,7 @@
 
 
 
-* TODO [#A] Do Saari decomposition!
+
 
 
 * TODO [#A] Contact developers to ask about augmentation

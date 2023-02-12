@@ -219,11 +219,15 @@ function get_numericOf_qₛ(symbolic_vector,
 end
 
 
-function props_raw_choice_cols(min_raw)
+function props_raw_choice_cols(min_raw, prop_or_freq = "prop")
 
   turnedintovecs = Vector{String}.(eachrow(min_raw))
   filterothers = filter(x->all(y-> y != "other", x), turnedintovecs)
+  if prop_or_freq == "freq"
+    filteredproportions = collect(countmap(filterothers))
+  else 
     filteredproportions = collect(proportionmap(filterothers))
+  end
   filtered_df_props = DataFrame(:ranking_vectors => map(first, filteredproportions),
                                 :props => map(x->x[2], filteredproportions))
   return(filtered_df_props)
@@ -231,8 +235,8 @@ end
 
 
 
-function getp_4candidates(df)
-  props = props_raw_choice_cols(df)
+function getp_4candidates(df, prop_or_freq = "prop")
+  props = props_raw_choice_cols(df, prop_or_freq)
   candidate_key_dict = zip(candidates, ("A", "B", "C", "D")) |> Dict
   key_candidate_dict = zip( ("A", "B", "C", "D"), candidates) |> Dict
 
