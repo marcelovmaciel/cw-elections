@@ -20,7 +20,7 @@ mincw1 = imp_poly_dfs[1]
 
 function get_wholecountsdf_and_fcdf(mincw1, cdrop)
 turnedintovecs = Vector{String}.(eachrow(mincw1))
-wholecounts = collect(countmap(turnedintovecs))
+wholecounts = collect(cw.countmap(turnedintovecs))
 
 wholecountsdf = DataFrame(:ranking_vectors => map(first, wholecounts),
 :props => map(x->x[2], wholecounts))
@@ -42,7 +42,7 @@ function get_grouped_fcdf(mincw1, cdrop)
      :ranking_vectors) |> x-> combine(x,:prop => sum)
 end
 
-groupedfcdf = get_grouped_fcdf(mincw1)
+groupedfcdf = get_grouped_fcdf(mincw1, "Haddad")
 
 
 wholecountsdf,fcdf = get_wholecountsdf_and_fcdf(mincw1)
@@ -77,7 +77,58 @@ end
 
 p3 = getp_candidate_list_without_candidate(mincw1, "Haddad", cw.candidates)
 
+borda3 = cw.borda_3a(p3[1])
 
+
+#= plurality_result = cw.plurality_4c_wₛ_num(p4c)
+
+vote_for_two_result = cw.vote_for_two_4c_wₛ_num(p4c)
+antiplurality_result = cw.antiplurality_4c_wₛ_num(p4c)
+
+borda4 = (plurality_result + vote_for_two_result + antiplurality_result)./3
+
+borda3
+borda4
+
+ 
+wscw1 = cw.get_4c_wₛ(p4c) 
+
+545 + 225 + 73 + 39 + 18 + 26
+ =#
+
+"Bozo 4c = 1466 + (102 + 38.3) = 1466 + 140.3 = 1606.3
+Bozo3c = (1466 + 65) + (70.5))
+ciro4c = 394 + 353.7 + 858.7 = 1606.4
+# So, they're practically tied!!
+"
+
+394 + 353.7 + 858.7 
+
+
+1288 * 2/3
+
+1061 * 1/3
+ 
+
+1466 + 140.3
+
+53 + 175 + 439 + 649 + 83 + 67 + 26 + 39
+
+ 115 * 1/3
+
+ p4c = cw.getp_4candidates(mincw1,"freq")
+ 
+ wscw1 = cw.get_4c_wₛ(p4c) 
+ 
+
+ 
+bozoscores3c = [825 + 706, (123 + 18) * 1/2]
+
+
+ciroscores3c = [889 + 123, (706 + 376) * 1/2]
+
+bozoscore4c = [1466, 115 * 2/3, 153 * ] 
+ 
 bar = cw.make_basic_3_candidate△(cw.candidates)
 
 positions_triangle = [(permutation = "A,B,C" , position =   (0.37, 0.1)),

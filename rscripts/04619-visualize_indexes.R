@@ -2,8 +2,6 @@ library("ggpubr")
 
 corrected_indexes1<- read.csv("./dfs/corrected_indexes_1.csv")
 
-
-
 ## list.files("./")
 
 fn_that_should_be_anonymous <-  function (candidatename,df) {

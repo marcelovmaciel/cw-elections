@@ -61,23 +61,6 @@ end
 
 
 
-## This depends on the the mathematica notebook and should be in another file!
-
-counterfactuals = [0.	0.0495357	0.	0.251126;
-                   0.950464	0.	0.69011	1.;
-                   1.	0.30989	0.	0.755121;
-                   0.748874	0.	0.244879	0.] .|> x-> round(x, digits = 2)
-
-counterfactuals = cw.DataFrame(counterfactuals, :auto)
-
-cw.rename!(counterfactuals, cw.candidates)
-
-counterfactuals[!,:candidates] = cw.candidates 
-
-cw.select!(counterfactuals, [:candidates, Symbol.(cw.candidates)...])
-
-table_counterfactuals = pretty_table(counterfactuals ,backend=Val(:latex))
-
 
 
 #= function cleaned_up_result_for_p(vm, p = p4c) 

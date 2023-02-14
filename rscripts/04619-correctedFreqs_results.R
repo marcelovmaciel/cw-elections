@@ -27,6 +27,10 @@ cdc1 <- cdc_simple(foooz1)
 
 borda1 <- borda_method(foooz1, modified = TRUE)
 
+
+borda1
+
+
 cdc1_tab <- xtable(cdc1$binary,
                    caption = "Pairwise Majority Comparisons",
                    label = "tbl:subtab1", digits = c(0,0,0,0,0))
