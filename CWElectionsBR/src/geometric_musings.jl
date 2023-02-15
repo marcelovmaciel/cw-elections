@@ -396,7 +396,6 @@ end
 end
 
 
-
 function getpl_apl_v42(p)
 
   pl =  get_numericOf_qₛ(plurality_4c_qₛ(), p)  |> Vector{Float64} |> v-> round.(v, digits = 4)
@@ -410,8 +409,6 @@ function getpl_apl_v42(p)
 
 end
 
-
-                          
 
 function get_tpl_tapl_tv42(pl,apl,v42)
   na  = (0.,0.,0.)
@@ -501,3 +498,55 @@ function filled_tetrahedron(tpl,tapl,tv42,candidates = candidates)
 
     return(ot)    
 end
+
+
+
+function make_raw_given_p(p, candidates = candidates)
+
+  twenty_four_pm = [["A","B","C","D"], ["B","A","C","D"], ["C","A","B","D"],
+                ["A","C","B","D"], ["B","C","A","D"], ["C","B","A","D"],
+                ["C","B","D","A"], ["B","C","D","A"], ["D","C","B","A"],
+                ["C","D","B","A"], ["B","D","C","A"], ["D","B","C","A"],
+                ["D","A","C","B"], ["A","D","C","B"], ["C","D","A","B"],
+                ["D","C","A","B"], ["A","C","D","B"], ["C","A","D","B"],
+                ["B","A","D","C"], ["A","B","D","C"], ["D","B","A","C"],
+                ["B","D","A","C"], ["A","D","B","C"], ["D","A","B","C"]]
+  key_candidate_dict = zip(("A", "B", "C", "D"), candidates) |> Dict   
+
+  instance_24pm = map(y->map(x->key_candidate_dict[x],y),twenty_four_pm)
+  intp = map(x->round(x, digits =0), p)    
+  
+
+stuff = [repeat([prof], Int(rep)) for (rep,prof) in  zip(intp,instance_24pm)]
+
+cleaned_stuff = filter(x->length(x) != 0, stuff)
+
+bar = collect(Iterators.flatten(cleaned_stuff))
+
+df = DataFrame(First = map(x->x[1], bar), 
+             Second = map(x->x[2], bar), 
+             Third = map(x->x[3], bar), 
+             Fourth = map(x->x[4], bar))
+             return(df)
+end
+
+
+
+function make_cw_table(df)
+  votesys = rimport("votesys")
+  created_vote_object = votesys.create_vote(df, xtype = 2, candidate= candidates)
+  cdc1 = rcopy(votesys.cdc_simple(created_vote_object))
+  cdc_result = cdc1[:cdc]
+  
+  margins = (cdc_result - cdc_result' .|>
+  x-> round(x/first(size(df)) * 100, digits = 2) .|> 
+  x-> string(x) * "%")
+  
+  marginsdf = DataFrame(candidates = candidates,
+  Alckmin = margins[:,1],
+  Bolsonaro = margins[:,2], 
+  Ciro = margins[:,3], 
+  Haddad= margins[:,4])
+  return(marginsdf)
+end
+  

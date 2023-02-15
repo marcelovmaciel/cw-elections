@@ -8,7 +8,6 @@ using PrettyTables
 using DataFrames
 import SymPy as sp 
 
-
 dfspath = "../rscripts/dfs/"
 dfs_names = readdir(cw.dfspath)
 
@@ -53,10 +52,10 @@ T = 1//24 .* [0  0  -1 -2 -2 -1 2 1  -1 -2 -1 1  2  1  0 0  1  2  1  -1 -2 -1 1 
 
 A = T^(-1) .|> Int
 
+
 coeffs = sp.Matrix(T) * p4c
 
 Da, Db, Dc = A[:,1], A[:,2], A[:,3] # departure differentials 
-
 
 departure_profiles = A[:,4:11] # Relevant for rankings of SUBSETS !!!!! 
 
@@ -79,15 +78,11 @@ double_reversal_bd = A[:,23]
 double_reversal_ad = A[:,24]
 
 
-reversal_component =  reduce(+,[A[:,coef] .* coeffs[coef] for coef in 19:24])  .|> float  .|> x-> round(x,digits = 2)
+#reversal_component =  reduce(+,[A[:,coef] .* coeffs[coef] for coef in 19:24])  .|> float  .|> x-> round(x,digits = 2)
 
-condorcet_component = reduce(+,[A[:,coef] .* coeffs[coef] for coef in 15:17])  .|> float  .|> x-> round(x,digits = 2)
+#condorcet_component = reduce(+,[A[:,coef] .* coeffs[coef] for coef in 15:17])  .|> float  .|> x-> round(x,digits = 2)
 
-
-
-cleaned_profile = p4c - (reversal_component + condorcet_component)
-
-cw.plurality_4c_wₛ_num(cleaned_profile)
+#cleaned_profile = (p4c - (condorcet_component)) + ones(24,1) * 9.75
 
 
 function prettify_component(component, coeff_index)
@@ -98,26 +93,135 @@ function prettify_component(component, coeff_index)
 end    
 
 
+function componentplots()
+    titles = [
+    "Basic Profile A (Ba)",
+    "Basic Profile B (Bb)",
+    "Basic Profile C (Bc)",
+    "Condorcet (ABCD)",
+    "Condorcet (ABDC)",
+    "Condorcet (ACBD)", 
+    "Kernel", 
+    "Double Reversal ac", 
+    "Double Reversal cb",
+    "Double Reversal ab",
+    "Double Reversal cd",   
+    "Double Reversal bd",
+    "Double Reversal ad",  
+    ]
+    A_parts = [Ba, Bb, Bc, Cabcd, Cabdc, 
+              Cacbd, K, double_reversal_ac,
+              double_reversal_cb,
+              double_reversal_ab,
+              double_reversal_cd,
+              double_reversal_bd,
+              double_reversal_ad]
+    ks = [ "Ba", "Bb", "Bc", "Cabcd", "Cabdc", "Cacbd", "K",
+              "double_reversal_ac", "double_reversal_cb", "double_reversal_ab",
+              "double_reversal_cd", "double_reversal_bd", "double_reversal_ad"]
+    idxs = 12:24
+    abase_plts = [ cw.representation_tetrahedron_freqs(i,
+                 coerce_to_int = false, 
+                 textsize = 13,
+                  title = j)  for (i,j) in 
+                  zip(A_parts,titles)]
+    comp_plts = [cw.representation_tetrahedron_freqs(
+        prettify_component(i,k),
+    coerce_to_int = false, 
+    textsize = 13,
+     title = j)  for (i,j,k) in 
+     zip(A_parts,titles,idxs)]
+    basedict = Dict(zip(ks,abase_plts ))
+    compdict = Dict(zip(ks,comp_plts))
+    return(basedict, compdict)
+end    
 
-reptetra_basic = cw.representation_tetrahedron_freqs(
-prettify_component(Ba,12) +
-prettify_component(Bb,13) + 
-prettify_component(Bc,14) .|> x->round(x, digits = 2),
- coerce_to_int = false, textsize = 12, title = "Basic")
+
+base_dict,  comp_dict  = componentplots()
 
 
 
- 
-reptetra_kernel = cw.representation_tetrahedron_freqs(
-    prettify_component(K,18),
-     coerce_to_int = false, textsize = 13, title = "Kernel") 
+
+
+
+base_dict["Ba"]
+
+base_dict["Bb"]
+
+base_dict["Bc"]
+
+base_dict["Cabcd"]
+
+base_dict["Cabdc"]
+
+base_dict["Cacbd"]
+
+base_dict["K"]
+
+base_dict["double_reversal_ac"]
+
+base_dict["double_reversal_cb"]
+
+base_dict["double_reversal_ab"]
+
+base_dict["double_reversal_cd"]
+
+base_dict["double_reversal_bd"]
+
+base_dict["double_reversal_ad"]
+
+
+
+
+comp_dict["Ba"]
+
+comp_dict["Bb"]
+
+comp_dict["Bc"]
+
+comp_dict["Cabcd"]
+
+comp_dict["Cabdc"]
+
+comp_dict["Cacbd"]
+
+comp_dict["K"]
+
+comp_dict["double_reversal_ac"]
+
+comp_dict["double_reversal_cb"]
+
+comp_dict["double_reversal_ab"]
+
+comp_dict["double_reversal_cd"]
+
+comp_dict["double_reversal_bd"]
+
+comp_dict["double_reversal_ad"]
+
+
+
+
+
+
+
+
+
+
+
+## Other stuff here 
+
+
+
+
+
+df = cw.make_raw_given_p(cleaned_profile)
+
+margins = cw.make_cw_table(df)
+
 
     
-roundit(stuff)=  stuff   .|> x->round(x, digits = 2)
+#    reps = map((profile,rep)->repeat([profile],rep) ,zip(instance_24pm, intp))
 
-cw.representation_tetrahedron_freqs(
-cleaned_profile |> roundit,
-         coerce_to_int = false, 
-         textsize = 13,
-          title = "Profile - (Condorcet + Reversal Components)") 
+    #end
 
