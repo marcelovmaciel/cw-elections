@@ -56,9 +56,9 @@ function getp_candidate_list_without_candidate(df, candidate_to_drop,
                                                              candidates)
     without_candidate_vecc = without_candidate_vec(candidate_to_drop)
     candidate_key_dict = cw.candidate_key_dict_3_candidates(without_candidate_vecc)
-    println(candidate_key_dict)
+
     data_permutations = without_candidate_props[!,:ranking_vectors]
-    println(data_permutations) # Here is already wrong !!!! 
+
     permutation_vectors_3c =  [["A", "B", "C"],
                                ["A", "C", "B"],
                                ["C", "A", "B"],
@@ -127,7 +127,7 @@ bozoscores3c = [825 + 706, (123 + 18) * 1/2]
 
 ciroscores3c = [889 + 123, (706 + 376) * 1/2]
 
-bozoscore4c = [1466, 115 * 2/3, 153 * ] 
+bozoscore4c = [1466, 115 * 2/3, 153 *1/3 ] 
  
 bar = cw.make_basic_3_candidate△(cw.candidates)
 

@@ -60,7 +60,7 @@ drop_idx(vec, idx) = vec[eachindex(vec) .∉ Ref(idx)] # this is actually super 
 standardize(vec) = vec./sum(vec)
 
 function filled_tetrahedron(tpl,tapl,tv42,candidates = cw.candidates) 
-    ot = plain_opened_tetrahedron()
+    ot = cw.plain_opened_tetrahedron()
     d1 = (-0.5, sqrt(3)/2,0)
     d2 = (1.5,sqrt(3)/2,0)
 
@@ -129,6 +129,9 @@ function filled_tetrahedron(tpl,tapl,tv42,candidates = cw.candidates)
     return(ot)    
 end
 
+
+cw.filled_tetrahedron(cw.get_tpl_tapl_tv42(cw.getpl_apl_v42(p4c)...)...)
+
 get_ot(df) = filled_tetrahedron(get_tpl_tapl_tv42(getpl_apl_v42(cw.getp_4candidates(df))...)...)
 
 dfs_names = readdir(cw.dfspath)
@@ -138,6 +141,8 @@ imp_poly_dfs = map(x->cw.CSV.read(cw.dfspath * x, DataFrame), imputted_poly)
 
 
 ots = map(get_ot, imp_poly_dfs)
+
+ots[1]
 
 for (index,plt) in enumerate(ots)
   save("../writing/images/opened_tetrahedron$index.png",plt)

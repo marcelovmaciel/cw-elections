@@ -10,7 +10,6 @@ using PrettyTables
 using Suppressor
 
 
-
 ## This comes from the wolfram notebook
 counterfactuals = [
     0.  0.310558  0.  0.575539;

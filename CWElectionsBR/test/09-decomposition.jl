@@ -78,6 +78,7 @@ double_reversal_bd = A[:,23]
 double_reversal_ad = A[:,24]
 
 
+
 #reversal_component =  reduce(+,[A[:,coef] .* coeffs[coef] for coef in 19:24])  .|> float  .|> x-> round(x,digits = 2)
 
 #condorcet_component = reduce(+,[A[:,coef] .* coeffs[coef] for coef in 15:17])  .|> float  .|> x-> round(x,digits = 2)
@@ -140,9 +141,44 @@ end
 base_dict,  comp_dict  = componentplots()
 
 
+p4c = cw.getp_4candidates(mincw1, "freq")
+
+reptetra = cw.representation_tetrahedron_freqs(p4c, textsize = 18)
 
 
+cw.save("../writing/images/representation_tetrahedron.png", reptetra)
 
+possible_condorcet_component_base = cw.representation_tetrahedron_freqs(
+            Cabcd  +
+        Cabdc + 
+        Cacbd ,
+            coerce_to_int = false, 
+            textsize = 13,
+             title = "Condorcet Component?") 
+
+possible_condorcet_component = cw.representation_tetrahedron_freqs(
+                Cabcd * coeffs[15] +
+            Cabdc * coeffs[16] + 
+            Cacbd * coeffs[17],
+                coerce_to_int = false, 
+                textsize = 13,
+                 title = "Condorcet Component?") 
+             
+
+possible_reversal_a_base = cw.representation_tetrahedron_freqs(
+                double_reversal_ac  +
+                double_reversal_ab + 
+                double_reversal_ad ,
+                    coerce_to_int = false, 
+                    textsize = 13,
+                     title = "Reversal A?")              
+
+
+## Discussion precomputed             
+
+
+reptetra
+             
 
 base_dict["Ba"]
 
@@ -155,6 +191,8 @@ base_dict["Cabcd"]
 base_dict["Cabdc"]
 
 base_dict["Cacbd"]
+
+possible_condorcet_component_base
 
 base_dict["K"]
 
@@ -170,7 +208,7 @@ base_dict["double_reversal_bd"]
 
 base_dict["double_reversal_ad"]
 
-
+possible_reversal_a_base
 
 
 comp_dict["Ba"]
@@ -184,6 +222,8 @@ comp_dict["Cabcd"]
 comp_dict["Cabdc"]
 
 comp_dict["Cacbd"]
+
+possible_condorcet_component
 
 comp_dict["K"]
 
@@ -200,28 +240,23 @@ comp_dict["double_reversal_bd"]
 comp_dict["double_reversal_ad"]
 
 
-
-
-
-
-
-
-
+cw.representation_tetrahedron_freqs(
+double_reversal_ac  +
+double_reversal_ab + 
+double_reversal_ad ,
+    coerce_to_int = false, 
+    textsize = 13,
+     title = "Reversal A?") 
 
 
 ## Other stuff here 
 
+condorcet_component =  (Cabcd * coeffs[15] +
+Cabdc * coeffs[16] + 
+Cacbd * coeffs[17])
 
 
 
 
-df = cw.make_raw_given_p(cleaned_profile)
 
-margins = cw.make_cw_table(df)
-
-
-    
-#    reps = map((profile,rep)->repeat([profile],rep) ,zip(instance_24pm, intp))
-
-    #end
 

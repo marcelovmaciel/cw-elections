@@ -10,33 +10,17 @@ using RCall
 using LinearAlgebra
 
 
-@rimport votesys 
+
 
 dfspath = "../rscripts/dfs/"
 dfs_names = readdir(cw.dfspath)
 
 imputted_poly = filter(x->occursin("poly_imp_min_raw",x), dfs_names)
 imp_poly_dfs = map(x->cw.CSV.read(cw.dfspath * x, DataFrame), imputted_poly)
-
 mincw1 = imp_poly_dfs[1]
 
-created_vote_object = votesys.create_vote(mincw1, xtype = 2, candidate= cw.candidates)
-
-cdc1 = rcopy(votesys.cdc_simple(bar))
-
-cdc_result = cdc1[:cdc]
-
-margins = (cdc_result - cdc_result' .|>
- x-> round(x/first(size(mincw1)) * 100, digits = 2) .|> 
- x-> string(x) * "%")
-
-cdc_result 
-
-marginsdf = DataFrame(candidates = cw.candidates, 
-Alckmin = margins[:,1],
-Bolsonaro = margins[:,2], 
-Ciro = margins[:,3], 
-Haddad= margins[:,4])
+marginsdf = cw.make_cw_table(mincw1)
+    
 
 p4c = cw.getp_4candidates(mincw1,"freq")
  
@@ -64,3 +48,24 @@ open("../writing/images/cw_margins.tex", "w") do file
 end        
 
 
+
+#= 
+votesys = rimport("votesys")
+created_vote_object = votesys.create_vote(mincw1, xtype = 2, candidate= cw.candidates)
+
+cdc1 = rcopy(votesys.cdc_simple(created_vote_object))
+cdc_result = cdc1[:cdc]
+
+cdc_result
+
+(1654 - 1283)/2937
+
+bar = cdc_result - cdc_result' .|>
+x-> round(x/first(size(mincw1)) * 100, digits = 2)
+
+bar
+
+for i in 1:4
+sum(bar[i,:])     |> println
+end
+ =#
