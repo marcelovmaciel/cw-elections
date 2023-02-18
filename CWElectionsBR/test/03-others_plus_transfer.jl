@@ -330,41 +330,11 @@ end
 ## Actual computation starts here ----------------------------------------------------------------
 dfs_names = readdir(cw.dfspath)
 
+
+
 transfer_and_save("meanofmeansfri.csv", "avg_imp_")
 transfer_and_save("avgpolyfri.csv", "poly_imp_")
 
-#= 
-## BUG BELOW 
-fri_dfs = filter(x->occursin("_fri",x), dfs_names)
-
-pmm_fri = filter(x->occursin("pmm",x), fri_dfs)
-
-cart_fri = filter(x->occursin("cart",x), fri_dfs)
-
-poly_fri = filter(x->occursin("poly",x), fri_dfs)
-
-# BUG: there is some newpropdf with no other, while some do have other!!!! 
-## BUG: cart works!!!! I did something wrong with pmm????????
-cart_fri[1]
-
-for (i,f) in enumerate(poly_fri)
-    println(i)
-    transfer_and_save(f, "poly_$i" * "_")
-end
 
 
-pmm_foo = cw.CSV.read(cw.dfspath * pmm_fri[1],
-    cw.DataFrame)
-
-cart_foo = cw.CSV.read(cw.dfspath * cart_fri[1],
-    cw.DataFrame)
-    
-
-last(pmm_foo)
-last(cart_foo)
-
-
-
-
-
- =#
+ 

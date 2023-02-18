@@ -1,4 +1,5 @@
 
+
 library("dplyr")
 library(purrr)
 library("magrittr")
@@ -26,6 +27,7 @@ cdc1 <- cdc_simple(foooz1)
 
 
 borda1 <- borda_method(foooz1, modified = TRUE)
+
 
 
 borda1
