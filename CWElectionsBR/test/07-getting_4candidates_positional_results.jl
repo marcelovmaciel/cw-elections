@@ -35,7 +35,11 @@ p_results_df = cw.DataFrame(:candidates => ["Alckmin", "Bolsonaro", "Ciro", "Had
                          :plurality_result => plurality_result
                          )
 
+225 + 171 + 62 + 649 + 83
 
+
+cw.get_method_4c_wₛ_numeric(p4c,0.4,0.1) 
+                         
 
 ws_tallies = @capture_out pretty_table(cw.DataFrame("candidates"=> cw.candidates,
                          "w_s tallies"=>  wscw1 ),backend = Val(:latex)) 

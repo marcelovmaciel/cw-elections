@@ -141,7 +141,7 @@ end
 base_dict,  comp_dict  = componentplots()
 
 
-p4c = cw.getp_4candidates(mincw1, "freq")
+p4c = cw.getp_4candidates(mincw1)
 
 reptetra = cw.representation_tetrahedron_freqs(p4c, textsize = 18)
 

@@ -16,11 +16,9 @@ imp_poly_dfs = map(x->cw.CSV.read(cw.dfspath * x, DataFrame), imputted_poly)
 
 df1 = imp_poly_dfs[1]
 
-
 function getdropped_p_thenplot◬(raw_df, who_is_dropped)
 cw.representation△(cw.getp_candidate_list_without_candidate(raw_df,who_is_dropped)...) 
 end
-
 
 cw1_nota,
 cw1_notb,
