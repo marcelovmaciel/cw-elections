@@ -1,5 +1,7 @@
 #+TITLE: Todo
 
+* TODO [#A] Be consistent with the WE/I stuff
+
 * TODO PROJ [#A] ★ ★ ★  DO a better modeling of others
 - 0.72 at the top. The rest filled by sampling from the column of the inferred rankings!!!!
 - The point to be made is about Alternative Set Stability and the possibility of winner turns loser paradox;
