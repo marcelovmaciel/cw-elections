@@ -22,6 +22,11 @@ foooz1 <- create_vote(test1,
                      candidate = c("Alckmin","Bolsonaro",  "Ciro", "Haddad"))
 
 
+kemenystuff <- cdc_kemenyyoung(foooz1, keep_all_link = TRUE)
+
+
+
+kemenystuff$other_info
 
 cdc1 <- cdc_simple(foooz1)
 
