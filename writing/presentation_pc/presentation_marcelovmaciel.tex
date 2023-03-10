@@ -7,10 +7,13 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphicx}
+\usepackage{xcolor}
 \usepackage[backend = biber]{biblatex}
 %\addbibresource{refs.bib}
-\metroset{background=dark}
+\metroset{background=light}
 \addbibresource{refs.bib}
+\usepackage{tikz}
+\def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 \title{Majoritarian principles in critical junctures: an analysis of Brazil's
   2018 presidential election}
 
@@ -50,7 +53,9 @@
     \item I expected similar results in the Brazilian 2018 presidential
           elections. Particularly, I expected him to have neither ``pairwise''
           nor high ``positional'' mandate;
-    \item The reason: high rejection would be punished by voting procedures that use the whole ranking. Information paucity would be causing the electoral victory of divisive candidates.
+    \item The reason: high rejection would be taken into account by voting
+          procedures that use the whole ranking. Information paucity would be
+          causing the electoral victory of divisive candidates.
   \end{itemize}
 \end{frame}
 
@@ -59,9 +64,12 @@
   \frametitle{Data and Method }
   \begin{itemize}
     \item I use a ``representative'' street survey a week before the first round of the presidential election. A pairwise comparison of the top 4 candidates was the only question I analyzed.
-    \item Not all respondents compared all candidates. I imputed the data with a chain of polytomous regression\footnote{ using the \textbf{\textsf{R}} package
-      \(\operatorname{mice}\)}.
-    \item There was a discrepancy between the survey and the result of the first round. I transferred while respecting Kemeny's distance, and picked the transferring with minimal euclidean distance to the result.
+    \item Not all respondents compared all candidates. I imputed the data with a
+          polytomous regression\footnote{Using the \textbf{\textsf{R}} package
+          \(\operatorname{mice}\)}.
+    \item There was a discrepancy between the survey and the result of the first
+          round. I transferred while respecting Kemeny's distance, and picked
+          the transferrence with minimal euclidean distance to the result.
   \end{itemize}
 \end{frame}
 
@@ -172,16 +180,23 @@ Positional results after dropping one candidate }
 \begin{frame}
   \frametitle{Conclusion}
   \begin{itemize}
-    \item The notions of pairwise and positional mandate can be derived from well-established axiological perspectives to evaluate whether an electoral result is solely an institutional fortuity;
     \item Even though the aggregation procedure boosted Bolsonaro's victory, it was not merely its effect, contrary to established theoretical expectations;
-    \item But neither was he an undisputed winner under both aforementioned evaluative criteria;
-    \item Next steps?
+    \item But neither was he an undisputed winner:
+    \begin{itemize}
+      \item pairwise mandate: \textcolor{green}{\checkmark}
+      \item positional mandate: \textcolor{red}{\(\times\)}
+    \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Conclusion}
+   Next steps:
     \begin{itemize}
       \item Use other variables in the dataset, particularly in the imputation;
       \item Analyze other moments of the 2018 election;
       \item Simulate coalitional and strategic alternative scenarios;
     \end{itemize}
-  \end{itemize}
 \end{frame}
 
 \frame[allowframebreaks]{

@@ -1,26 +1,22 @@
 % Created 2022-10-21 Fri 18:49
 % Intended LaTeX compiler: pdflatex
-\documentclass[hidelinks,11pt]{article}
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{graphicx}
-\usepackage{longtable}
-\usepackage{wrapfig}
-\usepackage{rotating}
-\usepackage[normalem]{ulem}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{capt-of}
-\usepackage{hyperref}
-\usepackage{caption}
+\documentclass[hidelinks,11pt]{article} \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} \usepackage{graphicx} \usepackage{longtable}
+\usepackage{wrapfig} \usepackage{rotating} \usepackage[normalem]{ulem}
+\usepackage{amsmath} \usepackage{amssymb} \usepackage{capt-of}
+\usepackage{hyperref} \usepackage{caption}
 \usepackage{subcaption} % sufigures facilities
 \usepackage{float} % for H option
 \usepackage{xcolor} % for the textcolor command
 \usepackage[a4paper,width=150mm,top=25mm,bottom=25mm]{geometry} % fixes margins
-\usepackage{changepage}
-\author{Marcelo Veloso Maciel}
-\date{}
-\title{Working Paper}
+\usepackage{changepage} \author{Marcelo Veloso Maciel\thanks{I thank Marek
+    Kaminski, Donald Saari, and Ines Levin for their guidance and encouragement,
+    and Maria Luiza Paschoal, Kaique Pereira Santos, John Brunson, Udita Ghosh
+    and Joshua Storm for their feedback on this project.}} \date{}
+
+\title{Majoritarian principles and critical junctures: an analysis of Brazil's
+  2018 presidential election}
+
 \hypersetup{
  pdfauthor={Marcelo Veloso Maciel},
  pdftitle={W4 Essay},
@@ -35,15 +31,29 @@ bibencoding=inputenc]{biblatex-chicago}
 \begin{document}
 
 \maketitle
-
+\begin{abstract}
+  Presidential Elections are critical moments for polyarchical systems,
+  particularly in contexts of high social tension. The 2018 presidential
+  election in Brazil used a two-round system, yet the most divisive candidates
+  went to the second round. Pairwise and positional voting procedures embody
+  different generalizations of a majoritarian credo that underpins such
+  elections. The paper mobilizes both perspectives and, using representative
+  survey data, reconstructs the top four preferences of the Brazilian electorate
+  a week before the election. It shows that the electoral winner, Jair Messias
+  Bolsonaro, was a Condorcet Winner, but may have not been the Borda Winner,
+  while the second-round loser, Fernando Haddad, was a Condorcet Loser.
+  Furthermore, possible alternative scenarios under different feasible sets of
+  candidates are simulated, contributing to understanding the role of decision
+  procedures in critical junctures.
+  \end{abstract}
 % parencite for indirect citation, textcite for direct citation
 \section{Introduction}
 
 The rise of polarization, the specter of democratic backsliding, and more
-generally an apprehension with the survival prospects of democratic polities\footnote{For a critical perspective on the current academic discourse on democratic backsliding see \parencite{little2023subjective}}
+generally an apprehension with the survival prospects of democratic polities\footnote{For a critical perspective on the current academic discourse on democratic backsliding see \textcite{little2023subjective}.}
 have led to a renewed interest in what institutions mitigate vs. instigate
 destabilizing dynamics, or that increase the adaptability of the political
-system vis-{\'a}-vis both internal and external stressors
+system vis-\`a-vis both internal and external stressors
 \parencite{Bednare2113843118, chiopris2021wolf, tarko2014institutional, ostrom1997meaning}. Given
 their centrality to the input-output relation between society and the state,
 electoral institutions naturally figure among the set of such institutions under
@@ -55,14 +65,13 @@ This paper shows, however, that in 2018 presidential election in Brazil the
 election of a polarizing candidate, Jair Messias Bolsonaro, was not simply an
 artifact of the decision procedure. Despite that, neither would he have won
 under any reasonable voting method. I demonstrate that, in this case, there is a
-partial conflict between typical evaluative positions, harking back to the Borda
-vs. Condorcet debate.
+partial conflict between typical evaluative positions, harking back to the Borda-Condorcet debate.
 
 Despite the multiple historical contingencies that might explain his victory,
 one might naturally wonder what role the electoral system has had in it. After
 all, it is well-known that the outcome of collective choices is fundamentally
 dependent on the voting procedure \parencite{riker1982liberalism}. As Brazil's
-two-round system, most electoral systems use merely the first index of the
+two-round system, most electoral systems merely use the first index of the
 voters' preference rankings \parencite{grofman04_if_you_like_alter_vote}. How
 would he have fared under informationally richer voting procedures, such as
 methods based on pairwise comparisons and positional voting procedures? Was he,
@@ -77,7 +86,7 @@ Condorcet on voting procedures. After that, I use a pre-electoral representative
 survey to reconstruct the full 4-top rankings of the Brazilian population and
 use this augmented data to simulate electoral outcomes, under alternative
 methods, for the top 4 and 3 candidate sets. Finally, I discuss the significance
-of the results and conclude by pointing out the limitations of the endeavor.
+of the results and conclude by pointing out the limitations of this endeavor.
 
 \section{Theory}
 
@@ -181,7 +190,7 @@ role of the decision procedure in its election.
 
 Even though the pairwise and positional perspectives of popular support/mandate
 generalize a widely held democratic principle, they are not captured by
-electoral processes that only have as input voter's first choice. As such, they
+electoral processes that only have as input voters' first choice. As such, they
 are not typically mobilized by politicians. Nonetheless, this information, which
 has been repeatedly rediscovered in acts of political reflexivity
 \parencite{mclean14_stran_histor_social_choic_contr}, can be queried to tell a
@@ -574,15 +583,15 @@ height=0.3\textheight]{./images/counterfactual_triangle.png}
 \end{figure}
 
 
-Nonetheless, neither the CW nor the family of positional voting methods is, in
-general, Independent of the Alternative Set \parencite{kaminski2015empirical}.
-If we drop or add candidates, the ``social'' ranking might change without
-respecting the ordering of the baseline set of alternatives. Consider the
-Borda-induced social ranking in this case: Ciro \( \sim \) Bolsonaro > Haddad >
-Alckmin. If by dropping Alckmin, the ranking changes to Bolsonaro > Haddad >
-Ciro > Alckmin, then the Borda Count, in this case, would be inducing a
-``paradoxical'' result. In Figure ~\ref{fig:c1dropping}, I consider alternative
-scenarios by dropping one of the top 4 candidates.
+Nonetheless, the family of positional voting methods is not, in general,
+Independent of the Alternative Set \parencite{kaminski2015empirical}. If we drop
+or add candidates, the ``social'' ranking might change without respecting the
+ordering of the baseline set of alternatives. Consider the Borda-induced social
+ranking in this case: Ciro \( \sim \) Bolsonaro > Haddad > Alckmin. If by
+dropping Alckmin, the ranking changes to Bolsonaro > Haddad > Ciro > Alckmin,
+then the Borda Count, in this case, would be inducing a ``paradoxical'' result.
+In Figure ~\ref{fig:c1dropping}, I consider alternative scenarios by dropping
+one of the top 4 candidates.
 
 The positional voting procedures are eminently well-behaved when dropping
 candidates from this dataset. There is a minor tilt toward Bolsonaro winning
