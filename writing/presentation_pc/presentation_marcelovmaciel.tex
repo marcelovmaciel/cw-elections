@@ -25,7 +25,7 @@
 
 % ----------------- NOVO SLIDE --------------------------------
 \begin{frame}
-\frametitle{Rationale: highly divisive candidates}
+\frametitle{Context : electoral success of highly divisive candidates}
   \begin{figure}[H] \centering \includegraphics[width=\textwidth]{./trumpolnaro.png}
  %\caption{Jair Messias Bolsonaro and Donald Trump}
  \end{figure}
@@ -43,35 +43,52 @@
     \item \textcite{potthoff2021condorcet} and \textcite{kurrild2018trump} argue
           that Trump might have been a Condorcet loser. \textcite{woon2020trump}
           argue he was in the Core.
-    \item \textcite{igersheim22_compar_votin_method} argue that the Condorcet,Borda,Utilitarian winner was actually Sanders.
+    \item \textcite{igersheim22_compar_votin_method} argue that the
+          Condorcet,Borda, Utilitarian winner was actually Sanders.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Argument/Expectations/Hypotheses}
-  \begin{itemize}
-    \item I expected similar results in the Brazilian 2018 presidential
-          elections. Particularly, I expected him to have neither ``pairwise''
-          nor high ``positional'' mandate;
-    \item The reason: high rejection would be taken into account by voting
-          procedures that use the whole ranking. Information paucity would be
-          causing the electoral victory of divisive candidates.
-  \end{itemize}
+  \frametitle{Hypothesis}
+  I expected similar results in the Brazilian 2018 presidential elections.
+  Particularly, I expected him to have neither ``pairwise'' nor high
+  ``positional'' mandate;
 \end{frame}
 
 
 \begin{frame}
-  \frametitle{Data and Method }
+  \frametitle{Data}
   \begin{itemize}
-    \item I use a ``representative'' street survey a week before the first round of the presidential election. A pairwise comparison of the top 4 candidates was the only question I analyzed.
-    \item Not all respondents compared all candidates. I imputed the data with a
-          polytomous regression\footnote{Using the \textbf{\textsf{R}} package
-          \(\operatorname{mice}\)}.
+    \item I use a ``representative'' street survey a week before the first round
+          of the presidential election. A pairwise comparison of the top 4
+          candidates was the only question I analyzed.
+    \item \textbf{Haddad (Left) (29.28\%)} - Ciro (Center-Left) (12.47\%) -
+          Alckmin (Center-Right) (4.76\%) - \textbf{Bolsonaro (Right) (46.9\%)}
+          \item Abstention: 20\%
+          \item White/Null: 8.79\%
+          \item Others: 7.19\%
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Data Preprocessing}
+  \begin{itemize}
+    \item Not all respondents compared all candidates. I imputed the data with polytomous regressions\footnote{Using the \textbf{\textsf{R}} package
+          \(\operatorname{mice}.\)}.
     \item There was a discrepancy between the survey and the result of the first
           round. I transferred while respecting Kemeny's distance, and picked
           the transferrence with minimal euclidean distance to the result.
   \end{itemize}
 \end{frame}
+\begin{frame}
+  \frametitle{Method - Saari's Geometry of Voting }
+
+     Positional voting can be normalized:
+    \begin{itemize}
+      \item Three candidates: \((1,s,0)\) where \(0 \leq s \leq 1\);
+      \item Four candidates: \((1,s_{1},s_{2},0)\),
+            where \(0 \leq s_{2} \leq s_{1} \leq 1\).
+    \end{itemize}
+  \end{frame}
 
 \begin{frame}
   \frametitle{Method - Saari's Outcome Triangle}
@@ -85,16 +102,10 @@
 \begin{frame}
   \frametitle{Profile after imputation and rankings transference}
 \begin{figure}[!h] \centering
-  \begin{subfigure}[b]{0.49\textwidth} \centering
-\includegraphics[width=\textwidth]{../images/representation_tetrahedron.png}
- \caption{Opened representation tetrahedron}
- \label{fig:rep_ot}
-\end{subfigure} \hfill
-  \begin{subfigure}[b]{0.49\textwidth} \centering
-\includegraphics[width=\textwidth]{../images/corrected1_indexes_plot.png}
- \caption{Frequencies at each position}
- \label{fig:counts}
-\end{subfigure}
+
+\includegraphics[width=0.85\textwidth, height = 0.85\textheight]{../images/corrected1_indexes_plot.png}
+
+
 
 \end{figure}
 \end{frame}
@@ -105,15 +116,17 @@
 \begin{table}[!h]
 \centering
 \begin{tabular}{rrrrr} & Alckmin & Bolsonaro & Ciro & Haddad \\\hline Alckmin &
-  0.0\% & -12.63\% & -16.99\% & 8.27\% \\ Bolsonaro & 12.63\% & 0.0\% & 5.48\% &
-  7.46\% \\ Ciro & 16.99\% & -5.48\% & 0.0\% & 16.65\% \\ Haddad & -8.27\% &
-  -7.46\% & -16.65\% & 0.0\% \\\hline
+  - & -12.63\% & -16.99\% & 8.27\% \\ Bolsonaro & \textcolor{green}{12.63\%} & -
+  & \textcolor{green}{5.48\%} & \textcolor{green}{7.46\%} \\ Ciro & 16.99\% &
+  -5.48\% & - & 16.65\% \\ Haddad & \textcolor{red}{-8.27\%} &
+  \textcolor{red}{-7.46\%} & \textcolor{red}{-16.65\%} & - \\\hline
           \end{tabular}
           \quad
 
-\begin{tabular}{rrr} \hline & Borda Score & Standardized Borda Score\\ \hline
-  Alckmin & 7029 & 0.464 \\ Bolsonaro & 7718 & 0.543 \\ Ciro & 7756 & 0.547\\
-  Haddad & 6867 & 0.446 \\ \hline
+          \begin{tabular}{rrr} \hline & Borda Score & Standardized Borda Score\\
+            \hline
+            Alckmin & 7029 & 0.464 \\ Bolsonaro & 7718 & \textbf{0.543} \\ Ciro & \textcolor{green}{7756} & \textbf{0.547}\\
+            Haddad & 6867 & 0.446 \\ \hline
 \end{tabular}
 \end{table}
 
