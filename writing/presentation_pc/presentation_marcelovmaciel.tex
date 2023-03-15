@@ -106,13 +106,26 @@
 \end{frame}
 \begin{frame}
   \frametitle{Method - Saari's Geometry of Voting }
+  \begin{itemize}
+    \item Positional Voting methods are weighting systems: assign points to
+          candidates according to their positions in the rankings. Then sum
+          those points to get the candidates' scores.
+          \begin{itemize}
+            \item Plurality: (1,0,0);
+            \item Antiplurality: (1,1,0);
+            \item Borda: (2,1,0).
+          \end{itemize}
 
-     Positional voting can be normalized:
+     \item They can be normalized:
     \begin{itemize}
       \item Three candidates: \((1,s,0)\) where \(0 \leq s \leq 1\);
+      \begin{itemize}
+        \item Borda becomes \((1,{1 \over 2},0)\);
+      \end{itemize}
       \item Four candidates: \((1,s_{1},s_{2},0)\),
             where \(0 \leq s_{2} \leq s_{1} \leq 1\).
-    \end{itemize}
+          \end{itemize}
+\end{itemize}
   \end{frame}
 
 \begin{frame}
@@ -222,8 +235,18 @@
       \item pairwise mandate: \textcolor{green}{\checkmark}
       \item positional mandate: \textcolor{red}{\(\times\)}
     \end{itemize}
-    \item They perfectly match had he not ran.
   \end{itemize}
+  \begin{minipage}{.45\linewidth}
+  \begin{itemize}
+    \item They perfectly match had he not run.
+  \end{itemize}
+\end{minipage}
+\begin{minipage}{.45\linewidth}
+\centering
+\includegraphics[width=\linewidth]{../images/cw1_notb.png}
+
+\end{minipage}
+
 \end{frame}
 
 \begin{frame}
