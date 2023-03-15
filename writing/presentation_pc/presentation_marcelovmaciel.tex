@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[xcolor={svgnames}]{beamer}
 \usetheme{metropolis}           % Use metropolis theme
 \usepackage[utf8]{inputenc}
 %\usepackage[brazil]{babel}
@@ -7,12 +7,13 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{graphicx}
-\usepackage{xcolor}
+
 \usepackage[backend = biber]{biblatex}
 %\addbibresource{refs.bib}
 \metroset{background=light}
 \addbibresource{refs.bib}
 \usepackage{tikz}
+\usepackage{pgfplots}
 \def\checkmark{\tikz\fill[scale=0.4](0,.35) -- (.25,0) -- (1,.7) -- (.25,.15) -- cycle;}
 \title{Majoritarian principles in critical junctures: an analysis of Brazil's
   2018 presidential election}
@@ -50,24 +51,48 @@
 
 \begin{frame}
   \frametitle{Hypothesis}
-  I expected similar results in the Brazilian 2018 presidential elections.
+  I expected similar results in the Brazilian 2018 presidential election.
   Particularly, I expected him to have neither ``pairwise'' nor high
-  ``positional'' mandate;
+  ``positional'' mandate.
+\end{frame}
+\begin{frame}
+  \frametitle{Background on the Election }
+  \begin{itemize}
+  \item Abstention: 20\%
+  \item White/Null: 8.79\%
+  \item Others: 7.19\%
+  \end{itemize}
 \end{frame}
 
+\begin{frame}
+  \frametitle{Top four candidates' first round shares }
+{\centering
+  \begin{tikzpicture}
+
+\begin{axis} [ybar,
+  xtick=data,
+  height=7cm,width=12cm,
+      symbolic x coords={Haddad,Ciro, Alckmin, Bolsonaro},
+      bar shift=0pt,
+      point meta=y*100,
+             nodes near coords={\pgfmathprintnumber\pgfplotspointmeta\%},
+             bar width=20pt,
+             ytick style={draw=none },
+             ytick = \empty,xtick pos=left,]
+
+\addplot[black] coordinates {
+  (Haddad,0.2928) (Ciro,0.1247) (Alckmin,0.0476) (Bolsonaro,0.469)};
+\end{axis}
+
+\end{tikzpicture}
+}
+\end{frame}
 
 \begin{frame}
   \frametitle{Data}
-  \begin{itemize}
-    \item I use a ``representative'' street survey a week before the first round
-          of the presidential election. A pairwise comparison of the top 4
-          candidates was the only question I analyzed.
-    \item \textbf{Haddad (Left) (29.28\%)} - Ciro (Center-Left) (12.47\%) -
-          Alckmin (Center-Right) (4.76\%) - \textbf{Bolsonaro (Right) (46.9\%)}
-          \item Abstention: 20\%
-          \item White/Null: 8.79\%
-          \item Others: 7.19\%
-  \end{itemize}
+
+   I use a representative street survey done by DataFolha a week before the first round of the presidential election. A pairwise comparison of the top 4 candidates was the only question I analyzed.
+
 \end{frame}
 
 \begin{frame}{Data Preprocessing}
@@ -100,7 +125,7 @@
 
 
 \begin{frame}
-  \frametitle{Profile after imputation and rankings transference}
+  \frametitle{Frequencies at each position in the ranking}
 \begin{figure}[!h] \centering
 
 \includegraphics[width=0.85\textwidth, height = 0.85\textheight]{../images/corrected1_indexes_plot.png}
@@ -111,7 +136,7 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Results I: Borda and Condorcet}
+  \frametitle{ Pairwise Majority Comparisons}
 
 \begin{table}[!h]
 \centering
@@ -120,20 +145,27 @@
   & \textcolor{green}{5.48\%} & \textcolor{green}{7.46\%} \\ Ciro & 16.99\% &
   -5.48\% & - & 16.65\% \\ Haddad & \textcolor{red}{-8.27\%} &
   \textcolor{red}{-7.46\%} & \textcolor{red}{-16.65\%} & - \\\hline
-          \end{tabular}
-          \quad
 
-          \begin{tabular}{rrr} \hline & Borda Score & Standardized Borda Score\\
-            \hline
-            Alckmin & 7029 & 0.464 \\ Bolsonaro & 7718 & \textbf{0.543} \\ Ciro & \textcolor{green}{7756} & \textbf{0.547}\\
-            Haddad & 6867 & 0.446 \\ \hline
 \end{tabular}
 \end{table}
 
 \end{frame}
 
 \begin{frame}
-  \frametitle{Opened Tetrahedron - Four candidates Positional Result}
+  \frametitle{Borda Count outcome }
+
+\begin{table}[!h]
+\centering
+          \begin{tabular}{rrr} \hline & Borda Score & Standardized Borda Score\\
+            \hline
+            Alckmin & 7029 & 0.464 \\ Bolsonaro & 7718 & \textbf{0.543} \\ Ciro & \textcolor{green}{7756} & \textbf{0.547}\\
+            Haddad & 6867 & 0.446 \\ \hline
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}
+  \frametitle{9 possible positional outcomes}
 \begin{figure}[!h] \centering \includegraphics[width=\textwidth]{../images/opened_tetrahedron1.png}
  %\caption{Saari's opened tetrahedron }
  
@@ -147,68 +179,59 @@
 \end{frame}
 
 \begin{frame}
-  \frametitle{Victory in terms of \(s_1\) and \(s_2\)}
+  \frametitle{Victory in terms of weights given to the second  (\(s_1\)) and third ( \(s_2\)) positions in the rankings}
 \begin{figure}[!h] \centering \includegraphics[width=\columnwidth]{../images/counterfactual_triangle.png}
 \end{figure}
 
 
 \end{frame}
 
-\begin{frame}
-  \frametitle{Alternative Set Stability }
+% \begin{frame}
+%   \frametitle{Alternative Set Stability }
 
-   \begin{figure}[!h] \centering
-        \begin{subfigure}[b]{0.45\textwidth} \centering
-\includegraphics[width=\textwidth]{../images/cw1_nota.png}
+%    \begin{figure}[!h] \centering
+%         \begin{subfigure}[b]{0.45\textwidth} \centering
+% \includegraphics[width=\textwidth]{../images/cw1_nota.png}
 
-        \end{subfigure} \hfill
-        \begin{subfigure}[b]{0.45\textwidth} \centering
-\includegraphics[width=\textwidth]{../images/cw1_notb.png}
+%         \end{subfigure} \hfill
+%         \begin{subfigure}[b]{0.45\textwidth} \centering
+% \includegraphics[width=\textwidth]{../images/cw1_notb.png}
 
-        \end{subfigure} \vskip\baselineskip
-        \begin{subfigure}[b]{0.45\textwidth} \centering
-\includegraphics[width=\textwidth]{../images/cw1_notc.png}
+%         \end{subfigure} \vskip\baselineskip
+%         \begin{subfigure}[b]{0.45\textwidth} \centering
+% \includegraphics[width=\textwidth]{../images/cw1_notc.png}
 
-        \end{subfigure} \hfill
-        \begin{subfigure}[b]{0.45\textwidth} \centering
-\includegraphics[width=\textwidth]{../images/cw1_noth.png}
-        \end{subfigure}
-        \caption[ Positional results when dropping one candidate ] {\small
-Positional results after dropping one candidate }
-        \label{fig:c1dropping}
-    \end{figure}
+%         \end{subfigure} \hfill
+%         \begin{subfigure}[b]{0.45\textwidth} \centering
+% \includegraphics[width=\textwidth]{../images/cw1_noth.png}
+%         \end{subfigure}
+%         \caption[ Positional results when dropping one candidate ] {\small
+% Positional results after dropping one candidate }
+%         \label{fig:c1dropping}
+%     \end{figure}
 
-\end{frame}
+% \end{frame}
 
 \begin{frame}
   \frametitle{Discussion}
   \begin{itemize}
     \item We can't conclude Bolsonaro's victory was an institutional fluke.
           However, there is a conflict between the visions of Condorcet and
-          Borda in this case.
+          Borda in this case:
+              \begin{itemize}
+      \item pairwise mandate: \textcolor{green}{\checkmark}
+      \item positional mandate: \textcolor{red}{\(\times\)}
+    \end{itemize}
     \item They perfectly match had he not ran.
   \end{itemize}
 \end{frame}
 
 \begin{frame}
-  \frametitle{Conclusion}
-  \begin{itemize}
-    \item Even though the aggregation procedure boosted Bolsonaro's victory, it was not merely its effect, contrary to established theoretical expectations;
-    \item But neither was he an undisputed winner:
-    \begin{itemize}
-      \item pairwise mandate: \textcolor{green}{\checkmark}
-      \item positional mandate: \textcolor{red}{\(\times\)}
-    \end{itemize}
-  \end{itemize}
-\end{frame}
-
-\begin{frame}
-  \frametitle{Conclusion}
-   Next steps:
-    \begin{itemize}
-      \item Use other variables in the dataset, particularly in the imputation;
-      \item Analyze other moments of the 2018 election;
-      \item Simulate coalitional and strategic alternative scenarios;
+  \frametitle{Limitation and next steps}
+   \begin{itemize}
+     \item  Use other variables in the dataset, particularly in the imputation.
+     \item   Such counterfactual analysis can be done for any dataset we can recover the (partial) rankings.
+      \item \(\bigstar\) Why did the CW and BW diverge? Size of the Condorcet Component \parencite{saari2000mathematicaloriginal}?
     \end{itemize}
 \end{frame}
 
