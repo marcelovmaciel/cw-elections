@@ -1,69 +1,17 @@
 #+TITLE: Todo
 
-* TODO [#A] Be consistent with the WE/I stuff
-
-* TODO PROJ [#A] ★ ★ ★  DO a better modeling of others
-- 0.72 at the top. The rest filled by sampling from the column of the inferred rankings!!!!
-- The point to be made is about Alternative Set Stability and the possibility of winner turns loser paradox;
+* TODO [#A] make the textual revisions required by all
 
 
-* TODO [#C] Think about the pattern of missingness
-
-
-
+* TODO polish the plots!!!!
 
 * TODO [#A] Do Saari decomposition!
 
 
 
-* TODO [#C] Try to think in terms of net single peakedness
 
-* [ ] [#C] Visualize the permutation polytope of the rankings
-- [ ] of the impartial culture;
-- [ ] of the bayesian inferred model;
-- [ ] of the initial transitive closure;
+* TODO PROJ [#C] ★ ★ ★  DO a better modeling of others
+- 0.72 at the top. The rest filled by sampling from the column of the inferred rankings!!!!
+- The point to be made is about Alternative Set Stability and the possibility of winner turns loser paradox;
 
-
-
-
-
-
-* DONE [#A] Contact developers to ask about augmentation
-
-
-
-
-
-
-
-
-base_dict["Ba"],
-base_dict["Bb"],
-base_dict["Bc"],
-base_dict["Cabcd"],
-base_dict["Cabdc"],
-base_dict["Cacbd"],
-base_dict["K"],
-base_dict["double_reversal_ac"],
-base_dict["double_reversal_cb"],
-base_dict["double_reversal_ab"],
-base_dict["double_reversal_cd"],
-base_dict["double_reversal_bd"],
-base_dict["double_reversal_ad"]
-
-
-
-
-comp_dict["Ba"],
-comp_dict["Bb"],
-comp_dict["Bc"],
-comp_dict["Cabcd"],
-comp_dict["Cabdc"],
-comp_dict["Cacbd"],
-comp_dict["K"],
-comp_dict["double_reversal_ac"],
-comp_dict["double_reversal_cb"],
-comp_dict["double_reversal_ab"],
-comp_dict["double_reversal_cd"],
-comp_dict["double_reversal_bd"],
-comp_dict["double_reversal_ad"]
+* TODO [#C] Think about the pattern of missingness

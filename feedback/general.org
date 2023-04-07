@@ -1,0 +1,189 @@
+#+title: General
+
+* ps 2023 iteration
+** Thomsen
+
+- elections typo
+
+- Introduction
+  #+begin_quote
+Great to state findings explicitly up front. That always bodes well for a paper. I do think you could build up the question a bit more though first and especially with respect to whatever the conventional wisdom is re: the 2018 Brazilian election.
+  #+end_quote
+- Develop better the social choice literature linking;
+- She wonders how abstention would change my results
+  - I 100% agree
+- put percentage sign in stuff. keep at one decimal point.
+- date fully spelled rather than xx/xx/xx
+- she was confused by the sentence saying that not everybody comparing all candidates. explain this better.
+- end of section 3
+  #+begin_quote
+I'm not sure about this, but I wondered if some of the discussion of the case should go into the introduction and this section should give more attention to the survey, missing values, and possibly combined with the methods section.
+  #+end_quote
+- beginning of section 4: footnote should go after period
+- she complained about the opened tetrahedron
+  - maybe show it next to the other triangle
+- on alckmin not ever beating bolsonaro as surprising: *explain it better*
+  #+begin_quote
+Can you elaborate on why this is surprising because Alckmin was in 4th in the vote so it doesn't seem that surprising (or is it the 0.0 value in particular that's surprising?).
+  #+end_quote
+- she argues that abstention could also be bolsonaro supporters. make sense. *must make this caveat*
+- conclusion:
+  #+begin_quote
+discuss more the incomplete pairwise comparison thing. it was not clear for her.
+  #+end_quote
+- final comment
+  #+begin_quote
+Interesting paper and important topic. The counterfactual analysis was really terrific. My main suggestion is to build up the front end more -- what would be the conventional wisdom, how are the findings consistent with that or do they challenge that? Also hooking the paper a bit more to a specific literature in the first two pages might be helpful for narrowing the scope and setting clear parameters for which audience you're trying to engage with. I'd also appreciate more discussion of application to other contexts (either within Brazil or not) in the opening pages. Well written and compelling paper. Grade: A
+  #+end_quote
+
+
+** Udita
+- awkward phrasing
+  - given their centrality
+  - despite that
+- definitely change the marginal mandate thing. no one liked it.
+- basis -> base
+- if by best
+- "nevertheless, he still contested the result"
+  #+begin_quote
+won in the first round alone, right? What does it take to win conclusively in the first round? Not sure if i missed that info somewhere
+  #+end_quote
+- with it is possible -> with this it is possible
+- conclusion
+  #+begin_quote
+In some other longer paper you might choose to demonstrate exactly how this is a critical juncture by situating the structural and contingent conditions that make it a critical juncture, and where the voting systems falls among those conditions
+  #+end_quote
+  - *makes sense*.I'm not satisfied with the critical juncture emphasis in the
+    title and abstract. it doesn't appear much in my article.
+  - the complained the "second, from a normative perspective". Maybe put a ":" after the perspective
+** kaminski
+Marcelo,
+
+Your paper is much stronger than the first version that I recall. It is interesting and *quite* well-written (suggestions on what to do follow in the last comment). Certainly, it is fine as a qualifier. I think that if you take two actions: rewriting (necessary) and using an alternative method to correct for poll bias, the paper can be submitted to Public Choice or a similar journal. My comments follow below.
+
+
+
+Page 2:
+
+Line 8 from top: instead of rankings, I would use “complete binary relation” since we do not know a priori if this binary relation is transitive for the entire population, which is the defining characteristic of a ranking within the set of all complete binary relations. “Completeness” means that either xRy or yRx (we can always compare any two elements).
+
+
+Still page 2: “Isn’t this endeavor inherently arbitrary, given that one can always retrofit a choice of voting method that matches an a-priori desired outcome (Riker 1982)?” You need to rewrite it since this radical statement is clearly false unless we treat as “voting methods” completely nonsensical ones. In general, we can have a subset S of “reasonable” voting methods and we can ask what will be the distribution of winners produced by the methods from S. More variance on outcomes - the method matters most; less variance (ideally, zero) - the method is not responsible.
+
+
+line 19 bottom: “Actor” or “candidate”?
+
+
+line 17 bottom:  “Such an agent has more marginal mandate’—>Such a person (candidate, etc.) has a stronger mandate (marginal means weak). I haven’t seen the term “marginal mandate” but even if somebody uses it, it is marginal :-) Instead of “marginal mandate” use sth clearer, e.g., “vote margin”
+
+
+line 4 bottom:  profile, voters’ rankings—>cyclical profile of voter rankings
+
+Footnote 2: instead of “correspondent” use “related” or similar
+
+
+Page 3:
+
+Line 6: do not cite Felsenthal in this context; CW has been a well-established concept for decades and either cite Condorcet, the source that first used this word (may be difficult to find), or leave with no reference. This also applies to all future citations of this sort.
+
+
+Include Footnote 3 in the text (a standard requirement of all journals is to minimize unnecessary footnotes). Remove Footnote 4 or incorporate it in the text (CW sometimes selects an empty set, so we can use Copeland, etc.) Do this for other unnecessary footnotes as well.
+
+
+I would remove the sentence suggesting that plurality and antiplurality are the extreme ends of scoring methods since this is unclear how can we rank them to obtain this location. I am not fully sure how Don Saari did that, but he probably excluded weighted scoring methods and/or truncated methods and or “best subset” methods that are parts of the extended family of scoring methods.
+
+
+less mandate—> weaker mandate
+
+
+Page 3/4 (speculation about Trump vs Sanders etc.): Under different voting procedures, not only voters may vote differently but also candidates campaign differently. Trump was well-aware of this issue when he responded to a statement “you were not a popular winner”: if the elections were about a popular winner, I would have campaigned differently. For instance, I think that he would have gone to California, where he had no chance to win electoral votes but where he could have won the best return on his campaigning in terms of the popular vote. With Electoral College, you go to marginal states.
+
+
+Page 5/6
+
+The method that you used for correcting for “poll bias” can be named the “transfer method”. If you invented it yourself, state it explicitly and make it a subsection. I have worked out an alternative method based on re-weighting profiles. I think the paper could benefit from using this second method as well, especially since the results would probably stay. I can show you some ideas for solving various issues with this method when we talk.
+
+
+Page 6
+
+Even if you respect somebody a lot, you still have to use the standard citation format, i.e., Saari 1995 instead of D. G. Saari 1995 :-)
+
+
+Page 7
+
+The outcome simplex and the interpretation is correct but the triangle should have been more reminiscent of an equilateral triangle (two-dimensional simplex); for now, the base is too long.
+
+
+You need to specify what exactly are the methods included in the “procedure hull”.
+
+
+Page 8
+
+In Figure 2, it seems that the “opened representation tetrahedron” represents the four sides (faces) of a tetrahedron with points inside the simplex substituted with their projections on the closest side. Explain this in the note.
+
+
+When you discuss the pairwise comparisons and the data from Table 3, be specific that you are talking about Round 1 (Blosonaro is a CW) versus R2 (unclear whether Ciro would have won against Bolsonaro). Otherwise, one gets the impression that you are making contradictory statements.
+
+
+Page 9
+
+When you refer to Figure 3 (the black upside triangle etc.), it is unclear what you mean since the black triangles, etc. in this figure are small. Enlarge them or explain them better.
+
+
+Statement: Note, however, that Haddad only does well in a small region of the hull. Moreover, we
+
+can see that there are decision procedures in which even Alckmin would have beaten both
+
+Bolsonaro and Haddad.
+
+
+
+This is imprecise at this point although this is clarified later. I marked in Figure 3 the regions where Haddad or Bolsonaro are winners (yellow vs yellow dots) (you can do that as well); the hulk has an empty intersection with the Haddad region as well as with the winning region for Alckmin. It seems that only Bolsonaro or Ciro could be winners under the scoring procedures in question. So, what does it mean that Haddad does well?
+
+You should explain two things:
+
+(1) What are the winning regions for all four candidates in a four-some contest?
+
+(2) In a pairwise contest, what is the winning region for each candidate?
+
+A mathematically sound reader can figure this out but others may be lost.
+
+
+algebraic manipulation of the equations in Table 4 allows us to answer this question
+
+
+You should be more specific about the method that you used. An alternative way of providing this estimate would be to use the Monte Carlo method or just a very fine grid on the space of possible scoring weights.
+
+
+Page 10
+
+Line 3 bottom: is —> satisfies
+
+Kaminski 2015 - you can add the citation to the original Heckelman paper as well
+
+
+Page 11
+
+Figure 4 should have a title: “Pairwise victory … for three selected pairs of candidates”
+
+
+Neither was he the candidate…
+
+I guess that you wanted to say sth like that: However, he was probably not the candidate with the strongest positional mandate.
+
+
+Page 13
+
+As such, any other majoritarian election in Brazil could be analogously analyzed.
+
+Actually, it can be done for any majority-runoff presidential election, which means that the methods that you developed are applicable to the vast majority of countries. Say it explicitly.
+
+The most glaring limitation —> A certain limitation
+
+
+The assumption of a pure additive transfer of votes, implicit when we removed candidates, is not necessarily valid with coalitions…
+
+This is thoroughly analyzed in my 2001 AJPS paper (just FYI since you probably know this piece; you do not need to cite it here)
+
+
+Finally, I think that your piece is well-written but certain issues and sentences could be clarified. Do the following - this has been my recent strategy: use ChatGPT (get an account if you do not have it already). Use the command “Please correct:” or “Correct English:” and paste a few paragraphs of your text. You will get a possibly clearer version although you need to examine it carefully for (rare) misunderstandings. If you like what you got, convert your entire paper. I think that you need it to do in small steps. If it happens that ChatGPT doesn’t understand you, well, this means that you need to rewrite the sentence yourself until he (it?) gets it.
