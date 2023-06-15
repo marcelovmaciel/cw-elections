@@ -3,7 +3,6 @@ Pkg.activate("./")
 
 #ENV["LD_PRELOAD"]="/usr/lib/x86_64-linux-gnu/libstdc++.so.6"
 
-#"MeshViz","Meshes", "AbstractPlotting"))
 using Revise 
 using CWElectionsBR
 #CairoMakie.activate!()

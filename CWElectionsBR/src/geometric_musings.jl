@@ -90,11 +90,9 @@ function make_basic_3_candidate△(sorted_candidate_list)
     hidexdecorations!(basic_3candidate_triangle.axis)
     hideydecorations!(basic_3candidate_triangle.axis)
 
-    text!(sorted_candidate_list[1], position = (-0.03,-0.05))
-    text!(sorted_candidate_list[2], position = (0.9,-0.05))
-    text!(sorted_candidate_list[3], position = (0.48,0.867)) 
-
-
+    text!(SubString(sorted_candidate_list[1],1,1), position = (-0.03,-0.05))
+    text!(SubString(sorted_candidate_list[2],1,1), position = (1,-0.05))
+    text!(SubString(sorted_candidate_list[3],1,1), position = (0.49,0.867)) 
 
     return(basic_3candidate_triangle)
 end
@@ -297,12 +295,6 @@ function cart_of_method(method, p)
   cartp = rcopy(geometry.bary2cart(baseline_tetrahedron(),normalp)) |> Tuple
   return(cartp)
 end
-
-
-
-
-
-
 
 
 

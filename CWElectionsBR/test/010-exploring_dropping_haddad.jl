@@ -6,8 +6,9 @@ import CWElectionsBR as cw
 using PrettyTables
 using Suppressor
 using DataFrames
-using FloatingTableView
 
+
+# abstractplotting is completely unecessary. remove it 
 dfspath = "../rscripts/dfs/"
 dfs_names = readdir(cw.dfspath)
 
