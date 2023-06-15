@@ -207,8 +207,6 @@ borda_4c_wₛ_num(ps) = get_method_4c_wₛ_numeric(ps, 2//3,1//3)  |> Vector{Flo
 
 
 
-
-
 function get_numericOf_qₛ(symbolic_vector,
                                               ps, baseline_sym_ps = p_twentyfour())
         replacing_dict = Dict(zip(baseline_sym_ps, ps))
@@ -376,14 +374,18 @@ else
     end      
 end  
 
-  text!(candidates[1], position = (-0.29,-0.05))
-  text!(candidates[2], position = (1.05,-0.05))
-  text!(candidates[3], position = (0.48,0.867))
 
   ot.axis.title = title
-  text!(candidates[4], position = d1[1:2])
-  text!(candidates[4], position = d2[1:2] .+ (-0.16,0.))
-  text!(candidates[4], position = d3[1:2] .+ (-0.1,-0.09))
+
+
+  text!(SubString(candidates[1],1,1), position = (-0.05,-0.05))
+  text!(SubString(candidates[2],1,1), position = (1.015,-0.05))
+  text!(SubString(candidates[3],1,1), position = (0.49,0.867))
+
+  
+  text!(SubString(candidates[4],1,1), position = d1[1:2] .+(-0.03,0.))
+  text!(SubString(candidates[4],1,1), position = d2[1:2] )
+  text!(SubString(candidates[4],1,1), position = d3[1:2] .+(-0.01,-0.08))
   return(ot)
 end
 

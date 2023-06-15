@@ -7,7 +7,7 @@ import CWElectionsBR as cw
 
 #using MeshViz
 using GeometryBasics
-using GLMakie
+using CairoMakie
 using Combinatorics
 import Meshes
 import SymPy as sp 
@@ -20,7 +20,7 @@ using Distances
 using MeshViz
 using LinearAlgebra
 using Rotations
-
+  
 dfspath = "../rscripts/dfs/"
 
 
@@ -112,15 +112,15 @@ function filled_tetrahedron(tpl,tapl,tv42,candidates = cw.candidates)
     possible_pulled_apl,possible_pulled_v42,possible_pulled_pl])),
     color =:transparent, strokecolor =:black, strokewidth = 1)
 
-  
-    text!(candidates[1], position = (-0.29,-0.05))
-    text!(candidates[2], position = (1.05,-0.05))
-    text!(candidates[3], position = (0.48,0.867))
+    text!(SubString(candidates[1],1,1), position = (-0.05,-0.05))
+    text!(SubString(candidates[2],1,1), position = (1.015,-0.05))
+    text!(SubString(candidates[3],1,1), position = (0.49,0.867))
   
     
-    text!(candidates[4], position = d1[1:2])
-    text!(candidates[4], position = d2[1:2] .+ (-0.16,0.))
-    text!(candidates[4], position = d3[1:2] .+ (-0.1,-0.09))
+    text!(SubString(candidates[4],1,1), position = d1[1:2] .+(-0.03,0.))
+    text!(SubString(candidates[4],1,1), position = d2[1:2] )
+    text!(SubString(candidates[4],1,1), position = d3[1:2] .+(-0.01,-0.08))
+
 
     hidespines!(ot.axis)
     hidexdecorations!(ot.axis)
@@ -130,7 +130,6 @@ function filled_tetrahedron(tpl,tapl,tv42,candidates = cw.candidates)
 end
 
 
-cw.filled_tetrahedron(cw.get_tpl_tapl_tv42(cw.getpl_apl_v42(p4c)...)...)
 
 get_ot(df) = filled_tetrahedron(get_tpl_tapl_tv42(getpl_apl_v42(cw.getp_4candidates(df))...)...)
 
@@ -141,6 +140,7 @@ imp_poly_dfs = map(x->cw.CSV.read(cw.dfspath * x, DataFrame), imputted_poly)
 
 
 ots = map(get_ot, imp_poly_dfs)
+
 
 ots[1]
 
@@ -153,6 +153,6 @@ mincw1 = imp_poly_dfs[1]
 
 p4c = cw.getp_4candidates(mincw1, "freq")
 
-reptetra = representation_tetrahedron_freqs(p4c)
+reptetra = cw.representation_tetrahedron_freqs(p4c)
 
 save("../writing/images/representation_tetrahedron.png", reptetra)

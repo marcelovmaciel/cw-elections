@@ -15,6 +15,7 @@ CWElectionsBR.make_basic_3_candidate△(["alckmin", "bolsonaro","ciro"])
 
 
 
+
 #  Nurmi Uncertainty book page 122 example
 #=  This Does match!!!!! 
 
