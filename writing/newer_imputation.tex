@@ -62,7 +62,7 @@ both internal and external stressors \parencite{Bednare2113843118,
 
 This paper delves into the 2018 presidential election in Brazil, demonstrating that Jair Messias Bolsonaro's victory was not simply a byproduct of the decision procedure. Despite the various historical contingencies that could explain his triumph, it is natural to question the role of the electoral system in his success. After all, it is widely recognized that the outcome of collective choices is fundamentally dependent on the voting procedure \parencite{riker1982liberalism}. Like Brazil's two-round system, most electoral systems primarily use the first index of the voters' preferences \parencite{grofman04_if_you_like_alter_vote}. This raises the question: how would Bolsonaro have performed under informationally richer voting procedures, such as methods based on pairwise comparisons and positional voting procedures? Could he, and arguably other democratically elected destabilizing candidates, be products of decision procedures that favor divisive candidates over more inclusive ones \parencite{igersheim22_compar_votin_method}? What criteria should be used to argue that a candidate's victory was an institutional artifact? Would the result have changed with a different set of candidates?
 
-The findings of this paper reveal that while Bolsonaro was the Condorcet winner, he would not have been victorious under any standard voting method, and notably, he was not the Borda winner. His opponent, Fernando Haddad, who advanced to the second round, was a Condorcet loser among the top four candidates and would not have defeated Bolsonaro under any positional voting methods. The third-place candidate, Ciro Gomes, had a slight positional advantage over Bolsonaro, with the potential to beat him in \(53\%\) of the positional voting methods. Gomes' advantage was especially pronounced in methods that emphasized rejection. This case highlights a partial conflict between typical evaluative positions, harking back to the historic Borda-Condorcet debate
+The findings of this paper reveal that while Bolsonaro was the Condorcet winner, he would not have been victorious under any standard voting method, and notably, he was not the Borda winner. His opponent, Fernando Haddad, who advanced to the second round, was a Condorcet loser among the top four candidates and would not have defeated Bolsonaro under any positional voting method. The third-place candidate, Ciro Gomes, had a slight positional advantage over Bolsonaro, with the potential to beat him in \(53\%\) of the positional voting methods. Ciro's advantage was especially pronounced in methods that emphasized rejection. This case highlights a partial conflict between typical evaluative positions, harking back to the historic Borda-Condorcet debate.
 
 In order to arrive at these results, I first revisit the perspectives of Borda and Condorcet on voting procedures. Subsequently, I utilize a pre-electoral representative survey to reconstruct the full 4-top preferences - complete binary relations -  of the Brazilian population. This augmented data is then used to simulate electoral outcomes under alternative methods for the top 4 and 3 candidate sets. Finally, I discuss the significance of the results and conclude by delineating the limitations of this endeavor.
 
@@ -85,7 +85,7 @@ universally agreeable, we can look at what set of values the agents themselves
 mobilize \parencite{binmore2005natural}. Particularly prominent among polarizing
 or divisive candidates -those that have strong support at the top choices of
 voters, but also have a high share of the bottom choices among the
-electorate\footnote{The correspondent concept of an inclusive candidate is
+electorate\footnote{The related concept of an inclusive candidate is
   defined by \textcite[p.6]{igersheim22_compar_votin_method} as those that ``get
   widespread support from the voters but with no strong feeling of rejection or
   attachment''.}- are claims of strength and legitimacy based on the notion of
@@ -96,42 +96,40 @@ elected, face widespread rejection or opposition.
 Nevertheless, what is a mandate? At a minimum, a politician has a mandate as
 long as he has won under the voting procedure. An actor has more mandate the
 more significant the difference between its vote share or score vs. the second
-most well-voted candidate. Such an agent has more marginal mandate rather than
-just having the minimal mandate bestowed by winning. Note that both notions of
-the mandate are related to a fundamental majoritarian credo which is part of the
-democratic ideal: that if both alternatives and voters are deemed equals, then
-the alternative that receives more support should be the winner
-\parencite{dahl1989democracy}. This ``monotonic/majoritarian mindset'' underlies
-the minimal mandate, since if a candidate was elected, it received more votes
-than the others, and the stronger marginal mandate, since more support means
-more mandate. That majoritarian value is what sustains claims of legitimacy of
-elected candidates. Roughly, the higher the marginal mandate, the more backing
-of popular support an Executive leader can claim to have
-\parencite{grossman2022majoritarian}. Alternatively, to deny the opposition has
-achieved a mandate by claiming the electoral process is fraudulent is a maneuver
-that again mobilizes this focal point of the democratic ethos.
+most well-voted candidate. Note that both notions of the mandate are related to
+a fundamental majoritarian credo which is part of the democratic ideal: that if
+both alternatives and voters are deemed equals, then the alternative that
+receives more support should be the winner \parencite{dahl1989democracy}. This
+``monotonic/majoritarian mindset'' underlies the minimal mandate, since if a
+candidate was elected, it received more votes than the others, and the stronger
+marginal mandate, since more support means more mandate. That majoritarian value
+is what sustains claims of legitimacy of elected candidates. Roughly, the higher
+the vote margin, the more backing of popular support an Executive leader can
+claim to have \parencite{grossman2022majoritarian}. Alternatively, to deny the
+opposition has achieved a mandate by claiming the electoral process is
+fraudulent is a maneuver that again mobilizes this focal point of the democratic
+ethos.
 
 However, with more than 2 alternatives, the majoritarian mindset is not as
-clear-cut as a profile, voters' rankings, such as [xyz, yzx, zxy] reminds us.
-Nonetheless, it remains a centerpiece of the democratic paradigm. How can, then,
-one extend majoritarianism to more than two alternatives? Borda and Condorcet
-grappled with this problem and gave different answers. Condorcet extended the
-majority rule to pairwise majority rule: apply majority rule to all pairwise
-comparisons. One possible condition that generalizes majoritarianism is what is
-known as the Condorcet criterion: a decision procedure is Condorcet consistent
-if it selects the candidate, if there is any, that wins in all pairwise majority
-contests. This alternative is called a Condorcet winner (CW)
-\parencite{felsenthal2011review}. Borda, on the other hand, devised a scoring
-scheme: if there are say 3 alternatives \(\{A,B,C\}\) and an agent \(i\) has
-ranking \(B>C>A\) then the Borda score in \(i\)'s ranking for each alternative
-is \(A:B:C = 0:2:1\)\footnote{Alternatively, it can also be coded as
-  \(1:3:2\).}. The Borda score for the full profile is the sum of each
-alternative score at each voter ranking, and the candidate with the highest
-score, the Borda winner (BW), wins. It is equivalent to adding the number of
-votes an alternative got in each pairwise comparison against the other
-alternatives \parencite{nurmi1999voting}. As such, it is another way of
-generalizing the ``majoritarian/monotonic'' perspective to more than two
-alternatives.
+clear-cut as a cyclical profile of voters' rankings, such as [xyz, yzx, zxy],
+reminds us. Nonetheless, it remains a centerpiece of the democratic paradigm.
+How can, then, one extend majoritarianism to more than two alternatives? Borda
+and Condorcet grappled with this problem and gave different answers. Condorcet
+extended the majority rule to pairwise majority rule: apply majority rule to all
+pairwise comparisons. One possible condition that generalizes majoritarianism is
+what is known as the Condorcet criterion: a decision procedure is Condorcet
+consistent if it selects the candidate, if there is any, that wins in all
+pairwise majority contests. This alternative is called a Condorcet winner (CW).
+Borda, on the other hand, devised a scoring scheme: if there are say 3
+alternatives \(\{A,B,C\}\) and an agent \(i\) has ranking \(B>C>A\) then the
+Borda score in \(i\)'s ranking for each alternative is \(A:B:C = 0:2:1\).
+Alternatively, it can also be coded as \(1:3:2\). The Borda score for the full
+profile is the sum of each alternative score at each voter ranking, and the
+candidate with the highest score, the Borda winner (BW), wins. It is equivalent
+to adding the number of votes an alternative got in each pairwise comparison
+against the other alternatives \parencite{nurmi1999voting}. As such, it is
+another way of generalizing the ``majoritarian/monotonic'' perspective to more
+than two alternatives.
 
 Being Condorcet consistent is arguably the primary normative benchmark for a
 voting method in single-candidate elections, while the Borda perspective could
@@ -140,30 +138,26 @@ be considered the leading contender \parencite{regenwetter2006behavioral,
 of the majoritarian credo, they also offer stronger and informationally more
 demanding views of mandate. If the candidate is a CW, it would have won under
 all possible majority pairwise comparisons against the other candidates. I will
-say a CW is a candidate with pairwise mandate\footnote{The Copeland scores could
-  be a more general measure of pairwise mandate or even the Kemeny scores for
-  each permutation, but this generalization is unnecessary in the context of
-  this paper.}. The BW lends itself to a similar interpretation, but the notion
-of mandate can be strengthened here. The Borda count can be seen as one method
-within a family of methods that assign weights to positions in the ballot. In
-one extreme, the plurality voting method assigns a score of 1 to the top choice
-and 0 to all others. On the other extreme is the antiplurality voting method,
-which assigns 1 to all positions besides the last one. Between the two extremes
-are all possible ways of assigning a score to the ballots of the electorate. The
-higher the proportion of positional voting systems that the candidate would have
-won had the election used it, what \textcite{tabarrok2001president} has called
+say a CW is a candidate with pairwise mandate. The Copeland scores could be a
+more general measure of pairwise mandate, inasmuch the CW may select an empty
+set, but this generalization is unnecessary in the context of this paper. The BW
+lends itself to a similar interpretation, but the notion of mandate can be
+strengthened here. The Borda count can be seen as one method within a family of
+methods that assign weights to positions in the ballot. The higher the
+proportion of positional voting systems that the candidate would have won had
+the election used it, what \textcite{tabarrok2001president} has called
 positional stability, the higher the positional mandate of the candidate.
 
 Suppose a candidate wins under a voting procedure that only uses the top choice
-of the electorate but is neither a BW nor a CW. In that case, it has less
+of the electorate but is neither a BW nor a CW. In that case, it has a weaker
 mandate, in this generalized majoritarian perspective, than if it were both -
-which would signal a comprehensive social base. Thus, a candidate who wins
-under the current voting procedure but is neither a BW nor a CW could be
-considered an artifact of the procedure. In the latter case, the procedure would
-be just ``tracking'' a broader support pattern for the alternative. Altogether,
-the notions of pairwise and positional mandates will be the primary lenses in
-this paper to understand both the popular support a candidate receives and the
-role of the decision procedure in its election.
+which would signal a comprehensive social base. Thus, a candidate who wins under
+the current voting procedure but is neither a BW nor a CW could be considered an
+artifact of the procedure. In the latter case, the procedure would be just
+``tracking'' a broader support pattern for the alternative. Altogether, the
+notions of pairwise and positional mandates will be the primary lenses in this
+paper to understand both the popular support a candidate receives and the role
+of the decision procedure in its election.
 
 Even though the pairwise and positional perspectives of popular support/mandate
 generalize a widely held democratic principle, they are not captured by
@@ -184,11 +178,14 @@ procedures that better track what the CW is, after all.
 not only was Trump neither, but Sanders was the actual Borda and Condorcet
 Winner, and generally the ``best'' candidate, if by best one understand to be a
 candidate being the most inclusive and winning under the most alternative
-decision procedures\footnote{I doubt this distribution of support for Sanders
-  would hold had he been a viable candidate.}. An analogous line of reasoning
-would lead us to hypothesize that a similar conclusion could be drawn about
-Bolsonaro: he would not have either pairwise or positional mandate. We will see,
-however, that an unambiguous conclusion cannot be drawn in the Brazilian case.
+decision procedures. I doubt this distribution of support for Sanders would hold
+had he been a viable candidate. Moreover, changing the voting procedure implies
+changing the candidates' campaign strategies. Nevertheless, this is an
+intriguing result. An analogous line of reasoning would lead us to hypothesize
+that a similar conclusion could be drawn about Bolsonaro: he would not have
+either pairwise or positional mandate. We will see, however, that an unambiguous
+conclusion cannot be drawn in the Brazilian case.
+
 
 \section{Case/Data}
 
@@ -213,8 +210,7 @@ share was Jo{\~a}o Amo{\^e}do's with \(2.5\%\). All others got less than
 \(1\%\). In the second round, the result was: Bolsonaro:Haddad =
 \(55.12 : 44.78 \). White/Null votes were \(9.57\%\) of the total electorate.
 The abstention in this round was \(21.3\%\). With more than \(10\%\) more than
-his second-round opponent, Bolsonaro rose to power backed by a solid marginal
-mandate. Nevertheless, he still contested the result and argued that he would
+his second-round opponent, Bolsonaro rose to power backed by a solid vote margin. Nevertheless, he still contested the result and argued that he would
 have won in the first round, garnering more than \(50\%\) of the valid votes,
 had the elections not been frauded\footnote{No evidence has been found of any
   rigging of the elections in Brazil, despite his claims.}. He continued putting
@@ -291,7 +287,10 @@ undervoted in the sample, while Ciro and Alckmin are overvoted\footnote{Remember
 the actual result was Bolsonaro:Haddad:Ciro:Alckmin:Others =
 \(46.3 : 29.28 : 12.47 : 4.76 : 7.19 \).}. However, transferring is complicated
 by the fact that we are working with the full rankings, which gives leeway to
-many possible ways of transferring. For instance, consider Table
+many possible ways of transferring. To solve this problem I develop a systematic transfer method, as discussed in the next subsection.
+
+\subsection{The Transfer Method}
+To get a hold of the problem,  consider Table
 ~\ref{tbl:overunderex}, which shows some of the rankings for Alckmin and
 Bolsonaro after the imputation. If we are to transfer from Alckmin to Bolsonaro,
 we are led to the problem of first picking which ranking at the source should be
@@ -355,9 +354,10 @@ After imputing the missing rankings and making the transfer of rankings to match
 the result for the first round, I identify the BW and CW among the top 4
 candidates, calculate and plot all counterfactual victory scenarios for
 positional voting methods, and visualize the positional outcomes for alternative
-3-candidates sets using Saari's outcome simplex \parencite{saari1995basic}.
+3-candidates sets using Saari's outcome simplex, which I discuss in the next subsection \parencite{saari1995basic}.
 
 
+\subsection{Saari's Outcome Simplex}
 \begin{figure}[H] \centering \includegraphics[width=0.8\columnwidth,
 height=0.3\textheight]{./images/simpletriangle.png}
  \caption{Saari's outcome simplex}
@@ -389,6 +389,7 @@ by ``opening'' the 3-simplex/tetrahedron and plotting onto its polyhedral net -
 the arrangement of polyhedrons in the plane that, when folded, become the faces
 of the simplex.
 
+TODO: the next paragraph should be mixed with the previous one. I talk about the point-share triangle, then split the representation. Moreover, I should show the representation next to the point-share triangle.
 
 To calculate all positional voting victories, I use two facts proved by Donald
 Saari \parencite{saari1995basic, saari2001chaotic}: first, any positional voting
@@ -398,6 +399,7 @@ standardized manner \((1,s_{1},s_{2},0)\), where
 convex hull of the plurality, antiplurality and vote for two procedures, with
 respective weights of \((1,0,0,0), (1,1,1,0), (1,1,0,0)\). Calculating scenarios
 amounts, thus, to vary the values of \(s_{1}\) and \(s_{2}\).
+
 
 \section{Results} The inferred rankings are shown in Figure \ref{fig:rep_ot} and
 summarized in Figure \ref{fig:counts}. Among all ways of transferring from
@@ -434,25 +436,26 @@ candidate fares against the others.
 
 What does this support distribution mean from the point of view of the BW and
 CW? Table \ref{tbl:overallresult} shows what we can infer from the imputed data.
-Despite being divisive, Bolsonaro would have won in all pairwise majority
-comparisons against other top candidates. Haddad, however, would have lost
-against all others. He was a Condorcet Loser, despite going to the second round.
-Ciro would only have lost against Bolsonaro, while Alckmin could only have won
-against Haddad. Unlike what was widely believed at the time and was the motto of
-his campaign, it is uncertain whether Ciro would have won against Bolsonaro in
-the second round. From a pairwise perspective, he was not the
-``anti-Bolsonaro'', but merely an ``anti-Haddad'', even more than Bolsonaro.
-Alckmin, the candidate with the longest television time and the broadest
-supporting coalition, would have lost against Haddad, who was merely a
-substitute for Lula. However, the pattern is not reflected in the Borda Scores,
-which implies the ranking: Ciro > Bolsonaro > Alckmin > Haddad. Nevertheless,
-the raw Borda scores of Ciro and Bolsonaro are very similar. If we standardize
-them, we see that the candidates are practically tied. If we take into account
-the sampling error, imputation, and transfer degree of freedom, then the most we
-should conclude is that the Borda Ranking was Ciro \(\sim\) Bolsonaro > Alckmin
-> Haddad. Note that if we take a positional perspective, then yes, Ciro was
-indeed the main contestant against Bolsonaro. Nevertheless, this obviously could
-not be captured by the majority with run-off.
+Recall we're using data from a survey that happened before the first round, and
+will extrapolate to consider what could have happened in general. Despite being
+divisive, Bolsonaro would have won in all pairwise majority comparisons against
+other top candidates. Haddad, however, would have lost against all others. He
+was a Condorcet Loser, despite going to the second round. Ciro would only have
+lost against Bolsonaro, while Alckmin could only have won against Haddad. Unlike
+what was widely believed at the time and was the motto of his campaign, it is
+uncertain whether Ciro would have won against Bolsonaro in the second round.
+From a pairwise perspective, he was not the ``anti-Bolsonaro'', but merely an
+``anti-Haddad'', even more than Bolsonaro. Alckmin, the candidate with the
+longest television time and the broadest supporting coalition, would have lost
+against Haddad, who was merely a substitute for Lula. However, the pattern is
+not reflected in the Borda Scores, which implies the ranking: Ciro > Bolsonaro >
+Alckmin > Haddad. Nevertheless, the raw Borda scores of Ciro and Bolsonaro are
+very similar. If we standardize them, we see that the candidates are practically
+tied. If we take into account the sampling error, imputation, and transfer
+degree of freedom, then the most we should conclude is that the Borda Ranking
+was Ciro \(\sim\) Bolsonaro > Alckmin > Haddad. Note that if we take a
+positional perspective, then yes, Ciro was indeed the main contestant against
+Bolsonaro. Nevertheless, this obviously could not be captured by the majority with run-off, which excluded him from the second round.
 
 \begin{table}[!h]
   \begin{adjustwidth}{3cm}{}
@@ -503,17 +506,15 @@ Haddad only does well in a small region of the hull. Moreover, we can see that
 there are decision procedures in which even Alckmin would have beaten both
 Bolsonaro and Haddad.
 
-\begin{figure}[!h] \centering \includegraphics[width=0.8\columnwidth,
-height=0.3\textheight]{./images/opened_tetrahedron1.png}
+\begin{figure}[!h] \centering \includegraphics[width=0.5\columnwidth,
+height=0.4\textheight]{./images/opened_tetrahedron1.png}
  \caption{Saari's opened tetrahedron }
  \label{fig:ot}
 \end{figure}
 
 In what precise percentage of the cases would a candidate have beaten another?
 Note that by opening the tetrahedron, the information provided by the volume of
-the subregions of the procedure hull is lost\footnote{Moreover, there can be
-  some deformations in my implementation of Figure~\ref{fig:ot}. The ensuing
-  percentage computations, however, are exact.}. Nevertheless, algebraic
+the subregions of the procedure hull is lost. Nevertheless, algebraic
 manipulation of the equations in Table \ref{tbl:ws} allows us to answer this
 question. Table \ref{tbl:ctn} presents the percentage of scenarios in which this
 would have happened. It implies a more complex picture of what happened.
@@ -608,7 +609,7 @@ Positional results after dropping one candidate }
         \label{fig:c1dropping}
     \end{figure}
 
-    We have seen that besides having a high marginal mandate, Bolsonaro was also
+    We have seen that besides having a high vote margin, Bolsonaro was also
     a CW. His victory, thus, was not a fluke or an artifact of institutional
     technology. Neither was he the candidate with the most positional mandate.
     This result revisits the Borda \(\times\) Condorcet controversy. On the one
@@ -700,8 +701,7 @@ candidates \parencite{saari2001chaotic, kaminski2015empirical}. It is
 well-known, for instance, that the Borda Count is susceptible to the
 winner-turns-loser paradox. Finally, even though I have analyzed scenarios in
 which candidates were removed, it would have been more realistic to simulate the
-formation of coalitions and how voters would have reacted to that \parencite
-{kaminski1998revival}. The assumption of a pure additive transfer of votes,
+formation of coalitions and how voters would have reacted to that \parencite{kaminski1998revival}. The assumption of a pure additive transfer of votes,
 implicit when we removed candidates, is not necessarily valid with coalitions,
 insofar voters of a center-left candidate, for instance, could vote for the
 center-right candidate if they are alienated by an alliance with the Left,
