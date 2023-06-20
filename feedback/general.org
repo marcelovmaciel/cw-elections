@@ -42,13 +42,7 @@ Interesting paper and important topic. The counterfactual analysis was really te
   - given their centrality
   - despite that
 - definitely change the marginal mandate thing. no one liked it.
-- basis -> base
-- if by best
-- "nevertheless, he still contested the result"
-  #+begin_quote
-won in the first round alone, right? What does it take to win conclusively in the first round? Not sure if i missed that info somewhere
-  #+end_quote
-- with it is possible -> with this it is possible
+
 - conclusion
   #+begin_quote
 In some other longer paper you might choose to demonstrate exactly how this is a critical juncture by situating the structural and contingent conditions that make it a critical juncture, and where the voting systems falls among those conditions
@@ -61,17 +55,6 @@ Marcelo,
 
 Your paper is much stronger than the first version that I recall. It is interesting and *quite* well-written (suggestions on what to do follow in the last comment). Certainly, it is fine as a qualifier. I think that if you take two actions: rewriting (necessary) and using an alternative method to correct for poll bias, the paper can be submitted to Public Choice or a similar journal. My comments follow below.
 
-
-
-Page 2:
-
-Line 8 from top: instead of rankings, I would use “complete binary relation” since we do not know a priori if this binary relation is transitive for the entire population, which is the defining characteristic of a ranking within the set of all complete binary relations. “Completeness” means that either xRy or yRx (we can always compare any two elements).
-
-
-Still page 2: “Isn’t this endeavor inherently arbitrary, given that one can always retrofit a choice of voting method that matches an a-priori desired outcome (Riker 1982)?” You need to rewrite it since this radical statement is clearly false unless we treat as “voting methods” completely nonsensical ones. In general, we can have a subset S of “reasonable” voting methods and we can ask what will be the distribution of winners produced by the methods from S. More variance on outcomes - the method matters most; less variance (ideally, zero) - the method is not responsible.
-
-
-line 19 bottom: “Actor” or “candidate”?
 
 
 line 17 bottom:  “Such an agent has more marginal mandate’—>Such a person (candidate, etc.) has a stronger mandate (marginal means weak). I haven’t seen the term “marginal mandate” but even if somebody uses it, it is marginal :-) Instead of “marginal mandate” use sth clearer, e.g., “vote margin”
