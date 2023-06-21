@@ -389,16 +389,18 @@ by ``opening'' the 3-simplex/tetrahedron and plotting onto its polyhedral net -
 the arrangement of polyhedrons in the plane that, when folded, become the faces
 of the simplex.
 
-TODO: the next paragraph should be mixed with the previous one. I talk about the point-share triangle, then split the representation. Moreover, I should show the representation next to the point-share triangle.
+\textcolor{red}{TODO}: the next paragraph should be mixed with the previous one. I talk about the
+point-share triangle, then split the representation. Moreover, I should show the
+representation next to the point-share triangle.
 
 To calculate all positional voting victories, I use two facts proved by Donald
-Saari \parencite{saari1995basic, saari2001chaotic}: first, any positional voting
+Saari: first, any positional voting
 method for 4 candidates can be seen as assigning weights to rank positions in a
 standardized manner \((1,s_{1},s_{2},0)\), where
 \(0 \leq s_{2} \leq s_{1} \leq 1\); second, all such procedures will lie in the
 convex hull of the plurality, antiplurality and vote for two procedures, with
 respective weights of \((1,0,0,0), (1,1,1,0), (1,1,0,0)\). Calculating scenarios
-amounts, thus, to vary the values of \(s_{1}\) and \(s_{2}\).
+amounts, thus, to vary the values of \(s_{1}\) and \(s_{2}\) \parencite{saari1995basic, saari2001chaotic}.
 
 
 \section{Results} The inferred rankings are shown in Figure \ref{fig:rep_ot} and
@@ -507,7 +509,7 @@ there are decision procedures in which even Alckmin would have beaten both
 Bolsonaro and Haddad.
 
 \begin{figure}[!h] \centering \includegraphics[width=0.5\columnwidth,
-height=0.4\textheight]{./images/opened_tetrahedron1.png}
+height=0.3\textheight]{./images/opened_tetrahedron1.png}
  \caption{Saari's opened tetrahedron }
  \label{fig:ot}
 \end{figure}

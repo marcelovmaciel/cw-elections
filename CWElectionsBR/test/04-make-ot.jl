@@ -145,7 +145,9 @@ ots = map(get_ot, imp_poly_dfs)
 ots[1]
 
 for (index,plt) in enumerate(ots)
-  save("../writing/images/opened_tetrahedron$index.png",plt)
+  save("../writing/images/opened_tetrahedron$index.png",
+  plt,
+  px_per_unit = 2)
 end  
 
 
@@ -155,4 +157,4 @@ p4c = cw.getp_4candidates(mincw1, "freq")
 
 reptetra = cw.representation_tetrahedron_freqs(p4c)
 
-save("../writing/images/representation_tetrahedron.png", reptetra)
+save("../writing/images/representation_tetrahedron.png", reptetra,   px_per_unit = 2)
