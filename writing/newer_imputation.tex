@@ -21,7 +21,7 @@
 
 \hypersetup{
  pdfauthor={Marcelo Veloso Maciel},
- pdftitle={W4 Essay},
+ pdftitle={Majoritarian Principles},
  pdfkeywords={},
  pdfsubject={},
  pdfcreator={Emacs 28.2 (Org mode 9.6)},
@@ -498,27 +498,49 @@ set \(s_{1} = s_{2} = 0\) we recover the plurality score, after ignoring
 
 \input{images/ws_tallies}
 
-We can, then, represent the results by an opened outcome tetrahedron, as roughly
-depicted in Figure~\ref{fig:ot}. The black upside triangle is the plurality
-result, the black downside triangle is antiplurality, the black dot is the vote
-for two results, and the diamond is the Borda count. As expected, the decision
-procedures that emphasize the top choice awarded Bolsonaro and Haddad to the
-extent that the Condorcet loser went to the second round. Note, however, that
-Haddad only does well in a small region of the hull. Moreover, we can see that
-there are decision procedures in which even Alckmin would have beaten both
-Bolsonaro and Haddad.
+\textcolor{red}{TODO}:explain the coloured triangles
 
-\begin{figure}[!h] \centering \includegraphics[width=0.5\columnwidth,
-height=0.3\textheight]{./images/opened_tetrahedron1.png}
- \caption{Saari's opened tetrahedron }
- \label{fig:ot}
+
+We can, then, represent the results by an opened outcome tetrahedron, as roughly
+depicted in Figure~\ref{fig:ot}. The black upside triangle in the triangle close
+to the B vertex is the plurality result, the black downside triangle in the
+triangle close to the C vertex is antiplurality, the black dot that is close
+both to the C and B vertex is the vote for two results, and the diamond that
+touches both the line segment from A to H and the line segment from C to B is
+the Borda count. As expected, the decision procedures that emphasize the top
+choice awarded Bolsonaro and Haddad to the extent that the Condorcet loser went
+to the second round. Note, however, that Haddad only does well in a small region
+of the hull. Moreover, we can see that there are decision procedures in which
+even Alckmin would have beaten both Bolsonaro and Haddad.
+
+% \begin{figure}[!h] \centering \includegraphics[width=0.5\columnwidth,
+% height=0.3\textheight]{./images/opened_tetrahedron1.png}
+%  \caption{Saari's opened tetrahedron }
+%  \label{fig:ot}
+% \end{figure}
+
+\begin{figure}[!h] \centering
+  \begin{subfigure}[b]{0.49\textwidth} \centering
+\includegraphics[width=\textwidth]{./images/opened_tetrahedron1_winning.png}
+ \caption{Winning regions}
+ \label{fig:ot_win}
+\end{subfigure} \hfill
+  \begin{subfigure}[b]{0.49\textwidth} \centering
+\includegraphics[width=\textwidth]{./images/opened_tetrahedron1_second_ranked.png}
+ \caption{Regions candidate is second ranked}
+ \label{fig:ot_second}
+\end{subfigure}
+\caption{Saari's opened tetrahedron}
+\label{fig:ot}
 \end{figure}
+
+
 
 In what precise percentage of the cases would a candidate have beaten another?
 Note that by opening the tetrahedron, the information provided by the volume of
 the subregions of the procedure hull is lost. Nevertheless, algebraic
 manipulation of the equations in Table \ref{tbl:ws} allows us to answer this
-question. Table \ref{tbl:ctn} presents the percentage of scenarios in which this
+question. Table ~\ref{tbl:ctn} presents the percentage of scenarios in which this
 would have happened. It implies a more complex picture of what happened.
 Bolsonaro was the CW, was tied with Ciro as a BW and would have won against Ciro
 in roughly 47\(\%\) of the positional voting methods. Nevertheless, it shows
@@ -534,10 +556,25 @@ were both divisive, most of their support was in the top choice, they would have
 fared equally well or badly under the same positional voting methods, but since
 Bolsonaro had more first votes and was less frequently in the bottom of the
 rankings than Haddad he actually ``positionally dominated'' Haddad. The same
-logic applies to another surprising result: Alckmin would never have beaten
-Ciro.
+logic applies to another surprising result: Alckmin would never have beaten Ciro.
 
-\input{images/table_counterfactuals}
+%% \input{images/table_counterfactuals}
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{rrrrr}
+    \hline
+     & Alckmin & Bolsonaro & Ciro & Haddad \\
+    \hline
+    Alckmin & 0.0 & 0.31 & 0.0 & 0.58 \\
+    Bolsonaro & 0.69 & 0.0 & 0.47 & 1.0 \\
+    Ciro & 1.0 & 0.53 & 0.0 & 0.81 \\
+    Haddad & 0.42 & 0.0 & 0.19 & 0.0 \\\hline\hline
+  \end{tabular}
+   \caption{Proportion of victories in the positional voting procedure set}
+\label{tbl:ctn}
+\end{table}
+
 
 Naturally, proportions do not show what were the decision procedures in which,
 for instance, Ciro would have beaten Bolsonaro. Intuitively, voting procedures

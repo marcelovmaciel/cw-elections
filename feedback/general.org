@@ -69,9 +69,6 @@ In Figure 2, it seems that the “opened representation tetrahedron” represents th
 When you discuss the pairwise comparisons and the data from Table 3, be specific that you are talking about Round 1 (Blosonaro is a CW) versus R2 (unclear whether Ciro would have won against Bolsonaro). Otherwise, one gets the impression that you are making contradictory statements.
 
 
-Page 9
-
-When you refer to Figure 3 (the black upside triangle etc.), it is unclear what you mean since the black triangles, etc. in this figure are small. Enlarge them or explain them better.
 
 
 Statement: Note, however, that Haddad only does well in a small region of the hull. Moreover, we
