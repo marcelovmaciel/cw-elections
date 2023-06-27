@@ -358,49 +358,66 @@ positional voting methods, and visualize the positional outcomes for alternative
 
 
 \subsection{Saari's Outcome Simplex}
-\begin{figure}[H] \centering \includegraphics[width=0.8\columnwidth,
-height=0.3\textheight]{./images/simpletriangle.png}
- \caption{Saari's outcome simplex}
- \label{fig:saari_nurmi}
-\end{figure}
 
-Saari's outcome simplex, or point-share triangle
-\parencite{eggers20_diagr_analy_ordin_votin_system}, provides a way of
-visualizing all possible positional voting results of an election\footnote{For a
-complete exposition of this method see \textcite{saari1995basic} or
-\textcite{nurmi2002voting}.}. Consider Figure \ref{fig:saari_nurmi}. The closer
-to a vertex, the better the vertex's position in the social ranking. Region 1
-corresponds to the social ranking of \(A > B > C\), while Region 4 corresponds
-to the social ranking of \(C>B>A\). The lines separating the regions represent
-indifference. The point at which all lines meet corresponds to
-\(A \sim B \sim C\), while the line separating Region 1 and 2 would correspond
-to \(A > B \sim C\). The three dots are the results of the antiplurality, the
-Borda and the plurality voting methods. The line connecting the antiplurality
-and plurality results, the extremes, denotes all possible positional results,
-including the result for the Borda Count. It is called the procedure hull
-\parencite{saari2001chaotic}. The Borda Count point is always closer to the
-antiplurality result. In this example, most positional voting methods would have
-agreed with the plurality procedure outcome of \(B\) as the winner. A related
-triangle, the representation triangle, or profile triangle
-\parencite{eggers20_diagr_analy_ordin_votin_system}, will be used to represent a
-profile compactly. In each ranking region, we plot the frequency of votes that
-match that region's ranking. For 4 candidates, we can use analog representations
-by ``opening'' the 3-simplex/tetrahedron and plotting onto its polyhedral net -
-the arrangement of polyhedrons in the plane that, when folded, become the faces
-of the simplex.
-
-\textcolor{red}{TODO}: the next paragraph should be mixed with the previous one. I talk about the
-point-share triangle, then split the representation. Moreover, I should show the
-representation next to the point-share triangle.
-
-To calculate all positional voting victories, I use two facts proved by Donald
-Saari: first, any positional voting
-method for 4 candidates can be seen as assigning weights to rank positions in a
-standardized manner \((1,s_{1},s_{2},0)\), where
-\(0 \leq s_{2} \leq s_{1} \leq 1\); second, all such procedures will lie in the
+To calculate all positional voting victories, I use a few facts proved by Donald
+Saari. Positional voting methods are those that associate scores to
+positions in voters' preferences. The higher the alternative is in a voter
+preference the higher the score it gets. A better ranked alternative, thus,
+should receive a score at least as big as the next best ranked alternative. Any
+positional voting method that respects that constraint can be defined by a
+vector of weights \(W_{j} = (w_{1}, \cdots, w_{n})\). It is possible that there are weighting schemes that do not follow that constraint, but from now on I'll restrict myself to this subset of positional voting methods. For 3 candidates, plurality is thus \((1,0,0)\), while the borda count is \((3,2,1)\). Note, that plurality could be coded as \((2,0,0)\) or even \((2,1,1)\) and the result would not change. Analogously, the Borda count could be associated with the vector \(2,1,0\) and the result would not change. Any two weigthing vectors \(W_{1}\) and \(W_{2}\) such that \(W_{1} = aW_{2} + b(1,\cdots, 1)\) for \(a,b > 0\) have the same result, in terms of outcome ordering \parencite{saari1995basic}. This equivalence relation can be exploited to standardize positional voting methods. For 4 candidates we have, \((1,s_{1},s_{2},0)\), where
+\(0 \leq s_{2} \leq s_{1} \leq 1\), where in plurality \(s_{1} = s_{2} = 0\) and in the borda count \(s_{1} = {2 \over 3}\) and \(s_{2} = {1 \ over 3}\). For  3 candidates, all such positional voting methods will lie in the line connecting plurality with antipluraliy (\(1,1,0\)) while for 4 candidates  all such procedures will lie in the
 convex hull of the plurality, antiplurality and vote for two procedures, with
 respective weights of \((1,0,0,0), (1,1,1,0), (1,1,0,0)\). Calculating scenarios
 amounts, thus, to vary the values of \(s_{1}\) and \(s_{2}\) \parencite{saari1995basic, saari2001chaotic}.
+
+\begin{figure}[!h] \centering
+  \begin{subfigure}[b]{0.49\textwidth} \centering
+\includegraphics[width=\textwidth]{./images/simpletriangle.png}
+ \caption{Point-share triangle}
+ \label{fig:pointshare}
+\end{subfigure} \hfill
+  \begin{subfigure}[b]{0.49\textwidth} \centering
+\includegraphics[width=\textwidth]{./images/representation_triangle_noth}
+ \caption{Profile triangle}
+ \label{fig:representation}
+\end{subfigure}
+\caption{Saari's triangles}
+\label{fig:saari_nurmi}
+\end{figure}
+
+% \begin{figure}[H] \centering \includegraphics[width=0.8\columnwidth,
+% height=0.3\textheight]{./images/simpletriangle.png}
+%  \caption{Saari's outcome simplex}
+%  \label{fig:saari_nurmi}
+% \end{figure}
+
+Saari's outcome simplex, or point-share triangle
+\parencite{eggers20_diagr_analy_ordin_votin_system}, makes use of the structure
+of positional voting methods to provide a way of visualizing all possible
+positional voting results of an election\footnote{For a complete exposition of
+  this method see \textcite{saari1995basic} or \textcite{nurmi2002voting}.}.
+Consider Figure \ref{fig:pointshare}. The closer to a vertex, the better the
+vertex's position in the social ranking. Region 1 corresponds to the social
+ranking of \(A > B > C\), while Region 4 corresponds to the social ranking of
+\(C>B>A\). The lines separating the regions represent indifference. The point at
+which all lines meet corresponds to \(A \sim B \sim C\), while the line
+separating Region 1 and 2 would correspond to \(A > B \sim C\). The three dots
+are the results of the antiplurality, the Borda and the plurality voting
+methods. The Borda Count point is always closer to the antiplurality result. In
+this example, most positional voting methods would have agreed with the
+plurality procedure outcome of \(B\) as the winner. A related triangle, the
+representation triangle, or profile triangle
+\parencite{eggers20_diagr_analy_ordin_votin_system}, will be used to represent a
+profile compactly. Figure \ref{fig:representation} shows the equivalent profile
+triangle. In each ranking region, we plot the frequency of votes that match that
+region's ranking. For 4 candidates, we can use analog representations by
+``opening'' the 3-simplex/tetrahedron and plotting onto its polyhedral net - the
+arrangement of polyhedrons in the plane that, when folded, become the faces of
+the simplex.
+
+\textcolor{red}{TODO}: I'm still not happy with this explanation.
+
 
 
 \section{Results} The inferred rankings are shown in Figure \ref{fig:rep_ot} and
@@ -540,13 +557,20 @@ In what precise percentage of the cases would a candidate have beaten another?
 Note that by opening the tetrahedron, the information provided by the volume of
 the subregions of the procedure hull is lost. Nevertheless, algebraic
 manipulation of the equations in Table \ref{tbl:ws} allows us to answer this
-question. Table ~\ref{tbl:ctn} presents the percentage of scenarios in which this
-would have happened. It implies a more complex picture of what happened.
-Bolsonaro was the CW, was tied with Ciro as a BW and would have won against Ciro
-in roughly 47\(\%\) of the positional voting methods. Nevertheless, it shows
-that there were scenarios in which he would have lost to the more inclusive
-candidates, Ciro and Alckmin. In Alckmin's case, this could have happened in
-surprising \(30\%\) of the cases. However, Ciro could have beaten him in most,
+question. For instance, when is \( 0.4113\(s_{1}\) + 0.4165\(s_2\) + 0.0514 >
+0.0392\(s_{1}\) + 0.0521\(s_2\) + 0.4992 \) given the aforementioned constraints
+on the values of the parameters? Solving this inequality gives us the intervals
+of the values of the parameters in which Alckmin would have beaten Bolsonaro in
+the set of positional voting procedures. The area of those intervals over the
+area of all the combinations gives us the percentage of scenarios in which a
+candidate could beat another, as shown in Table ~\ref{tbl:ctn} while the actual
+figure whose area is being used is shown in Figure~\ref{fig:positional4c}. Table
+~\ref{tbl:ctn} implies a more complex picture of what happened. Bolsonaro was
+the CW, was tied with Ciro as a BW and would have won against Ciro in roughly
+47\(\%\) of the positional voting methods. Nevertheless, it shows that there
+were scenarios in which he would have lost to the more inclusive candidates,
+Ciro and Alckmin. In Alckmin's case, this could have happened in surprising
+\(30\%\) of the cases. However, Ciro could have beaten him in most,
 \(\approx 53\%\), of the positional voting methods. Surprisingly, Haddad, who
 went to the second round with Bolsonaro, would never have beaten him. The
 explanation for that is the following: as shown in Figure \ref{fig:counts},
@@ -556,7 +580,8 @@ were both divisive, most of their support was in the top choice, they would have
 fared equally well or badly under the same positional voting methods, but since
 Bolsonaro had more first votes and was less frequently in the bottom of the
 rankings than Haddad he actually ``positionally dominated'' Haddad. The same
-logic applies to another surprising result: Alckmin would never have beaten Ciro.
+logic applies to another surprising result: Alckmin would never have beaten
+Ciro.
 
 %% \input{images/table_counterfactuals}
 
@@ -601,7 +626,7 @@ height=0.3\textheight]{./images/counterfactual_triangle.png}
 \end{figure}
 
 
-Nonetheless, the family of positional voting methods is not, in general, Independent
+Nonetheless, the family of positional voting methods does not satisfy, in general,  Independence
 of the Alternative Set \parencite{kaminski2015empirical}. If we drop or add
 candidates, the ``social'' ranking might change without respecting the ordering
 of the baseline set of alternatives. Consider the Borda-induced social ranking
@@ -674,21 +699,22 @@ Positional results after dropping one candidate }
     majoritarian credo end up in conflict.
 
     However, Figure~\ref{fig:notbc1} presents an interesting scenario. Here,
-there is no conflict between the perspectives: under both positional and
-pairwise perspectives on a mandate, Haddad going to the second round was purely
-an institutional fluke. Even though it looks like Haddad would be a plurality
-winner if we dropped Bolsonaro, the plurality point is close to a tie with Ciro,
-and could be read as such, given the uncertainty. Ciro, thus, now would have
-almost 100\(\%\) positional mandate. Moreover, in Table \ref{tbl:margins} it was
-shown that Ciro would have beaten him with a majority pairwise comparison, which
-gives credence to affirming that Ciro would have won under a majority with
-run-off system. In this scenario, the most inclusive candidate would have been
-elected. Ceteris paribus, it seems the only way an agreement between the
-Borda and Condorcet criteria could be guaranteed to exist in the Brazilian 2018
-case would be if Bolsonaro had never been able to run. In this scenario, the
-Condorcet Loser would again be beaten, but now a candidate with a solid mandate,
-as endorsed both by the pairwise majority comparisons and the entire hull of
-positional methods would have been elected.
+    there is no conflict between the perspectives: under both positional and
+    pairwise perspectives on a mandate, Haddad going to the second round was
+    purely an institutional fluke. Even though it looks like Haddad would be a
+    plurality winner if we dropped Bolsonaro, the plurality point is close to a
+    tie with Ciro, and could be read as such, given the uncertainty. Ciro, thus,
+    now would have almost 100\(\%\) positional mandate. Moreover, in Table
+    \ref{tbl:margins} it was shown that Ciro would have beaten him with a
+    majority pairwise comparison, which gives credence to affirming that Ciro
+    would have won under a majority with run-off system. In this scenario, the
+    most inclusive candidate would have been elected. Ceteris paribus, it seems
+    the only way an agreement between the Borda and Condorcet criteria could be
+    guaranteed to exist in the Brazilian 2018 case would be if Bolsonaro had
+    never been able to run. In this scenario, the Condorcet Loser would again be
+    beaten, but now a candidate with a solid mandate, as endorsed both by the
+    pairwise majority comparisons and the entire hull of positional methods
+    would have been elected.
 
 \section{Conclusion}
 

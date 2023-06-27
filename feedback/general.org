@@ -53,22 +53,21 @@ Marcelo,
 
 Your paper is much stronger than the first version that I recall. It is interesting and *quite* well-written (suggestions on what to do follow in the last comment). Certainly, it is fine as a qualifier. I think that if you take two actions: rewriting (necessary) and using an alternative method to correct for poll bias, the paper can be submitted to Public Choice or a similar journal. My comments follow below.
 
-
 Page 7
 
 The outcome simplex and the interpretation is correct but the triangle should have been more reminiscent of an equilateral triangle (two-dimensional simplex); for now, the base is too long.
 
 
-You need to specify what exactly are the methods included in the “procedure hull”.
-
-
 Page 8
 
-In Figure 2, it seems that the “opened representation tetrahedron” represents the four sides (faces) of a tetrahedron with points inside the simplex substituted with their projections on the closest side. Explain this in the note.
+
 
 When you discuss the pairwise comparisons and the data from Table 3, be specific that you are talking about Round 1 (Blosonaro is a CW) versus R2 (unclear whether Ciro would have won against Bolsonaro). Otherwise, one gets the impression that you are making contradictory statements.
 
 
+Page 9
+
+When you refer to Figure 3 (the black upside triangle etc.), it is unclear what you mean since the black triangles, etc. in this figure are small. Enlarge them or explain them better.
 
 
 Statement: Note, however, that Haddad only does well in a small region of the hull. Moreover, we
@@ -92,15 +91,6 @@ A mathematically sound reader can figure this out but others may be lost.
 
 algebraic manipulation of the equations in Table 4 allows us to answer this question
 
-
-You should be more specific about the method that you used. An alternative way of providing this estimate would be to use the Monte Carlo method or just a very fine grid on the space of possible scoring weights.
-
-
-Page 10
-
-Line 3 bottom: is —> satisfies
-
-Kaminski 2015 - you can add the citation to the original Heckelman paper as well
 
 
 Page 11
