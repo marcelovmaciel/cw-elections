@@ -13,7 +13,6 @@ Great to state findings explicitly up front. That always bodes well for a paper.
 - She wonders how abstention would change my results
   - I 100% agree
 - put percentage sign in stuff. keep at one decimal point.
-- date fully spelled rather than xx/xx/xx
 - she was confused by the sentence saying that not everybody comparing all candidates. explain this better.
 - end of section 3
   #+begin_quote
@@ -39,7 +38,6 @@ Interesting paper and important topic. The counterfactual analysis was really te
 
 ** Udita
 
-- definitely change the marginal mandate thing. no one liked it.
 
 - conclusion
   #+begin_quote
@@ -93,28 +91,4 @@ algebraic manipulation of the equations in Table 4 allows us to answer this ques
 
 
 
-Page 11
 
-Figure 4 should have a title: “Pairwise victory … for three selected pairs of candidates”
-
-
-Neither was he the candidate…
-
-I guess that you wanted to say sth like that: However, he was probably not the candidate with the strongest positional mandate.
-
-
-Page 13
-
-As such, any other majoritarian election in Brazil could be analogously analyzed.
-
-Actually, it can be done for any majority-runoff presidential election, which means that the methods that you developed are applicable to the vast majority of countries. Say it explicitly.
-
-The most glaring limitation —> A certain limitation
-
-
-The assumption of a pure additive transfer of votes, implicit when we removed candidates, is not necessarily valid with coalitions…
-
-This is thoroughly analyzed in my 2001 AJPS paper (just FYI since you probably know this piece; you do not need to cite it here)
-
-
-Finally, I think that your piece is well-written but certain issues and sentences could be clarified. Do the following - this has been my recent strategy: use ChatGPT (get an account if you do not have it already). Use the command “Please correct:” or “Correct English:” and paste a few paragraphs of your text. You will get a possibly clearer version although you need to examine it carefully for (rare) misunderstandings. If you like what you got, convert your entire paper. I think that you need it to do in small steps. If it happens that ChatGPT doesn’t understand you, well, this means that you need to rewrite the sentence yourself until he (it?) gets it.

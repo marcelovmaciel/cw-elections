@@ -60,9 +60,34 @@ dynamics, and in the adaptability of the political system in face of
 both internal and external stressors \parencite{Bednare2113843118,
   chiopris2021wolf, tarko2014institutional, ostrom1997meaning}. Given their pivotal role in the input-output relationship between society and the state, electoral institutions are naturally among the institutions under scrutiny \parencite{Wange2021systems}. Consequently, a segment of the literature on collective choice has speculated whether the recent electoral victories of divisive candidates are a consequence of informationally deficient decision procedures \parencite{potthoff2021condorcet, kurrild2018trump, woon2020trump}.
 
-This paper delves into the 2018 presidential election in Brazil, demonstrating that Jair Messias Bolsonaro's victory was not simply a byproduct of the decision procedure. Despite the various historical contingencies that could explain his triumph, it is natural to question the role of the electoral system in his success. After all, it is widely recognized that the outcome of collective choices is fundamentally dependent on the voting procedure \parencite{riker1982liberalism}. Like Brazil's two-round system, most electoral systems primarily use the first index of the voters' preferences \parencite{grofman04_if_you_like_alter_vote}. This raises the question: how would Bolsonaro have performed under informationally richer voting procedures, such as methods based on pairwise comparisons and positional voting procedures? Could he, and arguably other democratically elected destabilizing candidates, be products of decision procedures that favor divisive candidates over more inclusive ones \parencite{igersheim22_compar_votin_method}? What criteria should be used to argue that a candidate's victory was an institutional artifact? Would the result have changed with a different set of candidates?
+Jair Messias Bolsonaro is a hallmark example of a divisive candidate, and his
+rise to power in the 2018 brazilian presidential election was marked by large
+margins in his favor. Was his victory simply a byproduct of the decision
+procedure? Despite the various historical contingencies that could explain his
+triumph, it is natural to question the role of the electoral system in his
+success. After all, it is widely recognized that the outcome of collective
+choices is fundamentally dependent on the voting procedure
+\parencite{riker1982liberalism}. Like Brazil's two-round system, most electoral
+systems primarily use the first index of the voters' preferences
+\parencite{grofman04_if_you_like_alter_vote}. This raises the question: how
+would Bolsonaro have performed under informationally richer voting procedures,
+such as methods based on pairwise comparisons and positional voting procedures?
+Could he, and arguably other democratically elected destabilizing candidates, be
+products of decision procedures that favor divisive candidates over more
+inclusive ones \parencite{igersheim22_compar_votin_method}? What criteria should
+be used to argue that a candidate's victory was an institutional artifact? Would
+the result have changed with a different set of candidates?
 
-The findings of this paper reveal that while Bolsonaro was the Condorcet winner, he would not have been victorious under any standard voting method, and notably, he was not the Borda winner. His opponent, Fernando Haddad, who advanced to the second round, was a Condorcet loser among the top four candidates and would not have defeated Bolsonaro under any positional voting method. The third-place candidate, Ciro Gomes, had a slight positional advantage over Bolsonaro, with the potential to beat him in \(53\%\) of the positional voting methods. Ciro's advantage was especially pronounced in methods that emphasized rejection. This case highlights a partial conflict between typical evaluative positions, harking back to the historic Borda-Condorcet debate.
+The findings of this paper reveal that while Bolsonaro was the Condorcet winner,
+he would not have been victorious under any standard voting method, and notably,
+he was not the Borda winner. His opponent in the second round, Fernando Haddad,
+was a Condorcet loser among the top four candidates and would not have defeated
+Bolsonaro under any positional voting method. The third-place candidate, Ciro
+Gomes, had a slight positional advantage over Bolsonaro, with the potential to
+beat him in \(53\%\) of the positional voting methods. Ciro's advantage was
+especially pronounced in methods that emphasized rejection. This case highlights
+a partial conflict between typical evaluative positions, harking back to the
+historic Borda-Condorcet debate.
 
 In order to arrive at these results, I first revisit the perspectives of Borda and Condorcet on voting procedures. Subsequently, I utilize a pre-electoral representative survey to reconstruct the full 4-top preferences - complete binary relations -  of the Brazilian population. This augmented data is then used to simulate electoral outcomes under alternative methods for the top 4 and 3 candidate sets. Finally, I discuss the significance of the results and conclude by delineating the limitations of this endeavor.
 
@@ -228,24 +253,28 @@ distribution of support for Lula was markedly different from Haddad, who was
 merely his replacement. PT's campaign was predicated on the possibility of Lula
 being released, and Haddad posed primarily as Lula's candidate. Nonetheless, his
 popularity was nowhere near Lula's, and he inherited the high rejection of his
-party at the time. Second, on 09/06/2018, a month before the first round, there
+party at the time. Second, on September 6, 2018, a month before the first round, there
 was an assassination attempt against Bolsonaro. The knife attack most likely
 changed his pattern of support.
 
 The dataset used for the analysis is a representative street survey done on
-10/02/2018, less than a week before the first round (10/07/2018). DataFolha, an
-independent research institute highly esteemed and trusted by Brazilian
-experts\footnote{I had access to the survey data, code-book, and questionnaire
-by creating an account and requesting access to them, available for
-educational/research purposes, at \url{https://www.cesop.unicamp.br}.}, did this
-survey. One question, in particular, is the only variable in our analysis:
-pairwise comparisons between the 4 top candidates. With this it is possible to
-reconstruct the full 4-top ranking of the voter. Preliminary pre-processing has
-led me to drop 171 observations where all pairwise comparisons were missing and
-132 in which they were cyclic. This leaves us with 2937 out of 3240
-observations. As Table~\ref{Tab:Tcpairwise} shows only 1797 observations
-compared all 4 candidates. As such, we have to augment the data with transitive
-closures for 1140 observations by methods discussed in the next section.
+October 2, 2018, less than a week before the first round (October 7, 2018).
+DataFolha, an independent research institute highly esteemed and trusted by
+Brazilian experts\footnote{I had access to the survey data, code-book, and
+  questionnaire by creating an account and requesting access to them, available
+  for educational/research purposes, at \url{https://www.cesop.unicamp.br}.},
+did this survey. One question, in particular, is the only variable in our
+analysis: pairwise comparisons between the 4 top candidates. The pairwise
+comparisons were: Alckmin \(\times\) Bolsonaro, Alckmin \(\times\) Ciro, Alckmin
+\(\times\) Haddad, Bolsonaro \(\times\) Ciro, Bolsonaro \(\times\) Haddad,
+Haddad \(\times\) Ciro. There was no indifference option. With these strict
+comparisons for all survey respondents it is possible to reconstruct their full 4-top ranking.
+Preliminary pre-processing has led me to drop 171 observations where all
+pairwise comparisons were missing and 132 in which they were cyclic. This leaves
+us with 2937 out of 3240 observations. As Table~\ref{Tab:Tcpairwise} shows only
+1797 observations compared all 4 candidates. As such, we have to augment the
+data with transitive closures for 1140 observations by methods discussed in the
+next section.
 
 \begin{table}[]\centering \resizebox{0.5\columnwidth}{!}{
 \begin{tabular}{|l|r|} \hline Number of Pairwise Comparisons & Frequency \\
@@ -366,7 +395,7 @@ preference the higher the score it gets. A better ranked alternative, thus,
 should receive a score at least as big as the next best ranked alternative. Any
 positional voting method that respects that constraint can be defined by a
 vector of weights \(W_{j} = (w_{1}, \cdots, w_{n})\). It is possible that there are weighting schemes that do not follow that constraint, but from now on I'll restrict myself to this subset of positional voting methods. For 3 candidates, plurality is thus \((1,0,0)\), while the borda count is \((3,2,1)\). Note, that plurality could be coded as \((2,0,0)\) or even \((2,1,1)\) and the result would not change. Analogously, the Borda count could be associated with the vector \(2,1,0\) and the result would not change. Any two weigthing vectors \(W_{1}\) and \(W_{2}\) such that \(W_{1} = aW_{2} + b(1,\cdots, 1)\) for \(a,b > 0\) have the same result, in terms of outcome ordering \parencite{saari1995basic}. This equivalence relation can be exploited to standardize positional voting methods. For 4 candidates we have, \((1,s_{1},s_{2},0)\), where
-\(0 \leq s_{2} \leq s_{1} \leq 1\), where in plurality \(s_{1} = s_{2} = 0\) and in the borda count \(s_{1} = {2 \over 3}\) and \(s_{2} = {1 \ over 3}\). For  3 candidates, all such positional voting methods will lie in the line connecting plurality with antipluraliy (\(1,1,0\)) while for 4 candidates  all such procedures will lie in the
+\(0 \leq s_{2} \leq s_{1} \leq 1\), where in plurality \(s_{1} = s_{2} = 0\) and in the borda count \(s_{1} = {2 \over 3}\) and \(s_{2} = {1 \over 3}\). For  3 candidates, all such positional voting methods will lie in the line connecting plurality with antipluraliy (\(1,1,0\)) while for 4 candidates  all such procedures will lie in the
 convex hull of the plurality, antiplurality and vote for two procedures, with
 respective weights of \((1,0,0,0), (1,1,1,0), (1,1,0,0)\). Calculating scenarios
 amounts, thus, to vary the values of \(s_{1}\) and \(s_{2}\) \parencite{saari1995basic, saari2001chaotic}.
@@ -536,14 +565,14 @@ even Alckmin would have beaten both Bolsonaro and Haddad.
 %  \label{fig:ot}
 % \end{figure}
 
-\begin{figure}[!h] \centering
-  \begin{subfigure}[b]{0.49\textwidth} \centering
-\includegraphics[width=\textwidth]{./images/opened_tetrahedron1_winning.png}
+\begin{figure}[!H] \centering
+  \begin{subfigure}[b]{\textwidth} \centering
+\includegraphics[width=\textwidth]{./images/top_ranked.png}
  \caption{Winning regions}
  \label{fig:ot_win}
 \end{subfigure} \hfill
-  \begin{subfigure}[b]{0.49\textwidth} \centering
-\includegraphics[width=\textwidth]{./images/opened_tetrahedron1_second_ranked.png}
+  \begin{subfigure}[b]{\textwidth} \centering
+\includegraphics[width=\textwidth]{./images/second_ranked.png}
  \caption{Regions candidate is second ranked}
  \label{fig:ot_second}
 \end{subfigure}
@@ -557,20 +586,21 @@ In what precise percentage of the cases would a candidate have beaten another?
 Note that by opening the tetrahedron, the information provided by the volume of
 the subregions of the procedure hull is lost. Nevertheless, algebraic
 manipulation of the equations in Table \ref{tbl:ws} allows us to answer this
-question. For instance, when is \( 0.4113\(s_{1}\) + 0.4165\(s_2\) + 0.0514 >
-0.0392\(s_{1}\) + 0.0521\(s_2\) + 0.4992 \) given the aforementioned constraints
+question. For instance, when is \( 0.4113 s_{1} + 0.4165 s_2 + 0.0514 >
+0.0392 s_{1} + 0.0521 s_2 + 0.4992 \) given the aforementioned constraints
 on the values of the parameters? Solving this inequality gives us the intervals
 of the values of the parameters in which Alckmin would have beaten Bolsonaro in
 the set of positional voting procedures. The area of those intervals over the
 area of all the combinations gives us the percentage of scenarios in which a
 candidate could beat another, as shown in Table ~\ref{tbl:ctn} while the actual
-figure whose area is being used is shown in Figure~\ref{fig:positional4c}. Table
-~\ref{tbl:ctn} implies a more complex picture of what happened. Bolsonaro was
-the CW, was tied with Ciro as a BW and would have won against Ciro in roughly
-47\(\%\) of the positional voting methods. Nevertheless, it shows that there
-were scenarios in which he would have lost to the more inclusive candidates,
-Ciro and Alckmin. In Alckmin's case, this could have happened in surprising
-\(30\%\) of the cases. However, Ciro could have beaten him in most,
+figure whose area is being used is shown in Figure~\ref{fig:positional4c}.
+
+Table ~\ref{tbl:ctn} implies a more complex picture of what happened. Bolsonaro
+was the CW, was tied with Ciro as a BW and would have won against Ciro in
+roughly 47\(\%\) of the positional voting methods. Nevertheless, it shows that
+there were scenarios in which he would have lost to the more inclusive
+candidates, Ciro and Alckmin. In Alckmin's case, this could have happened in
+surprising \(30\%\) of the cases. However, Ciro could have beaten him in most,
 \(\approx 53\%\), of the positional voting methods. Surprisingly, Haddad, who
 went to the second round with Bolsonaro, would never have beaten him. The
 explanation for that is the following: as shown in Figure \ref{fig:counts},
@@ -600,7 +630,6 @@ Ciro.
 \label{tbl:ctn}
 \end{table}
 
-
 Naturally, proportions do not show what were the decision procedures in which,
 for instance, Ciro would have beaten Bolsonaro. Intuitively, voting procedures
 that emphasize rejection or more of the middle region of the rankings should
@@ -611,8 +640,8 @@ scenarios by varying them, as in Figure~\ref{fig:positional4c}. It shows the
 scenarios Bolsonaro \(\times\) Ciro, Ciro \(\times \) Haddad, and Alckmin
 \(\times\) Bolsonaro. Note that, as expected, the only way Alckmin could have
 beaten Bolsonaro would be if \(s_{1}\) and \(s_{2}\) were above 0.6. Remember
-that when both are 1, the voting procedure is antiplurality, a method equivalent
 to saying which candidate voters dislike. However, this universe of cases was
+that when both are 1, the voting procedure is antiplurality, a method equivalent
 dominated by Ciro, who would have beaten Bolsonaro in any combination of
 \(s_{1}\) and \(s_{2}\) higher than the line connecting the points
 \((0.51,0.51)\) and \((0.9,0)\). The plot also shows what combinations of
@@ -620,21 +649,21 @@ weights lead to \(81\%\) of Ciro \(>\) Haddad: any combination to the right of
 the line segment connecting \((0.35,0.35)\) and \((0.55,0.0)\).
 
 \begin{figure}[!h] \centering \includegraphics[width=\columnwidth,
-height=0.3\textheight]{./images/counterfactual_triangle.png}
-\caption{Victory in terms of values of \(s_{1}\) and \(s_{2}\)}
+height=0.3\textheight]{./images/counterfactual_triangle.jpg}
+\caption{Pairwise victory for three selected pairs of candidates}
  \label{fig:positional4c}
 \end{figure}
 
 
-Nonetheless, the family of positional voting methods does not satisfy, in general,  Independence
-of the Alternative Set \parencite{kaminski2015empirical}. If we drop or add
-candidates, the ``social'' ranking might change without respecting the ordering
-of the baseline set of alternatives. Consider the Borda-induced social ranking
-in this case: Ciro \( \sim \) Bolsonaro > Haddad > Alckmin. If by dropping
-Alckmin, the ranking changes to Bolsonaro > Haddad > Ciro > Alckmin, then the
-Borda Count, in this case, would be inducing a ``paradoxical'' result. In Figure
-~\ref{fig:c1dropping}, I consider alternative scenarios by dropping one of the
-top 4 candidates.
+Nonetheless, the family of positional voting methods does not satisfy, in
+general, Independence of the Alternative Set \parencite{kaminski2015empirical}.
+If we drop or add candidates, the ``social'' ranking might change without
+respecting the ordering of the baseline set of alternatives. Consider the
+Borda-induced social ranking in this case: Ciro \( \sim \) Bolsonaro > Haddad >
+Alckmin. If by dropping Alckmin, the ranking changes to Bolsonaro > Haddad >
+Ciro > Alckmin, then the Borda Count, in this case, would be inducing a
+``paradoxical'' result. In Figure ~\ref{fig:c1dropping}, I consider alternative
+scenarios by dropping one of the top 4 candidates.
 
 The positional voting procedures are eminently well-behaved when dropping
 candidates from this dataset. There is a minor tilt toward Bolsonaro winning
@@ -673,30 +702,31 @@ Positional results after dropping one candidate }
         \label{fig:c1dropping}
     \end{figure}
 
-    We have seen that besides having a high vote margin, Bolsonaro was also
-    a CW. His victory, thus, was not a fluke or an artifact of institutional
-    technology. Neither was he the candidate with the most positional mandate.
-    This result revisits the Borda \(\times\) Condorcet controversy. On the one
-    hand, he was the CW, the primary normative benchmark for a voting procedure.
-    On the other hand, in the Brazilian case, the Borda count would have been a
-    more substantial barrier against a divisive candidate. Even though we could
-    expect divisive candidates to have fared worse under informationally richer
-    decision procedures, a divisive candidate can still be a CW with \(47\%\)
-    positional stability/mandate. Yes, Ciro would have won against him in
-    \(53\%\) of the positional methods, and at least would have tied with him in
-    the Borda count, but most of the methods within this \(53\%\) emphasize
-    rejection, and to give more weight to rejection vis-\`a-vis approval seems
-    unreasonable under any set of normative expectations demanded of a decision
-    procedure for large-scale democratic elections. Due to its symmetry, the
-    Borda Count lies at a threshold: its constant decrease in assigning weights
-    to the positions in the rankings guarantees that approval matters more than
-    rejection, but without throwing away the rejection information. Therefore,
-    highly polarized scenarios can lead to the election of a divisive candidate,
-    which puts in dispute two reasonable metrics of support: being a CW vs.
-    being a BW. This means the paper only gives partial support to the
-    hypothesis that informationally richer decision procedures would be enough
-    to contain divisive candidates, and two reasonable generalizations of the
-    majoritarian credo end up in conflict.
+    We have seen that besides having a high vote margin, Bolsonaro was also a
+    CW. His victory, thus, was not a fluke or an artifact of institutional
+    technology. However, he was probably not the candidate with the strongest
+    positional mandate. This result revisits the Borda \(\times\) Condorcet
+    controversy. On the one hand, he was the CW, the primary normative benchmark
+    for a voting procedure. On the other hand, in the Brazilian case, the Borda
+    count would have been a more substantial barrier against a divisive
+    candidate. Even though we could expect divisive candidates to have fared
+    worse under informationally richer decision procedures, a divisive candidate
+    can still be a CW with \(47\%\) positional stability/mandate. Yes, Ciro
+    would have won against him in \(53\%\) of the positional methods, and at
+    least would have tied with him in the Borda count, but most of the methods
+    within this \(53\%\) emphasize rejection, and to give more weight to
+    rejection vis-\`a-vis approval seems unreasonable under any set of normative
+    expectations demanded of a decision procedure for large-scale democratic
+    elections. Due to its symmetry, the Borda Count lies at a threshold: its
+    constant decrease in assigning weights to the positions in the rankings
+    guarantees that approval matters more than rejection, but without throwing
+    away the rejection information. Therefore, highly polarized scenarios can
+    lead to the election of a divisive candidate, which puts in dispute two
+    reasonable metrics of support: being a CW vs. being a BW. This means the
+    paper only gives partial support to the hypothesis that informationally
+    richer decision procedures would be enough to contain divisive candidates,
+    and two reasonable generalizations of the majoritarian credo end up in
+    conflict.
 
     However, Figure~\ref{fig:notbc1} presents an interesting scenario. Here,
     there is no conflict between the perspectives: under both positional and
@@ -732,8 +762,8 @@ gauging the mandate of a candidate in democratic collective choice situations.
 In terms of future research, contrasting Haddad with Lula and analyzing the
 effect of the knife attack should provide a more comprehensive picture of what
 happened in 2018. Moreover, the pipeline for the analysis is highly
-reproducible. Similar work can be done to surveys that contain pairwise
-comparisons between the top candidates, as many in Brazil do. As such, any other
+reproducible. Analogous analysis can be done for any case with majority with run-off presidential elections, or even to anysurvey that contain pairwise comparisons
+between the top candidates, as many in Brazil do. As such, any other
 majoritarian election in Brazil could be analogously analyzed.
 Figure~\ref{fig:notbc1} could also be the starting point for an investigation of
 the selection of the pool of candidates allowed to compete for the Executive,
@@ -744,7 +774,7 @@ backsliding \parencite{svolik2008authoritarian, nalepa2022after}. Second, from a
 normative perspective. What, if anything, justifies restricting classes of
 actors from running for certain positions? What values would conflict here?
 
-The most glaring limitation of that paper is that I used only one variable from
+A certain limitation of that paper is that I used only one variable from
 the dataset, pairwise comparisons, to simulate alternative scenarios. However,
 socio-demographic variables from the dataset could have been used to strengthen
 the data imputation procedure. Moreover, roughly less than half of the dataset
@@ -767,7 +797,7 @@ well-known, for instance, that the Borda Count is susceptible to the
 winner-turns-loser paradox. Finally, even though I have analyzed scenarios in
 which candidates were removed, it would have been more realistic to simulate the
 formation of coalitions and how voters would have reacted to that \parencite{kaminski1998revival}. The assumption of a pure additive transfer of votes,
-implicit when we removed candidates, is not necessarily valid with coalitions,
+implicit when we removed candidates, is not necessarily valid with coalitions \parencite{kaminski2001coalitional},
 insofar voters of a center-left candidate, for instance, could vote for the
 center-right candidate if they are alienated by an alliance with the Left,
 which, in the case of the election under scrutiny, was highly rejected.
