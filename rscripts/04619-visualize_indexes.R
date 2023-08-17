@@ -6,7 +6,7 @@ corrected_indexes1<- read.csv("./dfs/corrected_indexes_1.csv")
 
 fn_that_should_be_anonymous <-  function (candidatename,df) {
 df %>% ggplot(
-aes(x = .data[[candidatename]])) +
+aes(x = .data[[candidatename]], y = "Frequency at position")) +
   geom_bar(aes( fill = .data[[candidatename]]  ),
            position = position_dodge()) + theme_bw() }
 
