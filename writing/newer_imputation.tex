@@ -18,8 +18,10 @@
   %   and Joshua Storm for their feedback on this project.}
 } \date{}
 
-\title{Majoritarian principles at a critical juncture: an analysis of Brazil's
-  2018 presidential election}
+\title{Was Bolsonaro's 2018 electoral victory an institutional fluke?}
+
+
+%Majoritarian principles at a critical juncture: an analysis of Brazil's 2018 presidential election
 
 \hypersetup{
  pdfauthor={Marcelo Veloso Maciel},
@@ -54,16 +56,17 @@ bibencoding=inputenc]{biblatex-chicago}
   particularly in contexts of high social tension. In this regard, the 2018
   presidential election in Brazil, which used a two-round system, serves as a
   significant case study. Intriguingly, the most divisive candidates went to the
-  second round. Pairwise and positional voting procedures embody different
-  generalizations of a majoritarian credo that underpins such elections. The
-  paper mobilizes both perspectives and, using representative survey data,
-  reconstructs the top four preferences of the Brazilian electorate a week
-  before the election. The analysis reveals that the electoral winner, Jair
-  Messias Bolsonaro, was a Condorcet Winner, but may have not been the Borda
-  Winner. Conversely, the second-round loser, Fernando Haddad, was a Condorcet
-  Loser. Furthermore, the paper explores possible alternative scenarios under
-  different feasible sets of candidates through simulations, contributing to a
-  deeper understanding of the role of decision procedures in critical junctures.
+  second round. Was this an institutional accident? Pairwise and positional
+  voting procedures embody different generalizations of a majoritarian credo
+  that underpins such elections. The paper mobilizes both perspectives and,
+  using representative survey data, reconstructs the top four preferences of the
+  Brazilian electorate a week before the election. The analysis reveals that the
+  electoral winner, Jair Messias Bolsonaro, was a Condorcet Winner, but may have
+  not been the Borda Winner. Conversely, the second-round loser, Fernando
+  Haddad, was a Condorcet Loser. Furthermore, the paper explores possible
+  alternative scenarios under different feasible sets of candidates through
+  simulations, contributing to a deeper understanding of the role of decision
+  procedures in critical junctures.
 
 
   \end{abstract}
@@ -231,9 +234,6 @@ another way of generalizing the ``majoritarian/monotonic'' perspective to more
 than two alternatives.
 
 
-
-
-
 Being Condorcet consistent is arguably the primary normative benchmark for a
 voting method in single-candidate elections, while the Borda perspective could
 be considered the leading contender \parencite{regenwetter2006behavioral,
@@ -257,7 +257,10 @@ mandate, in this generalized majoritarian perspective, than if it were both -
 which would signal a comprehensive social base. Thus, a candidate who wins under
 the current voting procedure but is neither a BW nor a CW could be considered an
 artifact of the procedure. In the latter case, the procedure would be just
-``tracking'' a broader support pattern for the alternative. Taken together, the concepts of pairwise and positional mandates will serve as the main analytical tools in this paper for comprehending both the popular support a candidate garners and the role of the decision procedure in their election.
+``tracking'' a broader support pattern for the alternative. Taken together, the
+concepts of pairwise and positional mandates will serve as the main analytical
+tools in this paper for comprehending both the popular support a candidate
+garners and the role of the decision procedure in their election.
 
 Even though the pairwise and positional perspectives of popular support/mandate
 generalize a widely held democratic principle, they are not captured by
@@ -486,25 +489,40 @@ Ciro & 59 & 0.02 \\ \hline
 % 3-candidates sets using Saari's outcome simplex, which I discuss in the next subsection.
 
 
+The process of sorting and transferring rankings can be understood through a systematic approach. We begin by organizing the rankings based on Bolsonaro's position. The rankings are sorted into three sets: those where he is in the second position (e.g., (Alckmin, Bolsonaro, Ciro, Haddad), (Alckmin, Bolsonaro, Haddad, Ciro)), third position (e.g., (Alckmin, Ciro, Bolsonaro, Haddad), (Alckmin, Haddad, Bolsonaro, Ciro)), and last position (e.g., (Alckmin, Ciro, Haddad, Bolsonaro), (Alckmin, Haddad, Ciro, Bolsonaro)).
+
+Suppose we select a source ranking from the first sorted set (second position).
+We then need to determine the target ranking among those where Bolsonaro is the
+first choice. The target is chosen based on the minimal Kemeny's distance to the
+source ranking \parencite{nurmi2002voting}. The Kemeny distance measures the
+number of transpositions (switching of pairs) needed to transform one
+permutation into another. The transfer from the source ranking is then the
+\(\operatorname{\mathbf{min}}\)(number of votes the source has, total votes the
+under-voted needs, total votes the over-voted can give)\footnote{This
+  \(\operatorname{\mathbf{min}}\) ensures that the transfer does not lead to
+  negative numbers, nor gives more or less than needed.}. The frequencies of the
+source and target rankings are then updated, along with the total votes needed
+by the under-voted and the total votes the over-voted can give. I update the
+source ranking frequency, the target ranking frequency, the total number of
+votes the under-voted needs, and the total number of votes the over-voted can
+give. If the under-voted does not need any other votes, the algorithm breaks the
+loop and goes to another over-voted \(\to\) under-voted transfer. If not, it
+checks if the over-voted can still transfer votes to the current target
+under-voted. If yes, it picks another source ranking in the sorted rankings sets
+and repeats until the source has run out of votes it can give or the target has
+received enough votes. If not, it goes to another over-voted \(\to\) under-voted
+transfer.
 
 
-The process of sorting and transferring rankings can be understood through a systematic approach. We begin by organizing the rankings based on Bolsonaro's position. The rankings are sorted into three sets: those where he is in the second position, third position, and last position.
-
-\begin{itemize}
-    \item \textbf{Second Position:} e.g., (Alckmin, Bolsonaro, Ciro, Haddad), (Alckmin, Bolsonaro, Haddad, Ciro).
-    \item \textbf{Third Position:} e.g., (Alckmin, Ciro, Bolsonaro, Haddad), (Alckmin, Haddad, Bolsonaro, Ciro).
-    \item \textbf{Last Position:} e.g., (Alckmin, Ciro, Haddad, Bolsonaro), (Alckmin, Haddad, Ciro, Bolsonaro).
-\end{itemize}
-
-Suppose we select a source ranking from the first sorted set (second position). We then need to determine the target ranking among those where Bolsonaro is the first choice. The target is chosen based on the minimal Kemeny's distance to the source ranking \parencite{nurmi2002voting}. The Kemeny distance measures the number of transpositions (switching of pairs) needed to transform one permutation into another.
-
-The transfer from the source ranking considers the \(\operatorname{\mathbf{min}}\)(number of votes the source has, total votes the under-voted needs, total votes the over-voted can give)\footnote{This \(\operatorname{\mathbf{min}}\) ensures that the transfer does not lead to negative numbers, nor gives more or less than needed.}. The frequencies of the source and target rankings are then updated, along with the total votes needed by the under-voted and the total votes the over-voted can give.
-
-The algorithm continues to loop through these steps, breaking only if the under-voted no longer needs votes or if the over-voted cannot transfer more votes. If necessary, it picks another source ranking and repeats the process.
-
-In the end, this leads to 24 possible transfer sequences from over-voted to under-voted. For example, one sequence might be Alckmin \(\to\) Bolsonaro, then Alckmin \(\to\) Haddad, then Ciro \(\to\) Haddad, then Ciro \(\to\) Bolsonaro. Another sequence might differ in the order or targets.
-
-The entire transference process results in six transfers that minimize the Euclidean distance between the inferred plurality result and the actual result of the first round. Since the results are invariant between them, only one analysis is reported. The new percentages are: Bolsonaro:Haddad:Ciro:Alckmin:Others = \(46.32:29.26:12.45:4.77:7.19\).
+In the end, this leads to 24 possible transfer sequences from over-voted to
+under-voted. For example, one sequence might be Alckmin \(\to\) Bolsonaro, then
+Alckmin \(\to\) Haddad, then Ciro \(\to\) Haddad, then Ciro \(\to\) Bolsonaro.
+Another sequence might differ in the order or targets. The entire transference
+process results in six transfers that minimize the Euclidean distance between
+the inferred plurality result and the actual result of the first round. Since
+the results are invariant between them, only one analysis is reported. The new
+percentages are: Bolsonaro:Haddad:Ciro:Alckmin:Others =
+\(46.32:29.26:12.45:4.77:7.19\).
 
 Having imputed the missing rankings and transferred them to match the results of
 the first round, I identify the Borda Winner (BW) and Condorcet Winner (CW)
@@ -901,31 +919,33 @@ Positional results after dropping one candidate }
 
 \section{Conclusion}
 
-The paper contributes to the analysis of the institutional robustness of
-polyarchical systems by considering credible alternative voting procedures
-outcomes and properties at a critical juncture in Brazil's political history.
-First, I argued that the notions of pairwise and positional mandate can be
-derived from well-established axiological perspectives to evaluate whether an
-electoral result is solely an institutional fortuity. Then, I demonstrated that
-even though the aggregation procedure boosted Bolsonaro's victory, it was not
-merely its effect, contrary to established theoretical expectations, but neither
-was he an undisputed winner under both aforementioned evaluative criteria for
-gauging the mandate of a candidate in democratic collective choice situations.
+In this paper, I sought to determine whether Bolsonaro's victory in 2018 was
+merely a fluke or an accident resulting from the historically contingent
+decision procedure in use at the time. To answer this question, we first sought
+to understand what would constitute more than just an accidental outcome. I
+argued that the notions of pairwise and positional mandate can be derived from
+well-established axiological perspectives to evaluate whether an electoral
+result is solely an institutional fortuity. Then, I demonstrated that even
+though the aggregation procedure boosted Bolsonaro's victory, it was not merely
+its effect, contrary to established theoretical expectations, but neither was he
+an undisputed winner under both aforementioned evaluative criteria for gauging
+the mandate of a candidate in democratic collective choice situations.
 
 In terms of future research, contrasting Haddad with Lula and analyzing the
 effect of the knife attack should provide a more comprehensive picture of what
 happened in 2018. Moreover, the pipeline for the analysis is highly
-reproducible. Analogous analysis can be done for any case with majority with run-off presidential elections, or even to anysurvey that contain pairwise comparisons
-between the top candidates, as many in Brazil do. As such, any other
-majoritarian election in Brazil could be analogously analyzed.
-Figure~\ref{fig:notbc1} could also be the starting point for an investigation of
-the selection of the pool of candidates allowed to compete for the Executive,
-particularly in transitional democracies, given Brazil's lax transitional
-justice, and Bolsonaro's intimate connection with the remnants of the Old
-Regime. First, from a positive point of view as a causal pathway for democratic
-backsliding \parencite{svolik2008authoritarian, nalepa2022after}. Second, from a
-normative perspective. What, if anything, justifies restricting classes of
-actors from running for certain positions? What values would conflict here?
+reproducible. Analogous analysis can be done for any case with majority with
+run-off presidential elections, or even to any survey that contain pairwise
+comparisons between the top candidates, as many in Brazil do. As such, any other
+majoritarian election in Brazil could be analogously analyzed. Figure~\ref{fig:notbc1} could
+also be the starting point for an investigation of the selection of the pool of
+candidates allowed to compete for the Executive, particularly in transitional
+democracies, given Brazil's lax transitional justice, and Bolsonaro's intimate
+connection with the remnants of the Dictatorship. First, from a positive point
+of view as a causal pathway for democratic backsliding
+\parencite{svolik2008authoritarian, nalepa2022after}. Second, from a normative
+perspective. What, if anything, justifies restricting classes of actors from
+running for certain positions? What values would conflict here?
 
 A certain limitation of that paper is that I used only one variable from
 the dataset, pairwise comparisons, to simulate alternative scenarios. However,
