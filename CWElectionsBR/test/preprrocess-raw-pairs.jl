@@ -1,6 +1,6 @@
 import Pkg
 
-Pkg.activate("../../CWElectionsBR")
+Pkg.activate("../CWElectionsBR")
 
 using CWElectionsBR
 using DataFrames
@@ -12,7 +12,7 @@ using Pipe
 using FloatingTableView
 
 
-reval("load('../../rscripts/dta_objects/global_pairwise_comparisons.RData')")
+reval("load('../rscripts/dta_objects/global_pairwise_comparisons.RData')")
 
 @rget global_pairwise_comparisons 
 
