@@ -1,6 +1,51 @@
 #+TITLE: Todo
 
-* TODO [#A] make the textual revisions required by all
+
+
+
+* Calculate the re-weighting scheme
+
+
+Marcelo,
+
+Your solution works fine and it is an interesting methodological contribution.  I meant adding a second method because in such complex endeavors, having alternative methodologies that lead to identical results is always helpful and makes a good impression on the referees. If they do not like your method, they will attack it; if you have two methods that bring identical results, hopefully, they will swallow at least one. You see, I am thinking about your piece in terms of future publishability. However, the use of this method is optional in the sense that it is not fundamental for your results.
+
+I am not aware of any paper that would discuss the re-weighting of profiles. It is just an idea that came to me in the context of your paper. I will outline the main points below.
+
+Example: Let's assume that your candidate A received 7% of the vote in the survey but only 5% of the vote in the elections. Therefore, you need to apply the weight of 5/7 to this candidate's profiles in order to reduce the 7% to 5%. With four candidates, there are six profiles that have A as the first-listed candidate (the number of such profiles in our example is in the parenthesis):
+
+ABCD - 10
+ABDC - 5
+ACBD - 7
+ACDB - 0
+ADBC - 0
+ADCB - 9
+
+You have a large set of possible weights that may be applied: different sets of weights given to those six profiles may result in a total of 5% of the first votes. Let's assume for simplicity that we will apply the same weight of 5/7 to all six types of profiles. Disregarding the profiles with zero weight, we will receive the following numbers:
+
+ABCD - 7 1/7
+ABDC - 3 4/7
+ACBD - 5
+ADCB - 6 3/7
+
+The problem here is how to use those fractions in calculations because rounding down or up would introduce some obvious noise to the results. All Borda scores for those profiles will shrink to 5/7 of the original ones but with other methods, the results may not be linear. What you can do is multiply the numbers of profiles by some large number, e.g., 100, and then round it. This will minimize the impact of rounding to less than 0.01 of the original profile. Both Borda and the majority are not sensitive to such re-scaling, while an alternative vote may be. In our example, you would get (if my quick calculations are correct):
+
+ABCD - 714 2/7
+ABDC - 357 1/7
+ACBD - 500
+ADCB - 642 6/7
+
+After rounding up and down:
+
+ABCD - 714
+ABDC - 357
+ACBD - 500
+ADCB - 643
+
+When you perform such operations on all 24 profiles, you will get the percentages of candidate first votes identical with elections and profiles with no fractions.
+
+If sth is unclear, please ask.
+Cheers,
 
 
 * TODO polish the plots!!!!
@@ -14,3 +59,7 @@
 - The point to be made is about Alternative Set Stability and the possibility of winner turns loser paradox;
 
 * TODO [#C] Think about the pattern of missingness
+
+
+
+still on the original dataset. note that the columns say pair_xy. where we have a comparison between x and y and the values in that column are either x or y or NA. so, loop through each cell. it should give you a directed graph for all rows. if you see a NA it means that one edge in the graph will be missing. after that, give me the linear order implied by that graph. if the person made all comparisons it should have a linear order of size 4. if it didn't compare 1 it should at least have a linear order of size 3. if only compared one it should have a linear order of size 1.
